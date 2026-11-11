@@ -21,6 +21,8 @@ G = {  # grupo: (fotos, foto del centro del lienzo, y0 o None = automático)
   'perfil': (['02-tintado_lunas_sin', '02-tintado_lunas_50', '02-tintado_lunas_30', '02-tintado_lunas_5'], '02-tintado_lunas_sin', 400, 1300),
   'macro': (['03-correccion_pintura_swirls', '03-correccion_pintura_1paso', '03-correccion_pintura_2pasos', '04-ceramica_perlado'], '03-correccion_pintura_2pasos', None),
 }
+for n in ('asientos', 'puertas', 'suelo', 'techo'):   # recorrido por el interior de la limpieza
+    G['int-' + n] = ([f'06-limpieza_int_{n}_antes', f'06-limpieza_int_{n}_despues'], f'06-limpieza_int_{n}_despues', None)
 for f in sorted(glob.glob(SRC + '05-extras_*_antes.webp')):
     a = os.path.basename(f)[:-5]; b = a[:-5] + 'despues'
     G[a.split('_')[2]] = ([a, b], b, None)

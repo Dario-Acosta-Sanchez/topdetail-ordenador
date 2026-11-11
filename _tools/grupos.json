@@ -34,6 +34,42 @@
   "y0": 768,
   "hb": 1080
  },
+ "int-asientos": {
+  "fotos": [
+   "06-limpieza_int_asientos_antes",
+   "06-limpieza_int_asientos_despues"
+  ],
+  "centro": "06-limpieza_int_asientos_despues",
+  "y0": 811,
+  "hb": 1080
+ },
+ "int-puertas": {
+  "fotos": [
+   "06-limpieza_int_puertas_antes",
+   "06-limpieza_int_puertas_despues"
+  ],
+  "centro": "06-limpieza_int_puertas_despues",
+  "y0": 855,
+  "hb": 1080
+ },
+ "int-suelo": {
+  "fotos": [
+   "06-limpieza_int_suelo_antes",
+   "06-limpieza_int_suelo_despues"
+  ],
+  "centro": "06-limpieza_int_suelo_despues",
+  "y0": 661,
+  "hb": 1080
+ },
+ "int-techo": {
+  "fotos": [
+   "06-limpieza_int_techo_antes",
+   "06-limpieza_int_techo_despues"
+  ],
+  "centro": "06-limpieza_int_techo_despues",
+  "y0": 13,
+  "hb": 1080
+ },
  "cera-rapida": {
   "fotos": [
    "05-extras_carroceria_cera-rapida_antes",
@@ -76,7 +112,7 @@
    "05-extras_cristales_pulido-cristales_despues"
   ],
   "centro": "05-extras_cristales_pulido-cristales_despues",
-  "y0": 543,
+  "y0": 419,
   "hb": 1080
  },
  "cinturones": {
@@ -85,7 +121,7 @@
    "05-extras_interior_cinturones_despues"
   ],
   "centro": "05-extras_interior_cinturones_despues",
-  "y0": 431,
+  "y0": 644,
   "hb": 1080
  },
  "coating-cuero": {

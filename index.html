@@ -977,6 +977,13 @@ h1 { font-weight: 800; font-size: 22px; line-height: 1.1; letter-spacing: .01em;
 .book-nav .btn { width: 44px; height: 44px; min-height: 0; padding: 0; border-radius: 50%; font-size: 22px; }
 .book-nav .btn:disabled { opacity: .3; cursor: default; }
 @media (prefers-reduced-motion: reduce) { .book, .book:not(.open) { transform: none; transition: none; } }
+
+/* Recorrido de la limpieza (exterior → asientos → puertas → suelo → techo): pasos tocables */
+#phone .subs.tour { flex-wrap: nowrap; overflow-x: auto; scrollbar-width: none; gap: 4px; }
+#phone .subs.tour::-webkit-scrollbar { display: none; }
+#phone .subs.tour button { flex: none; height: 30px; padding: 0 11px; font-size: 9.5px; letter-spacing: .1em; }
+#phone .subs.tour button.done span::before { content: "✓ "; color: #ff4d5e; }
+#phone .subs.tour button[aria-pressed="true"].done span::before { color: #fff; }
 /* En un móvil la web ocupa SIEMPRE todo el ancho. Antes el ancho se limitaba a la mitad del alto, y con la barra
    del navegador (o en móviles más anchos) quedaban franjas negras a los lados. */
 @media (max-width: 600px), (pointer: coarse) and (orientation: portrait) { .phone { width: 100%; } }
@@ -1579,7 +1586,7 @@ if (innerWidth < 700 && innerHeight > innerWidth) location.replace('https://topd
 <script>
 (() => {
   // IMGV: súbelo cada vez que cambien fotos con el mismo nombre, para que el navegador no enseñe las viejas de su caché
-  const IMGV = 2;
+  const IMGV = 3;
   const img = n => `img/${n}.webp?v=${IMGV}`;
   const W = 'https://wa.me/34643182964?text=';
   const SUCIO = '01-intro_porsche_sucio', LIMPIO = '00-base_porsche_limpio';
@@ -1616,6 +1623,9 @@ if (innerWidth < 700 && innerHeight > innerWidth) location.replace('https://topd
     ]},
     extras: { label: 'Extras', groups: ['Interior', 'Exterior', 'Si hace falta'], serv: true, clip: 'extras', opts: [] },
   };
+  // Premium e integral: después del exterior, la animación sigue por el interior (cada paso, su antes y su después)
+  const INT = n => ({ n: n[0].toUpperCase() + n.slice(1), a: `06-limpieza_int_${n}_antes`, b: `06-limpieza_int_${n}_despues`, frame: 'int-' + n });
+  CATS.limpieza.opts.forEach((x, k) => { if (k) x.tour = [{ n: 'Exterior', a: x.a, b: x.b, frame: x.frame }, ...(k === 1 ? ['asientos', 'puertas'] : ['asientos', 'puertas', 'suelo', 'techo']).map(INT)]; });
   CATS.limpieza.page = 'detallado'; CATS.pulido.page = 'pulido'; CATS.ceramico.page = 'ceramico'; CATS.extras.page = 'precios'; CATS.tintado.page = 'precios';
   const ZONA = { interior: 'Interior', cristales: 'Cristales', motor: 'Motor', ruedas: 'Ruedas', carroceria: 'Carrocería' };
   // fam: opciones que van juntas en un solo botón (Cuero: nutrición y coating; Hidratación: neumáticos, pasos de rueda y gomas)
@@ -2003,9 +2013,15 @@ if (innerWidth < 700 && innerHeight > innerWidth) location.replace('https://topd
   const ring = (y, sz = 22) => { const r = sz / 2 - 2, c = 2 * Math.PI * r; return `<svg class="ring" viewBox="0 0 ${sz} ${sz}" aria-hidden="true"><circle cx="${sz / 2}" cy="${sz / 2}" r="${r}"/><circle class="v" cx="${sz / 2}" cy="${sz / 2}" r="${r}" stroke-dasharray="${(c * y / 7).toFixed(1)} ${c.toFixed(1)}"/></svg>`; };
   function paintSubs(C, O) {
     const box = $('subs');
+    if (O && O.tour) {
+      box.hidden = false; box.classList.add('tour');
+      box.innerHTML = O.tour.map((T, k) => `<button type="button" data-st="${k}" aria-pressed="${k === stepI}"${k < stepI || abReady ? ' class="done"' : ''}><span>${esc(T.n)}</span></button>`).join('');
+    } else {
+    box.classList.remove('tour');
     const list = !O ? [] : C.row ? C.opts.map((x, i) => [x, i]) : O.fam ? C.opts.map((x, i) => [x, i]).filter(([x]) => x.fam === O.fam) : [];
     box.hidden = !list.length;
     box.innerHTML = list.map(([x, i]) => `<button type="button" data-i="${i}" aria-pressed="${i === opt}">${x.years ? ring(x.years) : ''}<span>${esc(x.short)}</span></button>`).join('');
+    }
     // Reloj: los años de garantía del cerámico, con el anillo que se llena
     const ck = $('clock');
     ck.hidden = !(O && O.years);
@@ -2015,7 +2031,7 @@ if (innerWidth < 700 && innerHeight > innerWidth) location.replace('https://topd
       v.style.strokeDasharray = `${c * O.years / 7} ${c}`;
     }
   }
-  $('subs').addEventListener('click', e => { const b = e.target.closest('[data-i]'); if (b && cat) play(cat, +b.dataset.i); });
+  $('subs').addEventListener('click', e => { const st = e.target.closest('[data-st]'); if (st) return goStep(+st.dataset.st); const b = e.target.closest('[data-i]'); if (b && cat) play(cat, +b.dataset.i); });
   // Título: texto en blanco y las palabras clave en rojo
   const PREF = { limpieza: 'Limpieza', tintado: 'Tintado' };
   const PAGES = { nosotros: 'Sobre <span class="k">nosotros</span>', precios: 'Servicios y <span class="k">precios</span>', detallado: '<span class="k">Limpieza</span>',
@@ -2074,7 +2090,7 @@ if (innerWidth < 700 && innerHeight > innerWidth) location.replace('https://topd
     // (y si la animación de la opción no puede salir de lo que se ve, p. ej. de Inicio a 2 pasos, se pasa antes por su «antes»)
     const direct = !!(CATS[c].evo && prev && i !== prevI && prev.frame === O.frame) && !(O.clip && CLIPS[O.clip] && shownSrc !== CLIPS[O.clip].start && prev.clip !== O.clip)
       && !(O.fx && !O.fxAny && ![O.a, ...O.fx.map(f => f[1])].includes(shownSrc));
-    opt = i; state = direct ? 'b' : 'a'; abReady = false;
+    opt = i; state = direct ? 'b' : 'a'; abReady = false; stepI = 0;
     chrome(); paintInfo();
     q(exitSlider);
     const ck = clipOf(c);
@@ -2086,6 +2102,7 @@ if (innerWidth < 700 && innerHeight > innerWidth) location.replace('https://topd
       // De un nivel al siguiente: si lo que se ve es el punto de partida de su animación (de 1 paso a 2 pasos,
       // de 2 pasos al cerámico, de un tinte a otro), se anima; si no, barrido
       await q(() => animate(O, my, i > prevI ? 1 : -1)); if (my !== token) return;
+      if (O.tour) { await runTour(O, my); if (my !== token) return; }
       abReady = true; paintAB();
       return;
     }
@@ -2095,12 +2112,31 @@ if (innerWidth < 700 && innerHeight > innerWidth) location.replace('https://topd
     // El «después» llega con la herramienta trabajando (pulidora, espuma y agua, lámina, cepillo, vídeo del cerámico…)
     await q(() => animate(O, my, 1));
     if (my !== token) return;
-    abReady = true; paintAB();
+    if (O.tour) { await runTour(O, my); if (my !== token) return; }
+    abReady = true; paintAB(); if (O.tour) paintSubs(CATS[cat], O);
     if (O.slider) q(() => enterSlider(O, my));
+  }
+  // Paso del recorrido que se ve (0 = exterior); Antes / Después compara ese paso
+  let stepI = 0;
+  const pair = O => (O.tour && O.tour[stepI]) || O;
+  async function runTour(O, my) {
+    for (let k = 1; k < O.tour.length; k++) {
+      const T = O.tour[k]; stepI = k; state = 'a'; paintSubs(CATS[cat], O); paintAB();
+      await show(T.a, T.frame, 1, my); if (my !== token) return;
+      await wait(800 * tempo); if (my !== token) return;
+      state = 'b'; paintAB();
+      await show(T.b, T.frame, 1, my); if (my !== token) return;
+      await wait(500 * tempo); if (my !== token) return;
+    }
+  }
+  function goStep(k) {
+    const O = CATS[cat].opts[opt]; if (!O.tour || !abReady) return;
+    const my = ++token; stepI = k; state = 'b'; paintSubs(CATS[cat], O); paintAB();
+    const T = O.tour[k]; show(T.b, T.frame, 1, my);
   }
   function flip(s) {
     if (!abReady || s === state) return;
-    const my = ++token, O = CATS[cat].opts[opt];
+    const my = ++token, O = pair(CATS[cat].opts[opt]);
     state = s; paintAB();
     show(s === 'a' ? O.a : O.b, O.frame, s === 'a' ? -1 : 1, my);
   }
@@ -2943,7 +2979,7 @@ if (innerWidth < 700 && innerHeight > innerWidth) location.replace('https://topd
   const MIN = reduce ? 0 : 2600;
   // Si el navegador tarda en decodificar las fotos grandes, la carga sigue igualmente
   const ready = im => Promise.race([im.decode().catch(() => {}), wait(1500)]);
-  const all = [...new Set([SUCIO, LIMPIO, ...Object.values(CATS).flatMap(c => c.opts.flatMap(x => [x.a, x.b]))])];
+  const all = [...new Set([SUCIO, LIMPIO, ...Object.values(CATS).flatMap(c => c.opts.flatMap(x => [x.a, x.b, ...(x.tour || []).flatMap(t => [t.a, t.b])]))])];
   let loaded = 0;
   // Los fotogramas de los clips se bajan después de las fotos, sin retrasar la bienvenida:
   // primero uno de cada 8 de cada clip, luego los intermedios, de 6 en 6
