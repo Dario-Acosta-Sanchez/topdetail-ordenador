@@ -20,7 +20,7 @@
 <!-- Versión de ordenador: generada con _tools/mkpc.py a partir de ~/topdetail/index.html -->
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;0,700;1,500&family=Jost:wght@300;400;500;600&family=Anton&family=Caveat:wght@500;600&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;0,700;1,500&family=Jost:wght@300;400;500;600&family=Inter+Tight:wght@600;700&family=Anton&family=Caveat:wght@500;600&display=swap" rel="stylesheet">
 <style>
 /* Layout: un teléfono a pantalla completa; la foto ocupa todo, los servicios cuelgan de los dos bordes y la ficha va abajo, sobre el suelo. */
 :root {
@@ -995,6 +995,104 @@ h1 { font-weight: 800; font-size: 22px; line-height: 1.1; letter-spacing: .01em;
   #phone h1 { font-size: 27px; } #phone .desc { font-size: 14px; line-height: 1.4; } #phone .spec li:not(.hot) { display: none; }
 }
 
+/* ══ Extras con tarjetas de foto abajo, barrido de luz y títulos en Inter Tight (opción 2 elegida por Javi el 12-11) ══ */
+#phone[data-cat="extras"] .xside.l { display: none; }
+#phone:not([data-cat="extras"]) .xp, #phone.loading .xp { display: none !important; }
+.xp { position: absolute; z-index: 4; }
+.xp button { cursor: pointer; font: 500 10px/1.1 var(--ui); letter-spacing: .12em; text-transform: uppercase; color: #fff; }
+.xp [aria-current="true"] { --on: 1; }
+.xp .sup { opacity: .75; }
+.xp-ic { width: 22px; height: 22px; fill: none; stroke: currentColor; stroke-width: 1.3; stroke-linecap: round; stroke-linejoin: round; }
+/* cards */
+.xp.cards { left: 0; right: 0; bottom: calc(var(--hud-h, 190px) + 16px); display: flex; gap: 8px; overflow-x: auto; padding: 4px 12px; scrollbar-width: none; scroll-snap-type: x mandatory; }
+.xp.cards::-webkit-scrollbar { display: none; }
+.xp.cards button { flex: 0 0 84px; height: 112px; scroll-snap-align: center; position: relative; padding: 0; border-radius: 16px; overflow: hidden; border: 1px solid rgba(255,255,255,.25); background: #111 var(--t) center / cover; display: grid; align-content: end; }
+.xp.cards button span { padding: 18px 6px 7px; background: linear-gradient(transparent, rgba(0,0,0,.85)); font-size: 9px; }
+.xp.cards button[aria-current="true"] { border: 2px solid var(--red); box-shadow: 0 8px 20px rgba(232,25,44,.45); }
+/* tabs */
+.xp.tabs { left: 10px; right: 10px; bottom: calc(var(--hud-h, 190px) + 14px); display: grid; gap: 8px; }
+.xp.tabs .tb { display: flex; background: rgba(12,10,10,.7); border: 1px solid rgba(255,255,255,.2); border-radius: 999px; padding: 4px; -webkit-backdrop-filter: blur(14px); backdrop-filter: blur(14px); }
+.xp.tabs .tb button { flex: 1; height: 34px; border-radius: 999px; background: none; border: 0; }
+.xp.tabs .tb button.on { background: #fff; color: #111; }
+.xp.tabs .ps { display: flex; gap: 6px; overflow-x: auto; scrollbar-width: none; }
+.xp.tabs .ps button { flex: none; height: 34px; padding: 0 14px; border-radius: 999px; background: rgba(12,10,10,.62); border: 1px solid rgba(255,255,255,.22); }
+.xp.tabs .ps button[aria-current="true"] { background: var(--red); border-color: var(--red); }
+/* grid */
+.xp.grid { inset: 0; z-index: 7; padding: 120px 14px 20px; display: grid; grid-template-columns: 1fr 1fr; gap: 10px; align-content: start; overflow-y: auto; background: rgba(6,5,5,.9); -webkit-backdrop-filter: blur(14px); backdrop-filter: blur(14px); transition: opacity .35s; }
+.xp.grid h5 { grid-column: 1 / -1; margin: 6px 0 0; font: 500 11px/1 var(--ui); letter-spacing: .3em; text-transform: uppercase; color: rgba(255,255,255,.7); }
+.xp.grid button { aspect-ratio: 4 / 3; border-radius: 16px; border: 1px solid rgba(255,255,255,.2); background: #111 var(--t) center 60% / cover; display: grid; align-content: end; padding: 0; overflow: hidden; }
+.xp.grid button span { padding: 20px 10px 9px; text-align: left; background: linear-gradient(transparent, rgba(0,0,0,.85)); font-size: 10.5px; }
+.xp.grid.closed { opacity: 0; pointer-events: none; }
+.xp-open { position: absolute; z-index: 4; right: 12px; top: calc(74px + 2%); height: 40px; padding: 0 16px; border-radius: 999px; background: var(--red); border: 0; color: #fff; font: 500 10.5px/1 var(--ui); letter-spacing: .16em; text-transform: uppercase; cursor: pointer; }
+#phone:not([data-cat="extras"]) .xp-open { display: none; }
+/* wheel */
+.xp.wheel { left: 0; right: 0; bottom: calc(var(--hud-h, 190px) + 12px); display: flex; gap: 22px; overflow-x: auto; padding: 10px 50%; scroll-snap-type: x mandatory; scrollbar-width: none; -webkit-mask-image: linear-gradient(90deg, transparent, #000 25%, #000 75%, transparent); mask-image: linear-gradient(90deg, transparent, #000 25%, #000 75%, transparent); }
+.xp.wheel::-webkit-scrollbar { display: none; }
+.xp.wheel button { flex: none; scroll-snap-align: center; background: none; border: 0; font-size: 13px; letter-spacing: .16em; opacity: .5; padding: 6px 0; border-bottom: 2px solid transparent; transition: opacity .3s, transform .3s; }
+.xp.wheel button[aria-current="true"] { opacity: 1; transform: scale(1.15); border-color: var(--red); }
+/* thumbs */
+.xp.thumbs { right: 10px; top: calc(70px + 2%); bottom: calc(var(--hud-h, 190px) + 16px); display: grid; align-content: start; gap: 8px; overflow-y: auto; scrollbar-width: none; padding: 4px; }
+.xp.thumbs::-webkit-scrollbar { display: none; }
+.xp.thumbs button { width: 52px; height: 52px; border-radius: 50%; background: #111 var(--t) center / cover; border: 2px solid rgba(255,255,255,.35); padding: 0; position: relative; }
+.xp.thumbs button span { position: absolute; right: 60px; top: 50%; translate: 0 -50%; white-space: nowrap; padding: 6px 10px; border-radius: 999px; background: rgba(10,9,9,.8); opacity: 0; transition: opacity .3s; }
+.xp.thumbs button[aria-current="true"] { border-color: var(--red); box-shadow: 0 0 0 3px rgba(232,25,44,.35); }
+.xp.thumbs button[aria-current="true"] span { opacity: 1; }
+/* dock */
+.xp.dock { left: 10px; right: 10px; bottom: calc(var(--hud-h, 190px) + 14px); display: flex; gap: 2px; overflow-x: auto; scrollbar-width: none; padding: 6px; border-radius: 22px; background: rgba(12,10,10,.66); border: 1px solid rgba(255,255,255,.2); -webkit-backdrop-filter: blur(16px); backdrop-filter: blur(16px); }
+.xp.dock::-webkit-scrollbar { display: none; }
+.xp.dock button { flex: 0 0 62px; height: 60px; display: grid; place-content: center; justify-items: center; gap: 5px; border-radius: 16px; background: none; border: 0; font-size: 8px; letter-spacing: .08em; }
+.xp.dock button[aria-current="true"] { background: var(--red); }
+/* accordion */
+.xp.accordion { left: 10px; top: calc(122px + 2%); width: 150px; bottom: calc(var(--hud-h, 190px) + 16px); overflow-y: auto; scrollbar-width: none; display: grid; align-content: start; gap: 4px; }
+.xp.accordion details { border-radius: 14px; background: rgba(12,10,10,.66); border: 1px solid rgba(255,255,255,.18); -webkit-backdrop-filter: blur(14px); backdrop-filter: blur(14px); overflow: hidden; }
+.xp.accordion summary { list-style: none; cursor: pointer; padding: 11px 12px; font: 500 10px/1 var(--ui); letter-spacing: .24em; text-transform: uppercase; color: #fff; display: flex; justify-content: space-between; }
+.xp.accordion summary::after { content: "+"; } .xp.accordion details[open] summary::after { content: "–"; }
+.xp.accordion button { display: block; width: 100%; text-align: left; padding: 9px 12px; background: none; border: 0; border-top: 1px solid rgba(255,255,255,.08); }
+.xp.accordion button[aria-current="true"] { background: var(--red); }
+#phone[data-cat="extras"] .back { z-index: 5; }
+/* chips */
+.xp.chips { display: none; }
+#phone[data-cat="extras"] .hud .xc { display: flex; }
+.xc { display: none; flex-wrap: wrap; gap: 5px; margin: 0 0 6px; }
+.xc small { width: 100%; font: 500 9px/1 var(--ui); letter-spacing: .26em; text-transform: uppercase; color: rgba(255,255,255,.6); margin-top: 2px; }
+.xc button { height: 30px; padding: 0 11px; border-radius: 999px; background: rgba(255,255,255,.07); border: 1px solid rgba(255,255,255,.22); cursor: pointer; font: 500 9.5px/1 var(--ui); letter-spacing: .1em; text-transform: uppercase; color: #fff; }
+.xc button[aria-current="true"] { background: var(--red); border-color: var(--red); }
+/* menu */
+.xp.menu { inset: 0; z-index: 7; padding: 110px 16px 24px; overflow-y: auto; display: grid; gap: 8px; align-content: start; background: rgba(6,5,5,.94); transition: opacity .3s, transform .3s; }
+.xp.menu.closed { opacity: 0; transform: translateY(16px); pointer-events: none; }
+.xp.menu h5 { margin: 8px 0 0; font: 500 11px/1 var(--ui); letter-spacing: .3em; text-transform: uppercase; color: rgba(255,255,255,.6); }
+.xp.menu button { display: flex; align-items: center; gap: 14px; padding: 8px; border-radius: 16px; background: rgba(255,255,255,.05); border: 1px solid rgba(255,255,255,.14); text-align: left; font-size: 12px; }
+.xp.menu button i { width: 64px; height: 48px; border-radius: 10px; background: #111 var(--t) center / cover; flex: none; }
+.xp.menu button[aria-current="true"] { border-color: var(--red); background: rgba(232,25,44,.2); }
+/* stories */
+.xp.stories { left: 0; right: 0; top: calc(124px + 2%); display: flex; gap: 12px; overflow-x: auto; padding: 4px 14px; scrollbar-width: none; }
+.xp.stories::-webkit-scrollbar { display: none; }
+.xp.stories button { flex: none; width: 64px; display: grid; justify-items: center; gap: 6px; background: none; border: 0; padding: 0; font-size: 8.5px; letter-spacing: .06em; }
+.xp.stories button i { width: 58px; height: 58px; border-radius: 50%; background: #111 var(--t) center / cover; border: 2px solid #111; box-shadow: 0 0 0 2px rgba(255,255,255,.4); }
+.xp.stories button[aria-current="true"] i { box-shadow: 0 0 0 2.5px var(--red), 0 0 16px rgba(232,25,44,.6); }
+
+/* tipografía de los títulos */
+#phone h1 { font: 700 27px/1.05 'Inter Tight'; letter-spacing: -.015em;}
+
+/* Ronda 2: que se vea la foto */
+#phone .hud { padding: 9px 12px 10px; row-gap: 2px; background: linear-gradient(150deg, rgba(34,30,30,.55), rgba(12,10,10,.66)); -webkit-backdrop-filter: blur(12px) saturate(160%); backdrop-filter: blur(12px) saturate(160%); }
+#phone h1 { font-size: 21px !important; }
+#phone h1 .k { color: #fff !important; }
+#phone .desc { font-size: 13px; line-height: 1.35; display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden; }
+#phone .eyebrow { font-size: 9px; } #phone .more { height: 26px; font-size: 9px; padding: 0 8px 0 11px; }
+#phone .price { font-size: 13px; } #phone .price .k { font-size: 15px; }
+#phone .hud > .ab, #phone .hud > .add { margin-top: 6px; } #phone .ab button { height: 34px; } #phone .hud > .add { height: 40px; }
+#phone .subs button { height: 30px; padding: 0 11px; font-size: 9.5px; }
+#phone .tag { font-size: 9px; padding: 3px 7px 2px; }
+.xp.cards { bottom: calc(var(--hud-h, 190px) + 12px); gap: 6px; }
+.xp.cards button { flex: 0 0 58px; height: 74px; border-radius: 12px; }
+.xp.cards button span { padding: 12px 3px 5px; font-size: 7.5px; letter-spacing: .06em; }
+.xp.stories { top: calc(118px + 2%); gap: 8px; }
+.xp.stories button { width: 50px; font-size: 7.5px; gap: 4px; }
+.xp.stories button i { width: 42px; height: 42px; }
+
+#phone h1 { }
+
 /* ══════════ Versión de ordenador (generada con _tools/mkpc.py; no editar aquí) ══════════
    Escenario a pantalla completa con fotos 16:9, ficha grande abajo a la izquierda, opciones a la derecha,
    menú en cápsula abajo en el centro y las páginas de información en un panel lateral. */
@@ -1107,6 +1205,14 @@ h1 { font-weight: 800; font-size: 22px; line-height: 1.1; letter-spacing: .01em;
 @media (max-height: 860px) { #phone .xside.l { gap: 6px; } #phone .xside button { min-height: 38px; padding: 6px 18px; } #phone .xside.l p { margin-top: 6px; } }
 @media (min-width: 1700px) and (min-height: 900px) { #phone .top, #phone .side, #phone .hud, #phone .xside, #phone .back, #phone .island, #phone .loader { zoom: 1.2; } #phone .sheet { zoom: 1.12; } }
 @media (min-width: 2300px) and (min-height: 1200px) { #phone .top, #phone .side, #phone .hud, #phone .xside, #phone .back, #phone .island, #phone .loader { zoom: 1.5; } #phone .sheet { zoom: 1.35; } }
+/* Ordenador: el panel compacto del móvil (12-11) aquí puede ser más grande; tarjetas de los extras sobre el panel */
+#phone h1 { font-size: clamp(30px, 2.6cqw, 44px) !important; }
+#phone .desc { display: block; -webkit-line-clamp: unset; font-size: 16px; }
+#phone .hud { padding: 22px 26px 20px; }
+.xp.cards { left: 36px; right: auto; max-width: min(760px, 60cqw); bottom: calc(var(--hud-h, 190px) + 50px); gap: 8px; }
+.xp.cards button { flex: 0 0 84px; height: 108px; border-radius: 14px; }
+.xp.cards button span { font-size: 9px; padding: 16px 5px 7px; }
+.xp.cards button:hover { border-color: rgba(255,255,255,.7); transform: translateY(-3px); }
 @media (prefers-reduced-motion: reduce) { #phone .layer, #phone .seq { translate: none; transition: none; } }
 
 /* ══════════ Página larga bajo el escenario: toda la información, a lo ancho (_tools/land.css) ══════════ */
@@ -1297,7 +1403,7 @@ if (innerWidth < 700 && innerHeight > innerWidth) location.replace('https://topd
 
     <header class="top">
       <span class="where">Fernán Núñez · Córdoba</span>
-      <button class="logo" id="logo" aria-label="Volver al inicio"><img src="img/logo-v6.svg?v=3" alt="Top Detail Garage"></button>
+      <button class="logo" id="logo" aria-label="Volver al inicio"><img src="img/logo-v6.svg?v=4" alt="Top Detail Garage"></button>
       <a class="cita wa" id="cita" href="https://wa.me/34643182964" target="_blank" rel="noopener">Pedir cita<b class="n" hidden></b></a>
     </header>
 
@@ -1560,7 +1666,7 @@ if (innerWidth < 700 && innerHeight > innerWidth) location.replace('https://topd
     <div class="finger" id="finger" aria-hidden="true"></div>
 
     <div class="loader" id="loader" role="status">
-      <div class="welcome"><span class="hello">Bienvenido a</span><img class="brand" src="img/logo-v6.svg?v=3" alt="Top Detail Garage"></div>
+      <div class="welcome"><span class="hello">Bienvenido a</span><img class="brand" src="img/logo-v6.svg?v=4" alt="Top Detail Garage"></div>
       <p><span id="pct">0 %</span></p>
       <div class="bar"><i id="bar"></i></div>
       <button class="start" id="start" type="button" hidden><span class="chev" aria-hidden="true"><i></i><i></i><i></i></span><b>Haz clic para entrar</b><span>y descubre todos nuestros servicios</span></button>
@@ -1569,14 +1675,14 @@ if (innerWidth < 700 && innerHeight > innerWidth) location.replace('https://topd
 </div>
 
 <nav class="lnav" id="lnav" aria-label="Secciones">
-  <a class="lg" href="#" aria-label="Volver arriba"><img src="img/logo-v6.svg?v=3" alt="Top Detail Garage"></a>
+  <a class="lg" href="#" aria-label="Volver arriba"><img src="img/logo-v6.svg?v=4" alt="Top Detail Garage"></a>
   <a class="l" href="#tp-precios">Servicios</a><a class="l" href="#tp-detallado">Limpieza</a><a class="l" href="#tp-pulido">Pulido</a><a class="l" href="#tp-ceramico">Cerámico</a><a class="l" href="#tp-report">Report</a><a class="l" href="#tp-nosotros">Nosotros</a><a class="l" href="#tp-contacto">Contacto</a><a class="l" href="#tp-ubicacion">Ubicación</a>
   <span class="sp"></span>
   <a class="wa" href="https://wa.me/34643182964" target="_blank" rel="noopener">Pedir cita<b class="n" hidden></b></a>
 </nav>
 <main class="land" id="land"></main>
 <footer class="foot">
-  <img src="img/logo-v6.svg?v=3" alt="Top Detail Garage">
+  <img src="img/logo-v6.svg?v=4" alt="Top Detail Garage">
   <span>Centro detailing profesional<br>Fernán Núñez · Córdoba</span>
   <span class="sp"></span>
   <a href="tel:+34643182964">643 182 964</a>
@@ -1989,7 +2095,7 @@ if (innerWidth < 700 && innerHeight > innerWidth) location.replace('https://topd
     document.querySelectorAll('#serv button[data-cat]').forEach(b => b.setAttribute('aria-current', String(b.dataset.cat === cat)));
     const cur = cat && CATS[cat].opts[opt];
     document.querySelectorAll('.xside button').forEach(b => b.setAttribute('aria-current', String(b.dataset.fam ? !!cur && cur.fam === b.dataset.fam : +b.dataset.i === opt)));
-    phone.dataset.cat = cat || ''; phone.classList.toggle('row-opts', !!(cat && CATS[cat].row));
+    phone.dataset.cat = cat || ''; if (typeof paintX === 'function') paintX(); phone.classList.toggle('row-opts', !!(cat && CATS[cat].row));
   }
 
   function paintAB() {
@@ -2814,6 +2920,7 @@ if (innerWidth < 700 && innerHeight > innerWidth) location.replace('https://topd
     if (my !== token) return;
     const C = O.clip && CLIPS[O.clip];
     if (VIDEO && C && clipReady(O.clip) && shownSrc === (C.start || O.a)) return bridge(0, 1, O.clip);
+    if (O.tr && shownSrc !== O.b && !reduce) return trReveal(O, my);
     const st = fxFrom(O);
     if (st) return runFx(st, my);
     return doShow(O.b, O.frame, dir, my);
@@ -2875,6 +2982,7 @@ if (innerWidth < 700 && innerHeight > innerWidth) location.replace('https://topd
   // Sale la primera vez que se abre la web en cada pestaña del navegador; ?demo la fuerza y ?nodemo la quita
   function wantDemo() {
     const s = location.search;
+    if (/[?&]x\b/.test(s)) return false;
     if (/[?&]demo\b/.test(s)) return true;
     if (/[?&]nodemo\b/.test(s)) return false;
     try { return !sessionStorage.getItem('td-demo'); } catch (e) { return true; }
@@ -3032,6 +3140,88 @@ if (innerWidth < 700 && innerHeight > innerWidth) location.replace('https://topd
       requestAnimationFrame(tick);
     });
   });
+
+  // ══ Extras: tarjetas con foto abajo y barrido de luz en lugar del cepillo (opción 2 elegida por Javi el 12-11) ══
+  const XUI = 'cards', XTR = 'light';
+  const XICON = { cuero: '<path d="M6 20V9a6 6 0 0 1 12 0v11"/><path d="M6 14h12"/>', cinturones: '<path d="M7 3l10 18M5 14h6v6H5z"/>', plasticos: '<rect x="3" y="7" width="18" height="10" rx="2"/><path d="M7 12h10"/>',
+    'pulido-cristales': '<rect x="5" y="4" width="14" height="16" rx="2"/><path d="M8 9l3-3M8 14l7-7"/>', 'vano-motor': '<path d="M4 10h3l2-3h6l2 3h3v7H4z"/><circle cx="12" cy="13" r="2"/>', neumaticos: '<circle cx="12" cy="12" r="8"/><circle cx="12" cy="12" r="3"/>',
+    'negro-piano': '<path d="M4 18L14 4l6 6-10 14z"/>', 'cera-rapida': '<path d="M12 3l2 5 5 2-5 2-2 5-2-5-5-2 5-2z"/>', 'suciedad-extrema': '<path d="M12 3v10M12 17v1"/><circle cx="12" cy="12" r="9"/>', 'pelo-de-perro': '<circle cx="12" cy="13" r="5"/><path d="M7 9L5 4M17 9l2-5"/>' };
+  // Un elemento por botón: las familias (cuero, hidratación) salen una vez
+  const XITEMS = (() => { const seen = new Set(), out = []; CATS.extras.opts.forEach((x, i) => {
+    if (x.fam) { if (seen.has(x.fam)) return; seen.add(x.fam); }
+    out.push({ i, label: x.fam ? FAM[x.fam] : x.short, g: x.group ?? 0, t: img(x.b), fam: x.fam || '', sup: !!x.sup, ic: XICON[x.fam === 'hidra' ? 'neumaticos' : x.frame] || XICON['cera-rapida'] }); });
+    return out; })();
+  const GN = ['Interior', 'Exterior', 'Si hace falta'];
+  const xb = (it, inner) => `<button type="button" data-i="${it.i}" data-fam="${it.fam}" class="${it.sup ? 'sup' : ''}" style="--t:url('${it.t}')">${inner}</button>`;
+  const xbox = document.createElement('div'); xbox.className = 'xp ' + XUI; xbox.id = 'xpick';
+  let xtab = 0;
+  function xrender() {
+    const I = XITEMS, by = g => I.filter(x => x.g === g);
+    if (XUI === 'cards') xbox.innerHTML = I.map(it => xb(it, `<span>${it.label}</span>`)).join('');
+    if (XUI === 'tabs') xbox.innerHTML = `<div class="tb">${GN.map((n, g) => `<button type="button" data-tab="${g}" class="${g === xtab ? 'on' : ''}">${n === 'Si hace falta' ? 'Avisos' : n}</button>`).join('')}</div><div class="ps">${by(xtab).map(it => xb(it, it.label)).join('')}</div>`;
+    if (XUI === 'grid' || XUI === 'menu') xbox.innerHTML = GN.map((n, g) => `<h5>${n}</h5>` + by(g).map(it => xb(it, XUI === 'menu' ? `<i></i><span>${it.label}</span>` : `<span>${it.label}</span>`)).join('')).join('');
+    if (XUI === 'wheel') xbox.innerHTML = I.map(it => xb(it, it.label)).join('');
+    if (XUI === 'thumbs') xbox.innerHTML = I.map(it => xb(it, `<span>${it.label}</span>`)).join('');
+    if (XUI === 'dock') xbox.innerHTML = I.map(it => xb(it, `<svg class="xp-ic" viewBox="0 0 24 24">${it.ic}</svg>${it.label}`)).join('');
+    if (XUI === 'accordion') xbox.innerHTML = GN.map((n, g) => `<details ${g < 2 ? 'open' : ''}><summary>${n}</summary>${by(g).map(it => xb(it, it.label)).join('')}</details>`).join('');
+    if (XUI === 'stories') xbox.innerHTML = I.map(it => xb(it, `<i></i><span>${it.label}</span>`)).join('');
+    if (XUI === 'chips') { xbox.innerHTML = ''; const c = $('xc'); c.innerHTML = GN.map((n, g) => `<small>${n}</small>` + by(g).map(it => xb(it, it.label)).join('')).join(''); }
+    paintX();
+  }
+  function paintX() {
+    const O = cat === 'extras' && CATS.extras.opts[opt];
+    document.querySelectorAll('#xpick [data-i], #xc [data-i]').forEach(b => {
+      const on = !!O && (b.dataset.fam ? O.fam === b.dataset.fam : +b.dataset.i === opt); b.setAttribute('aria-current', String(on));
+      if (on && (XUI === 'wheel' || XUI === 'cards' || XUI === 'stories' || XUI === 'dock')) b.scrollIntoView({ inline: 'center', block: 'nearest', behavior: 'smooth' });
+    });
+  }
+  phone.append(xbox);
+  if (XUI === 'chips') { const c = document.createElement('div'); c.className = 'xc'; c.id = 'xc'; $('subs').before(c); c.addEventListener('click', xclick); }
+  let xopen = null;
+  if (XUI === 'grid' || XUI === 'menu') {
+    xopen = document.createElement('button'); xopen.className = 'xp-open'; xopen.type = 'button'; xopen.textContent = XUI === 'grid' ? 'Ver todos' : 'Elige un extra ▾';
+    xopen.onclick = () => xbox.classList.remove('closed'); phone.append(xopen); xbox.classList.add('closed');
+  }
+  function xclick(e) {
+    const t = e.target.closest('[data-tab]'); if (t) { xtab = +t.dataset.tab; xrender(); return; }
+    const b = e.target.closest('[data-i]'); if (!b) return;
+    xbox.classList.add('closed'); play('extras', +b.dataset.i);
+  }
+  xbox.addEventListener('click', xclick);
+  xrender();
+  // Al entrar en Extras desde el menú, la rejilla se abre para elegir
+  const xserv = document.querySelector('#serv button[data-cat="extras"]');
+  if (xopen && xserv) xserv.addEventListener('click', () => setTimeout(() => xbox.classList.remove('closed'), 1200));
+
+  // Transición (en lugar del cepillo): la foto de después entra por encima con una máscara animada
+  CATS.extras.opts.forEach(x => { if (x.fx && x.fx[0][0] !== 'glass') { delete x.fx; x.tr = XTR; } });
+  async function trReveal(O, my) {
+    front.src = img(O.b); try { await front.decode(); } catch (e) {}
+    if (my !== token) return;
+    const d = 1300 * tempo, E = 'cubic-bezier(.6,0,.25,1)', w = phone.clientWidth;
+    const K = {
+      light: [{ clipPath: 'polygon(0 0, 0 0, -30% 100%, -30% 100%)' }, { clipPath: 'polygon(0 0, 130% 0, 100% 100%, -30% 100%)' }],
+      circle: [{ clipPath: 'circle(0% at 50% 55%)' }, { clipPath: 'circle(120% at 50% 55%)' }],
+      curtain: [{ clipPath: 'inset(0 0 100% 0)' }, { clipPath: 'inset(0 0 0 0)' }],
+      slider: [{ clipPath: 'inset(0 100% 0 0)' }, { clipPath: 'inset(0 0 0 0)' }],
+      diamond: [{ clipPath: 'polygon(50% 50%, 50% 50%, 50% 50%, 50% 50%)' }, { clipPath: 'polygon(50% -60%, 160% 50%, 50% 160%, -60% 50%)' }],
+      focus: [{ opacity: 0, filter: 'blur(18px) contrast(1.06) saturate(.88) brightness(.94)' }, { opacity: 1, filter: 'blur(0px) contrast(1.06) saturate(.88) brightness(.94)' }],
+      rise: [{ clipPath: 'inset(100% 0 0 0)' }, { clipPath: 'inset(0 0 0 0)' }],
+      zoom: [{ opacity: 0, transform: 'scale(1.18)' }, { opacity: 1, transform: 'scale(1)' }],
+      split: [{ clipPath: 'inset(0 50% 0 50%)' }, { clipPath: 'inset(0 0 0 0)' }],
+      shine: [{ opacity: 0, filter: 'brightness(2.2) contrast(1.06) saturate(.88)' }, { opacity: 1, filter: 'brightness(.94) contrast(1.06) saturate(.88)' }],
+    }[O.tr];
+    const anims = [front.animate(K.map(k => ({ opacity: 1, ...k })), { duration: reduce ? 0 : d, easing: E, fill: 'forwards' })];
+    // la línea (barrido, cortina, barra) acompaña al borde
+    if (!reduce && (O.tr === 'slider' || O.tr === 'light')) anims.push(sweep.animate([{ opacity: 1, transform: 'translateX(0px)' }, { opacity: 1, transform: `translateX(${w}px)` }], { duration: d, easing: E, fill: 'forwards' }));
+    if (!reduce && O.tr === 'rise') { sweep.style.cssText = 'width:100%;height:3px;top:auto;bottom:0'; anims.push(sweep.animate([{ opacity: 1, transform: 'translateY(0px)' }, { opacity: 1, transform: `translateY(-${phone.clientHeight}px)` }], { duration: d, easing: E, fill: 'forwards' })); }
+    await Promise.all(anims.map(a => a.finished));
+    back.src = img(O.b); try { await back.decode(); } catch (e) {}
+    anims.forEach(a => a.cancel()); front.style.opacity = ''; sweep.style.cssText = '';
+    shownSrc = O.b; shownFrame = O.frame;
+  }
+  // ?x: abre directamente los Extras (para las capturas del comparador)
+  if (/[?&]x\b/.test(location.search)) { const iv = setInterval(() => { if (!$('start').hidden) { clearInterval(iv); $('start').click(); setTimeout(() => { if (xopen) xbox.classList.add('closed'); play('extras', 0); }, 900); } }, 150); }
 })();
 </script>
 

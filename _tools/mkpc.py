@@ -122,6 +122,14 @@ CSS = r'''
 @media (max-height: 860px) { #phone .xside.l { gap: 6px; } #phone .xside button { min-height: 38px; padding: 6px 18px; } #phone .xside.l p { margin-top: 6px; } }
 @media (min-width: 1700px) and (min-height: 900px) { #phone .top, #phone .side, #phone .hud, #phone .xside, #phone .back, #phone .island, #phone .loader { zoom: 1.2; } #phone .sheet { zoom: 1.12; } }
 @media (min-width: 2300px) and (min-height: 1200px) { #phone .top, #phone .side, #phone .hud, #phone .xside, #phone .back, #phone .island, #phone .loader { zoom: 1.5; } #phone .sheet { zoom: 1.35; } }
+/* Ordenador: el panel compacto del móvil (12-11) aquí puede ser más grande; tarjetas de los extras sobre el panel */
+#phone h1 { font-size: clamp(30px, 2.6cqw, 44px) !important; }
+#phone .desc { display: block; -webkit-line-clamp: unset; font-size: 16px; }
+#phone .hud { padding: 22px 26px 20px; }
+.xp.cards { left: 36px; right: auto; max-width: min(760px, 60cqw); bottom: calc(var(--hud-h, 190px) + 50px); gap: 8px; }
+.xp.cards button { flex: 0 0 84px; height: 108px; border-radius: 14px; }
+.xp.cards button span { font-size: 9px; padding: 16px 5px 7px; }
+.xp.cards button:hover { border-color: rgba(255,255,255,.7); transform: translateY(-3px); }
 @media (prefers-reduced-motion: reduce) { #phone .layer, #phone .seq { translate: none; transition: none; } }
 '''
 rep('</style>\n</head>', CSS + '</style>\n<script>\n// En un móvil en vertical, mejor la web hecha para móvil\nif (innerWidth < 700 && innerHeight > innerWidth) location.replace(\'https://topdetail.puntozerosl.es/\');\n</script>\n</head>')
