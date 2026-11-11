@@ -6,14 +6,16 @@ body { min-height: 100%; overflow-x: hidden; overflow-y: auto; }
 body:has(.phone.loading) { overflow: hidden; }
 .app { height: 100vh; height: 100dvh; }
 #phone .down {
-  position: absolute; z-index: 4; right: 44px; bottom: 40px; display: inline-flex; align-items: center; gap: 10px; height: 46px; padding: 0 16px 0 22px;
-  border-radius: 999px; font: 500 11px/1 var(--ui); letter-spacing: .22em; text-transform: uppercase; color: var(--champ);
-  background: rgba(14,12,12,.55); border: 1px solid rgba(233,220,199,.28); -webkit-backdrop-filter: blur(12px); backdrop-filter: blur(12px);
-  transition: opacity .5s, background .25s, transform .25s;
+  position: absolute; z-index: 4; right: 28px; bottom: 24px; display: inline-flex; align-items: center; gap: 6px; padding: 6px 0 9px;
+  font: 400 10px/1 var(--ui); letter-spacing: .24em; text-transform: uppercase; color: rgba(233,220,199,.5);
+  background: none; border: 0; cursor: pointer; transition: opacity .5s, color .25s;
 }
-#phone .down svg { width: 16px; height: 16px; fill: none; stroke: currentColor; stroke-width: 1.5; stroke-linecap: round; stroke-linejoin: round; animation: down 1.8s ease-in-out infinite; }
-#phone .down:hover { background: rgba(233,220,199,.14); transform: translateY(2px); }
+#phone .down svg { width: 13px; height: 13px; fill: none; stroke: currentColor; stroke-width: 1.5; stroke-linecap: round; stroke-linejoin: round; animation: down 2.4s ease-in-out infinite; }
+#phone .down i { position: absolute; left: 0; right: 0; bottom: 0; height: 1px; background: rgba(233,220,199,.18); }
+#phone .down i::after { content: ""; position: absolute; inset: 0; background: var(--red-ink); transform-origin: 0 50%; transform: scaleX(var(--g, 0)); transition: transform .15s; }
+#phone .down:hover { color: rgba(233,220,199,.9); }
 #phone.loading .down, #phone.in-cat .down, #phone.in-serv .down { opacity: 0; pointer-events: none; }
+#phone .start { display: none !important; }
 @keyframes down { 50% { transform: translateY(4px); } }
 /* Barra fija que aparece al bajar */
 .lnav {

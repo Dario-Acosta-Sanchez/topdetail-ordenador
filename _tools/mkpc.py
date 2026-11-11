@@ -44,6 +44,8 @@ CSS = r'''
 #phone .cita:hover { filter: brightness(1.15); transform: translateY(-1px); }
 #phone .back { top: 34px; left: 44px; height: 46px; padding: 0 22px 0 14px; font-size: 12px; }
 #phone .back:hover { background: rgba(233,220,199,.12); }
+#phone .back { transition: transform .55s cubic-bezier(.2,.8,.2,1) .12s, opacity .3s; }
+#phone:not(.in-cat):not(.in-serv) .back { opacity: 0; transform: translateX(calc(-100% - 60px)); }
 /* Menú */
 #phone .side.l, #phone .side.s { bottom: calc(34px + env(safe-area-inset-bottom, 0px)); gap: 16px; }
 #phone .side .dock { padding: 8px; gap: 4px; }

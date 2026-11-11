@@ -14,3 +14,15 @@
   addEventListener('scroll', onScroll, { passive: true });
   $('down').onclick = () => $('land').scrollIntoView({ behavior: 'smooth' });
   document.querySelectorAll('.lnav a[href="#"], .foot a[href="#"]').forEach(a => a.onclick = e => { e.preventDefault(); scrollTo({ top: 0, behavior: 'smooth' }); });
+  // Bajar a la información cuesta un poco: desde el escenario hay que insistir con la rueda (la barrita del aviso se va llenando)
+  let gate = 0, gateT = 0;
+  const paintGate = () => $('down').style.setProperty('--g', Math.min(1, gate / 650));
+  addEventListener('wheel', e => {
+    if (scrollY > 4 || e.deltaY <= 0) return;
+    if (e.target.closest && e.target.closest('.xside')) return;
+    e.preventDefault();
+    if (loading || demo) return;
+    clearTimeout(gateT); gateT = setTimeout(() => { gate = 0; paintGate(); }, 450);
+    gate += Math.min(Math.abs(e.deltaY), 110); paintGate();
+    if (gate >= 650) { gate = 0; paintGate(); $('land').scrollIntoView({ behavior: 'smooth' }); }
+  }, { passive: false });
