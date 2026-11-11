@@ -28,3 +28,14 @@ rep("    if (e.target.closest && (e.target.closest('.xside') || e.target.closest
 # Los elementos ya no están dentro del panel: se buscan en todo el documento
 s = s.replace("sheet.querySelectorAll('.reveal')", "document.querySelectorAll('.reveal')").replace("sheet.querySelectorAll('.steps li')", "document.querySelectorAll('.steps li')").replace("sheet.querySelectorAll('#teoria .acc')", "document.querySelectorAll('#teoria .acc')")
 assert "sheet.querySelectorAll('.reveal')" not in s
+# ── Tutorial de ordenador: puntero de ratón, textos de clic, un paso que enseña la información de abajo y botón para repetirlo ──
+rep("      say('Empieza por Servicios', 1, N);", "      say('Haz clic en Servicios', 1, N);")
+rep("      say('Elige uno: el pulido, por ejemplo', 2, N);", "      say('Elige un servicio: el pulido, por ejemplo', 2, N);")
+rep("      say('Ahora te toca a ti');\n", """      say('Y abajo, toda la información y los precios', 6, N);
+      await moveTo($('down'), 650);
+      $('down').classList.add('pulse'); await sleep(1700); live();
+      say('Ahora te toca a ti');
+""")
+rep("  function hint() { say('Empieza por Servicios');", "  function hint() { say('Haz clic en Servicios');")
+rep('    <button class="down" id="down"', '    <button class="tuto" id="tuto" type="button"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M8 5.5v13l11-6.5z"/></svg>Ver tutorial</button>\n    <button class="down" id="down"')
+rep("  $('isl-x').onclick = endDemo;", "  $('isl-x').onclick = endDemo;\n  $('tuto').onclick = () => { if (!demo) runDemo(); };")

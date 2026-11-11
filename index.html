@@ -985,7 +985,7 @@ h1 { font-weight: 800; font-size: 22px; line-height: 1.1; letter-spacing: .01em;
 /* Tutorial: la cápsula, abajo en el centro (sobre el menú cuando lo hay) */
 #phone .island { bottom: calc(232px + env(safe-area-inset-bottom, 0px)); min-height: 52px; padding-left: 20px; }
 #phone.in-serv .island { bottom: calc(150px + env(safe-area-inset-bottom, 0px)); }
-#phone.in-cat .island { bottom: calc(44px + env(safe-area-inset-bottom, 0px)); }
+#phone.in-cat .island { bottom: auto; top: 108px; }
 #phone .island.tip { padding: 12px 22px; }
 #phone .isl-t { font-size: 14px; }
 /* Páginas de información: panel lateral sobre el escenario oscurecido */
@@ -1168,6 +1168,23 @@ body:has(.phone.loading) { overflow: hidden; }
   #limpiezas, #teoria, #report, #tp-ubicacion section { gap: 0 44px; }
 }
 @media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } }
+/* Tutorial en ordenador: puntero de ratón en lugar del dedo; botón discreto para verlo otra vez */
+#phone .finger {
+  background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath d='M4 2.5l15.5 11-6.8.9 3.9 7.4-3 1.5-3.8-7.5L4 20.3z' fill='%23fff' stroke='%23000' stroke-width='1.2' stroke-linejoin='round'/%3E%3C/svg%3E") 23px 23px / 30px 30px no-repeat;
+  box-shadow: none; border-radius: 0; filter: drop-shadow(0 4px 10px rgba(0,0,0,.6));
+}
+#phone .finger::after { width: 34px; height: 34px; inset: auto; left: 6px; top: 6px; }
+#phone .tuto {
+  position: absolute; z-index: 4; left: 28px; bottom: 22px; display: inline-flex; align-items: center; gap: 7px; padding: 6px 0;
+  font: 400 10px/1 var(--ui); letter-spacing: .24em; text-transform: uppercase; color: rgba(233,220,199,.5);
+  background: none; border: 0; cursor: pointer; transition: opacity .5s, color .25s;
+}
+#phone .tuto svg { width: 11px; height: 11px; fill: currentColor; }
+#phone .tuto:hover { color: rgba(233,220,199,.9); }
+#phone.loading .tuto, #phone.in-cat .tuto, #phone.in-serv .tuto { opacity: 0; pointer-events: none; }
+#phone .down.pulse { animation: cta-pulse .9s ease-in-out infinite; color: #fff; }
+#phone .island { font-size: 15px; }
+#phone .isl-t { font-size: 15px; }
 </style>
 <script>
 // En un móvil en vertical, mejor la web hecha para móvil
@@ -1231,6 +1248,7 @@ if (innerWidth < 700 && innerHeight > innerWidth) location.replace('https://topd
       <button class="add" id="add" type="button" hidden aria-pressed="false"><svg viewBox="0 0 24 24" aria-hidden="true"><path class="p" d="M12 5v14M5 12h14"/><path class="c" d="M5 12.5l4.5 4.5L19 7.5"/></svg><span>A mi cita</span></button>
     </section>
 
+    <button class="tuto" id="tuto" type="button"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M8 5.5v13l11-6.5z"/></svg>Ver tutorial</button>
     <button class="down" id="down" type="button"><span>Desliza para más información</span><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 9l6 6 6-6"/></svg><i aria-hidden="true"></i></button>
     <nav class="xside l" id="opt-l" aria-label="Opciones" inert></nav>
     <nav class="xside r" id="opt-r" aria-label="Opciones" inert></nav>
@@ -2648,7 +2666,7 @@ if (innerWidth < 700 && innerHeight > innerWidth) location.replace('https://topd
   }
   function seenDemo() { try { sessionStorage.setItem('td-demo', '1'); } catch (e) {} }
   // Con «reducir movimiento» activado no hay tutorial: solo una pista que se va sola
-  function hint() { say('Empieza por Servicios'); islTimer = setTimeout(hideIsland, 3800); seenDemo(); }
+  function hint() { say('Haz clic en Servicios'); islTimer = setTimeout(hideIsland, 3800); seenDemo(); }
   async function runDemo() {
     if (demo || loading) return;
     demo = { stop: false, t0: performance.now() }; tempo = .8;
@@ -2656,11 +2674,11 @@ if (innerWidth < 700 && innerHeight > innerWidth) location.replace('https://topd
     try {
       if (sheet.classList.contains('open')) { closeSheet(); await sleep(450); }
       if (cat !== null || level !== 'home') { home(); await until(() => cat === null && !pending, 8000); await sleep(300); }
-      say('Empieza por Servicios', 1, N);
+      say('Haz clic en Servicios', 1, N);
       await sleep(READ);
       await tap($('serv-btn'));
       await until(() => level === 'serv', 2000); await sleep(500);
-      say('Elige uno: el pulido, por ejemplo', 2, N);
+      say('Elige un servicio: el pulido, por ejemplo', 2, N);
       await sleep(READ);
       await tap(document.querySelector('#serv button[data-cat="pulido"]'), 700);
       await until(() => cat === 'pulido' && state === 'b', 9000);
@@ -2686,6 +2704,9 @@ if (innerWidth < 700 && innerHeight > innerWidth) location.replace('https://topd
       await sleep(700); live();
       await moveTo(document.querySelector('#menu .links'), 600);
       $('menu').querySelector('.links').classList.add('pulse'); await sleep(1800); live();
+      say('Y abajo, toda la información y los precios', 6, N);
+      await moveTo($('down'), 650);
+      $('down').classList.add('pulse'); await sleep(1700); live();
       say('Ahora te toca a ti');
       finger.classList.remove('on');
       await sleep(1600); live();
@@ -2700,6 +2721,7 @@ if (innerWidth < 700 && innerHeight > innerWidth) location.replace('https://topd
     hideIsland(); seenDemo();
   }
   $('isl-x').onclick = endDemo;
+  $('tuto').onclick = () => { if (!demo) runDemo(); };
   phone.addEventListener('pointerdown', e => { if (demo && e.isTrusted && !e.target.closest('#isl-x')) endDemo(); }, true);
   // La rueda también lo corta, salvo la inercia del gesto con el que se ha entrado
   addEventListener('wheel', e => { if (demo && e.isTrusted && performance.now() > demo.t0 + 1600) endDemo(); }, { passive: true });

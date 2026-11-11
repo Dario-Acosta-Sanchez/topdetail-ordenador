@@ -93,7 +93,7 @@ CSS = r'''
 /* Tutorial: la cápsula, abajo en el centro (sobre el menú cuando lo hay) */
 #phone .island { bottom: calc(232px + env(safe-area-inset-bottom, 0px)); min-height: 52px; padding-left: 20px; }
 #phone.in-serv .island { bottom: calc(150px + env(safe-area-inset-bottom, 0px)); }
-#phone.in-cat .island { bottom: calc(44px + env(safe-area-inset-bottom, 0px)); }
+#phone.in-cat .island { bottom: auto; top: 108px; }
 #phone .island.tip { padding: 12px 22px; }
 #phone .isl-t { font-size: 14px; }
 /* Páginas de información: panel lateral sobre el escenario oscurecido */

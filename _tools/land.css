@@ -151,3 +151,20 @@ body:has(.phone.loading) { overflow: hidden; }
   #limpiezas, #teoria, #report, #tp-ubicacion section { gap: 0 44px; }
 }
 @media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } }
+/* Tutorial en ordenador: puntero de ratón en lugar del dedo; botón discreto para verlo otra vez */
+#phone .finger {
+  background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath d='M4 2.5l15.5 11-6.8.9 3.9 7.4-3 1.5-3.8-7.5L4 20.3z' fill='%23fff' stroke='%23000' stroke-width='1.2' stroke-linejoin='round'/%3E%3C/svg%3E") 23px 23px / 30px 30px no-repeat;
+  box-shadow: none; border-radius: 0; filter: drop-shadow(0 4px 10px rgba(0,0,0,.6));
+}
+#phone .finger::after { width: 34px; height: 34px; inset: auto; left: 6px; top: 6px; }
+#phone .tuto {
+  position: absolute; z-index: 4; left: 28px; bottom: 22px; display: inline-flex; align-items: center; gap: 7px; padding: 6px 0;
+  font: 400 10px/1 var(--ui); letter-spacing: .24em; text-transform: uppercase; color: rgba(233,220,199,.5);
+  background: none; border: 0; cursor: pointer; transition: opacity .5s, color .25s;
+}
+#phone .tuto svg { width: 11px; height: 11px; fill: currentColor; }
+#phone .tuto:hover { color: rgba(233,220,199,.9); }
+#phone.loading .tuto, #phone.in-cat .tuto, #phone.in-serv .tuto { opacity: 0; pointer-events: none; }
+#phone .down.pulse { animation: cta-pulse .9s ease-in-out infinite; color: #fff; }
+#phone .island { font-size: 15px; }
+#phone .isl-t { font-size: 15px; }
