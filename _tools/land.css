@@ -82,10 +82,11 @@ body:has(.phone.loading) { overflow: hidden; }
 .land .gal > figure:hover { transform: translateY(-8px) scale(1.03); z-index: 1; }
 /* Servicios y precios */
 #svc-list { columns: 3; column-gap: 56px; margin-top: 30px; }
-.land .svc-g { break-after: avoid; margin: 0 0 6px; font: 500 11px/1 var(--ui); letter-spacing: .3em; color: var(--champ); }
-.land .svc { break-inside: avoid; margin: 0 0 34px; }
+.land .svc-c { break-inside: avoid; margin: 0 0 28px; padding: 24px 24px 10px; border-radius: 22px; }
+.land .svc-c .svc-g { font-size: 30px; padding-bottom: 16px; margin-bottom: 8px; }
+.land p.svc-g:not(.svc-c *) { font: 500 11px/1 var(--ui); letter-spacing: .3em; color: var(--champ); }
 .land .svc li { padding: 14px 0; }
-.land .svc li b { font: 600 21px/1.15 var(--display); text-transform: none; letter-spacing: 0; }
+.land .svc li b { font: 600 15px/1.2 var(--ui); letter-spacing: .08em; }
 .land .svc li span { font-size: 14px; }
 .land .svc li i { font-size: 15px; font-weight: 500; }
 .land .svc .go { min-height: 38px; padding: 0 16px; font-size: 10.5px; }

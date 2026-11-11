@@ -72,6 +72,9 @@ CSS = r'''
 #phone .ab button { height: 46px; font-size: 11.5px; transition: background .25s, color .25s; }
 #phone .ab button:not([aria-pressed="true"]):hover { color: #fff; }
 #phone .glass { margin-top: 20px; max-width: 420px; }
+#phone .add { max-width: 400px; height: 46px; margin-top: 10px; }
+#phone .add:hover { background: rgba(233,220,199,.14); }
+#phone .add.on:hover { background: var(--red); filter: brightness(1.15); }
 #phone .more { height: 36px; padding: 0 12px 0 16px; font-size: 10.5px; transition: background .25s; }
 #phone .more:hover { background: rgba(233,220,199,.18); }
 #phone.in-serv .hud { inset: 128px 0 auto 0; width: auto; justify-items: center; text-align: center; padding: 0 24px; }

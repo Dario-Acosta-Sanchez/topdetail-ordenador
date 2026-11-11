@@ -758,7 +758,7 @@ h1 { font-weight: 800; font-size: 22px; line-height: 1.1; letter-spacing: .01em;
 
 /* ══ Menú organizado (2026-11-11, petición de Javi) ══
    Menú principal: cápsula con Tintado de lunas · Servicios · Report y, debajo, Sobre nosotros · Contacto · Ubicación.
-   Servicios abre su propio menú (Detallado, Pulido, Cerámico, Extras) y cada botón de información abre solo su página. */
+   Servicios abre su propio menú (Limpieza, Pulido, Cerámico, Extras) y cada botón de información abre solo su página. */
 #phone .side.l, #phone .side.s {
   top: auto; left: 0; right: 0; bottom: calc(18px + env(safe-area-inset-bottom, 0px)); padding: 0 12px;
   display: grid; grid-template-columns: none; justify-items: center; gap: 12px;
@@ -832,6 +832,27 @@ h1 { font-weight: 800; font-size: 22px; line-height: 1.1; letter-spacing: .01em;
 .contact .off { opacity: .55; }
 .tab-p > .hero + section, .tab-p > section:first-child { border-top: 0; }
 .tab-p > section:first-child { padding-top: 6px; }
+
+/* ── Opiniones de 30 personas (2026-11-11) ──
+   «Añadir a mi cita»: nada va a la cita solo por mirarlo; el cliente lo elige con este botón */
+#phone .add {
+  margin-top: 8px; width: 100%; height: 42px; display: flex; align-items: center; justify-content: center; gap: 8px; cursor: pointer; border-radius: 999px;
+  font: 500 11px/1 var(--ui); letter-spacing: .18em; text-transform: uppercase; color: var(--champ);
+  background: rgba(233,220,199,.06); border: 1px dashed rgba(233,220,199,.5); transition: background .25s, border-color .25s, color .25s;
+}
+#phone .add svg { width: 16px; height: 16px; fill: none; stroke: currentColor; stroke-width: 1.8; stroke-linecap: round; stroke-linejoin: round; }
+#phone .add .c, #phone .add.on .p { display: none; }
+#phone .add.on .c { display: inline; }
+#phone .add.on { color: #fff; background: var(--red); border: 1px solid rgba(233,220,199,.45); box-shadow: 0 8px 20px rgba(160,29,51,.35); }
+#phone .add.pulse { animation: cta-pulse .9s ease-in-out infinite; }
+#phone .add:focus-visible { outline: 2px solid var(--champ); outline-offset: 2px; }
+/* Precios: cada familia de servicios en su tarjeta, con icono y aire entre ellas */
+.svc-c { margin: 0 0 18px; padding: 16px 16px 6px; border-radius: 18px; border: 1px solid rgba(233,220,199,.16); background: linear-gradient(160deg, rgba(255,255,255,.06), rgba(255,255,255,.015) 70%); box-shadow: 0 12px 28px rgba(0,0,0,.35); }
+.svc-c .svc-g { display: flex; align-items: center; gap: 12px; margin: 0 0 6px; padding-bottom: 12px; border-bottom: 1px solid rgba(160,29,51,.7); font: 600 24px/1 var(--display); letter-spacing: 0; text-transform: none; color: #fff; }
+.svc-c .svc-g svg { width: 22px; height: 22px; padding: 9px; box-sizing: content-box; flex: none; border-radius: 50%; fill: none; stroke: var(--champ); stroke-width: 1.2; stroke-linecap: round; stroke-linejoin: round; background: rgba(160,29,51,.35); border: 1px solid rgba(233,220,199,.3); }
+.svc-c .svc { margin: 0; }
+.svc-c .svc li:last-child { border-bottom: 0; }
+.svc-c .svc li b { font: 600 15px/1.2 var(--ui); letter-spacing: .06em; }
 /* En un móvil la web ocupa SIEMPRE todo el ancho. Antes el ancho se limitaba a la mitad del alto, y con la barra
    del navegador (o en móviles más anchos) quedaban franjas negras a los lados. */
 @media (max-width: 600px), (pointer: coarse) and (orientation: portrait) { .phone { width: 100%; } }
@@ -905,6 +926,9 @@ h1 { font-weight: 800; font-size: 22px; line-height: 1.1; letter-spacing: .01em;
 #phone .ab button { height: 46px; font-size: 11.5px; transition: background .25s, color .25s; }
 #phone .ab button:not([aria-pressed="true"]):hover { color: #fff; }
 #phone .glass { margin-top: 20px; max-width: 420px; }
+#phone .add { max-width: 400px; height: 46px; margin-top: 10px; }
+#phone .add:hover { background: rgba(233,220,199,.14); }
+#phone .add.on:hover { background: var(--red); filter: brightness(1.15); }
 #phone .more { height: 36px; padding: 0 12px 0 16px; font-size: 10.5px; transition: background .25s; }
 #phone .more:hover { background: rgba(233,220,199,.18); }
 #phone.in-serv .hud { inset: 128px 0 auto 0; width: auto; justify-items: center; text-align: center; padding: 0 24px; }
@@ -1035,10 +1059,11 @@ body:has(.phone.loading) { overflow: hidden; }
 .land .gal > figure:hover { transform: translateY(-8px) scale(1.03); z-index: 1; }
 /* Servicios y precios */
 #svc-list { columns: 3; column-gap: 56px; margin-top: 30px; }
-.land .svc-g { break-after: avoid; margin: 0 0 6px; font: 500 11px/1 var(--ui); letter-spacing: .3em; color: var(--champ); }
-.land .svc { break-inside: avoid; margin: 0 0 34px; }
+.land .svc-c { break-inside: avoid; margin: 0 0 28px; padding: 24px 24px 10px; border-radius: 22px; }
+.land .svc-c .svc-g { font-size: 30px; padding-bottom: 16px; margin-bottom: 8px; }
+.land p.svc-g:not(.svc-c *) { font: 500 11px/1 var(--ui); letter-spacing: .3em; color: var(--champ); }
 .land .svc li { padding: 14px 0; }
-.land .svc li b { font: 600 21px/1.15 var(--display); text-transform: none; letter-spacing: 0; }
+.land .svc li b { font: 600 15px/1.2 var(--ui); letter-spacing: .08em; }
 .land .svc li span { font-size: 14px; }
 .land .svc li i { font-size: 15px; font-weight: 500; }
 .land .svc .go { min-height: 38px; padding: 0 16px; font-size: 10.5px; }
@@ -1124,7 +1149,7 @@ if (innerWidth < 700 && innerHeight > innerWidth) location.replace('https://topd
     </header>
 
     <!-- Menú principal (lo que pidió Javi el 11-11): Servicios en el centro, Tintado de lunas y Report a los lados;
-         debajo, Sobre nosotros, Contacto y Ubicación. Servicios abre su propio menú: Detallado, Pulido, Cerámico y Extras. -->
+         debajo, Sobre nosotros, Contacto y Ubicación. Servicios abre su propio menú: Limpieza, Pulido, Cerámico y Extras. -->
     <nav class="side l menu" id="menu" aria-label="Menú">
       <div class="dock">
         <button data-cat="tintado"><svg viewBox="0 0 24 24"><path d="M3 16l3-7h9l5 7z"/><path d="M8 16l2-5M12 16l1.5-5" opacity=".55"/></svg><span>Tintado<small>de lunas</small></span></button>
@@ -1140,7 +1165,7 @@ if (innerWidth < 700 && innerHeight > innerWidth) location.replace('https://topd
     <nav class="side s" id="serv" aria-label="Servicios" inert>
       <p>Servicios</p>
       <div class="dock">
-        <button data-cat="limpieza"><svg viewBox="0 0 24 24"><path d="M12 3c3 4 6 7.2 6 10.5A6 6 0 0 1 6 13.5C6 10.2 9 7 12 3z"/><path d="M9.5 14.5a2.5 2.5 0 0 0 2.5 2.5"/></svg>Detallado</button>
+        <button data-cat="limpieza"><svg viewBox="0 0 24 24"><path d="M12 3c3 4 6 7.2 6 10.5A6 6 0 0 1 6 13.5C6 10.2 9 7 12 3z"/><path d="M9.5 14.5a2.5 2.5 0 0 0 2.5 2.5"/></svg>Limpieza</button>
         <button data-cat="pulido"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="7"/><circle cx="12" cy="12" r="2.5"/><path d="M12 2v3M12 19v3M2 12h3M19 12h3"/></svg>Pulido</button>
         <button data-cat="ceramico"><svg viewBox="0 0 24 24"><path d="M12 3l7 3v5.5c0 4.3-3 7.7-7 9.5-4-1.8-7-5.2-7-9.5V6z"/><path d="M9 12l2.2 2.2L15.5 10"/></svg>Cerámico</button>
         <button data-cat="extras"><svg viewBox="0 0 24 24"><rect x="4" y="4" width="6.5" height="6.5"/><rect x="13.5" y="4" width="6.5" height="6.5"/><rect x="4" y="13.5" width="6.5" height="6.5"/><path d="M16.75 14v5.5M14 16.75h5.5"/></svg>Extras</button>
@@ -1161,6 +1186,7 @@ if (innerWidth < 700 && innerHeight > innerWidth) location.replace('https://topd
       <ul class="spec" id="spec" aria-label="Detalles técnicos"></ul>
       <div class="ab" id="ab" role="group" aria-label="Comparar" hidden><button id="ab-a" aria-pressed="false">Antes</button><button id="ab-b" aria-pressed="true">Después</button></div>
       <div class="glass wait" id="glass" hidden><div class="glass-row"><span>Antes</span><em>Desliza para comparar</em><span>Después</span></div><input type="range" id="cmp" min="0" max="100" step="0.5" value="100" aria-label="Comparar antes y después"></div>
+      <button class="add" id="add" type="button" hidden aria-pressed="false"><svg viewBox="0 0 24 24" aria-hidden="true"><path class="p" d="M12 5v14M5 12h14"/><path class="c" d="M5 12.5l4.5 4.5L19 7.5"/></svg><span>Añadir a mi cita</span></button>
     </section>
 
     <button class="down" id="down" type="button">Toda la información<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 9l6 6 6-6"/></svg></button>
@@ -1238,7 +1264,7 @@ if (innerWidth < 700 && innerHeight > innerWidth) location.replace('https://topd
         <details class="acc" name="faq"><summary><i>04</i>¿Cada cuánto hay que mantener el cerámico?</summary><div class="body"><p>Un <strong>lavado de mantenimiento al mes</strong> (solo exterior, 20&nbsp;€) y el <strong>booster cada 6 meses o una vez al año</strong>.</p></div></details>
         <details class="acc" name="faq"><summary><i>05</i>¿Cuánto tarda una limpieza?</summary><div class="body"><p>Básica, hasta 2 h 30 min; premium, hasta 3 h; integral, hasta 4 h 30 min. Pulidos y cerámicos dependen del estado de la pintura: te lo decimos al ver el coche.</p></div></details>
         <details class="acc" name="faq"><summary><i>06</i>¿Y si el coche llega muy sucio o con pelo de mascota?</summary><div class="body"><p><strong>Te avisamos antes de empezar.</strong> Lleva más tiempo y un suplemento, y no tocamos nada sin que lo sepas.</p></div></details>
-        <details class="acc" name="faq"><summary><i>07</i>¿Cómo pido cita?</summary><div class="body"><p>Por <strong>WhatsApp</strong> o llamando al <strong>643 182 964</strong>. El botón de WhatsApp te abre el chat con lo que has mirado en la web ya escrito.</p></div></details>
+        <details class="acc" name="faq"><summary><i>07</i>¿Cómo pido cita?</summary><div class="body"><p>Por <strong>WhatsApp</strong> o llamando al <strong>643 182 964</strong>. Si en un servicio tocas «Añadir a mi cita», el botón de WhatsApp te abre el chat con eso ya escrito.</p></div></details>
       </section>
 
       <section id="limpiezas" data-tab="detallado" data-o="1">
@@ -1324,7 +1350,7 @@ if (innerWidth < 700 && innerHeight > innerWidth) location.replace('https://topd
           <li>Diagnóstico estético</li><li>Libro de mantenimiento</li><li>Historial de intervenciones</li>
           <li>Seguimiento de futuras visitas</li><li>Recomendaciones personalizadas</li><li>Evolución del estado</li>
         </ul>
-        <p class="note">Incluido en pulidos y cerámicos. En el detallado, opcional por <strong>+10&nbsp;€</strong>.</p>
+        <p class="note">Incluido en pulidos y cerámicos. En las limpiezas, opcional por <strong>+10&nbsp;€</strong>.</p>
         <details class="report">
           <summary>Ver informe de ejemplo</summary>
           <div class="rep">
@@ -1353,7 +1379,7 @@ if (innerWidth < 700 && innerHeight > innerWidth) location.replace('https://topd
 
       <section data-tab="contacto" data-o="1">
         <h3 class="reveal">Pide tu <b>cita.</b></h3>
-        <p>Lo que has mirado en la web va <strong>directo en el WhatsApp</strong>, para que te demos precio sin repetir nada. Quita lo que no te interese.</p>
+        <p>Lo que añadas a tu cita va <strong>directo en el WhatsApp</strong>, para que te demos precio sin repetir nada. Solo se añade lo que tú elijas con «Añadir a mi cita».</p>
         <div class="picks" id="picks"></div>
         <div class="btns">
           <a class="btn red wa" href="https://wa.me/34643182964" target="_blank" rel="noopener">WhatsApp</a>
@@ -1403,7 +1429,7 @@ if (innerWidth < 700 && innerHeight > innerWidth) location.replace('https://topd
 
 <nav class="lnav" id="lnav" aria-label="Secciones">
   <a class="lg" href="#" aria-label="Volver arriba"><img src="img/logo-v6.svg" alt="Top Detail Garage"></a>
-  <a class="l" href="#tp-precios">Servicios</a><a class="l" href="#tp-detallado">Detallado</a><a class="l" href="#tp-pulido">Pulido</a><a class="l" href="#tp-ceramico">Cerámico</a><a class="l" href="#tp-report">Report</a><a class="l" href="#tp-nosotros">Nosotros</a><a class="l" href="#tp-contacto">Contacto</a><a class="l" href="#tp-ubicacion">Ubicación</a>
+  <a class="l" href="#tp-precios">Servicios</a><a class="l" href="#tp-detallado">Limpieza</a><a class="l" href="#tp-pulido">Pulido</a><a class="l" href="#tp-ceramico">Cerámico</a><a class="l" href="#tp-report">Report</a><a class="l" href="#tp-nosotros">Nosotros</a><a class="l" href="#tp-contacto">Contacto</a><a class="l" href="#tp-ubicacion">Ubicación</a>
   <span class="sp"></span>
   <a class="wa" href="https://wa.me/34643182964" target="_blank" rel="noopener">Pedir cita<b class="n" hidden></b></a>
 </nav>
@@ -1436,7 +1462,7 @@ if (innerWidth < 700 && innerHeight > innerWidth) location.replace('https://topd
   // Cada opción es una pareja antes → después. frame: mismo encuadre → barrido; distinto → fundido con zoom
   const o = (name, short, desc, a, b, frame, extra = {}) => ({ name, short, desc, a, b, frame, ...extra });
   const CATS = {
-    limpieza: { label: 'Detallado', head: 'Nivel', evo: true, serv: true, opts: [
+    limpieza: { label: 'Limpieza', head: 'Nivel', evo: true, serv: true, opts: [
       o('Básico', 'Básico', 'Lavado a mano y aspirado. Fuera el *barro* y el *polvo*.', SUCIO, '06-limpieza_basico', 'car', { fx: [['foam', FOAM], ['rinse', '06-limpieza_basico']] }),
       o('Premium', 'Premium', 'Además, *llantas y neumáticos* a fondo y *brillo* en la carrocería.', SUCIO, '06-limpieza_premium', 'car', { top: 'Top ventas', fx: [['foam', FOAM], ['rinse', '06-limpieza_premium']] }),
       o('Integral', 'Integral', 'Interior y exterior completos, faros y parrilla renovados, *brillo espejo*.', SUCIO, '06-limpieza_integral', 'car', { fx: [['foam', FOAM], ['rinse', '06-limpieza_integral']] }),
@@ -1522,7 +1548,7 @@ if (innerWidth < 700 && innerHeight > innerWidth) location.replace('https://topd
   // Lista sencilla de servicios del taller; go = sección e índice para verlo en acción (null: aún sin fotos)
   const xi = n => CATS.extras.opts.findIndex(x => x.frame === n);
   const SVC = [
-    ['Detallado', [
+    ['Limpieza', [
       ['Básico', 'Completa por dentro y por fuera, al detalle. Sin tapicería.', ['limpieza', 0], 'Desde 70 €'],
       ['Premium · Top ventas', 'Todo lo de la básica y además la tapicería de los asientos.', ['limpieza', 1], 'Desde 100 €'],
       ['Integral', 'Todo lo anterior, más moqueta y techo.', ['limpieza', 2], 'Desde 130 €'],
@@ -1549,7 +1575,7 @@ if (innerWidth < 700 && innerHeight > innerWidth) location.replace('https://topd
       ['Cristales, gomas, plateados y negro piano', 'Cada pieza con su tratamiento.', ['extras', xi('negro-piano')]],
       ['Cera rápida', 'Brillo húmedo y repelencia en minutos.', ['extras', xi('cera-rapida')]],
     ]],
-    ['Top Detail Report™', [['Informe y seguimiento', 'Incluido en pulidos y cerámicos; en el detallado, opcional.', 'report', '+10 €'], ['Bonos de mantenimiento', 'Visitas periódicas con su registro en el informe.', 'packs']]],
+    ['Top Detail Report™', [['Informe y seguimiento', 'Incluido en pulidos y cerámicos; en las limpiezas, opcional.', 'report', '+10 €'], ['Bonos de mantenimiento', 'Visitas periódicas con su registro en el informe.', 'packs']]],
   ];
   const $ = id => document.getElementById(id);
   const back = $('back'), front = $('front'), sweep = $('sweep'), phone = $('phone');
@@ -1738,17 +1764,18 @@ if (innerWidth < 700 && innerHeight > innerWidth) location.replace('https://topd
   try { seen = JSON.parse(sessionStorage.getItem('td-seen') || '[]').filter(k => { const [c, i] = k.split(':'); return CATS[c] && CATS[c].opts[+i]; }); } catch (e) {}
   const saveSeen = () => { try { sessionStorage.setItem('td-seen', JSON.stringify(seen)); } catch (e) {} };
   const catName = c => CATS[c].label.split(' ·')[0];
-  // Al entrar en una sección se enseña sola su primera opción: cuenta «a prueba» (tent) y se quita
-  // si el cliente elige otra de esa sección sin haberla tocado
-  let tent = null;
-  function track(c, i, auto) {
+  // Nada se añade solo por mirarlo: el cliente lo pone en su cita con el botón «Añadir a mi cita» de la ficha
+  function toggleSeen(k) {
     if (demo) return;
-    const k = `${c}:${i}`;
-    if (!auto && tent && tent !== k && tent.startsWith(c + ':')) seen = seen.filter(x => x !== tent);
-    if (!auto || tent === k) tent = null;
-    if (!seen.includes(k)) { seen.push(k); if (auto) tent = k; }
+    seen = seen.includes(k) ? seen.filter(x => x !== k) : [...seen, k];
     saveSeen(); updateWA();
   }
+  function paintAdd() {
+    const b = $('add'), on = cat !== null && seen.includes(`${cat}:${opt}`);
+    b.hidden = cat === null; b.classList.toggle('on', on); b.setAttribute('aria-pressed', String(on));
+    b.lastChild.textContent = on ? 'En tu cita · quitar' : 'Añadir a mi cita';
+  }
+  $('add').onclick = () => { if (cat !== null) toggleSeen(`${cat}:${opt}`); };
   function waText() {
     if (!seen.length) return 'Hola! Vengo de la web de Top Detail Garage. Quiero pedir cita, ¿me dais información?';
     const lines = [], avisos = [];
@@ -1758,7 +1785,7 @@ if (innerWidth < 700 && innerHeight > innerWidth) location.replace('https://topd
       if (names.length) lines.push(`• ${catName(c)}: ${names.join(', ')}`);
     }
     let t = 'Hola! Vengo de la web de Top Detail Garage.';
-    if (lines.length) t += `\nHe estado mirando:\n${lines.join('\n')}`;
+    if (lines.length) t += `\nMe interesa:\n${lines.join('\n')}`;
     if (avisos.length) t += `\nOs aviso de que el coche puede necesitar: ${avisos.join(', ').toLowerCase()}.`;
     return t + '\n¿Me dais precio y cita?';
   }
@@ -1766,12 +1793,13 @@ if (innerWidth < 700 && innerHeight > innerWidth) location.replace('https://topd
     const href = W + encodeURIComponent(waText());
     document.querySelectorAll('a.wa').forEach(a => { a.href = href; });
     document.querySelectorAll('.wa .n').forEach(n => { n.hidden = !seen.length; n.textContent = seen.length; });
-    $('cita').setAttribute('aria-label', seen.length ? `Pedir cita por WhatsApp con los ${seen.length} servicios que has mirado` : 'Pedir cita por WhatsApp');
+    $('cita').setAttribute('aria-label', seen.length ? `Pedir cita por WhatsApp con los ${seen.length} servicios de tu cita` : 'Pedir cita por WhatsApp');
     if (tab === 'contacto') renderPicks();
+    paintAdd();
   }
   function renderPicks() {
     const box = $('picks');
-    if (!seen.length) { box.innerHTML = '<span class="empty">Aún no has mirado ningún servicio. Toca uno en la web y aparecerá aquí.</span>'; return; }
+    if (!seen.length) { box.innerHTML = '<span class="empty">Aún no has añadido ningún servicio. Entra en uno y toca «Añadir a mi cita».</span>'; return; }
     box.innerHTML = seen.map(k => { const [c, i] = k.split(':'), O = CATS[c].opts[+i];
       return `<span class="pick${O.sup ? ' av' : ''}"><small>${esc(O.sup ? 'Aviso' : catName(c))}</small>${esc(O.name)}<button type="button" data-k="${k}" aria-label="Quitar ${esc(O.name)}">×</button></span>`; }).join('');
   }
@@ -1831,7 +1859,7 @@ if (innerWidth < 700 && innerHeight > innerWidth) location.replace('https://topd
 
   // Título: texto en blanco y las palabras clave en rojo
   const PREF = { limpieza: 'Limpieza', tintado: 'Tintado' };
-  const PAGES = { nosotros: 'Sobre <span class="k">nosotros</span>', precios: 'Servicios y <span class="k">precios</span>', detallado: '<span class="k">Detallado</span>',
+  const PAGES = { nosotros: 'Sobre <span class="k">nosotros</span>', precios: 'Servicios y <span class="k">precios</span>', detallado: '<span class="k">Limpieza</span>',
     pulido: '<span class="k">Pulido</span>', ceramico: '<span class="k">Cerámico</span>', report: 'Top Detail <span class="k">Report™</span>',
     contacto: '<span class="k">Contacto</span>', ubicacion: '<span class="k">Ubicación</span>' };
   const esc = t => t.replace(/[&<>]/g, c => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;' }[c]));
@@ -1857,7 +1885,7 @@ if (innerWidth < 700 && innerHeight > innerWidth) location.replace('https://topd
       $('name').innerHTML = 'Elige un <span class="k">servicio</span>';
       $('desc').innerHTML = rich('Toca uno para verlo *en acción*, del antes al después.');
       $('spec').innerHTML = ''; $('price').innerHTML = '';
-      paintAB();
+      paintAB(); paintAdd();
       if (!reduce && !loading) $('hud').animate([{ opacity: 0, transform: 'translateY(10px)' }, { opacity: 1, transform: 'none' }], { duration: 420, easing: 'cubic-bezier(.2,.7,.2,1)' });
       return;
     }
@@ -1868,6 +1896,7 @@ if (innerWidth < 700 && innerHeight > innerWidth) location.replace('https://topd
     $('desc').innerHTML = rich(O ? O.desc : 'Toca un servicio para verlo en acción, o desliza hacia arriba para ver la pintura de cerca.');
     $('spec').innerHTML = (O && O.top ? `<li class="hot">${esc(O.top)}</li>` : '') + (O && O.spec ? O.spec.map(t => `<li>${esc(t)}</li>`).join('') : '');
     $('price').innerHTML = O && O.price ? rich(O.price) : '';
+    paintAdd();
     back.alt = O ? `${O.name}. ${plain(O.desc)}` : 'Porsche Cayenne negro, limpio, en el taller de Top Detail Garage';
     paintAB();
     if (!reduce && !loading) $('hud').animate([{ opacity: 0, transform: 'translateY(10px)' }, { opacity: 1, transform: 'none' }], { duration: 420, easing: 'cubic-bezier(.2,.7,.2,1)' });
@@ -1878,7 +1907,6 @@ if (innerWidth < 700 && innerHeight > innerWidth) location.replace('https://topd
     if (loading) return;
     const my = ++token;
     const prevI = c === cat ? opt : -1, prev = prevI >= 0 ? CATS[c].opts[prevI] : null, wasHome = cat === null;
-    track(c, i, c !== cat);
     if (c !== cat) { cat = c; buildOpts(); }
     const O = CATS[c].opts[i];
     // Secciones evolutivas (limpieza, tintado, pintura): si ya estás en esa escena,
@@ -1996,10 +2024,19 @@ if (innerWidth < 700 && innerHeight > innerWidth) location.replace('https://topd
     phone.style.setProperty('--px', (-x * r.width * .018).toFixed(1) + 'px'); phone.style.setProperty('--py', (-y * r.height * .014).toFixed(1) + 'px');
   });
   // Lista de servicios: los que tienen fotos llevan «Ver», que cierra la hoja y lo enseña en acción
-  $('svc-list').innerHTML = SVC.map(([g, items]) => `<p class="svc-g">${esc(g)}</p><ul class="svc">${items.map(([n, d, go, pr]) =>
+  const SVG = d => `<svg viewBox="0 0 24 24" aria-hidden="true">${d}</svg>`;
+  const ICON = {
+    'Limpieza': '<path d="M12 3c3 4 6 7.2 6 10.5A6 6 0 0 1 6 13.5C6 10.2 9 7 12 3z"/><path d="M9.5 14.5a2.5 2.5 0 0 0 2.5 2.5"/>',
+    'Pulido': '<circle cx="12" cy="12" r="7"/><circle cx="12" cy="12" r="2.5"/><path d="M12 2v3M12 19v3M2 12h3M19 12h3"/>',
+    'Cerámico': '<path d="M12 3l7 3v5.5c0 4.3-3 7.7-7 9.5-4-1.8-7-5.2-7-9.5V6z"/><path d="M9 12l2.2 2.2L15.5 10"/>',
+    'Tintado de lunas': '<path d="M3 16l3-7h9l5 7z"/><path d="M8 16l2-5M12 16l1.5-5" opacity=".55"/>',
+    'Top Detail Report™': '<path d="M6 3.5h9l3 3V20.5H6z"/><path d="M9 10h6M9 13.5h6M9 17h4"/>',
+  };
+  const EXTRA = '<rect x="4" y="4" width="6.5" height="6.5"/><rect x="13.5" y="4" width="6.5" height="6.5"/><rect x="4" y="13.5" width="6.5" height="6.5"/><path d="M16.75 14v5.5M14 16.75h5.5"/>';
+  $('svc-list').innerHTML = SVC.map(([g, items]) => `<div class="svc-c"><p class="svc-g">${SVG(ICON[g] || EXTRA)}<span>${esc(g)}</span></p><ul class="svc">${items.map(([n, d, go, pr]) =>
     `<li><div><b>${esc(n)}</b><span>${esc(d)}</span>${pr ? `<i>${esc(pr)}</i>` : ''}${go ? '' : '<em>Consúltanos</em>'}</div>${
       Array.isArray(go) ? `<button class="btn go" data-go="${go.join(':')}">Ver</button>` :
-      typeof go === 'string' ? `<button class="btn go" data-go="${go}">Ver</button>` : ''}</li>`).join('')}</ul>`).join('');
+      typeof go === 'string' ? `<button class="btn go" data-go="${go}">Ver</button>` : ''}</li>`).join('')}</ul></div>`).join('');
   $('svc-list').addEventListener('click', e => {
     const b = e.target.closest('[data-go]'); if (!b) return;
     if (!b.dataset.go.includes(':')) { openSheet(b.dataset.go === 'packs' ? 'ceramico' : b.dataset.go, b.dataset.go); return; }
@@ -2588,8 +2625,11 @@ if (innerWidth < 700 && innerHeight > innerWidth) location.replace('https://topd
       say('Compara el antes y el después', 3, N);
       await sleep(READ);
       await tap($('ab-a'), 700); await until(() => !pending, 4000); await sleep(900);
-      say('Pide cita con lo que has visto', 4, N);
+      say('¿Te interesa? Añádelo a tu cita', 4, N);
       await sleep(600);
+      await moveTo($('add'), 700);
+      $('add').classList.add('pulse'); await sleep(1700); live(); $('add').classList.remove('pulse');
+      say('Y pide cita por WhatsApp', 4, N);
       await moveTo($('cita'), 700);
       $('cita').classList.add('pulse'); await sleep(1500); live(); $('cita').classList.remove('pulse');
       say('«Volver» te lleva al menú', 5, N);
