@@ -873,6 +873,19 @@ h1 { font-weight: 800; font-size: 22px; line-height: 1.1; letter-spacing: .01em;
 #phone .eyebrow { color: rgba(233,220,199,.9); }
 #phone .price { color: #fff; }
 #phone.in-serv .hud { bottom: calc(100px + env(safe-area-inset-bottom, 0px)); padding-bottom: 14px; }
+/* Panel compacto (ocupaba media pantalla en móviles con barra de navegador): sin etiquetas, texto más prieto
+   y «Antes / Después» y «A mi cita» en la misma fila */
+#phone .hud { grid-template-columns: minmax(0, 1fr) auto; column-gap: 8px; row-gap: 3px; padding: 12px 14px 12px; border-radius: 24px; }
+#phone .hud > * { grid-column: 1 / -1; }
+#phone .hud::before { display: none; }
+#phone .spec { display: none; }
+#phone h1 { font-size: 27px; }
+#phone .desc { font-size: 14px; line-height: 1.4; margin-top: 1px; }
+#phone .price { margin-top: 0; }
+#phone .more { height: 28px; }
+#phone .hud > .ab { grid-column: 1; margin-top: 8px; }
+#phone .hud > .add { grid-column: 2; width: auto; height: 46px; margin-top: 8px; padding: 0 14px; letter-spacing: .12em; white-space: nowrap; }
+#phone .hud > .glass:not([hidden]) ~ .add { grid-column: 1 / -1; }
 /* Con la ficha abierta la foto sube, para que el panel no tape el coche */
 .layer, .seq { transition: translate .7s cubic-bezier(.2,.8,.2,1); }
 #phone.in-cat .layer, #phone.in-cat .seq { translate: 0 -11cqh; }
@@ -1211,7 +1224,7 @@ if (innerWidth < 700 && innerHeight > innerWidth) location.replace('https://topd
       <ul class="spec" id="spec" aria-label="Detalles técnicos"></ul>
       <div class="ab" id="ab" role="group" aria-label="Comparar" hidden><button id="ab-a" aria-pressed="false">Antes</button><button id="ab-b" aria-pressed="true">Después</button></div>
       <div class="glass wait" id="glass" hidden><div class="glass-row"><span>Antes</span><em>Desliza para comparar</em><span>Después</span></div><input type="range" id="cmp" min="0" max="100" step="0.5" value="100" aria-label="Comparar antes y después"></div>
-      <button class="add" id="add" type="button" hidden aria-pressed="false"><svg viewBox="0 0 24 24" aria-hidden="true"><path class="p" d="M12 5v14M5 12h14"/><path class="c" d="M5 12.5l4.5 4.5L19 7.5"/></svg><span>Añadir a mi cita</span></button>
+      <button class="add" id="add" type="button" hidden aria-pressed="false"><svg viewBox="0 0 24 24" aria-hidden="true"><path class="p" d="M12 5v14M5 12h14"/><path class="c" d="M5 12.5l4.5 4.5L19 7.5"/></svg><span>A mi cita</span></button>
     </section>
 
     <button class="down" id="down" type="button">Toda la información<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 9l6 6 6-6"/></svg></button>
@@ -1798,7 +1811,8 @@ if (innerWidth < 700 && innerHeight > innerWidth) location.replace('https://topd
   function paintAdd() {
     const b = $('add'), on = cat !== null && seen.includes(`${cat}:${opt}`);
     b.hidden = cat === null; b.classList.toggle('on', on); b.setAttribute('aria-pressed', String(on));
-    b.lastChild.textContent = on ? 'En tu cita · quitar' : 'Añadir a mi cita';
+    b.lastChild.textContent = on ? 'En tu cita' : 'A mi cita';
+    b.setAttribute('aria-label', on ? 'Quitar de mi cita' : 'Añadir a mi cita');
   }
   $('add').onclick = () => { if (cat !== null) toggleSeen(`${cat}:${opt}`); };
   function waText() {
