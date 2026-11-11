@@ -4,7 +4,6 @@
     panels[t].prepend(h); $('land').append(panels[t]);
   });
   $('land').append($('sheet-cta'));
-  document.querySelector('#report details.report').open = true;
   const onScroll = () => {
     document.body.classList.toggle('scrolled', scrollY > innerHeight * .6);
     const y = innerHeight * .4; let cur = null, best = -1e9;

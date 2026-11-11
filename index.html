@@ -20,7 +20,7 @@
 <!-- Versión de ordenador: generada con _tools/mkpc.py a partir de ~/topdetail/index.html -->
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;0,700;1,500&family=Jost:wght@300;400;500;600&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;0,700;1,500&family=Jost:wght@300;400;500;600&family=Anton&family=Caveat:wght@500;600&display=swap" rel="stylesheet">
 <style>
 /* Layout: un teléfono a pantalla completa; la foto ocupa todo, los servicios cuelgan de los dos bordes y la ficha va abajo, sobre el suelo. */
 :root {
@@ -920,6 +920,63 @@ h1 { font-weight: 800; font-size: 22px; line-height: 1.1; letter-spacing: .01em;
 #phone .clock span { display: grid; justify-items: center; text-align: center; font: 500 8px/1.15 var(--ui); letter-spacing: .14em; text-transform: uppercase; color: #fff; max-width: 70px; }
 #phone .clock b { font: 600 34px/1 var(--ui); letter-spacing: 0; }
 #phone .clock small { margin-top: 3px; font-size: 7px; letter-spacing: .1em; color: rgba(255,255,255,.7); }
+
+/* ── Top Detail Report: el librito ── */
+.bookw { display: grid; justify-items: center; gap: 12px; margin: 8px 0 16px; perspective: 1400px; }
+.book { position: relative; width: min(100%, 330px); aspect-ratio: .7; container-type: inline-size; cursor: pointer; transform-style: preserve-3d; transition: transform .6s cubic-bezier(.2,.8,.2,1); }
+.book:not(.open) { transform: rotateY(-14deg) rotateX(4deg); }
+.book:not(.open):hover { transform: rotateY(-6deg) rotateX(2deg); }
+.book .pg { position: absolute; inset: 0; transform-origin: 0 50%; backface-visibility: hidden; -webkit-backface-visibility: hidden; border-radius: 2px 8px 8px 2px; overflow: hidden;
+  background: #f7f5f1; color: #1d1b1b; box-shadow: 0 22px 46px rgba(0,0,0,.55), inset 3px 0 0 rgba(0,0,0,.08), inset 10px 0 18px -12px rgba(0,0,0,.35); }
+.book .pg.cover { background: radial-gradient(120% 80% at 70% 30%, #232020, #0b0a0a 70%); color: #fff; box-shadow: 0 26px 50px rgba(0,0,0,.7), inset 4px 0 0 rgba(255,255,255,.06), 6px 0 0 -1px #e8e4de, 10px 2px 0 -2px #d9d4cc; }
+.pg-in { position: absolute; inset: 0; padding: 7cqw 7cqw 9cqw; font: 400 3.3cqw/1.35 'Jost', sans-serif; display: flex; flex-direction: column; gap: 2.4cqw; }
+.hw { font: 600 5cqw/1.05 'Caveat', cursive; color: #1d3aa6; font-style: normal; text-transform: none; letter-spacing: 0; }
+.cv { display: flex; flex-direction: column; height: 100%; gap: 3cqw; }
+.cv-lg { width: 30cqw; }
+.cv-t { margin: 6cqw 0 0 !important; display: grid; font: 400 15cqw/.92 'Anton', 'Impact', sans-serif !important; letter-spacing: .01em; color: #fff !important; transform: rotate(-3deg); transform-origin: 0 50%; }
+.cv-t .r { color: #ff2b3d; } .cv-t sup { font-size: .3em; vertical-align: super; }
+.cv-s { margin: 0 !important; font: 600 3cqw/1.2 'Jost' !important; letter-spacing: .14em; text-transform: uppercase; color: #fff !important; }
+.cv-c { margin: 3cqw 0 0 !important; font: 500 2.8cqw/1.5 'Jost' !important; letter-spacing: .08em; text-transform: uppercase; color: rgba(255,255,255,.75) !important; }
+.cv-car { position: absolute; right: 4cqw; bottom: 26cqw; width: 62cqw; fill: none; stroke: rgba(255,255,255,.45); stroke-width: .8; }
+.cv-box { margin-top: auto; width: 56cqw; display: grid; gap: 1.6cqw; padding: 2.4cqw 3cqw; border: 1px solid rgba(255,255,255,.4); font-size: 2.5cqw; letter-spacing: .06em; text-transform: uppercase; }
+.cv-box span { display: flex; justify-content: space-between; align-items: baseline; gap: 2cqw; border-bottom: 1px solid rgba(255,255,255,.25); }
+.cv-box .hw { color: #9fb6ff; font-size: 4.2cqw; }
+.cv-f { margin: 0 !important; font: 500 2.6cqw/1.4 'Jost' !important; text-transform: uppercase; letter-spacing: .06em; color: rgba(255,255,255,.7) !important; }
+.cv-f b { color: #ff2b3d; font-weight: 600; }
+.pg h4 { margin: 0; display: flex; align-items: center; gap: 2.6cqw; font: 600 4.4cqw/1 'Jost'; text-transform: uppercase; letter-spacing: .02em; padding-bottom: 2cqw; border-bottom: 1px solid #bbb; }
+.pg h4 b { display: grid; place-items: center; width: 7cqw; height: 8cqw; background: #e8192c; color: #fff; font: 400 4.2cqw/1 'Anton', sans-serif; }
+.bk-d { display: grid; grid-template-columns: auto 1fr; gap: 1.4cqw 3cqw; margin: 0 0 2cqw; font-size: 3cqw; text-transform: uppercase; letter-spacing: .04em; align-items: baseline; }
+.bk-d dt { font-weight: 600; } .bk-d dd { margin: 0; border-bottom: 1px solid #c9c4bd; }
+.bk-l { margin: 0 !important; font: 600 2.9cqw/1.3 'Jost' !important; text-transform: uppercase; letter-spacing: .06em; color: #1d1b1b !important; }
+.bk-l.r { color: #e8192c !important; }
+.bk-g { display: grid; grid-template-columns: repeat(4, 1fr); gap: 1.6cqw; font-size: 2.2cqw; line-height: 1.25; color: #444; }
+.bk-g span { display: grid; gap: .8cqw; justify-items: start; position: relative; padding: 1.4cqw; border-radius: 3cqw; }
+.bk-g b { font-size: 2.6cqw; color: #1d1b1b; text-transform: uppercase; }
+.bk-g i { width: 4.4cqw; height: 4.4cqw; border-radius: 50%; }
+.bk-g .on { outline: 2px solid #1d3aa6; outline-offset: -1px; border-radius: 50%; }
+.ok i, .dt.ok { background: #3fae49; border-color: #3fae49; } .bu i, .dt.bu { background: #2d4fd6; border-color: #2d4fd6; }
+.me i, .dt.me { background: #f2c21b; border-color: #f2c21b; } .pr i, .dt.pr { background: #e2332f; border-color: #e2332f; }
+.bk-o { margin-top: auto; padding: 2.6cqw 3cqw; background: #ebe8e3; display: grid; gap: 1.4cqw; }
+.bk-t, .bk-h { width: 100%; border-collapse: collapse; font-size: 2.5cqw; }
+.bk-t th, .bk-h th { font-weight: 600; text-transform: uppercase; letter-spacing: .04em; text-align: left; padding: 1cqw; border-bottom: 1px solid #999; }
+.bk-t td, .bk-h td { padding: 1.1cqw 1cqw; border-bottom: 1px solid #ddd; vertical-align: middle; }
+.bk-t td b { display: block; text-transform: uppercase; font-size: 2.6cqw; } .bk-t td small { color: #777; font-size: 2.2cqw; }
+.bk-t .hw, .bk-h .hw { font-size: 3.9cqw; }
+.dts { white-space: nowrap; }
+.dt { display: inline-block; width: 3cqw; height: 3cqw; margin-right: .8cqw; border-radius: 50%; border: 1.5px solid; background: none !important; vertical-align: middle; position: relative; }
+.dt.on::after { content: "✕"; position: absolute; inset: -1.2cqw; display: grid; place-items: center; font: 600 4.2cqw/1 'Caveat'; color: #1d3aa6; }
+.bk-p { list-style: none; margin: 0; padding: 0; display: grid; gap: 2cqw; counter-reset: p; }
+.bk-p li { counter-increment: p; display: grid; grid-template-columns: 5cqw 1fr auto; align-items: center; gap: 1cqw 2cqw; padding-bottom: 1.6cqw; border-bottom: 1px solid #ddd; font-size: 3cqw; text-transform: uppercase; }
+.bk-p li::before { content: counter(p); font: 400 4cqw/1 'Anton'; color: #e8192c; grid-row: span 2; }
+.bk-p li b { grid-column: 2; } .bk-p li .hw { grid-column: 2; font-size: 4.4cqw; } .bk-p li .dt { grid-column: 3; grid-row: 1 / span 2; }
+.bk-h td:first-child { white-space: nowrap; color: #999; }
+.pg footer { position: absolute; left: 7cqw; right: 7cqw; bottom: 4cqw; display: flex; justify-content: space-between; font: 600 2.4cqw/1 'Jost'; letter-spacing: .08em; color: #e8192c; }
+.pg footer span:last-child { color: #1d1b1b; }
+.book-nav { display: flex; align-items: center; gap: 12px; }
+.book-nav span { min-width: 170px; text-align: center; font-size: 12px; letter-spacing: .12em; text-transform: uppercase; color: rgba(255,255,255,.75); }
+.book-nav .btn { width: 44px; height: 44px; min-height: 0; padding: 0; border-radius: 50%; font-size: 22px; }
+.book-nav .btn:disabled { opacity: .3; cursor: default; }
+@media (prefers-reduced-motion: reduce) { .book, .book:not(.open) { transform: none; transition: none; } }
 /* En un móvil la web ocupa SIEMPRE todo el ancho. Antes el ancho se limitaba a la mitad del alto, y con la barra
    del navegador (o en móviles más anchos) quedaban franjas negras a los lados. */
 @media (max-width: 600px), (pointer: coarse) and (orientation: portrait) { .phone { width: 100%; } }
@@ -1163,8 +1220,9 @@ body:has(.phone.loading) { overflow: hidden; }
 /* Report */
 #report { display: grid; grid-template-columns: 1fr 1fr; gap: 0 80px; align-items: start; }
 #report > * { grid-column: 1; }
-#report > details.report { grid-column: 2; grid-row: 1 / span 6; margin: 0; border-radius: 24px; box-shadow: 0 30px 70px rgba(0,0,0,.55); transform: rotate(1.2deg); transition: transform .5s cubic-bezier(.2,.8,.2,1); }
-#report > details.report:hover { transform: none; }
+#report > .bookw { grid-column: 2; grid-row: 1 / span 6; margin: 0; }
+#report .book { width: min(100%, 440px); }
+#report .book-nav span { font-size: 13px; }
 .land .report summary { display: none; }
 .land .rep { padding: 30px; gap: 14px; }
 .land .rep-row { font-size: 15px; padding-bottom: 9px; }
@@ -1442,26 +1500,15 @@ if (innerWidth < 700 && innerHeight > innerWidth) location.replace('https://topd
           <li>Seguimiento de futuras visitas</li><li>Recomendaciones personalizadas</li><li>Evolución del estado</li>
         </ul>
         <p class="note">Incluido en pulidos y cerámicos. En las limpiezas, opcional por <strong>+10&nbsp;€</strong>.</p>
-        <details class="report">
-          <summary>Ver informe de ejemplo</summary>
-          <div class="rep">
-            <div class="rep-row"><span>Nº de informe</span><b>TDG-2024-00057</b></div>
-            <div class="rep-row"><span>Vehículo</span><b>BMW 330i · 28.450 km</b></div>
-            <div class="rep-row"><span>Condición general</span><b>Buen estado</b></div>
-            <div class="rep-img">
-              <figure><img src="img/03-correccion_pintura_swirls.webp?v=2" alt="Pintura con remolinos antes del pulido" loading="lazy"><figcaption>Antes</figcaption></figure>
-              <figure><img src="img/03-correccion_pintura_1paso.webp?v=2" alt="Pintura recuperada después del pulido" loading="lazy"><figcaption>Después</figcaption></figure>
-            </div>
-            <p class="rep-h">Observaciones</p>
-            <ul><li>Microarañazos en pintura.</li><li>Marcas de agua en zonas superiores.</li></ul>
-            <p class="rep-h">Registro de intervenciones</p>
-            <div class="rep-row"><span>25/05/24</span><b>Lavado premium + exterior</b></div>
-            <div class="rep-row"><span>10/06/24</span><b>Corrección de pintura 1 paso</b></div>
-            <div class="rep-row"><span>25/06/24</span><b>Protección cerámica 5 años</b></div>
-            <p class="rep-h">Recomendaciones</p>
-            <ul><li>Lavado cada 2–3 semanas.</li><li>Mantener la protección con mantenimiento periódico.</li><li>Evitar el estacionamiento prolongado al sol.</li></ul>
+        <!-- El librito real del Top Detail Report, maquetado en la web con datos de EJEMPLO (no son de ningún cliente) -->
+        <div class="bookw">
+          <div class="book" id="book" role="group" aria-roledescription="libro" aria-label="Top Detail Report de ejemplo"></div>
+          <div class="book-nav">
+            <button class="btn" id="bk-prev" type="button" aria-label="Página anterior" disabled>‹</button>
+            <span id="bk-n">Toca el libro para abrirlo</span>
+            <button class="btn" id="bk-next" type="button" aria-label="Página siguiente">›</button>
           </div>
-        </details>
+        </div>
       </section>
 
       <section data-tab="contacto" data-o="1">
@@ -2109,7 +2156,6 @@ if (innerWidth < 700 && innerHeight > innerWidth) location.replace('https://topd
     panels[t].prepend(h); $('land').append(panels[t]);
   });
   $('land').append($('sheet-cta'));
-  document.querySelector('#report details.report').open = true;
   const onScroll = () => {
     document.body.classList.toggle('scrolled', scrollY > innerHeight * .6);
     const y = innerHeight * .4; let cur = null, best = -1e9;
@@ -2170,6 +2216,80 @@ if (innerWidth < 700 && innerHeight > innerWidth) location.replace('https://topd
     if (!b.dataset.go.includes(':')) { openSheet(b.dataset.go === 'packs' ? 'ceramico' : b.dataset.go, b.dataset.go); return; }
     const [c, i] = b.dataset.go.split(':'); scrollTo({ top: 0, behavior: 'smooth' }); play(c, +i);
   });
+
+  // ── Top Detail Report: el librito de verdad, con datos de ejemplo. Se abre al tocarlo y se pasan las hojas ──
+  (() => {
+    const book = $('book'); if (!book) return;
+    const hand = t => `<i class="hw">${t}</i>`;
+    const ST = ['ok', 'bu', 'me', 'pr'];   // óptimo, bueno, mejorable, prioritario
+    const dots = k => ST.map((c, j) => `<span class="dt ${c}${j === k ? ' on' : ''}"></span>`).join('');
+    const head = (n, t) => `<h4><b>${n}</b>${t}</h4>`;
+    const foot = n => `<footer><span>TOP DETAIL GARAGE</span><span>${n}</span></footer>`;
+    const rows = list => `<table class="bk-t"><thead><tr><th>Elemento</th><th>Estado</th><th>Observaciones</th></tr></thead><tbody>${
+      list.map(([e, sub, k, ob]) => `<tr><td><b>${e}</b><small>${sub}</small></td><td class="dts">${dots(k)}</td><td>${ob ? hand(ob) : ''}</td></tr>`).join('')}</tbody></table>`;
+    const P = [
+      // Portada
+      `<div class="cv"><img src="img/logo-topdetail.svg" alt="" class="cv-lg"><p class="cv-t"><span>TOP DETAIL</span><span class="r">REPORT<sup>™</sup></span></p>
+        <p class="cv-s">Libro de mantenimiento estético</p>
+        <p class="cv-c">Cuidamos tu vehículo.<br>Hacemos seguimiento de su estado.<br>Preservamos su valor.</p>
+        <svg class="cv-car" viewBox="0 0 200 80" aria-hidden="true"><path d="M8 58c6-14 20-20 40-24l26-14c10-5 22-6 34-6h18c14 0 26 5 36 13l14 11c10 2 18 6 20 13v7H8z"/><circle cx="52" cy="62" r="11"/><circle cx="154" cy="62" r="11"/><path d="M84 22l-6 14h44V20M126 20l22 16"/></svg>
+        <div class="cv-box"><span>Nº de expediente <i class="hw">TDG-0128</i></span><span>Fecha de entrada <i class="hw">14/10/26</i></span></div>
+        <p class="cv-f">Más que una limpieza. <b>Un documento profesional del estado de tu vehículo.</b></p></div>`,
+      // 01 + 02
+      `${head('01', 'Datos del vehículo')}
+        <dl class="bk-d"><dt>Marca / modelo</dt><dd>${hand('BMW 330i')}</dd><dt>Año</dt><dd>${hand('2021')}</dd><dt>Kilometraje</dt><dd>${hand('28.450')} km</dd><dt>Color</dt><dd>${hand('Negro zafiro')}</dd><dt>Propietario</dt><dd>${hand('Cliente de ejemplo')}</dd><dt>Fecha</dt><dd>${hand('14 / 10 / 26')}</dd></dl>
+        ${head('02', 'Diagnóstico estético global')}
+        <p class="bk-l">Estado general del vehículo</p>
+        <div class="bk-g"><span class="ok"><i></i><b>Óptimo</b>No requiere intervención</span><span class="bu on"><i></i><b>Bueno</b>Mantenimiento recomendado</span><span class="me"><i></i><b>Mejorable</b>Conviene actuar</span><span class="pr"><i></i><b>Prioritario</b>Se recomienda intervención</span></div>
+        <div class="bk-o"><p class="bk-l">Observaciones generales</p>${hand('Buen estado general. Remolinos de lavado en capó y techo. Cuero del conductor algo reseco: se recomienda nutrir.')}</div>${foot('03')}`,
+      // 03 · exterior
+      `${head('03', 'Diagnóstico detallado')}<p class="bk-l r">Exterior</p>${rows([
+        ['Pintura', 'superficie', 2, 'Remolinos de lavado'], ['Estado del barniz', 'brillo, profundidad', 1, ''], ['Protección', 'cerámico, cera', 2, 'Sin protección'],
+        ['Contaminación', 'férrica, alquitrán', 1, ''], ['Llantas', 'suciedad, marcas', 1, ''], ['Neumáticos', 'estado y limpieza', 0, ''],
+        ['Cristales', 'cal, marcas', 2, 'Cal en ventanillas'], ['Gomas y plásticos', 'exteriores', 1, '']])}${foot('04')}`,
+      // 03 · interior
+      `${head('03', 'Diagnóstico detallado')}<p class="bk-l r">Interior</p>${rows([
+        ['Tapicería', 'manchas, desgaste', 1, ''], ['Cuero', 'hidratación', 2, 'Reseco, nutrir'], ['Plásticos', 'y superficies', 1, ''],
+        ['Moqueta', 'limpieza, manchas', 1, ''], ['Maletero', 'limpieza y orden', 0, ''], ['Olor interior', 'olor percibido', 0, '']])}${foot('05')}`,
+      // 04
+      `${head('04', 'Prioridad de actuación')}<p class="bk-l">Según el diagnóstico, estas son las áreas que recomendamos tratar</p>
+        <ol class="bk-p"><li><b>Pintura</b>${hand('Pulido 1 paso')}<span class="dt me on"></span></li><li><b>Protección</b>${hand('Cerámico 5 años')}<span class="dt me on"></span></li><li><b>Cuero</b>${hand('Nutrición')}<span class="dt me on"></span></li><li><b>Cristales</b>${hand('Pulido de cristales')}<span class="dt bu on"></span></li></ol>
+        <div class="bk-o"><p class="bk-l">Recomendaciones</p>${hand('Lavado de mantenimiento cada mes. Evitar túneles de lavado. Booster del cerámico a los 6 meses.')}</div>${foot('06')}`,
+      // 05
+      `${head('05', 'Historial de intervenciones')}<table class="bk-h"><thead><tr><th>Fecha</th><th>Servicio</th><th>Km</th><th>Próxima</th></tr></thead><tbody>
+        <tr><td>${hand('14/10/26')}</td><td>${hand('Limpieza premium')}</td><td>${hand('28.450')}</td><td>${hand('—')}</td></tr>
+        <tr><td>${hand('28/10/26')}</td><td>${hand('Pulido 1 paso')}</td><td>${hand('28.700')}</td><td>${hand('—')}</td></tr>
+        <tr><td>${hand('29/10/26')}</td><td>${hand('Cerámico 5 años')}</td><td>${hand('28.710')}</td><td>${hand('04/27')}</td></tr>
+        ${'<tr><td>__/__/__</td><td></td><td></td><td></td></tr>'.repeat(3)}</tbody></table>
+        <div class="bk-o"><p class="bk-l">Observaciones</p>${hand('Cliente muy cuidadoso. Siguiente visita: booster y revisión.')}</div>${foot('07')}`,
+    ];
+    book.innerHTML = P.map((h, k) => `<div class="pg${k ? '' : ' cover'}" data-k="${k}" aria-hidden="${k ? 'true' : 'false'}"><div class="pg-in">${h}</div></div>`).join('');
+    const pg = [...book.children], N = P.length;
+    let cur = 0, busy = false;
+    const lbl = ['Portada', 'Datos y diagnóstico', 'Exterior', 'Interior', 'Prioridades', 'Historial'];
+    function paint() {
+      pg.forEach((p, k) => { p.style.zIndex = k === cur ? 3 : 1; p.style.visibility = k === cur ? 'visible' : 'hidden'; p.setAttribute('aria-hidden', String(k !== cur)); });
+      book.classList.toggle('open', cur > 0);
+      $('bk-prev').disabled = cur === 0; $('bk-next').disabled = cur === N - 1;
+      $('bk-n').textContent = cur ? `${lbl[cur]} · ${cur} / ${N - 1}` : 'Toca el libro para abrirlo';
+    }
+    function go(d) {
+      const to = cur + d; if (busy || to < 0 || to >= N) return;
+      busy = true;
+      const fwd = d > 0, top = fwd ? pg[cur] : pg[to], under = fwd ? pg[to] : pg[cur];
+      under.style.visibility = 'visible'; under.style.zIndex = 2; top.style.visibility = 'visible'; top.style.zIndex = 3;
+      const kf = fwd ? [{ transform: 'rotateY(0deg)' }, { transform: 'rotateY(-178deg)' }] : [{ transform: 'rotateY(-178deg)' }, { transform: 'rotateY(0deg)' }];
+      const a = top.animate(kf, { duration: reduce ? 0 : 750, easing: 'cubic-bezier(.45,.05,.25,1)' });
+      const sh = under.animate(fwd ? [{ filter: 'brightness(.55)' }, { filter: 'brightness(1)' }] : [{ filter: 'brightness(1)' }, { filter: 'brightness(.55)' }], { duration: reduce ? 0 : 750 });
+      a.finished.then(() => { cur = to; busy = false; paint(); sh.cancel(); });
+    }
+    book.addEventListener('click', e => { if (e.target.closest('button')) return; const r = book.getBoundingClientRect(); go(cur === 0 || e.clientX > r.left + r.width * .35 ? 1 : -1); });
+    $('bk-prev').onclick = () => go(-1); $('bk-next').onclick = () => go(1);
+    let x0 = null;
+    book.addEventListener('touchstart', e => { x0 = e.touches[0].clientX; }, { passive: true });
+    book.addEventListener('touchend', e => { if (x0 === null) return; const dx = e.changedTouches[0].clientX - x0; x0 = null; if (Math.abs(dx) > 40) { e.preventDefault(); go(dx < 0 ? 1 : -1); } });
+    paint();
+  })();
   // Teoría: la foto cambia según el apartado abierto (sin pulir → pulida → con cerámico)
   document.querySelectorAll('#teoria .acc').forEach(d => d.addEventListener('toggle', () => {
     if (!d.open) return;
