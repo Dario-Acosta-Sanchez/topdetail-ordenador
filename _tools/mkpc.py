@@ -38,12 +38,12 @@ CSS = r'''
 /* Cabecera */
 #phone .top { padding: 22px 44px; }
 #phone .logo img { height: 66px; }
-#phone .where { grid-column: 1; grid-row: 1; justify-self: start; font: 400 11px/1 var(--ui); letter-spacing: .42em; text-transform: uppercase; color: rgba(233,220,199,.72); transition: opacity .5s; }
+#phone .where { grid-column: 1; grid-row: 1; justify-self: start; font: 400 11px/1 var(--ui); letter-spacing: .42em; text-transform: uppercase; color: rgba(255,255,255,.72); transition: opacity .5s; }
 #phone.loading .where, #phone.in-cat .where, #phone.in-serv .where { opacity: 0; }
 #phone .cita { padding: 15px 24px; font-size: 12px; letter-spacing: .2em; transition: opacity .5s, filter .25s, transform .25s; }
 #phone .cita:hover { filter: brightness(1.15); transform: translateY(-1px); }
 #phone .back { top: 34px; left: 44px; height: 46px; padding: 0 22px 0 14px; font-size: 12px; }
-#phone .back:hover { background: rgba(233,220,199,.12); }
+#phone .back:hover { background: rgba(255,255,255,.12); }
 #phone .back { transition: transform .55s cubic-bezier(.2,.8,.2,1) .12s, opacity .3s; }
 #phone:not(.in-cat):not(.in-serv) .back { opacity: 0; transform: translateX(calc(-100% - 60px)); }
 /* Menú */
@@ -54,12 +54,12 @@ CSS = r'''
 #phone .side .dock svg { width: 26px; height: 26px; }
 #phone .side.l .dock button.star { width: 108px; height: 108px; margin: -36px 8px 0; font-size: 12px; }
 #phone .side.l .dock button.star svg { width: 30px; height: 30px; }
-#phone .side .dock button:not(.star):hover { background: rgba(233,220,199,.1); color: #fff; }
+#phone .side .dock button:not(.star):hover { background: rgba(255,255,255,.1); color: #fff; }
 #phone .side.l .dock button.star:hover { filter: brightness(1.15); transform: scale(1.04); }
 #phone .side.s .dock button { width: 132px; }
 #phone .side.l .links { gap: 10px; }
 #phone .side.l .links button { height: 42px; padding: 0 20px; font-size: 11px; letter-spacing: .2em; transition: background .25s, border-color .25s, color .25s; }
-#phone .side.l .links button:hover { background: rgba(233,220,199,.12); border-color: rgba(233,220,199,.5); color: #fff; }
+#phone .side.l .links button:hover { background: rgba(255,255,255,.12); border-color: rgba(255,255,255,.5); color: #fff; }
 /* Ficha: abajo a la izquierda; en el menú de servicios, centrada sobre el menú */
 #phone .hud { inset: auto auto 36px 36px; width: min(560px, 40cqw); padding: 26px 28px 24px; gap: 8px; border-radius: 30px; }
 #phone h1 { font-size: clamp(38px, 3.9cqw, 64px); line-height: 1; gap: 6px 16px; }
@@ -75,10 +75,10 @@ CSS = r'''
 #phone .ab button:not([aria-pressed="true"]):hover { color: #fff; }
 #phone .glass { margin-top: 20px; max-width: 420px; }
 #phone .add { max-width: 400px; height: 46px; margin-top: 10px; }
-#phone .add:hover { background: rgba(233,220,199,.14); }
+#phone .add:hover { background: rgba(255,255,255,.14); }
 #phone .add.on:hover { background: var(--red); filter: brightness(1.15); }
 #phone .more { height: 36px; padding: 0 12px 0 16px; font-size: 10.5px; transition: background .25s; }
-#phone .more:hover { background: rgba(233,220,199,.18); }
+#phone .more:hover { background: rgba(255,255,255,.18); }
 #phone.in-serv .hud { inset: 128px auto auto 50%; translate: -50% 0; width: max-content; max-width: 90%; justify-items: center; text-align: center; padding: 22px 40px 20px; }
 #phone.in-serv .desc { text-shadow: 0 1px 12px #000; }
 #phone.in-serv .hud .row { justify-content: center; gap: 18px; }
@@ -88,7 +88,7 @@ CSS = r'''
 #phone .xside.l { right: 44px; top: 118px; gap: 8px; max-height: calc(100cqh - 118px - 48px); padding: 8px 4px 8px 12px; }
 #phone .xside.l p { font-size: 10px; letter-spacing: .36em; margin: 10px 4px 2px 0; }
 #phone .xside button { min-width: 176px; min-height: 44px; padding: 8px 20px; font-size: 11px; letter-spacing: .18em; transition: background .25s, border-color .25s, transform .25s; }
-#phone .xside button:not([aria-current="true"]):hover { background: rgba(233,220,199,.14); border-color: rgba(233,220,199,.5); transform: translateX(-3px); }
+#phone .xside button:not([aria-current="true"]):hover { background: rgba(255,255,255,.14); border-color: rgba(255,255,255,.5); transform: translateX(-3px); }
 #phone .xside button .badge { font-size: 8px; padding: 3px 7px 2px; top: -8px; right: -6px; }
 /* Tutorial: la cápsula, abajo en el centro (sobre el menú cuando lo hay) */
 #phone .island { bottom: calc(232px + env(safe-area-inset-bottom, 0px)); min-height: 52px; padding-left: 20px; }
@@ -101,7 +101,7 @@ CSS = r'''
 .sheet-open .scrim { opacity: 1; pointer-events: auto; }
 #phone .sheet {
   inset: 0 0 0 auto; width: min(620px, 100%); padding-left: 40px; padding-right: 40px;
-  border-left: 1px solid rgba(233,220,199,.16); box-shadow: -50px 0 90px rgba(0,0,0,.6);
+  border-left: 1px solid rgba(255,255,255,.16); box-shadow: -50px 0 90px rgba(0,0,0,.6);
   background: linear-gradient(to bottom, rgba(10,8,8,.94), rgba(6,5,5,.98) 26%);
   transform: translateX(60px);
 }

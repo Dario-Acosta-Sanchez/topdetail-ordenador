@@ -706,11 +706,11 @@ h1 { font-weight: 800; font-size: 22px; line-height: 1.1; letter-spacing: .01em;
 #phone .logo .lg, #phone .logo .lg * { white-space: nowrap; }
 @container (max-width: 360px) { #phone .logo .lg { --ls: 8.6px; } #phone .logo img { height: 36px !important; } }
 
-:root { --ui: 'Jost', system-ui, sans-serif; --display: 'Cormorant Garamond', Georgia, serif; --champ: #e9dcc7; }
+:root { --ui: 'Jost', system-ui, sans-serif; --display: 'Cormorant Garamond', Georgia, serif; --champ: #ffffff; }
 #phone h1 { font: 600 31px/1 var(--display); text-transform: none; letter-spacing: 0; }
 #phone .loader b { font: 500 25px/1 var(--display); text-transform: none; letter-spacing: .01em; }
 #phone .hello { font: 400 10px/1 var(--ui); letter-spacing: .5em; color: var(--champ); }
-#phone .eyebrow { font: 500 10px/1 var(--ui); letter-spacing: .3em; color: rgba(233,220,199,.75); }
+#phone .eyebrow { font: 500 10px/1 var(--ui); letter-spacing: .3em; color: rgba(255,255,255,.75); }
 #phone .desc { font: 300 15.5px/1.5 var(--ui); color: rgba(255,255,255,.8); }
 #phone .price { font-family: var(--ui); font-weight: 400; }
 #phone .sheet h3 { font-weight: 500; font-size: 30px; }
@@ -722,32 +722,32 @@ h1 { font-weight: 800; font-size: 22px; line-height: 1.1; letter-spacing: .01em;
 #phone .cita { grid-column: 3; grid-row: 1; justify-self: end; position: relative; border-radius: 999px; padding: 10px 13px; font: 500 10.5px/1 var(--ui); letter-spacing: .16em; }
 #phone .cita .n { position: absolute; top: -8px; right: -5px; margin: 0; }
 /* Servicios: cápsula flotante abajo, con Pintura en un círculo central */
-#phone .side.l { left: 50%; right: auto; bottom: calc(22px + env(safe-area-inset-bottom, 0px)); transform: translateX(-50%); display: flex; align-items: center; gap: 2px; padding: 6px; border-radius: 999px; background: rgba(14,12,12,.64); border: 1px solid rgba(233,220,199,.2); -webkit-backdrop-filter: blur(18px) saturate(140%); backdrop-filter: blur(18px) saturate(140%); box-shadow: 0 18px 40px rgba(0,0,0,.55); transition: transform .6s cubic-bezier(.2,.8,.2,1), opacity .4s; }
+#phone .side.l { left: 50%; right: auto; bottom: calc(22px + env(safe-area-inset-bottom, 0px)); transform: translateX(-50%); display: flex; align-items: center; gap: 2px; padding: 6px; border-radius: 999px; background: rgba(14,12,12,.64); border: 1px solid rgba(255,255,255,.2); -webkit-backdrop-filter: blur(18px) saturate(140%); backdrop-filter: blur(18px) saturate(140%); box-shadow: 0 18px 40px rgba(0,0,0,.55); transition: transform .6s cubic-bezier(.2,.8,.2,1), opacity .4s; }
 #phone .side.l button { width: 60px; height: 56px; border-radius: 999px; background: none; border: 0; box-shadow: none; -webkit-backdrop-filter: none; backdrop-filter: none; gap: 5px; font: 500 9px/1 var(--ui); letter-spacing: .12em; color: var(--champ); }
-#phone .side.l button.star { width: 68px; height: 68px; margin: -22px 4px 0; border-radius: 50%; color: #fff; background: radial-gradient(circle at 35% 25%, #ff4a5a, #a80f1e 70%); border: 1px solid rgba(233,220,199,.4); box-shadow: 0 10px 24px rgba(232,25,44,.5), inset 0 1px 0 rgba(255,255,255,.3); }
+#phone .side.l button.star { width: 68px; height: 68px; margin: -22px 4px 0; border-radius: 50%; color: #fff; background: radial-gradient(circle at 35% 25%, #ff4a5a, #a80f1e 70%); border: 1px solid rgba(255,255,255,.4); box-shadow: 0 10px 24px rgba(232,25,44,.5), inset 0 1px 0 rgba(255,255,255,.3); }
 #phone .side.l .badge { top: -11px; background: var(--champ); color: #2a1a12; font-family: var(--ui); font-weight: 600; letter-spacing: .14em; border-radius: 999px; }
 #phone .side svg { width: 22px; height: 22px; stroke-width: 1.15; }
 #phone.invite .side button.star::after { border-radius: 50%; border-color: var(--champ); }
 #phone.loading .side.l button, #phone.in-cat .side.l button { transform: none; }
 #phone.loading .side.l, #phone.in-cat .side.l { transform: translate(-50%, calc(100% + 60px)); opacity: 0; }
-#phone .island { bottom: calc(118px + env(safe-area-inset-bottom, 0px)); border-color: rgba(233,220,199,.4); }
+#phone .island { bottom: calc(118px + env(safe-area-inset-bottom, 0px)); border-color: rgba(255,255,255,.4); }
 #phone .island::after { background: var(--champ); }
 #phone .isl-t { font: 500 13px/1.2 var(--ui); letter-spacing: .14em; }
 #phone .isl-n { color: var(--champ); font-family: var(--ui); }
 /* Volver: píldora arriba a la izquierda */
-#phone .back { top: calc(74px + 2%); border-radius: 999px; height: 42px; padding: 0 16px 0 10px; background: rgba(14,12,12,.58); border: 1px solid rgba(233,220,199,.3); box-shadow: none; font: 500 11px/1 var(--ui); letter-spacing: .2em; color: var(--champ); }
+#phone .back { top: calc(74px + 2%); border-radius: 999px; height: 42px; padding: 0 16px 0 10px; background: rgba(14,12,12,.58); border: 1px solid rgba(255,255,255,.3); box-shadow: none; font: 500 11px/1 var(--ui); letter-spacing: .2em; color: var(--champ); }
 /* Opciones: píldoras a la derecha */
 #phone .xside.l { left: auto; right: calc(12px + env(safe-area-inset-right, 0px)); justify-items: end; top: calc(74px + 2%); transform: translateX(calc(100% + 30px)); max-height: calc(100cqh - 74px - 2cqh - var(--hud-h, 190px) - 24px); }
 #phone.in-cat .xside.l { transform: none; }
 #phone .xside.l p { text-align: right; justify-self: stretch; font: 500 9px/1 var(--ui); letter-spacing: .3em; color: var(--champ); }
-#phone .xside button { width: auto; min-width: 86px; min-height: 36px; padding: 6px 14px; border-radius: 999px; justify-content: center; text-align: center; font: 500 10px/1.1 var(--ui); letter-spacing: .12em; background: rgba(14,12,12,.62); border: 1px solid rgba(233,220,199,.22); box-shadow: none; }
-#phone .xside.l button { border-left: 1px solid rgba(233,220,199,.22); text-align: center; box-shadow: none; }
-#phone .xside button[aria-current="true"] { background: var(--red); border-color: rgba(233,220,199,.45); box-shadow: 0 8px 20px rgba(232,25,44,.4); }
-#phone .xside.l button.sup { border: 1px dashed rgba(233,220,199,.35); }
+#phone .xside button { width: auto; min-width: 86px; min-height: 36px; padding: 6px 14px; border-radius: 999px; justify-content: center; text-align: center; font: 500 10px/1.1 var(--ui); letter-spacing: .12em; background: rgba(14,12,12,.62); border: 1px solid rgba(255,255,255,.22); box-shadow: none; }
+#phone .xside.l button { border-left: 1px solid rgba(255,255,255,.22); text-align: center; box-shadow: none; }
+#phone .xside button[aria-current="true"] { background: var(--red); border-color: rgba(255,255,255,.45); box-shadow: 0 8px 20px rgba(232,25,44,.4); }
+#phone .xside.l button.sup { border: 1px dashed rgba(255,255,255,.35); }
 #phone .xside button .badge { border-radius: 999px; background: var(--champ); color: #2a1a12; }
 /* Antes / Después: control segmentado en píldora */
-#phone .ab { gap: 0; padding: 4px; border-radius: 999px; background: rgba(255,255,255,.06); border: 1px solid rgba(233,220,199,.2); }
-#phone .ab button { height: 38px; border-radius: 999px; background: none; border: 0; box-shadow: none; -webkit-backdrop-filter: none; backdrop-filter: none; font: 500 11px/1 var(--ui); letter-spacing: .2em; color: rgba(233,220,199,.72); }
+#phone .ab { gap: 0; padding: 4px; border-radius: 999px; background: rgba(255,255,255,.06); border: 1px solid rgba(255,255,255,.2); }
+#phone .ab button { height: 38px; border-radius: 999px; background: none; border: 0; box-shadow: none; -webkit-backdrop-filter: none; backdrop-filter: none; font: 500 11px/1 var(--ui); letter-spacing: .2em; color: rgba(255,255,255,.72); }
 #phone .ab button[aria-pressed="true"] { background: var(--champ); color: #1a1210; box-shadow: none; border: 0; }
 /* Taller */
 #phone .tabs button { font: 500 10.5px/1 var(--ui); letter-spacing: .14em; }
@@ -771,7 +771,7 @@ h1 { font-weight: 800; font-size: 22px; line-height: 1.1; letter-spacing: .01em;
 #phone .side.l, #phone .side.s { z-index: 5; }
 #phone .side .dock {
   display: flex; align-items: center; gap: 2px; padding: 6px; border-radius: 999px;
-  background: rgba(14,12,12,.66); border: 1px solid rgba(233,220,199,.2);
+  background: rgba(14,12,12,.66); border: 1px solid rgba(255,255,255,.2);
   -webkit-backdrop-filter: blur(18px) saturate(140%); backdrop-filter: blur(18px) saturate(140%); box-shadow: 0 18px 40px rgba(0,0,0,.55);
 }
 #phone .side.l .dock button, #phone .side.s .dock button {
@@ -780,11 +780,11 @@ h1 { font-weight: 800; font-size: 22px; line-height: 1.1; letter-spacing: .01em;
   font: 500 10px/1.1 var(--ui); letter-spacing: .12em; text-transform: uppercase; color: var(--champ);
 }
 #phone .side .dock button > span { display: grid; justify-items: center; gap: 3px; }
-#phone .side .dock button small { font: 400 8.5px/1 var(--ui); letter-spacing: .14em; color: rgba(233,220,199,.62); }
+#phone .side .dock button small { font: 400 8.5px/1 var(--ui); letter-spacing: .14em; color: rgba(255,255,255,.62); }
 #phone .side .dock svg { width: 22px; height: 22px; stroke-width: 1.15; }
 #phone .side.l .dock button.star {
   width: 80px; height: 80px; margin: -26px 4px 0; border-radius: 50%; font-size: 10.5px; color: #fff;
-  background: radial-gradient(circle at 35% 25%, #ff4a5a, #a80f1e 70%); border: 1px solid rgba(233,220,199,.4);
+  background: radial-gradient(circle at 35% 25%, #ff4a5a, #a80f1e 70%); border: 1px solid rgba(255,255,255,.4);
   box-shadow: 0 10px 24px rgba(232,25,44,.5), inset 0 1px 0 rgba(255,255,255,.3);
 }
 #phone .side.l .dock button.star svg { width: 24px; height: 24px; }
@@ -796,7 +796,7 @@ h1 { font-weight: 800; font-size: 22px; line-height: 1.1; letter-spacing: .01em;
 #phone .side.l .links button {
   width: auto; height: 36px; padding: 0 13px; border-radius: 999px; display: inline-flex; align-items: center;
   font: 500 9.5px/1 var(--ui); letter-spacing: .14em; text-transform: uppercase; color: var(--champ); white-space: nowrap;
-  background: rgba(14,12,12,.55); border: 1px solid rgba(233,220,199,.22); box-shadow: none;
+  background: rgba(14,12,12,.55); border: 1px solid rgba(255,255,255,.22); box-shadow: none;
   -webkit-backdrop-filter: blur(12px); backdrop-filter: blur(12px); transform: none;
 }
 #phone .side .links.pulse button { animation: cta-pulse .9s ease-in-out infinite; }
@@ -816,7 +816,7 @@ h1 { font-weight: 800; font-size: 22px; line-height: 1.1; letter-spacing: .01em;
 #phone .more {
   flex: none; display: inline-flex; align-items: center; gap: 3px; height: 30px; padding: 0 9px 0 13px; border-radius: 999px; cursor: pointer;
   font: 500 10px/1 var(--ui); letter-spacing: .14em; text-transform: uppercase; color: var(--champ);
-  background: rgba(233,220,199,.08); border: 1px solid rgba(233,220,199,.32);
+  background: rgba(255,255,255,.08); border: 1px solid rgba(255,255,255,.32);
 }
 #phone .more svg { width: 13px; height: 13px; fill: none; stroke: currentColor; stroke-width: 1.6; stroke-linecap: round; stroke-linejoin: round; }
 #phone .more:focus-visible { outline: 2px solid var(--champ); outline-offset: 2px; }
@@ -824,11 +824,11 @@ h1 { font-weight: 800; font-size: 22px; line-height: 1.1; letter-spacing: .01em;
 .contact { list-style: none; margin: 0 0 10px; padding: 0; display: grid; gap: 8px; }
 .contact a, .contact .off {
   display: flex; align-items: center; gap: 14px; padding: 12px 14px; border-radius: 14px; color: var(--ink); text-decoration: none;
-  border: 1px solid rgba(233,220,199,.16); background: rgba(255,255,255,.04);
+  border: 1px solid rgba(255,255,255,.16); background: rgba(255,255,255,.04);
 }
 .contact svg { width: 22px; height: 22px; flex: none; fill: none; stroke: var(--champ); stroke-width: 1.3; stroke-linecap: round; stroke-linejoin: round; }
 .contact a > span, .contact .off > span { display: grid; gap: 4px; font-size: 16px; font-weight: 500; }
-.contact small { font-size: 10px; letter-spacing: .16em; text-transform: uppercase; color: rgba(233,220,199,.62); }
+.contact small { font-size: 10px; letter-spacing: .16em; text-transform: uppercase; color: rgba(255,255,255,.62); }
 .contact .off { opacity: .55; }
 .tab-p > .hero + section, .tab-p > section:first-child { border-top: 0; }
 .tab-p > section:first-child { padding-top: 6px; }
@@ -838,18 +838,18 @@ h1 { font-weight: 800; font-size: 22px; line-height: 1.1; letter-spacing: .01em;
 #phone .add {
   margin-top: 8px; width: 100%; height: 42px; display: flex; align-items: center; justify-content: center; gap: 8px; cursor: pointer; border-radius: 999px;
   font: 500 11px/1 var(--ui); letter-spacing: .18em; text-transform: uppercase; color: var(--champ);
-  background: rgba(233,220,199,.06); border: 1px dashed rgba(233,220,199,.5); transition: background .25s, border-color .25s, color .25s;
+  background: rgba(255,255,255,.06); border: 1px dashed rgba(255,255,255,.5); transition: background .25s, border-color .25s, color .25s;
 }
 #phone .add svg { width: 16px; height: 16px; fill: none; stroke: currentColor; stroke-width: 1.8; stroke-linecap: round; stroke-linejoin: round; }
 #phone .add .c, #phone .add.on .p { display: none; }
 #phone .add.on .c { display: inline; }
-#phone .add.on { color: #fff; background: var(--red); border: 1px solid rgba(233,220,199,.45); box-shadow: 0 8px 20px rgba(232,25,44,.35); }
+#phone .add.on { color: #fff; background: var(--red); border: 1px solid rgba(255,255,255,.45); box-shadow: 0 8px 20px rgba(232,25,44,.35); }
 #phone .add.pulse { animation: cta-pulse .9s ease-in-out infinite; }
 #phone .add:focus-visible { outline: 2px solid var(--champ); outline-offset: 2px; }
 /* Precios: cada familia de servicios en su tarjeta, con icono y aire entre ellas */
-.svc-c { margin: 0 0 18px; padding: 16px 16px 6px; border-radius: 18px; border: 1px solid rgba(233,220,199,.16); background: linear-gradient(160deg, rgba(255,255,255,.06), rgba(255,255,255,.015) 70%); box-shadow: 0 12px 28px rgba(0,0,0,.35); }
+.svc-c { margin: 0 0 18px; padding: 16px 16px 6px; border-radius: 18px; border: 1px solid rgba(255,255,255,.16); background: linear-gradient(160deg, rgba(255,255,255,.06), rgba(255,255,255,.015) 70%); box-shadow: 0 12px 28px rgba(0,0,0,.35); }
 .svc-c .svc-g { display: flex; align-items: center; gap: 12px; margin: 0 0 6px; padding-bottom: 12px; border-bottom: 1px solid rgba(232,25,44,.7); font: 600 24px/1 var(--display); letter-spacing: 0; text-transform: none; color: #fff; }
-.svc-c .svc-g svg { width: 22px; height: 22px; padding: 9px; box-sizing: content-box; flex: none; border-radius: 50%; fill: none; stroke: var(--champ); stroke-width: 1.2; stroke-linecap: round; stroke-linejoin: round; background: rgba(232,25,44,.35); border: 1px solid rgba(233,220,199,.3); }
+.svc-c .svc-g svg { width: 22px; height: 22px; padding: 9px; box-sizing: content-box; flex: none; border-radius: 50%; fill: none; stroke: var(--champ); stroke-width: 1.2; stroke-linecap: round; stroke-linejoin: round; background: rgba(232,25,44,.35); border: 1px solid rgba(255,255,255,.3); }
 .svc-c .svc { margin: 0; }
 .svc-c .svc li:last-child { border-bottom: 0; }
 .svc-c .svc li b { font: 600 15px/1.2 var(--ui); letter-spacing: .06em; }
@@ -870,7 +870,7 @@ h1 { font-weight: 800; font-size: 22px; line-height: 1.1; letter-spacing: .01em;
 #phone .hud > * { position: relative; }
 #phone .hud.empty { visibility: hidden; }
 #phone .desc { color: rgba(255,255,255,.92); font-weight: 400; }
-#phone .eyebrow { color: rgba(233,220,199,.9); }
+#phone .eyebrow { color: rgba(255,255,255,.9); }
 #phone .price { color: #fff; }
 #phone.in-serv .hud { bottom: calc(100px + env(safe-area-inset-bottom, 0px)); padding-bottom: 14px; }
 /* Panel compacto (ocupaba media pantalla en móviles con barra de navegador): sin etiquetas, texto más prieto
@@ -891,6 +891,35 @@ h1 { font-weight: 800; font-size: 22px; line-height: 1.1; letter-spacing: .01em;
 #phone.in-cat .layer, #phone.in-cat .seq { translate: 0 -11cqh; }
 #phone.in-serv .island { bottom: calc(var(--hud-h, 190px) + 112px + env(safe-area-inset-bottom, 0px)); }
 #phone.in-cat .island { bottom: calc(var(--hud-h, 190px) + 20px + env(safe-area-inset-bottom, 0px)); }
+
+/* ── Cambios de Javi (11-11 noche) ──
+   Fila de opciones dentro de la ficha (tintado, cerámico, cuero, hidratación) */
+#phone .subs { display: flex; flex-wrap: wrap; gap: 6px; margin: 0 0 6px; }
+#phone .subs[hidden] { display: none; }
+#phone .subs button {
+  display: inline-flex; align-items: center; gap: 7px; height: 36px; padding: 0 14px; border-radius: 999px; cursor: pointer;
+  font: 500 11px/1 var(--ui); letter-spacing: .14em; text-transform: uppercase; color: #fff;
+  background: rgba(255,255,255,.06); border: 1px solid rgba(255,255,255,.22); transition: background .25s, border-color .25s;
+}
+#phone .subs button[aria-pressed="true"] { background: var(--red); border-color: rgba(255,255,255,.45); box-shadow: 0 8px 20px rgba(232,25,44,.35); }
+#phone .subs .ring { width: 20px; height: 20px; transform: rotate(-90deg); }
+#phone .subs .ring circle { fill: none; stroke: rgba(255,255,255,.25); stroke-width: 2.2; }
+#phone .subs .ring circle.v { stroke: #fff; stroke-linecap: round; }
+/* En tintado y cerámico las opciones van en la fila, no a la derecha */
+#phone.row-opts .xside.l { display: none; }
+/* Reloj de los años del cerámico */
+#phone .clock {
+  position: absolute; z-index: 3; right: 14px; top: calc(74px + 2%); width: 112px; height: 112px; display: grid; place-items: center;
+  border-radius: 50%; background: rgba(10,9,9,.62); border: 1px solid rgba(255,255,255,.22);
+  -webkit-backdrop-filter: blur(16px); backdrop-filter: blur(16px); box-shadow: 0 14px 34px rgba(0,0,0,.5);
+}
+#phone .clock[hidden] { display: none; }
+#phone .clock svg { position: absolute; inset: 6px; transform: rotate(-90deg); }
+#phone .clock circle { fill: none; stroke: rgba(255,255,255,.18); stroke-width: 5; }
+#phone .clock circle.v { stroke: var(--red); stroke-linecap: round; stroke-dasharray: 0 999; transition: stroke-dasharray .9s cubic-bezier(.2,.8,.2,1); filter: drop-shadow(0 0 6px rgba(232,25,44,.6)); }
+#phone .clock span { display: grid; justify-items: center; text-align: center; font: 500 8px/1.15 var(--ui); letter-spacing: .14em; text-transform: uppercase; color: #fff; max-width: 70px; }
+#phone .clock b { font: 600 34px/1 var(--ui); letter-spacing: 0; }
+#phone .clock small { margin-top: 3px; font-size: 7px; letter-spacing: .1em; color: rgba(255,255,255,.7); }
 /* En un móvil la web ocupa SIEMPRE todo el ancho. Antes el ancho se limitaba a la mitad del alto, y con la barra
    del navegador (o en móviles más anchos) quedaban franjas negras a los lados. */
 @media (max-width: 600px), (pointer: coarse) and (orientation: portrait) { .phone { width: 100%; } }
@@ -930,12 +959,12 @@ h1 { font-weight: 800; font-size: 22px; line-height: 1.1; letter-spacing: .01em;
 /* Cabecera */
 #phone .top { padding: 22px 44px; }
 #phone .logo img { height: 66px; }
-#phone .where { grid-column: 1; grid-row: 1; justify-self: start; font: 400 11px/1 var(--ui); letter-spacing: .42em; text-transform: uppercase; color: rgba(233,220,199,.72); transition: opacity .5s; }
+#phone .where { grid-column: 1; grid-row: 1; justify-self: start; font: 400 11px/1 var(--ui); letter-spacing: .42em; text-transform: uppercase; color: rgba(255,255,255,.72); transition: opacity .5s; }
 #phone.loading .where, #phone.in-cat .where, #phone.in-serv .where { opacity: 0; }
 #phone .cita { padding: 15px 24px; font-size: 12px; letter-spacing: .2em; transition: opacity .5s, filter .25s, transform .25s; }
 #phone .cita:hover { filter: brightness(1.15); transform: translateY(-1px); }
 #phone .back { top: 34px; left: 44px; height: 46px; padding: 0 22px 0 14px; font-size: 12px; }
-#phone .back:hover { background: rgba(233,220,199,.12); }
+#phone .back:hover { background: rgba(255,255,255,.12); }
 #phone .back { transition: transform .55s cubic-bezier(.2,.8,.2,1) .12s, opacity .3s; }
 #phone:not(.in-cat):not(.in-serv) .back { opacity: 0; transform: translateX(calc(-100% - 60px)); }
 /* Menú */
@@ -946,12 +975,12 @@ h1 { font-weight: 800; font-size: 22px; line-height: 1.1; letter-spacing: .01em;
 #phone .side .dock svg { width: 26px; height: 26px; }
 #phone .side.l .dock button.star { width: 108px; height: 108px; margin: -36px 8px 0; font-size: 12px; }
 #phone .side.l .dock button.star svg { width: 30px; height: 30px; }
-#phone .side .dock button:not(.star):hover { background: rgba(233,220,199,.1); color: #fff; }
+#phone .side .dock button:not(.star):hover { background: rgba(255,255,255,.1); color: #fff; }
 #phone .side.l .dock button.star:hover { filter: brightness(1.15); transform: scale(1.04); }
 #phone .side.s .dock button { width: 132px; }
 #phone .side.l .links { gap: 10px; }
 #phone .side.l .links button { height: 42px; padding: 0 20px; font-size: 11px; letter-spacing: .2em; transition: background .25s, border-color .25s, color .25s; }
-#phone .side.l .links button:hover { background: rgba(233,220,199,.12); border-color: rgba(233,220,199,.5); color: #fff; }
+#phone .side.l .links button:hover { background: rgba(255,255,255,.12); border-color: rgba(255,255,255,.5); color: #fff; }
 /* Ficha: abajo a la izquierda; en el menú de servicios, centrada sobre el menú */
 #phone .hud { inset: auto auto 36px 36px; width: min(560px, 40cqw); padding: 26px 28px 24px; gap: 8px; border-radius: 30px; }
 #phone h1 { font-size: clamp(38px, 3.9cqw, 64px); line-height: 1; gap: 6px 16px; }
@@ -967,10 +996,10 @@ h1 { font-weight: 800; font-size: 22px; line-height: 1.1; letter-spacing: .01em;
 #phone .ab button:not([aria-pressed="true"]):hover { color: #fff; }
 #phone .glass { margin-top: 20px; max-width: 420px; }
 #phone .add { max-width: 400px; height: 46px; margin-top: 10px; }
-#phone .add:hover { background: rgba(233,220,199,.14); }
+#phone .add:hover { background: rgba(255,255,255,.14); }
 #phone .add.on:hover { background: var(--red); filter: brightness(1.15); }
 #phone .more { height: 36px; padding: 0 12px 0 16px; font-size: 10.5px; transition: background .25s; }
-#phone .more:hover { background: rgba(233,220,199,.18); }
+#phone .more:hover { background: rgba(255,255,255,.18); }
 #phone.in-serv .hud { inset: 128px auto auto 50%; translate: -50% 0; width: max-content; max-width: 90%; justify-items: center; text-align: center; padding: 22px 40px 20px; }
 #phone.in-serv .desc { text-shadow: 0 1px 12px #000; }
 #phone.in-serv .hud .row { justify-content: center; gap: 18px; }
@@ -980,7 +1009,7 @@ h1 { font-weight: 800; font-size: 22px; line-height: 1.1; letter-spacing: .01em;
 #phone .xside.l { right: 44px; top: 118px; gap: 8px; max-height: calc(100cqh - 118px - 48px); padding: 8px 4px 8px 12px; }
 #phone .xside.l p { font-size: 10px; letter-spacing: .36em; margin: 10px 4px 2px 0; }
 #phone .xside button { min-width: 176px; min-height: 44px; padding: 8px 20px; font-size: 11px; letter-spacing: .18em; transition: background .25s, border-color .25s, transform .25s; }
-#phone .xside button:not([aria-current="true"]):hover { background: rgba(233,220,199,.14); border-color: rgba(233,220,199,.5); transform: translateX(-3px); }
+#phone .xside button:not([aria-current="true"]):hover { background: rgba(255,255,255,.14); border-color: rgba(255,255,255,.5); transform: translateX(-3px); }
 #phone .xside button .badge { font-size: 8px; padding: 3px 7px 2px; top: -8px; right: -6px; }
 /* Tutorial: la cápsula, abajo en el centro (sobre el menú cuando lo hay) */
 #phone .island { bottom: calc(232px + env(safe-area-inset-bottom, 0px)); min-height: 52px; padding-left: 20px; }
@@ -993,7 +1022,7 @@ h1 { font-weight: 800; font-size: 22px; line-height: 1.1; letter-spacing: .01em;
 .sheet-open .scrim { opacity: 1; pointer-events: auto; }
 #phone .sheet {
   inset: 0 0 0 auto; width: min(620px, 100%); padding-left: 40px; padding-right: 40px;
-  border-left: 1px solid rgba(233,220,199,.16); box-shadow: -50px 0 90px rgba(0,0,0,.6);
+  border-left: 1px solid rgba(255,255,255,.16); box-shadow: -50px 0 90px rgba(0,0,0,.6);
   background: linear-gradient(to bottom, rgba(10,8,8,.94), rgba(6,5,5,.98) 26%);
   transform: translateX(60px);
 }
@@ -1024,13 +1053,13 @@ body:has(.phone.loading) { overflow: hidden; }
 .app { height: 100vh; height: 100dvh; }
 #phone .down {
   position: absolute; z-index: 4; right: 28px; bottom: 24px; display: inline-flex; align-items: center; gap: 6px; padding: 6px 0 9px;
-  font: 400 10px/1 var(--ui); letter-spacing: .24em; text-transform: uppercase; color: rgba(233,220,199,.5);
+  font: 400 10px/1 var(--ui); letter-spacing: .24em; text-transform: uppercase; color: rgba(255,255,255,.5);
   background: none; border: 0; cursor: pointer; transition: opacity .5s, color .25s;
 }
 #phone .down svg { width: 13px; height: 13px; fill: none; stroke: currentColor; stroke-width: 1.5; stroke-linecap: round; stroke-linejoin: round; animation: down 2.4s ease-in-out infinite; }
-#phone .down i { position: absolute; left: 0; right: 0; bottom: 0; height: 1px; background: rgba(233,220,199,.18); }
+#phone .down i { position: absolute; left: 0; right: 0; bottom: 0; height: 1px; background: rgba(255,255,255,.18); }
 #phone .down i::after { content: ""; position: absolute; inset: 0; background: var(--red-ink); transform-origin: 0 50%; transform: scaleX(var(--g, 0)); transition: transform .15s; }
-#phone .down:hover { color: rgba(233,220,199,.9); }
+#phone .down:hover { color: rgba(255,255,255,.9); }
 #phone.loading .down, #phone.in-cat .down, #phone.in-serv .down { opacity: 0; pointer-events: none; }
 #phone .start { display: none !important; }
 @keyframes down { 50% { transform: translateY(4px); } }
@@ -1038,11 +1067,11 @@ body:has(.phone.loading) { overflow: hidden; }
 .lnav {
   position: fixed; inset: 0 0 auto 0; z-index: 30; display: flex; align-items: center; gap: 30px; height: 66px; padding: 0 40px;
   background: rgba(6,5,5,.8); -webkit-backdrop-filter: blur(16px) saturate(140%); backdrop-filter: blur(16px) saturate(140%);
-  border-bottom: 1px solid rgba(233,220,199,.12); transform: translateY(-100%); transition: transform .45s cubic-bezier(.2,.8,.2,1);
+  border-bottom: 1px solid rgba(255,255,255,.12); transform: translateY(-100%); transition: transform .45s cubic-bezier(.2,.8,.2,1);
 }
 .scrolled .lnav { transform: none; }
 .lnav .lg { display: block; margin-right: 10px; } .lnav .lg img { height: 42px; display: block; }
-.lnav a.l { font: 500 11px/1 var(--ui); letter-spacing: .22em; text-transform: uppercase; color: rgba(233,220,199,.78); text-decoration: none; padding: 8px 0; border-bottom: 1px solid transparent; transition: color .2s, border-color .2s; }
+.lnav a.l { font: 500 11px/1 var(--ui); letter-spacing: .22em; text-transform: uppercase; color: rgba(255,255,255,.78); text-decoration: none; padding: 8px 0; border-bottom: 1px solid transparent; transition: color .2s, border-color .2s; }
 .lnav a.l:hover, .lnav a.l.on { color: #fff; border-color: var(--red-ink); }
 .lnav .sp { flex: 1; }
 .lnav .wa { display: inline-flex; align-items: center; height: 42px; padding: 0 22px; border-radius: 999px; font: 500 11px/1 var(--ui); letter-spacing: .2em; text-transform: uppercase; color: #fff; text-decoration: none; background: linear-gradient(140deg, rgba(232,25,44,.95), rgba(232,25,44,.65)); border: 1px solid rgba(255,120,130,.5); }
@@ -1055,10 +1084,10 @@ body:has(.phone.loading) { overflow: hidden; }
 .land { position: relative; background: #060505; color: var(--ink); font-family: var(--ui); }
 .land .tab-p {
   --pad: max(48px, calc((100vw - 1240px) / 2)); padding: 120px var(--pad) 110px; animation: none; scroll-margin-top: 60px;
-  border-top: 1px solid rgba(233,220,199,.1); display: grid; grid-template-columns: repeat(12, minmax(0, 1fr)); gap: 0 40px; align-items: start;
+  border-top: 1px solid rgba(255,255,255,.1); display: grid; grid-template-columns: repeat(12, minmax(0, 1fr)); gap: 0 40px; align-items: start;
   background: radial-gradient(60% 50% at 85% 0%, rgba(232,25,44,.1), rgba(232,25,44,0) 70%);
 }
-.land .tab-p:nth-child(even) { background: radial-gradient(60% 50% at 10% 0%, rgba(233,220,199,.05), rgba(233,220,199,0) 70%), #0a0808; }
+.land .tab-p:nth-child(even) { background: radial-gradient(60% 50% at 10% 0%, rgba(255,255,255,.05), rgba(255,255,255,0) 70%), #0a0808; }
 .land .tab-p > * { grid-column: 1 / -1; }
 .land-h { display: flex; align-items: baseline; gap: 24px; margin: 0 0 56px; }
 .land-n { font: 400 13px/1 var(--ui); letter-spacing: .3em; color: var(--red-ink); }
@@ -1127,7 +1156,7 @@ body:has(.phone.loading) { overflow: hidden; }
 #teoria > .theory-img { grid-column: 1; grid-row: 1 / span 6; aspect-ratio: 16 / 11; border-radius: 24px; margin: 0; box-shadow: 0 30px 70px rgba(0,0,0,.6); }
 .land .packs { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 18px; margin: 18px 0 0; padding: 0; overflow: visible; }
 .land .pack { padding: 30px 28px; border-radius: 20px; transition: transform .35s cubic-bezier(.2,.8,.2,1), border-color .35s; }
-.land .pack:hover { transform: translateY(-6px); border-color: rgba(233,220,199,.35); }
+.land .pack:hover { transform: translateY(-6px); border-color: rgba(255,255,255,.35); }
 .land .pack b { font: 600 25px/1.1 var(--display); text-transform: none; margin-bottom: 10px; }
 .land .pack span { font-size: 16px; line-height: 1.5; }
 .land .pack small { font-size: 12px; margin-top: 14px; letter-spacing: .16em; }
@@ -1150,7 +1179,7 @@ body:has(.phone.loading) { overflow: hidden; }
 #tp-contacto > section:nth-of-type(2) { grid-column: 7 / -1; }
 .land .contact { grid-template-columns: 1fr 1fr; gap: 12px; }
 .land .contact a, .land .contact .off { padding: 20px; border-radius: 18px; transition: border-color .25s, background .25s; }
-.land .contact a:hover { border-color: rgba(233,220,199,.45); background: rgba(233,220,199,.07); }
+.land .contact a:hover { border-color: rgba(255,255,255,.45); background: rgba(255,255,255,.07); }
 .land .pick { font-size: 15px; padding: 9px 9px 9px 14px; border-radius: 999px; }
 .land .picks .empty { font-size: 15px; }
 #tp-ubicacion section { display: grid; grid-template-columns: 1.5fr 1fr; gap: 0 72px; align-items: start; }
@@ -1159,7 +1188,7 @@ body:has(.phone.loading) { overflow: hidden; }
 .land .hours { font-size: 17px; }
 .land .hours td { padding: 12px 0; }
 /* Pie */
-.foot { display: flex; flex-wrap: wrap; align-items: center; gap: 18px 40px; padding: 48px max(48px, calc((100vw - 1240px) / 2)) 110px; border-top: 1px solid rgba(233,220,199,.1); background: #050404; font: 400 12px/1.6 var(--ui); letter-spacing: .14em; text-transform: uppercase; color: rgba(233,220,199,.55); }
+.foot { display: flex; flex-wrap: wrap; align-items: center; gap: 18px 40px; padding: 48px max(48px, calc((100vw - 1240px) / 2)) 110px; border-top: 1px solid rgba(255,255,255,.1); background: #050404; font: 400 12px/1.6 var(--ui); letter-spacing: .14em; text-transform: uppercase; color: rgba(255,255,255,.55); }
 .foot img { height: 60px; }
 .foot .sp { flex: 1; }
 .foot a { color: inherit; text-decoration: none; } .foot a:hover { color: #fff; }
@@ -1176,11 +1205,11 @@ body:has(.phone.loading) { overflow: hidden; }
 #phone .finger::after { width: 34px; height: 34px; inset: auto; left: 6px; top: 6px; }
 #phone .tuto {
   position: absolute; z-index: 4; left: 28px; bottom: 22px; display: inline-flex; align-items: center; gap: 7px; padding: 6px 0;
-  font: 400 10px/1 var(--ui); letter-spacing: .24em; text-transform: uppercase; color: rgba(233,220,199,.5);
+  font: 400 10px/1 var(--ui); letter-spacing: .24em; text-transform: uppercase; color: rgba(255,255,255,.5);
   background: none; border: 0; cursor: pointer; transition: opacity .5s, color .25s;
 }
 #phone .tuto svg { width: 11px; height: 11px; fill: currentColor; }
-#phone .tuto:hover { color: rgba(233,220,199,.9); }
+#phone .tuto:hover { color: rgba(255,255,255,.9); }
 #phone.loading .tuto, #phone.in-cat .tuto, #phone.in-serv .tuto { opacity: 0; pointer-events: none; }
 #phone .down.pulse { animation: cta-pulse .9s ease-in-out infinite; color: #fff; }
 #phone .island { font-size: 15px; }
@@ -1203,7 +1232,7 @@ if (innerWidth < 700 && innerHeight > innerWidth) location.replace('https://topd
 
     <header class="top">
       <span class="where">Fernán Núñez · Córdoba</span>
-      <button class="logo" id="logo" aria-label="Volver al inicio"><img src="img/logo-v6.svg?v=2" alt="Top Detail Garage"></button>
+      <button class="logo" id="logo" aria-label="Volver al inicio"><img src="img/logo-v6.svg?v=3" alt="Top Detail Garage"></button>
       <a class="cita wa" id="cita" href="https://wa.me/34643182964" target="_blank" rel="noopener">Pedir cita<b class="n" hidden></b></a>
     </header>
 
@@ -1234,6 +1263,7 @@ if (innerWidth < 700 && innerHeight > innerWidth) location.replace('https://topd
     <button class="back" id="back-btn" inert><svg viewBox="0 0 24 24"><path d="M15 5l-7 7 7 7"/></svg>Volver</button>
 
     <section class="hud" id="hud" aria-live="polite">
+      <div class="subs" id="subs" role="group" aria-label="Opciones" hidden></div>
       <div class="row">
         <p class="eyebrow" id="eyebrow"></p>
         <span class="count" id="count" hidden></span>
@@ -1248,6 +1278,7 @@ if (innerWidth < 700 && innerHeight > innerWidth) location.replace('https://topd
       <button class="add" id="add" type="button" hidden aria-pressed="false"><svg viewBox="0 0 24 24" aria-hidden="true"><path class="p" d="M12 5v14M5 12h14"/><path class="c" d="M5 12.5l4.5 4.5L19 7.5"/></svg><span>A mi cita</span></button>
     </section>
 
+    <div class="clock" id="clock" hidden aria-hidden="true"><svg viewBox="0 0 100 100"><circle cx="50" cy="50" r="44"/><circle class="v" cx="50" cy="50" r="44"/></svg><span><b>3</b>años de garantía<small></small></span></div>
     <button class="tuto" id="tuto" type="button"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M8 5.5v13l11-6.5z"/></svg>Ver tutorial</button>
     <button class="down" id="down" type="button"><span>Desliza para más información</span><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 9l6 6 6-6"/></svg><i aria-hidden="true"></i></button>
     <nav class="xside l" id="opt-l" aria-label="Opciones" inert></nav>
@@ -1444,14 +1475,14 @@ if (innerWidth < 700 && innerHeight > innerWidth) location.replace('https://topd
       </section>
 
       <section data-tab="contacto" data-o="2">
-        <h3 class="reveal">Redes y <b>correo.</b></h3>
+        <h3 class="reveal">Teléfono y <b>redes.</b></h3>
         <ul class="contact">
           <li><a href="tel:+34643182964"><svg viewBox="0 0 24 24"><path d="M5 4h4l2 5-2.5 1.5a11 11 0 0 0 5 5L15 13l5 2v4a2 2 0 0 1-2 2A16 16 0 0 1 3 6a2 2 0 0 1 2-2"/></svg><span><small>Teléfono y WhatsApp</small>643 182 964</span></a></li>
-          <li><span class="off"><svg viewBox="0 0 24 24"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="M3.5 6l8.5 7 8.5-7"/></svg><span><small>Correo</small>Muy pronto</span></span></li>
-          <li><span class="off"><svg viewBox="0 0 24 24"><rect x="3.5" y="3.5" width="17" height="17" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.2" cy="6.8" r=".6"/></svg><span><small>Instagram</small>Muy pronto</span></span></li>
+          <li><a href="https://www.instagram.com/topdetail.garage/" target="_blank" rel="noopener"><svg viewBox="0 0 24 24"><rect x="3.5" y="3.5" width="17" height="17" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.2" cy="6.8" r=".6"/></svg><span><small>Instagram</small>@topdetail.garage</span></a></li>
+          <li><span class="off"><svg viewBox="0 0 24 24"><path d="M14 8h3V4.5h-3A4 4 0 0 0 10 8.5V11H7.5v3.5H10V21h3.5v-6.5H16.5l.5-3.5h-3.5V9a1 1 0 0 1 1-1z"/></svg><span><small>Facebook</small>Muy pronto</span></span></li>
           <li><span class="off"><svg viewBox="0 0 24 24"><path d="M14 3v11.5a3.5 3.5 0 1 1-3.5-3.5"/><path d="M14 3c.5 2.6 2.4 4.4 5 4.6"/></svg><span><small>TikTok</small>Muy pronto</span></span></li>
         </ul>
-        <span class="pending">Pendiente: correo de Gmail y usuarios de Instagram y TikTok</span>
+        <span class="pending">Pendiente: enlaces de Facebook y TikTok</span>
       </section>
       <section data-tab="ubicacion" data-o="1">
         <h3 class="reveal"><small>Fernán Núñez · Córdoba</small>Dónde <b>estamos.</b></h3>
@@ -1459,10 +1490,10 @@ if (innerWidth < 700 && innerHeight > innerWidth) location.replace('https://topd
         <div class="btns"><a class="btn" href="https://www.google.com/maps/dir/?api=1&amp;destination=Fern%C3%A1n+N%C3%BA%C3%B1ez,+C%C3%B3rdoba" target="_blank" rel="noopener">Cómo llegar</a></div>
         <p class="svc-g" style="margin-top:22px">Horario</p>
         <table class="hours"><tbody>
-          <tr><td>Lunes a sábado</td><td>9:00 – 19:00</td></tr>
-          <tr><td>Domingo</td><td>Cerrado</td></tr>
+          <tr><td>Lunes a viernes</td><td>9:00 – 19:00</td></tr>
+          <tr><td>Sábado y domingo</td><td>Cerrado</td></tr>
         </tbody></table>
-        <span class="pending">Pendiente: confirmar horario y dirección exacta</span>
+        <span class="pending">Pendiente: dirección exacta</span>
       </section>
       <a class="sheet-cta wa" id="sheet-cta" href="https://wa.me/34643182964" target="_blank" rel="noopener"><svg viewBox="0 0 24 24"><path d="M4 20l1.3-3.9A8 8 0 1 1 8 18.8z"/></svg><span>Pedir cita por WhatsApp</span><b class="n" hidden></b></a>
     </section>
@@ -1475,7 +1506,7 @@ if (innerWidth < 700 && innerHeight > innerWidth) location.replace('https://topd
     <div class="finger" id="finger" aria-hidden="true"></div>
 
     <div class="loader" id="loader" role="status">
-      <div class="welcome"><span class="hello">Bienvenido a</span><img class="brand" src="img/logo-v6.svg?v=2" alt="Top Detail Garage"></div>
+      <div class="welcome"><span class="hello">Bienvenido a</span><img class="brand" src="img/logo-v6.svg?v=3" alt="Top Detail Garage"></div>
       <p><span id="pct">0 %</span></p>
       <div class="bar"><i id="bar"></i></div>
       <button class="start" id="start" type="button" hidden><span class="chev" aria-hidden="true"><i></i><i></i><i></i></span><b>Haz clic para entrar</b><span>y descubre todos nuestros servicios</span></button>
@@ -1484,14 +1515,14 @@ if (innerWidth < 700 && innerHeight > innerWidth) location.replace('https://topd
 </div>
 
 <nav class="lnav" id="lnav" aria-label="Secciones">
-  <a class="lg" href="#" aria-label="Volver arriba"><img src="img/logo-v6.svg?v=2" alt="Top Detail Garage"></a>
+  <a class="lg" href="#" aria-label="Volver arriba"><img src="img/logo-v6.svg?v=3" alt="Top Detail Garage"></a>
   <a class="l" href="#tp-precios">Servicios</a><a class="l" href="#tp-detallado">Limpieza</a><a class="l" href="#tp-pulido">Pulido</a><a class="l" href="#tp-ceramico">Cerámico</a><a class="l" href="#tp-report">Report</a><a class="l" href="#tp-nosotros">Nosotros</a><a class="l" href="#tp-contacto">Contacto</a><a class="l" href="#tp-ubicacion">Ubicación</a>
   <span class="sp"></span>
   <a class="wa" href="https://wa.me/34643182964" target="_blank" rel="noopener">Pedir cita<b class="n" hidden></b></a>
 </nav>
 <main class="land" id="land"></main>
 <footer class="foot">
-  <img src="img/logo-v6.svg?v=2" alt="Top Detail Garage">
+  <img src="img/logo-v6.svg?v=3" alt="Top Detail Garage">
   <span>Centro detailing profesional<br>Fernán Núñez · Córdoba</span>
   <span class="sp"></span>
   <a href="tel:+34643182964">643 182 964</a>
@@ -1523,41 +1554,42 @@ if (innerWidth < 700 && innerHeight > innerWidth) location.replace('https://topd
       o('Premium', 'Premium', 'Además, *llantas y neumáticos* a fondo y *brillo* en la carrocería.', SUCIO, '06-limpieza_premium', 'car', { top: 'Top ventas', fx: [['foam', FOAM], ['rinse', '06-limpieza_premium']] }),
       o('Integral', 'Integral', 'Interior y exterior completos, faros y parrilla renovados, *brillo espejo*.', SUCIO, '06-limpieza_integral', 'car', { fx: [['foam', FOAM], ['rinse', '06-limpieza_integral']] }),
     ]},
-    tintado: { label: 'Tintado de lunas', head: 'Tinte', evo: true, clip: 'tintado', page: 'tintado', opts: [
+    tintado: { label: 'Tintado de lunas', head: 'Tinte', evo: true, row: true, clip: 'tintado', page: 'tintado', opts: [
       o('50 %', '50 %', 'Tinte suave. *Menos calor* y reflejos, sin perder visibilidad.', '02-tintado_lunas_sin', '02-tintado_lunas_50', 'side', { la: 'Sin tintar', lb: 'Tintado', fx: [['film', '02-tintado_lunas_50']], fxAny: true }),
       o('30 %', '30 %', 'Más *privacidad*: desde fuera apenas se ven siluetas.', '02-tintado_lunas_sin', '02-tintado_lunas_30', 'side', { la: 'Sin tintar', lb: 'Tintado', fx: [['film', '02-tintado_lunas_30']], fxAny: true }),
       o('5 %', '5 %', 'Tinte limusina. *Privacidad total* en las plazas traseras.', '02-tintado_lunas_sin', '02-tintado_lunas_5', 'side', { la: 'Sin tintar', lb: 'Tintado', fx: [['film', '02-tintado_lunas_5']], fxAny: true }),
     ]},
     pulido: { label: 'Pulido', head: 'Nivel', evo: true, serv: true, clip: 'pintura', opts: [
+      o('Sin pulir', 'Inicio', 'Así llega la pintura: *remolinos*, microarañazos y brillo apagado.', '03-correccion_pintura_swirls', '03-correccion_pintura_swirls', 'macro', { still: true }),
       o('Pulido 1 paso', '1 paso', 'Quita la mayoría de los *swirls* y recupera el *brillo*.', '03-correccion_pintura_swirls', '03-correccion_pintura_1paso', 'macro', { fx: [['polish', '03-correccion_pintura_1paso']] }),
-      o('Pulido 2 pasos', '2 pasos', 'Corte y abrillantado: la pintura queda como un *espejo*.', '03-correccion_pintura_swirls', '03-correccion_pintura_2pasos', 'macro', { fx: [['polish', '03-correccion_pintura_1paso'], ['finish', '03-correccion_pintura_2pasos']] }),
+      o('Pulido 2 pasos', '2 pasos', 'Corte y abrillantado: la pintura queda como un *espejo*.', '03-correccion_pintura_1paso', '03-correccion_pintura_2pasos', 'macro', { la: '1 paso', lb: '2 pasos', fx: [['finish', '03-correccion_pintura_2pasos']] }),
     ]},
-    ceramico: { label: 'Cerámico', head: 'Servicio', evo: true, serv: true, clip: 'pintura', opts: [
-      o('Protección cerámica', 'Cerámico', 'Recubrimiento que *repele* el agua, la suciedad y los rayos UV.', '03-correccion_pintura_2pasos', '04-ceramica_perlado', 'macro', { la: 'Sin proteger', lb: 'Con cerámico', clip: 'ceramico' }),
-      o('Mantenimiento', 'Manteni­miento', 'Lavado con espuma activa para que el cerámico *dure años*.', FOAM, LIMPIO, 'car', { la: 'Lavado', lb: 'Resultado', fx: [['rinse', LIMPIO]] }),
+    ceramico: { label: 'Cerámico', head: 'Garantía', row: true, evo: true, serv: true, clip: 'pintura', opts: [
+      ...[[3, 'Gloss'], [5, 'G-Finity CNT'], [7, 'G-Finity CNT+']].map(([y, m]) => o(`Cerámico ${y} años`, `${y} años`, 'Recubrimiento que *repele* el agua, la suciedad y los rayos UV.', '03-correccion_pintura_2pasos', '04-ceramica_perlado', 'macro', { la: 'Sin proteger', lb: 'Con cerámico', clip: 'ceramico', years: y, model: m })),
     ]},
     extras: { label: 'Extras', groups: ['Interior', 'Exterior', 'Si hace falta'], serv: true, clip: 'extras', opts: [] },
   };
   CATS.limpieza.page = 'detallado'; CATS.pulido.page = 'pulido'; CATS.ceramico.page = 'ceramico'; CATS.extras.page = 'precios'; CATS.tintado.page = 'precios';
   const ZONA = { interior: 'Interior', cristales: 'Cristales', motor: 'Motor', ruedas: 'Ruedas', carroceria: 'Carrocería' };
+  // fam: opciones que van juntas en un solo botón (Cuero: nutrición y coating; Hidratación: neumáticos, pasos de rueda y gomas)
+  const FAM = { cuero: 'Cuero', hidra: 'Hidratación' };
   [
-    ['interior', 'cuero', 'Limpieza de cuero', 'Cuero', 'Sin grasa ni brillos sucios: el cuero vuelve a su *tacto mate*.'],
-    ['interior', 'coating-cuero', 'Coating de cuero', 'Coating cuero', 'Una protección que impide que los líquidos *penetren y manchen*.'],
+    ['interior', 'cuero', 'Nutrición de cuero', 'Nutrición', 'Nutre el cuero para que recupere su *tacto suave* y no se agriete ni se reseque.', { fam: 'cuero' }],
+    ['interior', 'coating-cuero', 'Coating de cuero', 'Coating', 'Una protección que impide que los líquidos *penetren y manchen*.', { fam: 'cuero' }],
     ['interior', 'cinturones', 'Cinturones', 'Cinturones', 'Cintas limpias y con su *color original*.'],
-    ['interior', 'plasticos', 'Plásticos interiores', 'Plásticos', 'Salpicadero y puertas sin polvo ni huellas, en *negro satinado*.'],
-    ['cristales', 'pulido-cristales', 'Pulido de cristales', 'Cristales', 'Fuera la *cal*, los arcos del limpia y la *grasa*.'],
-    ['motor', 'vano-motor', 'Vano motor', 'Motor', 'Limpieza y protección del motor, *sin riesgos*.'],
-    ['ruedas', 'neumaticos', 'Neumáticos', 'Neumáticos', 'Del marrón apagado a un *negro satinado*.'],
-    ['ruedas', 'pasos-de-rueda', 'Pasos de rueda', 'Pasos de rueda', 'Barro incrustado fuera, *pasos limpios*.'],
-    ['carroceria', 'hidratacion-gomas', 'Hidratación de gomas', 'Gomas', 'Juntas resecas que vuelven a estar *negras y flexibles*.'],
-    ['carroceria', 'plateados', 'Plateados', 'Plateados', 'Molduras sin oxidación ni cal, con *brillo de espejo*.'],
-    ['carroceria', 'negro-piano', 'Negro piano', 'Negro piano', 'Pilares y molduras sin *hologramas* ni micro-arañazos: *negro espejo*.'],
+    ['interior', 'plasticos', 'Hidratación de plásticos', 'Plásticos', 'Los plásticos recuperan un *negro profundo y brillante* y quedan protegidos del sol.'],
+    ['cristales', 'pulido-cristales', 'Pulido de cristales', 'Cristales', 'En las ventanillas de las puertas: fuera la *cal* y los *arañazos*, y ganas *visibilidad*.'],
+    ['motor', 'vano-motor', 'Limpieza de motor', 'Motor', 'Limpieza y protección del motor, *sin riesgos*.'],
+    ['ruedas', 'neumaticos', 'Hidratación de neumáticos', 'Neumáticos', 'La limpieza va incluida; el extra es *hidratarlos*: negro profundo y goma protegida.', { fam: 'hidra' }],
+    ['ruedas', 'pasos-de-rueda', 'Hidratación de pasos de rueda', 'Pasos de rueda', 'La limpieza va incluida; el extra es *hidratarlos* para que queden negros y protegidos.', { fam: 'hidra' }],
+    ['carroceria', 'hidratacion-gomas', 'Hidratación de gomas', 'Gomas', 'La limpieza va incluida; el extra es *hidratar* las juntas para que vuelvan a estar *negras y flexibles*.', { fam: 'hidra' }],
+    ['carroceria', 'negro-piano', 'Pulido de negro piano', 'Negro piano', 'Pulimos pilares, molduras y también la *consola interior*: sin *hologramas* ni microarañazos, *negro espejo*.'],
     ['carroceria', 'cera-rapida', 'Cera rápida', 'Cera', 'Brillo húmedo y *reflejos nítidos* en minutos.', { slider: true }],
     // No se contratan: si el coche llega así, Top Detail avisa al cliente antes de empezar (más tiempo y suplemento)
     ['interior', 'suciedad-extrema', 'Suciedad extrema', 'Obra', 'Si el coche llega con polvo de obra, yeso o barro, *te avisamos antes*: lleva más tiempo y un suplemento.', { sup: true }],
     ['interior', 'pelo-de-perro', 'Pelo de mascota', 'Mascota', 'Si hay mucho *pelo incrustado* en la tapicería, *te avisamos antes*: lleva más tiempo y un suplemento.', { sup: true }],
   ].forEach(([z, n, name, short, desc, more = {}]) => CATS.extras.opts.push(
-    o(name, short, desc, `05-extras_${z}_${n}_antes`, `05-extras_${z}_${n}_despues`, n, { zone: more.sup ? 'Te avisamos' : ZONA[z], group: more.sup ? 2 : z === 'interior' ? 0 : 1,
+    o(name, short, desc, `05-extras_${z}_${n}_antes`, `05-extras_${z}_${n}_despues`, n, { zone: more.sup ? 'Te avisamos' : more.fam ? FAM[more.fam] : ZONA[z], group: more.sup ? 2 : z === 'interior' ? 0 : 1,
       // Cristales: pulidora pequeña; el resto, cepillo y limpiador (la cera tiene su comparador)
       ...(more.slider ? {} : { fx: [[n === 'pulido-cristales' ? 'glass' : 'scrub', `05-extras_${z}_${n}_despues`]] }), ...more })));
 
@@ -1578,26 +1610,23 @@ if (innerWidth < 700 && innerHeight > innerWidth) location.replace('https://topd
       ['Lámina *limusina del 5 %*: privacidad total en las plazas traseras y máximo rechazo de luz.', ['5 % de luz', 'Privacidad total', 'Lunas traseras']],
     ],
     pulido: [
+      ['Así llega la pintura del día a día: *remolinos de lavado*, microarañazos y brillo apagado. Elige *1 paso* o *2 pasos* para ver cómo queda.', ['Remolinos', 'Microarañazos', 'Brillo apagado']],
       ['Elimina *microarañazos* y marcas ligeras y mejora el brillo y la profundidad del color. Ideal para *swirls ligeros* y poco desgaste.',
         ['Corrección media', 'Swirls ligeros', 'Más brillo y color'], '*220 – 300 €* · IVA incl.'],
-      ['Corrección avanzada de *defectos medios y fuertes*: máximo brillo y *acabado espejo*. Ideal para arañazos visibles, hologramas y oxidación.',
+      ['Sobre el pulido de 1 paso, un *segundo paso de abrillantado*: máximo brillo y *acabado espejo*. Ideal para arañazos visibles, hologramas y oxidación.',
         ['Corrección alta', 'Hologramas', 'Oxidación'], '*350 – 450 €* · IVA incl.'],
     ],
-    ceramico: [
-      ['Coating *FX Protect* sobre pintura preparada y desengrasada: protege de agentes externos, facilita la limpieza y aporta brillo. *Recomendado tras una corrección.*',
-        ['Gloss · 3 años', 'G-Finity CNT · 5 años', 'CNT+ · 7 años'], 'Desde *150 €* · garantía de 3 a 7 años'],
-      ['*Lavado de mantenimiento cada mes*, solo exterior: profesional y *seguro, sin rayar*, para que el cerámico siga siempre como nuevo. El *booster* que lo refuerza, cada 6 meses o una vez al año.',
-        ['Lavado mensual', 'Solo exterior', 'Booster cada 6–12 meses'], '*20 €* el lavado · cada mes'],
-    ],
+    ceramico: [3, 5, 7].map((y, k) => [`Coating *FX Protect ${['Gloss', 'G-Finity CNT', 'G-Finity CNT+'][k]}* sobre pintura preparada y desengrasada: protege de agentes externos, facilita la limpieza y aporta brillo, con *${y} años de garantía*. *Recomendado tras una corrección.*`,
+      [`${y} años de garantía`, 'Repele el agua', 'Protección UV'], `Desde *150 €* · garantía de ${y} años`]),
   };
   for (const [c, list] of Object.entries(TECH)) list.forEach(([desc, spec, price], i) => Object.assign(CATS[c].opts[i], { desc, spec, price }));
   const XSPEC = {
-    'cuero': ['Limpiador pH neutro', 'Cepillo suave', 'Nutrición'], 'coating-cuero': ['Hidrofóbico', 'Antimanchas'],
-    'cinturones': ['Limpieza de cinta', 'Color original'], 'plasticos': ['Limpieza técnica', 'Acabado satinado', 'Protección UV'],
-    'pulido-cristales': ['Pulido de cristal', 'Antical'], 'vano-motor': ['Desengrasado', 'Protección de plásticos'],
-    'neumaticos': ['Desengrasado', 'Abrillantador satinado'], 'pasos-de-rueda': ['Desengrasado', 'Protección'],
-    'hidratacion-gomas': ['Limpieza', 'Hidratación', 'Protección UV'], 'plateados': ['Desoxidado', 'Pulido', 'Sellado'],
-    'negro-piano': ['Pulido fino', 'Sin hologramas', 'Sellado'], 'cera-rapida': ['Cera sintética', 'Brillo húmedo', 'Repele el agua'],
+    'cuero': ['Nutrición', 'Tacto suave', 'Sin grietas'], 'coating-cuero': ['Hidrofóbico', 'Antimanchas'],
+    'cinturones': ['Limpieza de cinta', 'Color original'], 'plasticos': ['Hidratación', 'Negro brillante', 'Protección UV'],
+    'pulido-cristales': ['Ventanillas', 'Antical', 'Sin arañazos', 'Más visibilidad'], 'vano-motor': ['Desengrasado', 'Protección de plásticos'],
+    'neumaticos': ['Hidratación', 'Negro profundo'], 'pasos-de-rueda': ['Hidratación', 'Protección'],
+    'hidratacion-gomas': ['Hidratación', 'Juntas flexibles', 'Protección UV'],
+    'negro-piano': ['Pulido fino', 'También la consola', 'Sin hologramas'], 'cera-rapida': ['Cera sintética', 'Brillo húmedo', 'Repele el agua'],
     'suciedad-extrema': ['Aspirado industrial', 'Inyección-extracción', 'Con suplemento'], 'pelo-de-perro': ['Cepillo de goma', 'Aspirado', 'Con suplemento'],
   };
   CATS.extras.opts.forEach(x => { const n = x.frame; if (XSPEC[n]) x.spec = XSPEC[n]; });
@@ -1610,25 +1639,29 @@ if (innerWidth < 700 && innerHeight > innerWidth) location.replace('https://topd
       ['Integral', 'Todo lo anterior, más moqueta y techo.', ['limpieza', 2], 'Desde 130 €'],
     ]],
     ['Pulido', [
-      ['Pulido 1 paso', 'Microarañazos y swirls ligeros fuera, más brillo.', ['pulido', 0], '220 – 300 €'],
-      ['Pulido 2 pasos', 'Defectos medios y fuertes, acabado espejo.', ['pulido', 1], '350 – 450 €'],
+      ['Pulido 1 paso', 'Microarañazos y swirls ligeros fuera, más brillo.', ['pulido', 1], '220 – 300 €'],
+      ['Pulido 2 pasos', 'Sobre el de 1 paso, abrillantado: defectos medios y fuertes, acabado espejo.', ['pulido', 2], '350 – 450 €'],
     ]],
     ['Cerámico', [
-      ['Protección cerámica FX Protect', 'Gloss, G-Finity CNT y CNT+: de 3 a 7 años de garantía.', ['ceramico', 0], 'Desde 150 €'],
-      ['Mantenimiento cerámico', 'Lavado exterior mensual y seguro; booster cada 6 meses o una vez al año.', ['ceramico', 1], '20 € / lavado'],
+      ['Cerámico 3 años · FX Protect Gloss', 'Coating cerámico con 3 años de garantía.', ['ceramico', 0], 'Desde 150 €'],
+      ['Cerámico 5 años · G-Finity CNT', 'Coating de grafeno con 5 años de garantía.', ['ceramico', 1], 'Desde 150 €'],
+      ['Cerámico 7 años · G-Finity CNT+', 'Coating de grafeno con 7 años de garantía.', ['ceramico', 2], 'Desde 150 €'],
+      ['Mantenimiento del cerámico', 'Lavado exterior mensual y seguro + booster cada 6 meses o una vez al año.', 'packs', '20 € / lavado'],
     ]],
     ['Tintado de lunas', [['Tintado de lunas traseras', 'Láminas del 50, 30 y 5 %.', ['tintado', 0]]]],
     ['Extras · interior', [
       ['Tapicería', 'Limpieza por inyección-extracción de asientos, moqueta y techo.', null],
       ['Ozono y malos olores', 'Acondicionamiento del habitáculo con eliminador de olores.', null],
-      ['Cuero y coating de cuero', 'Limpieza, nutrición y protección antimanchas.', ['extras', xi('cuero')]],
-      ['Cinturones y plásticos', 'Cintas con su color y plásticos satinados.', ['extras', xi('plasticos')]],
+      ['Cuero: nutrición y coating', 'Nutrición del cuero y protección antimanchas.', ['extras', xi('cuero')]],
+      ['Cinturones', 'Cintas limpias y con su color original.', ['extras', xi('cinturones')]],
+      ['Hidratación de plásticos', 'Negro profundo y brillante, protegidos del sol.', ['extras', xi('plasticos')]],
     ]],
     ['Extras · exterior', [
       ['Llantas', 'Descontaminado férrico, limpieza a fondo y sellado.', null],
       ['Limpieza de motor', 'Desengrasado y protección del vano motor.', ['extras', xi('vano-motor')]],
-      ['Neumáticos y pasos de rueda', 'Barro fuera y negro satinado.', ['extras', xi('neumaticos')]],
-      ['Cristales, gomas, plateados y negro piano', 'Cada pieza con su tratamiento.', ['extras', xi('negro-piano')]],
+      ['Hidratación: neumáticos, pasos de rueda y gomas', 'La limpieza va incluida; el extra es hidratarlos.', ['extras', xi('neumaticos')]],
+      ['Pulido de cristales', 'En las ventanillas: fuera cal y arañazos, más visibilidad.', ['extras', xi('pulido-cristales')]],
+      ['Pulido de negro piano', 'Pilares, molduras y consola, sin hologramas.', ['extras', xi('negro-piano')]],
       ['Cera rápida', 'Brillo húmedo y repelencia en minutos.', ['extras', xi('cera-rapida')]],
     ]],
     ['Top Detail Report™', [['Informe y seguimiento', 'Incluido en pulidos y cerámicos; en las limpiezas, opcional.', 'report', '+10 €'], ['Bonos de mantenimiento', 'Visitas periódicas con su registro en el informe.', 'packs']]],
@@ -1828,7 +1861,7 @@ if (innerWidth < 700 && innerHeight > innerWidth) location.replace('https://topd
   }
   function paintAdd() {
     const b = $('add'), on = cat !== null && seen.includes(`${cat}:${opt}`);
-    b.hidden = cat === null; b.classList.toggle('on', on); b.setAttribute('aria-pressed', String(on));
+    b.hidden = cat === null || !!(CATS[cat].opts[opt] || {}).still; b.classList.toggle('on', on); b.setAttribute('aria-pressed', String(on));
     b.lastChild.textContent = on ? 'En tu cita' : 'A mi cita';
     b.setAttribute('aria-label', on ? 'Quitar de mi cita' : 'Añadir a mi cita');
   }
@@ -1871,12 +1904,14 @@ if (innerWidth < 700 && innerHeight > innerWidth) location.replace('https://topd
     nav.innerHTML = ''; $('opt-r').innerHTML = ''; $('opt-r').hidden = true;
     const heads = C.groups || [C.head];
     heads.forEach((h, g) => {
-      const items = C.opts.map((x, i) => [x, i]).filter(([x]) => (x.group ?? 0) === g);
+      const fams = new Set();
+      const items = C.opts.map((x, i) => [x, i]).filter(([x]) => (x.group ?? 0) === g && !(x.fam && (fams.has(x.fam) || !fams.add(x.fam) && false)));
       if (!items.length) return;
       const p = document.createElement('p'); p.textContent = h; nav.append(p);
       items.forEach(([x, i]) => {
         const b = document.createElement('button');
-        b.textContent = x.short; b.dataset.i = i; b.setAttribute('aria-label', x.top ? `${x.name}, ${x.top}` : x.name); if (x.sup) b.className = 'sup';
+        b.textContent = x.fam ? FAM[x.fam] : x.short; b.dataset.i = i; if (x.fam) b.dataset.fam = x.fam;
+        b.setAttribute('aria-label', x.fam ? FAM[x.fam] : x.top ? `${x.name}, ${x.top}` : x.name); if (x.sup) b.className = 'sup';
         if (x.top) { const t = document.createElement('span'); t.className = 'badge'; t.textContent = x.top; t.setAttribute('aria-hidden', 'true'); b.append(t); }
         b.onclick = () => play(cat, i);
         nav.append(b);
@@ -1895,12 +1930,14 @@ if (innerWidth < 700 && innerHeight > innerWidth) location.replace('https://topd
     $('opt-l').inert = $('opt-r').inert = !inCat;
     if (inCat || inServ) phone.classList.remove('invite');
     document.querySelectorAll('#serv button[data-cat]').forEach(b => b.setAttribute('aria-current', String(b.dataset.cat === cat)));
-    document.querySelectorAll('.xside button').forEach(b => b.setAttribute('aria-current', String(+b.dataset.i === opt)));
+    const cur = cat && CATS[cat].opts[opt];
+    document.querySelectorAll('.xside button').forEach(b => b.setAttribute('aria-current', String(b.dataset.fam ? !!cur && cur.fam === b.dataset.fam : +b.dataset.i === opt)));
+    phone.dataset.cat = cat || ''; phone.classList.toggle('row-opts', !!(cat && CATS[cat].row));
   }
 
   function paintAB() {
     const O = cat && CATS[cat].opts[opt];
-    $('ab').hidden = !O || !!O.slider;
+    $('ab').hidden = !O || !!O.slider || !!O.still;
     $('glass').hidden = !O || !O.slider;
     if (!O) return;
     $('ab').classList.toggle('wait', !abReady);
@@ -1912,8 +1949,26 @@ if (innerWidth < 700 && innerHeight > innerWidth) location.replace('https://topd
     $('ab-a').disabled = $('ab-b').disabled = !abReady;
     const t = $('name').querySelector('.tag');
     if (t) { t.textContent = state === 'a' ? (O.la || 'Antes') : (O.lb || 'Después'); t.classList.toggle('on', state === 'b'); }
+    if (t) t.hidden = !!O.still;
   }
 
+  // Opciones en una fila sobre la ficha: todas las de la sección (tintado, cerámico) o las de la familia (cuero, hidratación)
+  const ring = (y, sz = 22) => { const r = sz / 2 - 2, c = 2 * Math.PI * r; return `<svg class="ring" viewBox="0 0 ${sz} ${sz}" aria-hidden="true"><circle cx="${sz / 2}" cy="${sz / 2}" r="${r}"/><circle class="v" cx="${sz / 2}" cy="${sz / 2}" r="${r}" stroke-dasharray="${(c * y / 7).toFixed(1)} ${c.toFixed(1)}"/></svg>`; };
+  function paintSubs(C, O) {
+    const box = $('subs');
+    const list = !O ? [] : C.row ? C.opts.map((x, i) => [x, i]) : O.fam ? C.opts.map((x, i) => [x, i]).filter(([x]) => x.fam === O.fam) : [];
+    box.hidden = !list.length;
+    box.innerHTML = list.map(([x, i]) => `<button type="button" data-i="${i}" aria-pressed="${i === opt}">${x.years ? ring(x.years) : ''}<span>${esc(x.short)}</span></button>`).join('');
+    // Reloj: los años de garantía del cerámico, con el anillo que se llena
+    const ck = $('clock');
+    ck.hidden = !(O && O.years);
+    if (O && O.years) {
+      ck.querySelector('b').textContent = O.years; ck.querySelector('small').textContent = O.model;
+      const v = ck.querySelector('.v'), c = 2 * Math.PI * 44;
+      v.style.strokeDasharray = `${c * O.years / 7} ${c}`;
+    }
+  }
+  $('subs').addEventListener('click', e => { const b = e.target.closest('[data-i]'); if (b && cat) play(cat, +b.dataset.i); });
   // Título: texto en blanco y las palabras clave en rojo
   const PREF = { limpieza: 'Limpieza', tintado: 'Tintado' };
   const PAGES = { nosotros: 'Sobre <span class="k">nosotros</span>', precios: 'Servicios y <span class="k">precios</span>', detallado: '<span class="k">Limpieza</span>',
@@ -1942,7 +1997,7 @@ if (innerWidth < 700 && innerHeight > innerWidth) location.replace('https://topd
       $('name').innerHTML = 'Elige un <span class="k">servicio</span>';
       $('desc').innerHTML = rich('Toca uno para verlo *en acción*, del antes al después.');
       $('spec').innerHTML = ''; $('price').innerHTML = '';
-      paintAB(); paintAdd();
+      paintAB(); paintAdd(); paintSubs(null, null);
       if (!reduce && !loading) $('hud').animate([{ opacity: 0, transform: 'translateY(10px)' }, { opacity: 1, transform: 'none' }], { duration: 420, easing: 'cubic-bezier(.2,.7,.2,1)' });
       return;
     }
@@ -1953,7 +2008,7 @@ if (innerWidth < 700 && innerHeight > innerWidth) location.replace('https://topd
     $('desc').innerHTML = rich(O ? O.desc : 'Toca un servicio para verlo en acción, o desliza hacia arriba para ver la pintura de cerca.');
     $('spec').innerHTML = (O && O.top ? `<li class="hot">${esc(O.top)}</li>` : '') + (O && O.spec ? O.spec.map(t => `<li>${esc(t)}</li>`).join('') : '');
     $('price').innerHTML = O && O.price ? rich(O.price) : '';
-    paintAdd();
+    paintAdd(); paintSubs(C, O);
     back.alt = O ? `${O.name}. ${plain(O.desc)}` : 'Porsche Cayenne negro, limpio, en el taller de Top Detail Garage';
     paintAB();
     if (!reduce && !loading) $('hud').animate([{ opacity: 0, transform: 'translateY(10px)' }, { opacity: 1, transform: 'none' }], { duration: 420, easing: 'cubic-bezier(.2,.7,.2,1)' });
@@ -1969,13 +2024,17 @@ if (innerWidth < 700 && innerHeight > innerWidth) location.replace('https://topd
     // Secciones evolutivas (limpieza, tintado, pintura): si ya estás en esa escena,
     // pasa directamente del nivel que ves al nuevo, sin volver al estado inicial
     // (si la opción tiene vídeo propio y lo que se ve no es su punto de partida, se pasa antes por su «antes»: de 1 paso al cerámico)
-    const direct = !!(CATS[c].evo && prev && i !== prevI && prev.frame === O.frame) && !(O.clip && CLIPS[O.clip] && shownSrc !== CLIPS[O.clip].start);
+    // (y si la animación de la opción no puede salir de lo que se ve, p. ej. de Inicio a 2 pasos, se pasa antes por su «antes»)
+    const direct = !!(CATS[c].evo && prev && i !== prevI && prev.frame === O.frame) && !(O.clip && CLIPS[O.clip] && shownSrc !== CLIPS[O.clip].start && prev.clip !== O.clip)
+      && !(O.fx && !O.fxAny && ![O.a, ...O.fx.map(f => f[1])].includes(shownSrc));
     opt = i; state = direct ? 'b' : 'a'; abReady = false;
     chrome(); paintInfo();
     q(exitSlider);
     const ck = clipOf(c);
     if (c !== 'tintado' && CATS[c].serv) level = 'serv';
     if (VIDEO && ck && wasHome && clipReady(ck)) { const p0 = ck === 'pintura' ? scrubP ?? 0 : 0; scrubP = null; q(() => bridge(p0, 1, ck)); }
+    // Inicio del pulido: solo la foto de partida, sin antes ni después
+    if (O.still) { await show(O.b, O.frame, i > prevI ? 1 : -1, my); return; }
     if (direct) {
       // De un nivel al siguiente: si lo que se ve es el punto de partida de su animación (de 1 paso a 2 pasos,
       // de 2 pasos al cerámico, de un tinte a otro), se anima; si no, barrido
@@ -2681,7 +2740,9 @@ if (innerWidth < 700 && innerHeight > innerWidth) location.replace('https://topd
       say('Elige un servicio: el pulido, por ejemplo', 2, N);
       await sleep(READ);
       await tap(document.querySelector('#serv button[data-cat="pulido"]'), 700);
-      await until(() => cat === 'pulido' && state === 'b', 9000);
+      await until(() => cat === 'pulido' && !pending, 9000); await sleep(500);
+      await tap(document.querySelector('#opt-l button[data-i="1"]'), 600);
+      await until(() => opt === 1 && state === 'b', 9000);
       say('Así trabaja la pulidora', 2, N);
       await until(() => abReady && !pending, 12000);
       say('Compara el antes y el después', 3, N);
@@ -2798,13 +2859,16 @@ if (innerWidth < 700 && innerHeight > innerWidth) location.replace('https://topd
         if (target === 1 && shown > .996) shown = 1;
         const w = phone.clientWidth;
         front.style.clipPath = `inset(0 ${(1 - shown) * 100}% 0 0)`;
+        // el coche llega desenfocado y se va enfocando con la carga
+        const bl = reduce ? '' : `blur(${((1 - shown) ** 1.5 * 16).toFixed(1)}px)`;
+        back.style.filter = front.style.filter = bl ? `contrast(1.06) saturate(.88) brightness(.94) ${bl}` : '';
         sweep.style.transform = `translateX(${shown * w}px)`;
         $('bar').style.transform = `scaleX(${shown})`;
         $('pct').textContent = Math.round(shown * 100) + ' %';
         if (shown < 1) return requestAnimationFrame(tick);
         back.src = img(LIMPIO);
         ready(back).then(() => {
-          front.style.cssText = ''; sweep.style.cssText = '';
+          front.style.cssText = ''; sweep.style.cssText = ''; back.style.filter = '';
           shownSrc = LIMPIO; shownFrame = 'car';
           ready2start();
         });

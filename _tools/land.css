@@ -7,13 +7,13 @@ body:has(.phone.loading) { overflow: hidden; }
 .app { height: 100vh; height: 100dvh; }
 #phone .down {
   position: absolute; z-index: 4; right: 28px; bottom: 24px; display: inline-flex; align-items: center; gap: 6px; padding: 6px 0 9px;
-  font: 400 10px/1 var(--ui); letter-spacing: .24em; text-transform: uppercase; color: rgba(233,220,199,.5);
+  font: 400 10px/1 var(--ui); letter-spacing: .24em; text-transform: uppercase; color: rgba(255,255,255,.5);
   background: none; border: 0; cursor: pointer; transition: opacity .5s, color .25s;
 }
 #phone .down svg { width: 13px; height: 13px; fill: none; stroke: currentColor; stroke-width: 1.5; stroke-linecap: round; stroke-linejoin: round; animation: down 2.4s ease-in-out infinite; }
-#phone .down i { position: absolute; left: 0; right: 0; bottom: 0; height: 1px; background: rgba(233,220,199,.18); }
+#phone .down i { position: absolute; left: 0; right: 0; bottom: 0; height: 1px; background: rgba(255,255,255,.18); }
 #phone .down i::after { content: ""; position: absolute; inset: 0; background: var(--red-ink); transform-origin: 0 50%; transform: scaleX(var(--g, 0)); transition: transform .15s; }
-#phone .down:hover { color: rgba(233,220,199,.9); }
+#phone .down:hover { color: rgba(255,255,255,.9); }
 #phone.loading .down, #phone.in-cat .down, #phone.in-serv .down { opacity: 0; pointer-events: none; }
 #phone .start { display: none !important; }
 @keyframes down { 50% { transform: translateY(4px); } }
@@ -21,11 +21,11 @@ body:has(.phone.loading) { overflow: hidden; }
 .lnav {
   position: fixed; inset: 0 0 auto 0; z-index: 30; display: flex; align-items: center; gap: 30px; height: 66px; padding: 0 40px;
   background: rgba(6,5,5,.8); -webkit-backdrop-filter: blur(16px) saturate(140%); backdrop-filter: blur(16px) saturate(140%);
-  border-bottom: 1px solid rgba(233,220,199,.12); transform: translateY(-100%); transition: transform .45s cubic-bezier(.2,.8,.2,1);
+  border-bottom: 1px solid rgba(255,255,255,.12); transform: translateY(-100%); transition: transform .45s cubic-bezier(.2,.8,.2,1);
 }
 .scrolled .lnav { transform: none; }
 .lnav .lg { display: block; margin-right: 10px; } .lnav .lg img { height: 42px; display: block; }
-.lnav a.l { font: 500 11px/1 var(--ui); letter-spacing: .22em; text-transform: uppercase; color: rgba(233,220,199,.78); text-decoration: none; padding: 8px 0; border-bottom: 1px solid transparent; transition: color .2s, border-color .2s; }
+.lnav a.l { font: 500 11px/1 var(--ui); letter-spacing: .22em; text-transform: uppercase; color: rgba(255,255,255,.78); text-decoration: none; padding: 8px 0; border-bottom: 1px solid transparent; transition: color .2s, border-color .2s; }
 .lnav a.l:hover, .lnav a.l.on { color: #fff; border-color: var(--red-ink); }
 .lnav .sp { flex: 1; }
 .lnav .wa { display: inline-flex; align-items: center; height: 42px; padding: 0 22px; border-radius: 999px; font: 500 11px/1 var(--ui); letter-spacing: .2em; text-transform: uppercase; color: #fff; text-decoration: none; background: linear-gradient(140deg, rgba(232,25,44,.95), rgba(232,25,44,.65)); border: 1px solid rgba(255,120,130,.5); }
@@ -38,10 +38,10 @@ body:has(.phone.loading) { overflow: hidden; }
 .land { position: relative; background: #060505; color: var(--ink); font-family: var(--ui); }
 .land .tab-p {
   --pad: max(48px, calc((100vw - 1240px) / 2)); padding: 120px var(--pad) 110px; animation: none; scroll-margin-top: 60px;
-  border-top: 1px solid rgba(233,220,199,.1); display: grid; grid-template-columns: repeat(12, minmax(0, 1fr)); gap: 0 40px; align-items: start;
+  border-top: 1px solid rgba(255,255,255,.1); display: grid; grid-template-columns: repeat(12, minmax(0, 1fr)); gap: 0 40px; align-items: start;
   background: radial-gradient(60% 50% at 85% 0%, rgba(232,25,44,.1), rgba(232,25,44,0) 70%);
 }
-.land .tab-p:nth-child(even) { background: radial-gradient(60% 50% at 10% 0%, rgba(233,220,199,.05), rgba(233,220,199,0) 70%), #0a0808; }
+.land .tab-p:nth-child(even) { background: radial-gradient(60% 50% at 10% 0%, rgba(255,255,255,.05), rgba(255,255,255,0) 70%), #0a0808; }
 .land .tab-p > * { grid-column: 1 / -1; }
 .land-h { display: flex; align-items: baseline; gap: 24px; margin: 0 0 56px; }
 .land-n { font: 400 13px/1 var(--ui); letter-spacing: .3em; color: var(--red-ink); }
@@ -110,7 +110,7 @@ body:has(.phone.loading) { overflow: hidden; }
 #teoria > .theory-img { grid-column: 1; grid-row: 1 / span 6; aspect-ratio: 16 / 11; border-radius: 24px; margin: 0; box-shadow: 0 30px 70px rgba(0,0,0,.6); }
 .land .packs { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 18px; margin: 18px 0 0; padding: 0; overflow: visible; }
 .land .pack { padding: 30px 28px; border-radius: 20px; transition: transform .35s cubic-bezier(.2,.8,.2,1), border-color .35s; }
-.land .pack:hover { transform: translateY(-6px); border-color: rgba(233,220,199,.35); }
+.land .pack:hover { transform: translateY(-6px); border-color: rgba(255,255,255,.35); }
 .land .pack b { font: 600 25px/1.1 var(--display); text-transform: none; margin-bottom: 10px; }
 .land .pack span { font-size: 16px; line-height: 1.5; }
 .land .pack small { font-size: 12px; margin-top: 14px; letter-spacing: .16em; }
@@ -133,7 +133,7 @@ body:has(.phone.loading) { overflow: hidden; }
 #tp-contacto > section:nth-of-type(2) { grid-column: 7 / -1; }
 .land .contact { grid-template-columns: 1fr 1fr; gap: 12px; }
 .land .contact a, .land .contact .off { padding: 20px; border-radius: 18px; transition: border-color .25s, background .25s; }
-.land .contact a:hover { border-color: rgba(233,220,199,.45); background: rgba(233,220,199,.07); }
+.land .contact a:hover { border-color: rgba(255,255,255,.45); background: rgba(255,255,255,.07); }
 .land .pick { font-size: 15px; padding: 9px 9px 9px 14px; border-radius: 999px; }
 .land .picks .empty { font-size: 15px; }
 #tp-ubicacion section { display: grid; grid-template-columns: 1.5fr 1fr; gap: 0 72px; align-items: start; }
@@ -142,7 +142,7 @@ body:has(.phone.loading) { overflow: hidden; }
 .land .hours { font-size: 17px; }
 .land .hours td { padding: 12px 0; }
 /* Pie */
-.foot { display: flex; flex-wrap: wrap; align-items: center; gap: 18px 40px; padding: 48px max(48px, calc((100vw - 1240px) / 2)) 110px; border-top: 1px solid rgba(233,220,199,.1); background: #050404; font: 400 12px/1.6 var(--ui); letter-spacing: .14em; text-transform: uppercase; color: rgba(233,220,199,.55); }
+.foot { display: flex; flex-wrap: wrap; align-items: center; gap: 18px 40px; padding: 48px max(48px, calc((100vw - 1240px) / 2)) 110px; border-top: 1px solid rgba(255,255,255,.1); background: #050404; font: 400 12px/1.6 var(--ui); letter-spacing: .14em; text-transform: uppercase; color: rgba(255,255,255,.55); }
 .foot img { height: 60px; }
 .foot .sp { flex: 1; }
 .foot a { color: inherit; text-decoration: none; } .foot a:hover { color: #fff; }
@@ -159,11 +159,11 @@ body:has(.phone.loading) { overflow: hidden; }
 #phone .finger::after { width: 34px; height: 34px; inset: auto; left: 6px; top: 6px; }
 #phone .tuto {
   position: absolute; z-index: 4; left: 28px; bottom: 22px; display: inline-flex; align-items: center; gap: 7px; padding: 6px 0;
-  font: 400 10px/1 var(--ui); letter-spacing: .24em; text-transform: uppercase; color: rgba(233,220,199,.5);
+  font: 400 10px/1 var(--ui); letter-spacing: .24em; text-transform: uppercase; color: rgba(255,255,255,.5);
   background: none; border: 0; cursor: pointer; transition: opacity .5s, color .25s;
 }
 #phone .tuto svg { width: 11px; height: 11px; fill: currentColor; }
-#phone .tuto:hover { color: rgba(233,220,199,.9); }
+#phone .tuto:hover { color: rgba(255,255,255,.9); }
 #phone.loading .tuto, #phone.in-cat .tuto, #phone.in-serv .tuto { opacity: 0; pointer-events: none; }
 #phone .down.pulse { animation: cta-pulse .9s ease-in-out infinite; color: #fff; }
 #phone .island { font-size: 15px; }
