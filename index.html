@@ -1,0 +1,2532 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="description" content="Top Detail Garage, detailing en Fernán Núñez (Córdoba): limpieza, tintado, pulido, cerámico y extras. Míralo en acción.">
+<meta name="theme-color" content="#060708">
+<meta name="robots" content="noindex">
+<meta property="og:title" content="Top Detail Garage">
+<meta property="og:description" content="Detailing en Fernán Núñez. Míralo en acción: del coche sucio al limpio.">
+<meta property="og:image" content="https://topdetail.puntozerosl.es/img/00-base_porsche_limpio.webp">
+<meta property="og:url" content="https://topdetail.puntozerosl.es/">
+<link rel="icon" href="img/logo-topdetail.svg">
+<style>
+  :root { padding-top: env(safe-area-inset-top, 0px); padding-bottom: env(safe-area-inset-bottom, 0px); box-sizing: border-box; }
+  *, *::before, *::after { box-sizing: inherit; }
+  body { margin: 0; }
+</style>
+<title>Top Detail Garage</title>
+<!-- Versión de ordenador: generada con _tools/mkpc.py a partir de ~/topdetail/index.html -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;0,700;1,500&family=Jost:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+/* Layout: un teléfono a pantalla completa; la foto ocupa todo, los servicios cuelgan de los dos bordes y la ficha va abajo, sobre el suelo. */
+:root {
+  --void: #060708;          /* fuera del teléfono */
+  --ink: #f4f1ee;           /* texto principal */
+  --mute: #b4aaa7;          /* texto secundario, gris tirando a rojo */
+  --red: #a01d33;           /* granate de marca */
+  --red-ink: #e0607a;       /* granate claro para texto sobre negro (contraste) */
+  --glass: rgba(0, 0, 0, .8);
+  --line: rgba(255, 255, 255, .12);
+  --ui: 'Rajdhani', 'Arial Narrow', 'Roboto Condensed', system-ui, sans-serif;
+  color-scheme: dark;
+}
+html, body { height: 100%; }
+[hidden] { display: none !important; }
+body {
+  background: var(--void); color: var(--ink); font-family: var(--ui);
+  overflow: hidden; overscroll-behavior: none; -webkit-tap-highlight-color: transparent;
+}
+.app { height: 100%; display: grid; place-items: center; }
+.phone {
+  position: relative; height: 100%; width: min(100%, 480px, calc(100dvh * .5));
+  overflow: hidden; background: #000; touch-action: none; user-select: none; container-type: size;
+}
+
+/* Fotos a todo el ancho sobre negro (sin recortar los lados), algo por encima del centro,
+   y fundidas por abajo con el negro de la página */
+.layer, .seq {
+  --img-h: calc(100cqw * 1.7917);
+  position: absolute; left: 0; width: 100%; height: var(--img-h);
+  top: max(0px, calc((100cqh - var(--img-h)) * .3));
+  -webkit-mask-image: linear-gradient(to bottom, #000 80%, transparent 100%);
+  mask-image: linear-gradient(to bottom, #000 80%, transparent 100%);
+}
+.layer { object-fit: cover; object-position: 50% 50%; display: block; max-width: none; }
+#front { opacity: 0; will-change: opacity, transform, clip-path; }
+/* Acercamiento en vídeo: fotogramas pintados en un canvas encima de las fotos */
+.seq { opacity: 0; pointer-events: none; }
+.shade {
+  position: absolute; inset: 0; pointer-events: none;
+  background:
+    linear-gradient(to bottom, rgba(0,0,0,.55) 0, rgba(0,0,0,0) 16%),
+    linear-gradient(to top, rgba(4,3,3,.94) 0, rgba(4,3,3,.72) 20%, rgba(4,3,3,0) 38%);
+}
+.sweep {
+  position: absolute; top: 0; bottom: 0; left: 0; width: 3px; opacity: 0; pointer-events: none;
+  background: var(--red);
+  box-shadow: 0 0 14px 3px rgba(160,29,51, .75), 0 0 2px 1px #fff;
+}
+
+/* Cabecera */
+.top {
+  position: absolute; inset: 0 0 auto; display: flex; align-items: center; justify-content: space-between; gap: 12px;
+  padding-block: 14px;
+  padding-left: max(16px, env(safe-area-inset-left, 0px));
+  padding-right: max(16px, env(safe-area-inset-right, 0px));
+}
+.logo { background: none; border: 0; padding: 0; cursor: pointer; display: block; }
+.logo img { height: 38px; width: auto; display: block; mix-blend-mode: screen; }
+.cita {
+  font: 700 13px/1 var(--ui); letter-spacing: .12em; text-transform: uppercase; text-decoration: none;
+  color: var(--ink); background: var(--red); padding: 10px 14px; border-radius: 2px;
+  box-shadow: 0 4px 18px rgba(160,29,51, .35); transition: opacity .5s;
+}
+
+/* Servicios en los laterales: pestañas que salen de cada borde */
+.side { position: absolute; top: 25%; z-index: 3; display: grid; gap: 10px; }
+.side.l { left: 0; padding-left: env(safe-area-inset-left, 0px); }
+.side.r { right: 0; padding-right: env(safe-area-inset-right, 0px); }
+.side button {
+  width: 74px; height: 74px; display: grid; place-content: center; justify-items: center; gap: 6px;
+  font: 700 11px/1 var(--ui); letter-spacing: .1em; text-transform: uppercase; color: var(--ink);
+  background: var(--glass); border: 1px solid var(--line); cursor: pointer; position: relative;
+  -webkit-backdrop-filter: blur(6px); backdrop-filter: blur(6px);
+  transition: background .25s, border-color .25s, transform .55s cubic-bezier(.2,.8,.2,1), opacity .4s;
+}
+.side.l button { border-left: 0; border-radius: 0 6px 6px 0; box-shadow: inset 3px 0 0 var(--red); }
+.side.r button { border-right: 0; border-radius: 6px 0 0 6px; box-shadow: inset -3px 0 0 var(--red); }
+.side svg { width: 24px; height: 24px; fill: none; stroke: currentColor; stroke-width: 1.6; stroke-linecap: round; stroke-linejoin: round; }
+.side button[aria-current="true"] { background: var(--red); border-color: var(--red); }
+.side button:active { transform: scale(.94); }
+/* Llamada de atención en el inicio, hasta el primer toque */
+.invite .side button::after {
+  content: ""; position: absolute; inset: -1px; border-radius: inherit; pointer-events: none;
+  border: 1px solid var(--red); opacity: 0; animation: ping 2.4s ease-out infinite;
+}
+.invite .side button:nth-child(2)::after { animation-delay: .3s; }
+.invite .side.r button::after { animation-delay: .6s; }
+.invite .side.r button:nth-child(2)::after { animation-delay: .9s; }
+@keyframes ping { 0% { opacity: .9; transform: scale(1); } 70%, 100% { opacity: 0; transform: scale(1.18); } }
+
+/* Ficha inferior */
+.hud {
+  position: absolute; inset: auto 0 0; z-index: 3; display: grid; gap: 4px;
+  padding-block: 0 22px;
+  padding-left: max(16px, env(safe-area-inset-left, 0px));
+  padding-right: max(16px, env(safe-area-inset-right, 0px));
+  transition: opacity .5s;
+}
+.row { display: flex; align-items: center; justify-content: space-between; gap: 10px; }
+.eyebrow {
+  margin: 0; font-size: 12px; font-weight: 600; letter-spacing: .18em; text-transform: uppercase; color: var(--mute);
+  display: flex; align-items: center; gap: 8px; min-width: 0; flex: 1;
+}
+.eyebrow::before { content: ""; width: 8px; height: 8px; background: var(--red); flex: none; transform: rotate(45deg); }
+.count { font-size: 13px; font-weight: 600; color: var(--mute); font-variant-numeric: tabular-nums; letter-spacing: .08em; }
+h1 {
+  margin: 0; font-size: 34px; line-height: 1; font-weight: 700; text-transform: uppercase; letter-spacing: .02em;
+  text-wrap: balance; display: flex; align-items: center; gap: 0 10px; flex-wrap: wrap;
+}
+/* Palabras clave en rojo, como en la imagen corporativa */
+.desc .k { font-weight: 700; text-shadow: none; }
+.k { color: var(--red); text-shadow: 0 0 18px rgba(160,29,51, .35); }
+.tag { font-size: 12px; letter-spacing: .16em; padding: 4px 7px 3px; border: 1px solid var(--line); color: var(--mute); border-radius: 2px; }
+.tag.on { border-color: var(--red); color: var(--ink); background: rgba(160,29,51,.22); }
+.desc { margin: 2px 0 0; font-size: 16px; line-height: 1.3; font-weight: 500; color: #cbc4c1; max-width: 34ch; min-height: 2.6em; }
+/* Antes / Después: aparece cuando termina el paso automático */
+.ab { display: flex; gap: 6px; margin-top: 10px; transition: opacity .35s; }
+.ab.wait { opacity: 0; pointer-events: none; }
+.ab button {
+  flex: 1; height: 44px; font: 700 13px/1 var(--ui); letter-spacing: .14em; text-transform: uppercase; color: var(--ink);
+  background: var(--glass); border: 1px solid var(--line); border-radius: 2px; cursor: pointer; transition: background .25s, border-color .25s;
+}
+.ab button[aria-pressed="true"] { background: var(--red); border-color: var(--red); }
+.ab button:focus-visible { outline: 2px solid var(--ink); outline-offset: 2px; }
+/* Comparador de la cera: panel de cristal líquido con barra deslizante */
+.glass {
+  position: relative; margin-top: 12px; padding: 12px 16px 14px; border-radius: 22px; display: grid; gap: 8px;
+  background: linear-gradient(135deg, rgba(255,255,255,.16), rgba(255,255,255,.04) 45%, rgba(255,255,255,.09));
+  border: 1px solid rgba(255,255,255,.28);
+  box-shadow: inset 0 1px 0 rgba(255,255,255,.45), inset 0 -10px 24px rgba(255,255,255,.05), 0 10px 30px rgba(0,0,0,.45);
+  -webkit-backdrop-filter: blur(18px) saturate(180%); backdrop-filter: blur(18px) saturate(180%);
+  transition: opacity .35s;
+}
+.glass::before {
+  content: ""; position: absolute; inset: 1px 18% auto; height: 40%; border-radius: 20px 20px 50% 50%; pointer-events: none;
+  background: linear-gradient(to bottom, rgba(255,255,255,.22), rgba(255,255,255,0));
+}
+.glass.wait { opacity: 0; pointer-events: none; }
+.glass-row { display: flex; justify-content: space-between; align-items: baseline; gap: 8px; font-size: 12px; font-weight: 700; letter-spacing: .16em; text-transform: uppercase; }
+.glass-row em { font-style: normal; font-weight: 600; letter-spacing: .04em; text-transform: none; font-size: 13px; color: var(--mute); }
+#cmp { -webkit-appearance: none; appearance: none; width: 100%; height: 30px; margin: 0; background: none; cursor: grab; touch-action: none; }
+#cmp::-webkit-slider-runnable-track { height: 6px; border-radius: 3px; background: linear-gradient(to right, var(--red) var(--v, 100%), rgba(255,255,255,.22) var(--v, 100%)); }
+#cmp::-moz-range-track { height: 6px; border-radius: 3px; background: rgba(255,255,255,.22); }
+#cmp::-moz-range-progress { height: 6px; border-radius: 3px; background: var(--red); }
+#cmp::-webkit-slider-thumb {
+  -webkit-appearance: none; width: 28px; height: 28px; margin-top: -11px; border-radius: 50%;
+  background: radial-gradient(circle at 35% 30%, rgba(255,255,255,.95), rgba(255,255,255,.55) 45%, rgba(255,255,255,.25));
+  border: 2px solid var(--red); box-shadow: 0 2px 10px rgba(0,0,0,.5), 0 0 0 4px rgba(160,29,51,.25);
+}
+#cmp::-moz-range-thumb {
+  width: 24px; height: 24px; border-radius: 50%; background: rgba(255,255,255,.8);
+  border: 2px solid var(--red); box-shadow: 0 2px 10px rgba(0,0,0,.5), 0 0 0 4px rgba(160,29,51,.25);
+}
+#cmp:focus-visible { outline: 2px solid var(--ink); outline-offset: 4px; border-radius: 4px; }
+
+/* Dentro de una sección solo queda «Volver», arriba a la izquierda */
+.back {
+  position: absolute; top: 11%; left: 0; z-index: 3; height: 52px; display: flex; align-items: center; gap: 6px;
+  padding: 0 16px 0 calc(10px + env(safe-area-inset-left, 0px));
+  font: 700 13px/1 var(--ui); letter-spacing: .12em; text-transform: uppercase; color: var(--ink);
+  background: var(--glass); border: 1px solid var(--line); border-left: 0; border-radius: 0 6px 6px 0;
+  box-shadow: inset 3px 0 0 var(--red); cursor: pointer;
+  -webkit-backdrop-filter: blur(6px); backdrop-filter: blur(6px);
+  transform: translateX(-110%); transition: transform .55s cubic-bezier(.2,.8,.2,1) .12s;
+}
+.back svg { width: 18px; height: 18px; fill: none; stroke: currentColor; stroke-width: 2; stroke-linecap: round; stroke-linejoin: round; }
+.in-cat .back { transform: none; }
+.back:active { transform: scale(.95); }
+
+/* Opciones de cada sección en pestañas a los lados (en Extras: interior a la izquierda, exterior a la derecha) */
+.xside {
+  position: absolute; top: calc(11% + 64px); z-index: 3; display: grid; gap: 5px;
+  transition: transform .55s cubic-bezier(.2,.8,.2,1) .1s;
+}
+.xside.l { left: 0; padding-left: env(safe-area-inset-left, 0px); transform: translateX(-110%); }
+.xside.r { right: 0; padding-right: env(safe-area-inset-right, 0px); transform: translateX(110%); justify-items: end; }
+.in-cat .xside { transform: none; }
+.xside.r p { text-align: right; justify-self: stretch; }
+.xside p {
+  margin: 0 0 1px; font-size: 10px; font-weight: 700; letter-spacing: .2em; text-transform: uppercase; color: var(--ink);
+  padding: 0 8px; text-shadow: 0 1px 5px rgba(0,0,0,.9);
+}
+.xside button {
+  width: 74px; min-height: 40px; padding: 5px 6px; display: flex; align-items: center;
+  font: 700 10px/1.1 var(--ui); letter-spacing: .02em; text-transform: uppercase; color: var(--ink);
+  background: var(--glass); border: 1px solid var(--line); cursor: pointer;
+  -webkit-backdrop-filter: blur(6px); backdrop-filter: blur(6px); transition: background .25s, border-color .25s;
+}
+.xside.l button { border-left: 0; border-radius: 0 5px 5px 0; box-shadow: inset 2px 0 0 var(--red); text-align: left; }
+.xside.r button { border-right: 0; border-radius: 5px 0 0 5px; box-shadow: inset -2px 0 0 var(--red); text-align: right; justify-content: flex-end; }
+.xside button[aria-current="true"] { background: var(--red); border-color: var(--red); }
+.xside button:active { transform: scale(.95); }
+/* «Si hace falta»: no se eligen, se avisan; sin la franja roja y con borde discontinuo */
+.xside.l button.sup { box-shadow: none; border-style: dashed; border-left: 0; border-color: rgba(255,255,255,.34); color: var(--mute); }
+.xside.l button.sup[aria-current="true"] { color: var(--ink); background: rgba(255,255,255,.14); border-color: var(--line); }
+
+.side button:focus-visible, .cita:focus-visible, .logo:focus-visible, .back:focus-visible, .xside button:focus-visible { outline: 2px solid var(--ink); outline-offset: 2px; }
+@media (max-height: 700px) { .xside button { min-height: 34px; } .xside { gap: 4px; } }
+
+/* Pantalla de carga: el sucio pasa a limpio mientras se descargan las fotos */
+.loader {
+  position: absolute; inset: auto 0 0; z-index: 4; display: grid; gap: 10px; transition: opacity .6s;
+  padding-block: 0 26px;
+  padding-left: max(16px, env(safe-area-inset-left, 0px));
+  padding-right: max(16px, env(safe-area-inset-right, 0px));
+}
+.loader p { margin: 0; display: flex; justify-content: space-between; align-items: baseline; gap: 12px; }
+.loader b { font-size: 26px; font-weight: 700; text-transform: uppercase; letter-spacing: .03em; }
+.loader #pct { font-size: 15px; font-weight: 600; color: var(--mute); font-variant-numeric: tabular-nums; letter-spacing: .08em; }
+.bar { height: 3px; background: var(--line); overflow: hidden; }
+.bar i { display: block; height: 100%; width: 100%; background: var(--red); transform-origin: 0 50%; transform: scaleX(0); }
+.loading .hud, .loading .cita { opacity: 0; pointer-events: none; }
+.loading .side.l button, .in-cat .side.l button { transform: translateX(-110%); }
+.loading .side.r button, .in-cat .side.r button { transform: translateX(110%); }
+.side button:nth-child(2) { transition-delay: 0s, 0s, .08s, 0s; }
+.loader.done { opacity: 0; pointer-events: none; }
+
+@media (max-width: 350px) { .side button { width: 64px; height: 64px; } h1 { font-size: 30px; } }
+@media (prefers-reduced-motion: reduce) {
+  .invite .side button::after { animation: none; }
+  .side button, .back, .xside, .xside button, .hud, .loader, .cita, .ab, .ab button, .glass { transition: none; }
+}
+
+/* ── Capa final: botones de cristal (glassmorphism) y tipografía de la marca ──
+   Cinzel es la serif del rótulo y de la web original; Rajdhani queda para el texto corrido. */
+:root { --display: 'Cinzel', 'Trajan Pro', 'Times New Roman', serif; }
+.side.l { left: calc(10px + env(safe-area-inset-left, 0px)); padding-left: 0; }
+.side.r { right: calc(10px + env(safe-area-inset-right, 0px)); padding-right: 0; }
+.xside.l { left: calc(10px + env(safe-area-inset-left, 0px)); padding-left: 0; }
+.xside.r { right: calc(10px + env(safe-area-inset-right, 0px)); padding-right: 0; }
+.side.l button, .side.r button, .back, .xside.l button, .xside.r button, .ab button {
+  background: linear-gradient(140deg, rgba(255,255,255,.17), rgba(255,255,255,.04) 62%);
+  border: 1px solid rgba(255,255,255,.22);
+  box-shadow: inset 0 1px 0 rgba(255,255,255,.3), 0 10px 28px rgba(0,0,0,.45);
+  -webkit-backdrop-filter: blur(14px) saturate(170%); backdrop-filter: blur(14px) saturate(170%);
+}
+.side.l button, .side.r button { width: 72px; height: 72px; border-radius: 18px; }
+.xside.l button, .xside.r button { border-radius: 12px; }
+.back { left: calc(10px + env(safe-area-inset-left, 0px)); padding: 0 16px 0 12px; border-radius: 999px; height: 46px; }
+.ab button { border-radius: 999px; }
+.side button[aria-current="true"], .xside button[aria-current="true"], .ab button[aria-pressed="true"] {
+  background: linear-gradient(140deg, rgba(160,29,51,.8), rgba(160,29,51,.38) 70%);
+  border-color: rgba(214,110,124,.55);
+  box-shadow: inset 0 1px 0 rgba(255,255,255,.35), 0 10px 26px rgba(160,29,51,.22);
+}
+/* Ocultos: que salgan del todo por el borde aunque ahora estén separados de él */
+.loading .side.l button, .in-cat .side.l button { transform: translateX(calc(-100% - 24px)); }
+.loading .side.r button, .in-cat .side.r button { transform: translateX(calc(100% + 24px)); }
+.back { transform: translateX(calc(-100% - 24px)); }
+.in-cat .back { transform: none; }
+.xside.l { transform: translateX(calc(-100% - 24px)); }
+.xside.r { transform: translateX(calc(100% + 24px)); }
+.in-cat .xside { transform: none; }
+.cita {
+  border-radius: 999px; padding: 10px 16px;
+  background: linear-gradient(140deg, rgba(160,29,51,.92), rgba(160,29,51,.62));
+  border: 1px solid rgba(214,110,124,.5);
+  box-shadow: inset 0 1px 0 rgba(255,255,255,.35), 0 8px 22px rgba(160,29,51,.3);
+  -webkit-backdrop-filter: blur(10px); backdrop-filter: blur(10px);
+}
+.tag { border-radius: 999px; padding: 4px 9px 3px; background: rgba(255,255,255,.07); border-color: rgba(255,255,255,.2); }
+.tag.on { background: rgba(160,29,51,.3); border-color: rgba(214,110,124,.5); }
+
+/* Ficha de abajo, más sobria: sin rombo ni brillo, título en la serif de la marca */
+.eyebrow::before { display: none; }
+.eyebrow { font-size: 11px; letter-spacing: .22em; color: rgba(255,255,255,.5); }
+h1 { font-family: var(--display); text-transform: none; font-weight: 600; font-size: 25px; line-height: 1.2; letter-spacing: .02em; }
+.k { text-shadow: none; }
+.desc { font-size: 15px; color: rgba(255,255,255,.7); }
+.loader b { font-family: var(--display); font-weight: 600; font-size: 21px; text-transform: none; letter-spacing: .02em; }
+@media (max-width: 350px) { h1 { font-size: 22px; } }
+
+/* Todos los botones a la izquierda, en una columna */
+.side.l { top: 15%; gap: 8px; }
+.side.l button { width: 66px; height: 66px; }
+.xside.l {
+  max-height: calc(100cqh - 11cqh - 64px - var(--hud-h, 190px) - 24px);
+  overflow-y: auto; overscroll-behavior: contain; scrollbar-width: none; touch-action: pan-y;
+  padding-bottom: 6px; justify-items: start;
+}
+.xside.l::-webkit-scrollbar { display: none; }
+.xside.l p { margin-top: 6px; }
+.xside.l p:first-child { margin-top: 0; }
+@media (max-height: 760px) { .side.l button { width: 60px; height: 60px; } .side.l { top: 13%; gap: 6px; } }
+
+/* Bienvenida en la pantalla de carga con el logo real; en el inicio solo el coche */
+.welcome { display: grid; justify-items: center; gap: 4px; margin-bottom: 4px; }
+.hello { font-family: var(--display); font-size: 14px; letter-spacing: .32em; text-transform: uppercase; color: rgba(255,255,255,.72); }
+.brand { width: min(80%, 340px); height: auto; display: block; }
+.loader p { justify-content: flex-end; }
+.hud.empty { opacity: 0; pointer-events: none; }
+.logo img { mix-blend-mode: normal; height: 40px; }
+
+/* Los cuatro servicios en una fila abajo (en el inicio no hay ficha, así que el sitio es suyo) */
+.side.l {
+  top: auto; left: max(16px, env(safe-area-inset-left, 0px)); right: max(16px, env(safe-area-inset-right, 0px));
+  bottom: calc(18px + env(safe-area-inset-bottom, 0px));
+  display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 8px;
+}
+.side.l button { width: auto; height: 74px; border-radius: 18px; }
+.loading .side.l button, .in-cat .side.l button { transform: translateY(calc(100% + 60px)); }
+.side.l button:nth-child(2) { transition-delay: 0s, 0s, .05s, 0s; }
+.side.l button:nth-child(3) { transition-delay: 0s, 0s, .1s, 0s; }
+.side.l button:nth-child(4) { transition-delay: 0s, 0s, .15s, 0s; }
+@media (max-height: 760px) { .side.l { top: auto; gap: 6px; } .side.l button { width: auto; height: 66px; } }
+
+/* ── Capa del cuestionario de Javi (2026-11-05) ──
+   Granate, títulos anchos y sólidos en mayúsculas, esquinas un poco redondeadas, iconos de línea fina,
+   fotos oscuras de cine, animación solo en lo importante, más información a la vista y la ficha del taller. */
+:root { --display: 'Archivo', 'Arial Black', system-ui, sans-serif; --r: 10px; }
+h1, .loader b, .hello, .sheet h2, .sheet h3, .badge { font-family: var(--display); font-stretch: 125%; text-transform: uppercase; }
+h1 { font-weight: 800; font-size: 22px; line-height: 1.1; letter-spacing: .01em; }
+.loader b { font-weight: 800; font-size: 18px; }
+.hello { font-weight: 600; font-size: 11px; letter-spacing: .3em; }
+.k, .desc .k { color: var(--red-ink); }
+@media (max-width: 350px) { h1 { font-size: 19px; } }
+/* Esquinas un poco redondeadas (antes: píldoras y círculos) */
+.side.l button { border-radius: 12px; }
+.xside.l button, .xside.r button { border-radius: 8px; }
+.back, .ab button, .cita { border-radius: var(--r); }
+.tag { border-radius: 6px; }
+.glass { border-radius: 14px; }
+/* Iconos de línea fina */
+.side svg { stroke-width: 1.15; width: 26px; height: 26px; }
+.back svg { stroke-width: 1.4; }
+/* Fotos oscuras y de cine: algo más de contraste, menos saturación y viñeta */
+.layer, .seq { filter: contrast(1.06) saturate(.88) brightness(.94); }
+.shade {
+  background:
+    radial-gradient(120% 70% at 50% 40%, rgba(0,0,0,0) 55%, rgba(0,0,0,.5) 100%),
+    linear-gradient(to bottom, rgba(0,0,0,.55) 0, rgba(0,0,0,0) 16%),
+    linear-gradient(to top, rgba(4,3,3,.94) 0, rgba(4,3,3,.72) 20%, rgba(4,3,3,0) 38%);
+}
+/* Animación la justa: el aviso de «toca aquí» solo en el servicio estrella */
+.invite .side button::after { animation: none; opacity: 0; }
+.invite .side button.star::after { animation: ping 2.4s ease-out infinite; animation-delay: .4s; }
+/* Barra de abajo con cinco botones: Pintura (estrella), Limpieza, Tintado, Extras y El taller */
+.side.l { grid-template-columns: repeat(5, minmax(0, 1fr)); gap: 6px; }
+.side.l button { font-size: 10px; letter-spacing: .05em; overflow: visible; }
+.side.l button.star { border-color: rgba(214,110,124,.6); background: linear-gradient(140deg, rgba(160,29,51,.42), rgba(160,29,51,.12) 70%); }
+.badge {
+  position: absolute; top: -8px; left: 50%; transform: translateX(-50%); white-space: nowrap;
+  font-size: 8px; font-weight: 800; letter-spacing: .12em; padding: 3px 6px 2px; border-radius: 5px;
+  background: var(--red); color: var(--ink); box-shadow: 0 2px 8px rgba(0,0,0,.5);
+}
+/* Ficha técnica de cada servicio: más información a la vista */
+.spec { display: flex; flex-wrap: wrap; gap: 5px; margin: 6px 0 0; padding: 0; list-style: none; }
+.spec:empty { display: none; }
+.spec li {
+  font-size: 11px; font-weight: 700; letter-spacing: .08em; text-transform: uppercase; color: rgba(255,255,255,.8);
+  padding: 4px 8px 3px; border: 1px solid rgba(255,255,255,.16); border-radius: 6px; background: rgba(255,255,255,.05);
+}
+.desc { max-width: 40ch; min-height: 0; }
+
+/* ── El taller: hoja con cómo trabajamos, Top Detail Report, servicios, bonos, reseñas, horario y redes ── */
+.sheet {
+  position: absolute; inset: 0; z-index: 6; overflow-y: auto; overscroll-behavior: contain; touch-action: pan-y;
+  user-select: text; scrollbar-width: none;
+  background: linear-gradient(to bottom, rgba(6,5,5,.9), rgba(6,5,5,.97) 26%);
+  -webkit-backdrop-filter: blur(16px); backdrop-filter: blur(16px);
+  padding: 0 max(16px, env(safe-area-inset-right, 0px)) calc(32px + env(safe-area-inset-bottom, 0px)) max(16px, env(safe-area-inset-left, 0px));
+  opacity: 0; visibility: hidden; transform: translateY(18px);
+  transition: opacity .3s, transform .4s cubic-bezier(.2,.8,.2,1), visibility 0s .4s;
+}
+.sheet::-webkit-scrollbar { display: none; }
+.sheet.open { opacity: 1; visibility: visible; transform: none; transition: opacity .3s, transform .4s cubic-bezier(.2,.8,.2,1); }
+.sheet-head {
+  position: sticky; top: 0; z-index: 1; display: flex; align-items: center; justify-content: space-between; gap: 12px;
+  padding: 16px 0 14px; background: linear-gradient(rgba(8,6,6,.98) 72%, rgba(8,6,6,0));
+}
+.sheet h2 { margin: 0; font-size: 19px; font-weight: 800; letter-spacing: .02em; }
+.sheet h2 .k { color: var(--red-ink); }
+.sheet h3 { margin: 0 0 10px; font-size: 14px; font-weight: 800; letter-spacing: .03em; display: flex; align-items: center; gap: 8px; }
+.sheet h3::before { content: ""; width: 14px; height: 2px; background: var(--red); flex: none; }
+.sheet section { padding: 20px 0; border-top: 1px solid var(--line); }
+.sheet p { margin: 0 0 10px; font-size: 15px; line-height: 1.42; font-weight: 500; color: rgba(255,255,255,.76); }
+.sheet strong { color: var(--ink); }
+.btn {
+  display: inline-flex; align-items: center; justify-content: center; gap: 8px; min-height: 44px; padding: 0 16px;
+  font: 700 13px/1 var(--ui); letter-spacing: .12em; text-transform: uppercase; color: var(--ink); text-decoration: none; cursor: pointer;
+  background: linear-gradient(140deg, rgba(255,255,255,.15), rgba(255,255,255,.04) 62%);
+  border: 1px solid rgba(255,255,255,.22); border-radius: var(--r);
+  box-shadow: inset 0 1px 0 rgba(255,255,255,.25);
+}
+.btn.red { background: linear-gradient(140deg, rgba(160,29,51,.95), rgba(160,29,51,.6)); border-color: rgba(214,110,124,.5); }
+.btn svg { width: 18px; height: 18px; fill: none; stroke: currentColor; stroke-width: 1.4; stroke-linecap: round; stroke-linejoin: round; }
+.btns { display: flex; flex-wrap: wrap; gap: 8px; }
+.btns .btn { flex: 1 1 140px; }
+.close { width: 44px; height: 44px; padding: 0; flex: none; }
+.btn:focus-visible, .close:focus-visible, .sheet summary:focus-visible, .sheet input:focus-visible { outline: 2px solid var(--ink); outline-offset: 2px; }
+/* Pendiente de datos del cliente: se ve claro qué falta */
+.pending {
+  display: inline-block; margin: 2px 0 8px; padding: 4px 8px 3px; font-size: 11px; font-weight: 700; letter-spacing: .08em;
+  text-transform: uppercase; color: #f1b8c2; border: 1px dashed rgba(214,110,124,.6); border-radius: 6px;
+}
+/* Cómo trabajamos: pasos que aparecen al llegar a ellos */
+.steps { list-style: none; margin: 0; padding: 0; display: grid; gap: 10px; counter-reset: s; }
+.steps li {
+  counter-increment: s; position: relative; padding: 12px 12px 12px 52px; border: 1px solid var(--line); border-radius: var(--r);
+  background: rgba(255,255,255,.03);
+}
+.steps li::before {
+  content: counter(s, decimal-leading-zero); position: absolute; left: 12px; top: 12px;
+  font: 800 15px/1 var(--display); font-stretch: 125%; color: var(--red-ink);
+}
+.steps b { display: block; font: 800 13px/1.2 var(--display); font-stretch: 125%; text-transform: uppercase; margin-bottom: 4px; }
+.steps span { display: block; font-size: 14px; line-height: 1.38; color: rgba(255,255,255,.72); }
+.reveal { opacity: 0; transform: translateY(14px); transition: opacity .5s, transform .5s cubic-bezier(.2,.8,.2,1); }
+.reveal.in { opacity: 1; transform: none; }
+/* Top Detail Report */
+.report { border: 1px solid rgba(214,110,124,.35); border-radius: var(--r); background: rgba(160,29,51,.08); margin: 4px 0 12px; }
+.report summary { list-style: none; cursor: pointer; padding: 12px 14px; font-weight: 700; letter-spacing: .1em; text-transform: uppercase; font-size: 13px; display: flex; justify-content: space-between; }
+.report summary::-webkit-details-marker { display: none; }
+.report summary::after { content: "+"; font-size: 18px; line-height: .8; }
+.report[open] summary::after { content: "–"; }
+.rep { padding: 0 14px 14px; display: grid; gap: 10px; }
+.rep-row { display: flex; justify-content: space-between; gap: 10px; font-size: 13px; border-bottom: 1px solid var(--line); padding-bottom: 6px; color: rgba(255,255,255,.72); }
+.rep-row b { color: var(--ink); text-align: right; }
+.rep-img { display: grid; grid-template-columns: 1fr 1fr; gap: 6px; }
+.rep-img figure { margin: 0; position: relative; }
+.rep-img img { width: 100%; aspect-ratio: 1; object-fit: cover; border-radius: 8px; display: block; filter: contrast(1.06) saturate(.88); }
+.rep-img figcaption { position: absolute; left: 6px; bottom: 6px; font-size: 10px; font-weight: 700; letter-spacing: .12em; text-transform: uppercase; background: rgba(0,0,0,.65); padding: 3px 6px; border-radius: 5px; }
+.rep ul { margin: 0; padding-left: 18px; font-size: 13px; line-height: 1.5; color: rgba(255,255,255,.76); }
+.code { display: flex; gap: 8px; }
+.code input {
+  flex: 1; min-width: 0; height: 44px; padding: 0 12px; font: 600 16px/1 var(--ui); letter-spacing: .14em; text-transform: uppercase;
+  color: var(--ink); background: rgba(255,255,255,.06); border: 1px solid rgba(255,255,255,.22); border-radius: var(--r);
+}
+.code input::placeholder { color: rgba(255,255,255,.38); }
+/* Servicios: lista sencilla */
+.svc { list-style: none; margin: 0 0 6px; padding: 0; }
+.svc-g { margin: 14px 0 4px; font-size: 11px; font-weight: 700; letter-spacing: .2em; text-transform: uppercase; color: rgba(255,255,255,.5); }
+.svc li { display: flex; align-items: center; gap: 10px; padding: 10px 0; border-bottom: 1px solid var(--line); }
+.svc li div { flex: 1; min-width: 0; }
+.svc li b { display: block; font-size: 15px; font-weight: 700; letter-spacing: .04em; text-transform: uppercase; }
+.svc li span { display: block; font-size: 13px; line-height: 1.35; color: rgba(255,255,255,.66); }
+.svc li em { font-style: normal; font-size: 10px; font-weight: 700; letter-spacing: .12em; text-transform: uppercase; color: #f1b8c2; }
+.svc .go { min-height: 36px; padding: 0 12px; font-size: 11px; flex: none; }
+/* Bonos y packs */
+.packs { display: grid; gap: 8px; }
+.pack { padding: 12px 14px; border: 1px solid var(--line); border-radius: var(--r); background: rgba(255,255,255,.03); }
+.pack b { display: block; font: 800 13px/1.2 var(--display); font-stretch: 125%; text-transform: uppercase; margin-bottom: 4px; }
+.pack span { display: block; font-size: 14px; line-height: 1.38; color: rgba(255,255,255,.72); }
+.pack small { display: block; margin-top: 6px; font-size: 12px; font-weight: 700; letter-spacing: .1em; text-transform: uppercase; color: var(--red-ink); }
+/* Horario y mapa */
+.hours { width: 100%; border-collapse: collapse; margin: 0 0 12px; font-size: 14px; }
+.hours td { padding: 7px 0; border-bottom: 1px solid var(--line); color: rgba(255,255,255,.76); }
+.hours td:last-child { text-align: right; color: var(--ink); font-weight: 600; }
+.map { width: 100%; aspect-ratio: 4 / 3; border: 0; border-radius: var(--r); display: block; margin: 0 0 12px; filter: invert(.9) hue-rotate(180deg) saturate(.6) contrast(.9); background: #111; }
+@media (prefers-reduced-motion: reduce) { .sheet, .reveal { transition: none; } .reveal { opacity: 1; transform: none; } }
+
+/* Dossier de servicios: claims, valores, características del report, notas y precios */
+.tagline { margin: -6px 0 4px; font-size: 11px; font-weight: 700; letter-spacing: .14em; text-transform: uppercase; color: rgba(255,255,255,.5); }
+.claim { font: 800 21px/1.12 var(--display) !important; font-stretch: 125% !important; text-transform: uppercase; color: var(--ink) !important; margin-bottom: 12px !important; }
+.claim.sm { font-size: 16px !important; }
+.values { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; }
+.values div { padding: 10px 12px; border: 1px solid var(--line); border-radius: var(--r); background: rgba(255,255,255,.03); }
+.values b { display: block; font: 800 12px/1.2 var(--display); font-stretch: 125%; text-transform: uppercase; color: var(--red-ink); margin-bottom: 3px; }
+.values span { font-size: 13px; line-height: 1.35; color: rgba(255,255,255,.72); }
+.feats { list-style: none; margin: 0 0 10px; padding: 0; display: grid; grid-template-columns: 1fr 1fr; gap: 6px; }
+.feats li { font-size: 12px; font-weight: 700; letter-spacing: .06em; text-transform: uppercase; padding: 8px 10px; border-left: 2px solid var(--red); background: rgba(255,255,255,.04); border-radius: 0 6px 6px 0; }
+.sheet .note { font-size: 13px; color: rgba(255,255,255,.6); }
+.rep-h { margin: 4px 0 0 !important; font-size: 11px !important; font-weight: 700; letter-spacing: .16em; text-transform: uppercase; color: var(--red-ink) !important; }
+.svc li i { font-style: normal; display: block; margin-top: 2px; font-size: 13px; font-weight: 700; color: var(--red-ink); letter-spacing: .04em; }
+.price { margin: 2px 0 0; font-size: 14px; font-weight: 600; letter-spacing: .04em; color: rgba(255,255,255,.78); }
+.price:empty { display: none; }
+.sheet section { scroll-margin-top: 118px; }
+.price .k { font-weight: 800; font-size: 17px; }
+/* ── Cambios de Javi (2026-11-06) ──
+   Pantalla de inicio tipo «pulsa para empezar», «Top ventas» en la limpieza premium
+   y El taller con titulares en dos pesos, línea de tiempo, teoría en acordeón y preguntas frecuentes. */
+/* Inicio: al terminar la carga, se pide deslizar hacia arriba para empezar */
+.start {
+  display: grid; justify-items: center; gap: 4px; margin: 6px auto 0; padding: 8px 16px 0; background: none; border: 0;
+  color: var(--ink); font: inherit; cursor: pointer; text-align: center; -webkit-tap-highlight-color: transparent;
+}
+.start[hidden] { display: none; }
+.start .chev { display: grid; justify-items: center; height: 30px; }
+.start .chev i { width: 14px; height: 14px; border: solid var(--red-ink); border-width: 2px 0 0 2px; transform: rotate(45deg); margin-top: -6px; opacity: .3; animation: chev 1.6s ease-in-out infinite; }
+.start .chev i:nth-child(1) { animation-delay: .3s; }
+.start .chev i:nth-child(2) { animation-delay: .15s; }
+.start b { font: 800 15px/1.1 var(--display); font-stretch: 125%; text-transform: uppercase; letter-spacing: .06em; animation: blink 2.2s ease-in-out infinite; }
+.start span { font-size: 13px; font-weight: 500; color: rgba(255,255,255,.66); letter-spacing: .02em; }
+.start:focus-visible { outline: 2px solid var(--ink); outline-offset: 4px; border-radius: var(--r); }
+@keyframes chev { 0%, 100% { opacity: .2; transform: translateY(4px) rotate(45deg); } 50% { opacity: 1; transform: translateY(-2px) rotate(45deg); } }
+@keyframes blink { 0%, 100% { opacity: 1; } 50% { opacity: .45; } }
+.loader.ready #pct, .loader.ready .bar { display: none; }
+.loader.done { transform: translateY(-36px); transition: opacity .6s, transform .6s cubic-bezier(.2,.8,.2,1); }
+@media (prefers-reduced-motion: reduce) { .start .chev i, .start b { animation: none; opacity: 1; } .loader.done { transform: none; } }
+/* «Top ventas»: etiqueta en el botón de la opción y primera píldora de la ficha */
+.xside button { position: relative; overflow: visible; }
+.xside button .badge { top: -7px; left: auto; right: -4px; transform: none; font-size: 7px; padding: 2px 5px 1px; }
+.spec li.hot { color: var(--ink); background: var(--red); border-color: var(--red); }
+
+/* El taller, estilo editorial: titular fino + palabra fuerte, subrayado rojo y aparición desenfocada */
+.sheet h3 {
+  display: block; margin: 0 0 14px; font: 300 27px/1.06 var(--display); font-stretch: 100%; text-transform: none;
+  letter-spacing: -.01em; color: rgba(255,255,255,.9);
+}
+.sheet h3::before { display: none; }
+.sheet h3 b { font-weight: 800; font-stretch: 112%; color: var(--ink); }
+.sheet h3 small { display: block; margin-bottom: 8px; font: 700 10px/1 var(--ui); letter-spacing: .24em; text-transform: uppercase; color: var(--red-ink); }
+.sheet section { padding: 28px 0; }
+.u { background: linear-gradient(var(--red), var(--red)) 0 100% / 0 2px no-repeat; padding-bottom: 2px; transition: background-size .9s cubic-bezier(.2,.8,.2,1) .25s; }
+.in .u, .u.in { background-size: 100% 2px; }
+.strike { position: relative; color: rgba(255,255,255,.55); font-weight: 300; }
+.strike::after { content: ""; position: absolute; left: -2px; right: -2px; top: 52%; height: 2px; background: var(--red); transform: scaleX(0); transform-origin: 0 50%; transition: transform .6s cubic-bezier(.2,.8,.2,1) .35s; }
+.in .strike::after { transform: scaleX(1); }
+.claim { font: 300 25px/1.1 var(--display) !important; font-stretch: 100% !important; text-transform: none; }
+.claim b { font-weight: 800; font-stretch: 112%; }
+.reveal { filter: blur(6px); transition: opacity .7s, transform .7s cubic-bezier(.2,.8,.2,1), filter .7s; }
+.reveal.in { filter: none; }
+/* Cifras */
+.stats { display: grid; grid-template-columns: repeat(3, 1fr); margin: 16px 0 4px; }
+.stats div { padding: 2px 10px; border-left: 1px solid rgba(255,255,255,.16); }
+.stats b { display: block; font: 300 28px/1 var(--display); color: var(--ink); white-space: nowrap; }
+.stats b small { font-size: 13px; color: rgba(255,255,255,.6); margin-left: 2px; }
+.stats span { display: block; margin-top: 6px; font-size: 9px; font-weight: 700; letter-spacing: .14em; text-transform: uppercase; color: rgba(255,255,255,.5); line-height: 1.35; }
+/* Línea de tiempo: el paso a la vista se marca con la barra roja */
+.steps { gap: 0; }
+.steps li { padding: 14px 4px 14px 46px; border: 0; border-left: 1px solid rgba(255,255,255,.12); border-radius: 0; background: none; transition: opacity .7s, transform .7s cubic-bezier(.2,.8,.2,1), filter .7s, border-color .4s; }
+.steps li::before { left: 14px; top: 16px; font: 600 11px/1 var(--ui); letter-spacing: .1em; color: rgba(255,255,255,.4); }
+.steps li::after { content: ""; position: absolute; left: -2px; top: 10px; bottom: 10px; width: 3px; border-radius: 2px; background: var(--red); transform: scaleY(0); transition: transform .5s cubic-bezier(.2,.8,.2,1); }
+.steps li.on::after { transform: none; }
+.steps li.on::before { color: var(--red-ink); }
+.steps b { font: 600 16px/1.2 var(--ui); text-transform: none; letter-spacing: .01em; }
+.steps li:not(.on) b { color: rgba(255,255,255,.62); }
+/* Qué incluye cada limpieza */
+.cmp-t { width: 100%; border-collapse: collapse; font-size: 13px; margin: 4px 0 12px; }
+.cmp-t th, .cmp-t td { padding: 9px 4px; border-bottom: 1px solid var(--line); text-align: center; }
+.cmp-t th:first-child, .cmp-t td:first-child { text-align: left; color: rgba(255,255,255,.76); padding-left: 0; }
+.cmp-t thead th { font: 800 11px/1.2 var(--display); font-stretch: 112%; text-transform: uppercase; letter-spacing: .04em; vertical-align: bottom; }
+.cmp-t thead th small { display: block; font: 700 9px/1.2 var(--ui); letter-spacing: .1em; color: var(--red-ink); margin-top: 3px; }
+.cmp-t thead th.tp { color: var(--ink); background: rgba(160,29,51,.28); border-radius: 8px 8px 0 0; }
+.cmp-t td.tp { background: rgba(160,29,51,.14); }
+.cmp-t .y { color: var(--red-ink); font-weight: 800; font-size: 15px; }
+.cmp-t .no { color: rgba(255,255,255,.28); }
+/* Teoría: del problema a la protección, en acordeón con su foto */
+.theory-img { position: relative; margin: 0 0 6px; border-radius: var(--r); overflow: hidden; aspect-ratio: 4 / 3; background: #111; }
+.theory-img img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; opacity: 0; transition: opacity .6s; filter: contrast(1.06) saturate(.88) brightness(.94); }
+.theory-img img.on { opacity: 1; }
+.theory-img .lbl { position: absolute; left: 10px; top: 10px; z-index: 1; font-size: 9px; font-weight: 700; letter-spacing: .16em; text-transform: uppercase; background: rgba(0,0,0,.6); padding: 4px 7px 3px; border-radius: 5px; }
+.theory-img .rd { position: absolute; right: 10px; bottom: 8px; z-index: 1; font-size: 9px; letter-spacing: .08em; color: rgba(255,255,255,.55); }
+.dot { position: absolute; z-index: 1; display: flex; align-items: center; gap: 6px; font-size: 10px; font-weight: 700; letter-spacing: .04em; transition: opacity .4s; }
+.dot::before { content: ""; width: 9px; height: 9px; border-radius: 50%; background: var(--red); box-shadow: 0 0 0 4px rgba(160,29,51,.3); flex: none; }
+.dot span { background: rgba(0,0,0,.65); padding: 3px 6px; border-radius: 5px; }
+.theory-img:not(.p0) .dot { opacity: 0; }
+.acc { border-bottom: 1px solid var(--line); }
+.acc summary { list-style: none; cursor: pointer; display: flex; align-items: center; gap: 12px; padding: 14px 0; font-size: 16px; font-weight: 600; }
+.acc summary::-webkit-details-marker { display: none; }
+.acc summary i { font-style: normal; font-size: 11px; font-weight: 600; letter-spacing: .1em; color: rgba(255,255,255,.4); width: 18px; }
+.acc summary::after { content: "+"; margin-left: auto; width: 28px; height: 28px; flex: none; display: grid; place-items: center; border: 1px solid rgba(255,255,255,.3); border-radius: 50%; font-size: 16px; font-weight: 400; transition: transform .3s, background .3s, color .3s; }
+.acc[open] summary::after { transform: rotate(45deg); background: var(--ink); color: #000; border-color: var(--ink); }
+.acc[open] summary i { color: var(--red-ink); }
+.acc[open] { border-bottom-color: var(--red); }
+.acc .body { padding: 0 0 16px 30px; }
+.acc .body p { font-size: 14px; }
+.big { font: 300 22px/1.12 var(--display) !important; color: var(--ink) !important; margin: 4px 0 12px !important; }
+.lvl { display: flex; gap: 6px; flex-wrap: wrap; margin: 0 0 10px; }
+.lvl span { font-size: 11px; font-weight: 700; letter-spacing: .1em; text-transform: uppercase; padding: 6px 9px 5px; border: 1px solid rgba(255,255,255,.2); border-radius: 6px; }
+.lvl span.on { background: var(--red); border-color: var(--red); }
+.motto { margin: 16px 0 0 !important; font-size: 16px !important; color: rgba(255,255,255,.6) !important; }
+.motto b { color: var(--ink); }
+@media (prefers-reduced-motion: reduce) { .reveal { filter: none; } .u { background-size: 100% 2px; transition: none; } .strike::after { transform: scaleX(1); transition: none; } .steps li::after { transition: none; } }
+/* Galería de trabajos reales (fotos de las redes de Javi) */
+.gal > figure { flex: 0 0 62%; margin: 0; position: relative; border-radius: var(--r); overflow: hidden; aspect-ratio: 3 / 4.4; background: #111; box-shadow: 0 12px 28px rgba(0,0,0,.4); }
+.gal img { width: 100%; height: 100%; object-fit: cover; display: block; }
+.gal figcaption { position: absolute; inset: auto 0 0; padding: 26px 10px 9px; font-size: 12px; font-weight: 600; line-height: 1.3; background: linear-gradient(to top, rgba(0,0,0,.85), rgba(0,0,0,0)); }
+/* ── El taller por pestañas (2026-11-06): menos scroll, más profundidad ── */
+.sheet-head { flex-wrap: wrap; row-gap: 10px; padding-bottom: 8px; background: linear-gradient(rgba(8,6,6,.98) 86%, rgba(8,6,6,0)); }
+.tabs { order: 3; flex: 1 0 100%; display: flex; gap: 6px; overflow-x: auto; scrollbar-width: none; margin: 0 -16px; padding: 0 16px 6px; scroll-snap-type: x proximity; }
+.tabs::-webkit-scrollbar { display: none; }
+.tabs button {
+  flex: none; scroll-snap-align: start; min-height: 36px; padding: 0 13px; border-radius: 999px; cursor: pointer;
+  font: 700 11px/1 var(--ui); letter-spacing: .12em; text-transform: uppercase; color: rgba(255,255,255,.66);
+  background: rgba(255,255,255,.05); border: 1px solid rgba(255,255,255,.14); transition: background .25s, color .25s, border-color .25s;
+}
+.tabs button[aria-selected="true"] { color: var(--ink); background: var(--red); border-color: var(--red); box-shadow: 0 6px 18px rgba(160,29,51,.45); }
+.tabs button:focus-visible { outline: 2px solid var(--ink); outline-offset: 2px; }
+.tab-p[hidden] { display: none; }
+.tab-p { animation: tabin .45s cubic-bezier(.2,.8,.2,1); padding-bottom: 76px; }
+.tab-p.l { animation-name: tabin-l; }
+@keyframes tabin { from { opacity: 0; transform: translateX(26px); } to { opacity: 1; transform: none; } }
+@keyframes tabin-l { from { opacity: 0; transform: translateX(-26px); } to { opacity: 1; transform: none; } }
+.tab-p > section:first-of-type, .tab-p > .hero + section { border-top: 0; padding-top: 18px; }
+/* Cabecera con foto */
+.hero {
+  position: relative; display: grid; align-content: end; gap: 4px; min-height: 190px; margin: 4px 0 0; padding: 16px;
+  border-radius: 14px; overflow: hidden; background: #111 var(--bg) center 58% / cover;
+  box-shadow: 0 18px 40px rgba(0,0,0,.5), inset 0 1px 0 rgba(255,255,255,.12);
+}
+.hero::before { content: ""; position: absolute; inset: 0; background: linear-gradient(to top, rgba(6,5,5,.95), rgba(6,5,5,.35) 60%, rgba(6,5,5,.1)); }
+.hero > * { position: relative; margin: 0; }
+.hero .tagline { margin: 0 0 4px; color: rgba(255,255,255,.7); }
+.hero b { font: 300 26px/1.05 var(--display); color: var(--ink); }
+.hero b .k { font-weight: 800; font-stretch: 112%; display: block; }
+.hero > span { font-size: 12px; letter-spacing: .08em; color: rgba(255,255,255,.6); }
+/* Tarjetas con algo de volumen */
+.values div, .pack, .report, .why li {
+  background: linear-gradient(160deg, rgba(255,255,255,.075), rgba(255,255,255,.015) 70%);
+  border: 1px solid rgba(255,255,255,.1); box-shadow: inset 0 1px 0 rgba(255,255,255,.07), 0 12px 28px rgba(0,0,0,.35);
+}
+/* Carruseles horizontales */
+.rail { display: flex; gap: 10px; overflow-x: auto; scroll-snap-type: x mandatory; scrollbar-width: none; margin: 0 -16px; padding: 4px 16px 14px; list-style: none; }
+.rail::-webkit-scrollbar { display: none; }
+.rail > * { flex: 0 0 76%; scroll-snap-align: start; }
+.why { counter-reset: w; }
+.why li { counter-increment: w; position: relative; padding: 16px 14px; border-radius: var(--r); min-height: 150px; }
+.why li::before { content: counter(w, decimal-leading-zero); display: block; margin-bottom: 18px; font: 300 30px/1 var(--display); color: var(--red-ink); }
+.why b { display: block; font: 800 13px/1.2 var(--display); font-stretch: 112%; text-transform: uppercase; margin-bottom: 6px; }
+.why span { display: block; font-size: 14px; line-height: 1.38; color: rgba(255,255,255,.72); }
+.swipe-h { margin: -4px 0 6px !important; font-size: 11px !important; letter-spacing: .14em; text-transform: uppercase; color: rgba(255,255,255,.4) !important; }
+/* Lo que has mirado */
+.picks { display: flex; flex-wrap: wrap; gap: 6px; margin: 0 0 14px; }
+.picks .empty { font-size: 13px; color: rgba(255,255,255,.5); }
+.pick { display: inline-flex; align-items: center; gap: 6px; padding: 6px 6px 6px 10px; border-radius: 8px; font-size: 13px; font-weight: 600; background: rgba(160,29,51,.2); border: 1px solid rgba(214,110,124,.45); }
+.pick small { font-size: 10px; letter-spacing: .1em; text-transform: uppercase; color: rgba(255,255,255,.55); }
+.pick button { width: 24px; height: 24px; display: grid; place-items: center; border: 0; border-radius: 6px; background: rgba(255,255,255,.1); color: var(--ink); font-size: 14px; cursor: pointer; }
+.pick.av { background: rgba(255,255,255,.06); border-style: dashed; border-color: rgba(255,255,255,.3); }
+/* Botón flotante de WhatsApp del taller */
+.sheet-cta {
+  position: sticky; bottom: calc(12px + env(safe-area-inset-bottom, 0px)); z-index: 2; display: flex; align-items: center; justify-content: center; gap: 10px;
+  min-height: 52px; margin: -64px 0 0; border-radius: 14px; text-decoration: none; color: var(--ink);
+  font: 700 13px/1 var(--ui); letter-spacing: .12em; text-transform: uppercase;
+  background: linear-gradient(140deg, rgba(160,29,51,.98), rgba(120,20,38,.95)); border: 1px solid rgba(214,110,124,.55);
+  box-shadow: 0 14px 34px rgba(0,0,0,.6), inset 0 1px 0 rgba(255,255,255,.2);
+}
+.sheet-cta svg { width: 20px; height: 20px; fill: none; stroke: currentColor; stroke-width: 1.5; stroke-linejoin: round; }
+.n { display: inline-grid; place-items: center; min-width: 20px; height: 20px; padding: 0 5px; margin-left: 6px; border-radius: 10px; font: 800 11px/1 var(--ui); letter-spacing: 0; background: var(--ink); color: var(--red); }
+.n[hidden] { display: none; }
+@media (prefers-reduced-motion: reduce) { .tab-p { animation: none; } }
+
+/* ── Tutorial guiado (2026-11-07): un dedo toca los botones y una cápsula cuenta qué pasa ── */
+.island {
+  position: absolute; z-index: 9; left: 16px; right: 16px; margin-inline: auto; width: fit-content; max-width: calc(100% - 32px);
+  bottom: calc(108px + env(safe-area-inset-bottom, 0px)); overflow: hidden;
+  display: flex; align-items: center; gap: 10px; min-height: 46px; padding: 6px 6px 6px 15px; border-radius: 999px;
+  background: rgba(8, 7, 8, .84); border: 1px solid rgba(214, 110, 124, .4);
+  -webkit-backdrop-filter: blur(12px) saturate(1.2); backdrop-filter: blur(12px) saturate(1.2);
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, .12), 0 14px 36px rgba(0, 0, 0, .55);
+  animation: isl-in .5s cubic-bezier(.2, .8, .2, 1) both; transition: bottom .5s cubic-bezier(.2, .8, .2, 1);
+}
+.in-cat .island { bottom: calc(var(--hud-h, 190px) + 12px); }
+.island::after {
+  content: ""; position: absolute; left: 0; right: 0; bottom: 0; height: 2px; background: var(--red-ink);
+  transform-origin: 0 50%; transform: scaleX(var(--k, 0)); transition: transform .6s cubic-bezier(.2, .8, .2, 1);
+}
+.island.tip { padding: 10px 18px; }
+.island.tip .isl-n, .island.tip .isl-x, .island.tip::after { display: none; }
+.island.out { animation: isl-out .4s cubic-bezier(.4, 0, 1, 1) both; }
+@keyframes isl-in { from { opacity: 0; transform: translateY(12px) scale(.92); } to { opacity: 1; transform: none; } }
+@keyframes isl-out { to { opacity: 0; transform: translateY(8px) scale(.94); } }
+.isl-n { flex: none; font: 800 11px/1 var(--display); font-stretch: 125%; letter-spacing: .06em; color: var(--red-ink); font-variant-numeric: tabular-nums; }
+.isl-t { min-width: 0; font: 700 14px/1.2 var(--ui); letter-spacing: .06em; text-transform: uppercase; color: var(--ink); }
+.isl-t.swap { animation: isl-swap .45s cubic-bezier(.2, .8, .2, 1); }
+@keyframes isl-swap { from { opacity: 0; transform: translateY(5px); filter: blur(4px); } to { opacity: 1; transform: none; filter: none; } }
+.isl-x {
+  flex: none; height: 34px; padding: 0 13px; cursor: pointer; border-radius: 999px;
+  font: 700 11px/1 var(--ui); letter-spacing: .14em; text-transform: uppercase; color: var(--ink);
+  background: rgba(255, 255, 255, .1); border: 1px solid rgba(255, 255, 255, .18);
+}
+.isl-x:focus-visible { outline: 2px solid var(--ink); outline-offset: 2px; }
+.finger {
+  position: absolute; z-index: 10; left: 0; top: 0; width: 46px; height: 46px; border-radius: 50%; pointer-events: none; opacity: 0;
+  background: radial-gradient(circle at 50% 45%, rgba(255, 255, 255, .75), rgba(255, 255, 255, .3) 58%, rgba(255, 255, 255, .1));
+  box-shadow: 0 0 0 1px rgba(255, 255, 255, .6), 0 10px 26px rgba(0, 0, 0, .5); transition: opacity .3s;
+}
+.finger.on { opacity: 1; }
+.finger::after { content: ""; position: absolute; inset: -2px; border-radius: 50%; border: 2px solid var(--red-ink); opacity: 0; }
+.finger.tap::after { animation: ripple .55s cubic-bezier(.2, .8, .2, 1); }
+@keyframes ripple { from { opacity: .95; transform: scale(.7); } to { opacity: 0; transform: scale(1.9); } }
+.cita.pulse, .side button.pulse { animation: cta-pulse .9s ease-in-out infinite; }
+@keyframes cta-pulse { 50% { transform: scale(1.06); box-shadow: 0 0 0 5px rgba(224, 96, 122, .28), 0 0 30px rgba(160, 29, 51, .6); } }
+.hero .demo-btn { justify-self: start; margin-top: 12px; min-height: 40px; }
+.demo-btn svg { width: 14px; height: 14px; fill: currentColor; stroke: none; }
+
+/* ══ Variante 6 · Boutique ══ */
+#phone .brand.lg { width: auto; max-width: 92%; height: auto; }
+#phone .logo .lg { pointer-events: none; }
+#phone .cita { position: relative; white-space: nowrap; }
+#phone .cita .n { position: absolute; top: -8px; right: -6px; margin: 0; }
+#phone .logo .lg, #phone .logo .lg * { white-space: nowrap; }
+@container (max-width: 360px) { #phone .logo .lg { --ls: 8.6px; } #phone .logo img { height: 36px !important; } }
+
+:root { --ui: 'Jost', system-ui, sans-serif; --display: 'Cormorant Garamond', Georgia, serif; --champ: #e9dcc7; }
+#phone h1 { font: 600 31px/1 var(--display); text-transform: none; letter-spacing: 0; }
+#phone .loader b { font: 500 25px/1 var(--display); text-transform: none; letter-spacing: .01em; }
+#phone .hello { font: 400 10px/1 var(--ui); letter-spacing: .5em; color: var(--champ); }
+#phone .eyebrow { font: 500 10px/1 var(--ui); letter-spacing: .3em; color: rgba(233,220,199,.75); }
+#phone .desc { font: 300 15.5px/1.5 var(--ui); color: rgba(255,255,255,.8); }
+#phone .price { font-family: var(--ui); font-weight: 400; }
+#phone .sheet h3 { font-weight: 500; font-size: 30px; }
+#phone .tag, #phone .spec li { border-radius: 999px; font-family: var(--ui); font-weight: 500; }
+/* Cabecera: logo grande en el centro */
+#phone .top { display: grid; grid-template-columns: 1fr auto 1fr; padding-block: 12px; }
+#phone .logo { grid-column: 2; grid-row: 1; }
+#phone .logo img { height: 46px; }
+#phone .cita { grid-column: 3; grid-row: 1; justify-self: end; position: relative; border-radius: 999px; padding: 10px 13px; font: 500 10.5px/1 var(--ui); letter-spacing: .16em; }
+#phone .cita .n { position: absolute; top: -8px; right: -5px; margin: 0; }
+/* Servicios: cápsula flotante abajo, con Pintura en un círculo central */
+#phone .side.l { left: 50%; right: auto; bottom: calc(22px + env(safe-area-inset-bottom, 0px)); transform: translateX(-50%); display: flex; align-items: center; gap: 2px; padding: 6px; border-radius: 999px; background: rgba(14,12,12,.64); border: 1px solid rgba(233,220,199,.2); -webkit-backdrop-filter: blur(18px) saturate(140%); backdrop-filter: blur(18px) saturate(140%); box-shadow: 0 18px 40px rgba(0,0,0,.55); transition: transform .6s cubic-bezier(.2,.8,.2,1), opacity .4s; }
+#phone .side.l button { width: 60px; height: 56px; border-radius: 999px; background: none; border: 0; box-shadow: none; -webkit-backdrop-filter: none; backdrop-filter: none; gap: 5px; font: 500 9px/1 var(--ui); letter-spacing: .12em; color: var(--champ); }
+#phone .side.l button.star { width: 68px; height: 68px; margin: -22px 4px 0; border-radius: 50%; color: #fff; background: radial-gradient(circle at 35% 25%, #c8324f, #7a1225 70%); border: 1px solid rgba(233,220,199,.4); box-shadow: 0 10px 24px rgba(160,29,51,.5), inset 0 1px 0 rgba(255,255,255,.3); }
+#phone .side.l .badge { top: -11px; background: var(--champ); color: #2a1a12; font-family: var(--ui); font-weight: 600; letter-spacing: .14em; border-radius: 999px; }
+#phone .side svg { width: 22px; height: 22px; stroke-width: 1.15; }
+#phone.invite .side button.star::after { border-radius: 50%; border-color: var(--champ); }
+#phone.loading .side.l button, #phone.in-cat .side.l button { transform: none; }
+#phone.loading .side.l, #phone.in-cat .side.l { transform: translate(-50%, calc(100% + 60px)); opacity: 0; }
+#phone .island { bottom: calc(118px + env(safe-area-inset-bottom, 0px)); border-color: rgba(233,220,199,.4); }
+#phone .island::after { background: var(--champ); }
+#phone .isl-t { font: 500 13px/1.2 var(--ui); letter-spacing: .14em; }
+#phone .isl-n { color: var(--champ); font-family: var(--ui); }
+/* Volver: píldora arriba a la izquierda */
+#phone .back { top: calc(74px + 2%); border-radius: 999px; height: 42px; padding: 0 16px 0 10px; background: rgba(14,12,12,.58); border: 1px solid rgba(233,220,199,.3); box-shadow: none; font: 500 11px/1 var(--ui); letter-spacing: .2em; color: var(--champ); }
+/* Opciones: píldoras a la derecha */
+#phone .xside.l { left: auto; right: calc(12px + env(safe-area-inset-right, 0px)); justify-items: end; top: calc(74px + 2%); transform: translateX(calc(100% + 30px)); max-height: calc(100cqh - 74px - 2cqh - var(--hud-h, 190px) - 24px); }
+#phone.in-cat .xside.l { transform: none; }
+#phone .xside.l p { text-align: right; justify-self: stretch; font: 500 9px/1 var(--ui); letter-spacing: .3em; color: var(--champ); }
+#phone .xside button { width: auto; min-width: 86px; min-height: 36px; padding: 6px 14px; border-radius: 999px; justify-content: center; text-align: center; font: 500 10px/1.1 var(--ui); letter-spacing: .12em; background: rgba(14,12,12,.62); border: 1px solid rgba(233,220,199,.22); box-shadow: none; }
+#phone .xside.l button { border-left: 1px solid rgba(233,220,199,.22); text-align: center; box-shadow: none; }
+#phone .xside button[aria-current="true"] { background: var(--red); border-color: rgba(233,220,199,.45); box-shadow: 0 8px 20px rgba(160,29,51,.4); }
+#phone .xside.l button.sup { border: 1px dashed rgba(233,220,199,.35); }
+#phone .xside button .badge { border-radius: 999px; background: var(--champ); color: #2a1a12; }
+/* Antes / Después: control segmentado en píldora */
+#phone .ab { gap: 0; padding: 4px; border-radius: 999px; background: rgba(255,255,255,.06); border: 1px solid rgba(233,220,199,.2); }
+#phone .ab button { height: 38px; border-radius: 999px; background: none; border: 0; box-shadow: none; -webkit-backdrop-filter: none; backdrop-filter: none; font: 500 11px/1 var(--ui); letter-spacing: .2em; color: rgba(233,220,199,.72); }
+#phone .ab button[aria-pressed="true"] { background: var(--champ); color: #1a1210; box-shadow: none; border: 0; }
+/* Taller */
+#phone .tabs button { font: 500 10.5px/1 var(--ui); letter-spacing: .14em; }
+#phone .tabs button[aria-selected="true"] { background: var(--champ); color: #1a1210; border-color: var(--champ); box-shadow: none; }
+#phone .btn, #phone .sheet-cta { border-radius: 999px; font-family: var(--ui); font-weight: 500; }
+#phone .hero { border-radius: 22px; }
+
+
+/* ══ Menú organizado (2026-11-11, petición de Javi) ══
+   Menú principal: cápsula con Tintado de lunas · Servicios · Report y, debajo, Sobre nosotros · Contacto · Ubicación.
+   Servicios abre su propio menú (Detallado, Pulido, Cerámico, Extras) y cada botón de información abre solo su página. */
+#phone .side.l, #phone .side.s {
+  top: auto; left: 0; right: 0; bottom: calc(18px + env(safe-area-inset-bottom, 0px)); padding: 0 12px;
+  display: grid; grid-template-columns: none; justify-items: center; gap: 12px;
+  background: none; border: 0; border-radius: 0; box-shadow: none; -webkit-backdrop-filter: none; backdrop-filter: none;
+  transform: none; opacity: 1; transition: transform .6s cubic-bezier(.2,.8,.2,1), opacity .4s;
+}
+#phone.loading .side.l, #phone.in-cat .side.l, #phone.in-serv .side.l,
+#phone .side.s { transform: translateY(calc(100% + 60px)); opacity: 0; }
+#phone.in-serv .side.s { transform: none; opacity: 1; }
+#phone .side.l, #phone .side.s { z-index: 5; }
+#phone .side .dock {
+  display: flex; align-items: center; gap: 2px; padding: 6px; border-radius: 999px;
+  background: rgba(14,12,12,.66); border: 1px solid rgba(233,220,199,.2);
+  -webkit-backdrop-filter: blur(18px) saturate(140%); backdrop-filter: blur(18px) saturate(140%); box-shadow: 0 18px 40px rgba(0,0,0,.55);
+}
+#phone .side.l .dock button, #phone .side.s .dock button {
+  width: 86px; height: 62px; padding: 0; border-radius: 999px; display: grid; place-content: center; justify-items: center; gap: 5px;
+  background: none; border: 0; box-shadow: none; -webkit-backdrop-filter: none; backdrop-filter: none; transform: none;
+  font: 500 10px/1.1 var(--ui); letter-spacing: .12em; text-transform: uppercase; color: var(--champ);
+}
+#phone .side .dock button > span { display: grid; justify-items: center; gap: 3px; }
+#phone .side .dock button small { font: 400 8.5px/1 var(--ui); letter-spacing: .14em; color: rgba(233,220,199,.62); }
+#phone .side .dock svg { width: 22px; height: 22px; stroke-width: 1.15; }
+#phone .side.l .dock button.star {
+  width: 80px; height: 80px; margin: -26px 4px 0; border-radius: 50%; font-size: 10.5px; color: #fff;
+  background: radial-gradient(circle at 35% 25%, #c8324f, #7a1225 70%); border: 1px solid rgba(233,220,199,.4);
+  box-shadow: 0 10px 24px rgba(160,29,51,.5), inset 0 1px 0 rgba(255,255,255,.3);
+}
+#phone .side.l .dock button.star svg { width: 24px; height: 24px; }
+#phone .side.s .dock button { width: 76px; }
+#phone .side.s .dock button[aria-current="true"] { background: var(--red); color: #fff; }
+#phone .side.s > p { display: none; }
+/* Los apartados de información, debajo y en píldoras con su nombre completo */
+#phone .side .links { display: flex; justify-content: center; gap: 6px; }
+#phone .side.l .links button {
+  width: auto; height: 36px; padding: 0 13px; border-radius: 999px; display: inline-flex; align-items: center;
+  font: 500 9.5px/1 var(--ui); letter-spacing: .14em; text-transform: uppercase; color: var(--champ); white-space: nowrap;
+  background: rgba(14,12,12,.55); border: 1px solid rgba(233,220,199,.22); box-shadow: none;
+  -webkit-backdrop-filter: blur(12px); backdrop-filter: blur(12px); transform: none;
+}
+#phone .side .links.pulse button { animation: cta-pulse .9s ease-in-out infinite; }
+#phone .side button:active { transform: scale(.95); }
+#phone .side button:focus-visible { outline: 2px solid var(--champ); outline-offset: 2px; }
+@container (max-width: 370px) {
+  #phone .side.l .dock button { width: 78px; }
+  #phone .side.s .dock button { width: 70px; font-size: 9.5px; letter-spacing: .08em; }
+  #phone .side.l .links button { padding: 0 10px; font-size: 9px; letter-spacing: .1em; }
+}
+/* «Volver» también en el menú de servicios; la ficha deja sitio al menú */
+#phone.in-serv .back { transform: none; }
+#phone.in-serv .hud { padding-bottom: calc(104px + env(safe-area-inset-bottom, 0px)); }
+#phone .island { bottom: calc(170px + env(safe-area-inset-bottom, 0px)); }
+#phone.in-cat .island, #phone.in-serv .island { bottom: calc(var(--hud-h, 190px) + 12px); }
+/* «Más información» / «Ver precios» en la ficha */
+#phone .more {
+  flex: none; display: inline-flex; align-items: center; gap: 3px; height: 30px; padding: 0 9px 0 13px; border-radius: 999px; cursor: pointer;
+  font: 500 10px/1 var(--ui); letter-spacing: .14em; text-transform: uppercase; color: var(--champ);
+  background: rgba(233,220,199,.08); border: 1px solid rgba(233,220,199,.32);
+}
+#phone .more svg { width: 13px; height: 13px; fill: none; stroke: currentColor; stroke-width: 1.6; stroke-linecap: round; stroke-linejoin: round; }
+#phone .more:focus-visible { outline: 2px solid var(--champ); outline-offset: 2px; }
+/* Contacto: teléfono, correo y redes */
+.contact { list-style: none; margin: 0 0 10px; padding: 0; display: grid; gap: 8px; }
+.contact a, .contact .off {
+  display: flex; align-items: center; gap: 14px; padding: 12px 14px; border-radius: 14px; color: var(--ink); text-decoration: none;
+  border: 1px solid rgba(233,220,199,.16); background: rgba(255,255,255,.04);
+}
+.contact svg { width: 22px; height: 22px; flex: none; fill: none; stroke: var(--champ); stroke-width: 1.3; stroke-linecap: round; stroke-linejoin: round; }
+.contact a > span, .contact .off > span { display: grid; gap: 4px; font-size: 16px; font-weight: 500; }
+.contact small { font-size: 10px; letter-spacing: .16em; text-transform: uppercase; color: rgba(233,220,199,.62); }
+.contact .off { opacity: .55; }
+.tab-p > .hero + section, .tab-p > section:first-child { border-top: 0; }
+.tab-p > section:first-child { padding-top: 6px; }
+
+/* ══════════ Versión de ordenador (generada con _tools/mkpc.py; no editar aquí) ══════════
+   Escenario a pantalla completa con fotos 16:9, ficha grande abajo a la izquierda, opciones a la derecha,
+   menú en cápsula abajo en el centro y las páginas de información en un panel lateral. */
+.phone { width: 100%; height: 100%; }
+#phone button, #phone summary { cursor: pointer; }
+#phone .layer, #phone .seq {
+  inset: 0; top: 0; left: 0; width: 100%; height: 100%; -webkit-mask-image: none; mask-image: none;
+  translate: var(--px, 0px) var(--py, 0px); scale: 1.04; transition: translate .9s cubic-bezier(.2,.8,.2,1), scale 1.1s cubic-bezier(.2,.8,.2,1);
+}
+/* Dentro de un servicio la cámara se acerca y se va a la derecha: deja sitio a la ficha */
+#phone.in-cat .layer, #phone.in-cat .seq { scale: 1.13; translate: calc(5.5cqw + var(--px, 0px)) var(--py, 0px); }
+#phone .shade {
+  background:
+    radial-gradient(120% 90% at 50% 45%, rgba(0,0,0,0) 55%, rgba(0,0,0,.55) 100%),
+    linear-gradient(to bottom, rgba(0,0,0,.62) 0, rgba(0,0,0,0) 20%),
+    linear-gradient(to top, rgba(3,3,4,.9) 0, rgba(3,3,4,.5) 16%, rgba(3,3,4,0) 34%);
+  transition: background .6s;
+}
+#phone.in-cat .shade {
+  background:
+    linear-gradient(to right, rgba(3,3,4,.86) 0, rgba(3,3,4,.55) 24%, rgba(3,3,4,0) 46%),
+    linear-gradient(to left, rgba(3,3,4,.6) 0, rgba(3,3,4,0) 20%),
+    linear-gradient(to bottom, rgba(0,0,0,.62) 0, rgba(0,0,0,0) 20%),
+    linear-gradient(to top, rgba(3,3,4,.8) 0, rgba(3,3,4,0) 30%);
+}
+/* Cabecera */
+#phone .top { padding: 22px 44px; }
+#phone .logo img { height: 66px; }
+#phone .where { grid-column: 1; grid-row: 1; justify-self: start; font: 400 11px/1 var(--ui); letter-spacing: .42em; text-transform: uppercase; color: rgba(233,220,199,.72); transition: opacity .5s; }
+#phone.loading .where, #phone.in-cat .where, #phone.in-serv .where { opacity: 0; }
+#phone .cita { padding: 15px 24px; font-size: 12px; letter-spacing: .2em; transition: opacity .5s, filter .25s, transform .25s; }
+#phone .cita:hover { filter: brightness(1.15); transform: translateY(-1px); }
+#phone .back { top: 34px; left: 44px; height: 46px; padding: 0 22px 0 14px; font-size: 12px; }
+#phone .back:hover { background: rgba(233,220,199,.12); }
+/* Menú */
+#phone .side.l, #phone .side.s { bottom: calc(34px + env(safe-area-inset-bottom, 0px)); gap: 16px; }
+#phone .side .dock { padding: 8px; gap: 4px; }
+#phone .side.l .dock button, #phone .side.s .dock button { width: 124px; height: 76px; font-size: 11.5px; letter-spacing: .16em; gap: 7px; transition: background .25s, color .25s, transform .25s; }
+#phone .side .dock button small { font-size: 9.5px; }
+#phone .side .dock svg { width: 26px; height: 26px; }
+#phone .side.l .dock button.star { width: 108px; height: 108px; margin: -36px 8px 0; font-size: 12px; }
+#phone .side.l .dock button.star svg { width: 30px; height: 30px; }
+#phone .side .dock button:not(.star):hover { background: rgba(233,220,199,.1); color: #fff; }
+#phone .side.l .dock button.star:hover { filter: brightness(1.15); transform: scale(1.04); }
+#phone .side.s .dock button { width: 132px; }
+#phone .side.l .links { gap: 10px; }
+#phone .side.l .links button { height: 42px; padding: 0 20px; font-size: 11px; letter-spacing: .2em; transition: background .25s, border-color .25s, color .25s; }
+#phone .side.l .links button:hover { background: rgba(233,220,199,.12); border-color: rgba(233,220,199,.5); color: #fff; }
+/* Ficha: abajo a la izquierda; en el menú de servicios, centrada sobre el menú */
+#phone .hud { inset: auto auto 0 0; width: min(560px, 40cqw); padding: 0 0 48px 48px; gap: 8px; }
+#phone h1 { font-size: clamp(38px, 3.9cqw, 64px); line-height: 1; gap: 6px 16px; }
+#phone .eyebrow { font-size: 11px; letter-spacing: .36em; }
+#phone .desc { font-size: clamp(16px, 1.25cqw, 19px); max-width: none; margin-top: 6px; }
+#phone .price { font-size: 16px; margin-top: 6px; }
+#phone .price .k { font-size: 24px; }
+#phone .spec { gap: 7px; margin-top: 10px; }
+#phone .spec li { font-size: 11px; padding: 7px 13px 6px; letter-spacing: .12em; }
+#phone .tag { font-size: 12px; padding: 6px 12px 5px; }
+#phone .ab { margin-top: 20px; max-width: 400px; }
+#phone .ab button { height: 46px; font-size: 11.5px; transition: background .25s, color .25s; }
+#phone .ab button:not([aria-pressed="true"]):hover { color: #fff; }
+#phone .glass { margin-top: 20px; max-width: 420px; }
+#phone .more { height: 36px; padding: 0 12px 0 16px; font-size: 10.5px; transition: background .25s; }
+#phone .more:hover { background: rgba(233,220,199,.18); }
+#phone.in-serv .hud { inset: 128px 0 auto 0; width: auto; justify-items: center; text-align: center; padding: 0 24px; }
+#phone.in-serv .desc { text-shadow: 0 1px 12px #000; }
+#phone.in-serv .hud .row { justify-content: center; gap: 18px; }
+#phone.in-serv .hud .eyebrow { flex: none; }
+#phone.in-serv h1 { justify-content: center; }
+/* Opciones: columna a la derecha */
+#phone .xside.l { right: 44px; top: 118px; gap: 8px; max-height: calc(100cqh - 118px - 48px); padding: 8px 4px 8px 12px; }
+#phone .xside.l p { font-size: 10px; letter-spacing: .36em; margin: 10px 4px 2px 0; }
+#phone .xside button { min-width: 176px; min-height: 44px; padding: 8px 20px; font-size: 11px; letter-spacing: .18em; transition: background .25s, border-color .25s, transform .25s; }
+#phone .xside button:not([aria-current="true"]):hover { background: rgba(233,220,199,.14); border-color: rgba(233,220,199,.5); transform: translateX(-3px); }
+#phone .xside button .badge { font-size: 8px; padding: 3px 7px 2px; top: -8px; right: -6px; }
+/* Tutorial: la cápsula, abajo en el centro (sobre el menú cuando lo hay) */
+#phone .island { bottom: calc(232px + env(safe-area-inset-bottom, 0px)); min-height: 52px; padding-left: 20px; }
+#phone.in-serv .island { bottom: calc(150px + env(safe-area-inset-bottom, 0px)); }
+#phone.in-cat .island { bottom: calc(44px + env(safe-area-inset-bottom, 0px)); }
+#phone .island.tip { padding: 12px 22px; }
+#phone .isl-t { font-size: 14px; }
+/* Páginas de información: panel lateral sobre el escenario oscurecido */
+.scrim { position: absolute; inset: 0; z-index: 5; background: rgba(0,0,0,.52); -webkit-backdrop-filter: blur(5px); backdrop-filter: blur(5px); opacity: 0; pointer-events: none; transition: opacity .35s; }
+.sheet-open .scrim { opacity: 1; pointer-events: auto; }
+#phone .sheet {
+  inset: 0 0 0 auto; width: min(620px, 100%); padding-left: 40px; padding-right: 40px;
+  border-left: 1px solid rgba(233,220,199,.16); box-shadow: -50px 0 90px rgba(0,0,0,.6);
+  background: linear-gradient(to bottom, rgba(10,8,8,.94), rgba(6,5,5,.98) 26%);
+  transform: translateX(60px);
+}
+#phone .sheet.open { transform: none; }
+#phone .sheet-head { padding-top: 26px; }
+#phone .sheet h2 { font-size: 24px; }
+#phone .close:hover, #phone .btn:hover { filter: brightness(1.25); }
+#phone .rail { margin: 0 -40px; padding: 4px 40px 14px; overflow-x: auto; scrollbar-width: thin; }
+#phone .rail > * { flex: 0 0 58%; }
+#phone .hero { min-height: 250px; }
+/* Bienvenida */
+#phone .loader { inset: auto auto 0 50%; width: min(460px, 90%); transform: translateX(-50%); padding: 0 0 30px; gap: 6px; }
+#phone .loader.done { transform: translate(-50%, -36px); }
+#phone .brand { width: 250px; max-width: 100%; }
+#phone .welcome { margin-bottom: 0; }
+#phone .hello { font-size: 12px; }
+/* Pantallas bajas: opciones más compactas. Pantallas grandes: toda la interfaz crece en proporción */
+@media (max-height: 860px) { #phone .xside.l { gap: 6px; } #phone .xside button { min-height: 38px; padding: 6px 18px; } #phone .xside.l p { margin-top: 6px; } }
+@media (min-width: 1700px) and (min-height: 900px) { #phone .top, #phone .side, #phone .hud, #phone .xside, #phone .back, #phone .island, #phone .loader { zoom: 1.2; } #phone .sheet { zoom: 1.12; } }
+@media (min-width: 2300px) and (min-height: 1200px) { #phone .top, #phone .side, #phone .hud, #phone .xside, #phone .back, #phone .island, #phone .loader { zoom: 1.5; } #phone .sheet { zoom: 1.35; } }
+@media (prefers-reduced-motion: reduce) { #phone .layer, #phone .seq { translate: none; transition: none; } }
+</style>
+<script>
+// En un móvil en vertical, mejor la web hecha para móvil
+if (innerWidth < 700 && innerHeight > innerWidth) location.replace('https://topdetail.puntozerosl.es/');
+</script>
+</head>
+<body>
+
+<div class="app">
+  <div class="phone loading invite" id="phone">
+    <img class="layer" id="back" alt="Porsche Cayenne negro, sucio, en el taller de Top Detail Garage">
+    <img class="layer" id="front" alt="" aria-hidden="true">
+    <canvas class="seq" id="seq" aria-hidden="true"></canvas>
+    <div class="sweep" id="sweep"></div>
+    <div class="shade"></div>
+
+    <header class="top">
+      <span class="where">Fernán Núñez · Córdoba</span>
+      <button class="logo" id="logo" aria-label="Volver al inicio"><img src="img/logo-v6.svg" alt="Top Detail Garage"></button>
+      <a class="cita wa" id="cita" href="https://wa.me/34643182964" target="_blank" rel="noopener">Pedir cita<b class="n" hidden></b></a>
+    </header>
+
+    <!-- Menú principal (lo que pidió Javi el 11-11): Servicios en el centro, Tintado de lunas y Report a los lados;
+         debajo, Sobre nosotros, Contacto y Ubicación. Servicios abre su propio menú: Detallado, Pulido, Cerámico y Extras. -->
+    <nav class="side l menu" id="menu" aria-label="Menú">
+      <div class="dock">
+        <button data-cat="tintado"><svg viewBox="0 0 24 24"><path d="M3 16l3-7h9l5 7z"/><path d="M8 16l2-5M12 16l1.5-5" opacity=".55"/></svg><span>Tintado<small>de lunas</small></span></button>
+        <button id="serv-btn" class="star"><svg viewBox="0 0 24 24"><path d="M12 3.5l1.9 5.1 5.1 1.9-5.1 1.9L12 17.5l-1.9-5.1L5 10.5l5.1-1.9z"/><path d="M18.5 15.5l.8 2 2 .8-2 .8-.8 2-.8-2-2-.8 2-.8z"/></svg><span>Servicios</span></button>
+        <button data-page="report"><svg viewBox="0 0 24 24"><path d="M6 3.5h9l3 3V20.5H6z"/><path d="M9 10h6M9 13.5h6M9 17h4"/></svg><span>Report<small>Top Detail</small></span></button>
+      </div>
+      <div class="links">
+        <button data-page="nosotros">Sobre nosotros</button>
+        <button data-page="contacto">Contacto</button>
+        <button data-page="ubicacion">Ubicación</button>
+      </div>
+    </nav>
+    <nav class="side s" id="serv" aria-label="Servicios" inert>
+      <p>Servicios</p>
+      <div class="dock">
+        <button data-cat="limpieza"><svg viewBox="0 0 24 24"><path d="M12 3c3 4 6 7.2 6 10.5A6 6 0 0 1 6 13.5C6 10.2 9 7 12 3z"/><path d="M9.5 14.5a2.5 2.5 0 0 0 2.5 2.5"/></svg>Detallado</button>
+        <button data-cat="pulido"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="7"/><circle cx="12" cy="12" r="2.5"/><path d="M12 2v3M12 19v3M2 12h3M19 12h3"/></svg>Pulido</button>
+        <button data-cat="ceramico"><svg viewBox="0 0 24 24"><path d="M12 3l7 3v5.5c0 4.3-3 7.7-7 9.5-4-1.8-7-5.2-7-9.5V6z"/><path d="M9 12l2.2 2.2L15.5 10"/></svg>Cerámico</button>
+        <button data-cat="extras"><svg viewBox="0 0 24 24"><rect x="4" y="4" width="6.5" height="6.5"/><rect x="13.5" y="4" width="6.5" height="6.5"/><rect x="4" y="13.5" width="6.5" height="6.5"/><path d="M16.75 14v5.5M14 16.75h5.5"/></svg>Extras</button>
+      </div>
+    </nav>
+
+    <button class="back" id="back-btn" inert><svg viewBox="0 0 24 24"><path d="M15 5l-7 7 7 7"/></svg>Volver</button>
+
+    <section class="hud" id="hud" aria-live="polite">
+      <div class="row">
+        <p class="eyebrow" id="eyebrow"></p>
+        <span class="count" id="count" hidden></span>
+        <button class="more" id="more" type="button" hidden>Más información<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M9 5l7 7-7 7"/></svg></button>
+      </div>
+      <h1 id="name"></h1>
+      <p class="price" id="price"></p>
+      <p class="desc" id="desc"></p>
+      <ul class="spec" id="spec" aria-label="Detalles técnicos"></ul>
+      <div class="ab" id="ab" role="group" aria-label="Comparar" hidden><button id="ab-a" aria-pressed="false">Antes</button><button id="ab-b" aria-pressed="true">Después</button></div>
+      <div class="glass wait" id="glass" hidden><div class="glass-row"><span>Antes</span><em>Desliza para comparar</em><span>Después</span></div><input type="range" id="cmp" min="0" max="100" step="0.5" value="100" aria-label="Comparar antes y después"></div>
+    </section>
+
+    <nav class="xside l" id="opt-l" aria-label="Opciones" inert></nav>
+    <nav class="xside r" id="opt-r" aria-label="Opciones" inert></nav>
+
+
+    <!-- Páginas de información: cada botón del menú abre solo la suya (antes era «El taller», todo junto en pestañas).
+         Lo marcado .pending falta por confirmar con el cliente. -->
+    <div class="scrim" id="scrim"></div>
+    <section class="sheet" id="sheet" role="dialog" aria-modal="true" aria-labelledby="sheet-t" inert>
+      <div class="sheet-head">
+        <h2 id="sheet-t">Top <span class="k">Detail</span></h2>
+        <button class="btn close" id="sheet-x" aria-label="Cerrar"><svg viewBox="0 0 24 24"><path d="M6 6l12 12M18 6 6 18"/></svg></button>
+      </div>
+      <div class="hero" data-tab="nosotros" data-o="0" style="--bg:url(img/real_taller_suv.webp)"><p class="tagline">Centro detailing profesional · Cuidado · Corrección · Protección · Seguimiento</p><b>Top Detail <span class="k">Garage</span></b><span>Fernán Núñez · Córdoba</span><button class="btn demo-btn" id="demo-btn" type="button"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M8 5.5v13l11-6.5z"/></svg>Ver cómo funciona</button></div>
+
+      <section data-tab="nosotros" data-o="1">
+        <h3 class="reveal"><small>El taller</small>Nuestra <b>filosofía.</b></h3>
+        <p class="claim reveal">No <span class="strike">limpiamos</span> coches.<br><b class="u">Cuidamos vehículos.</b></p>
+        <p>Entendemos que un vehículo es una inversión, una afición y, para muchos, una parte importante de su día a día. Nuestro objetivo no es solo limpiarlo: es <strong>conservar su estado, proteger su valor</strong> y hacer un seguimiento profesional de su evolución.</p>
+        <div class="values">
+          <div class="reveal"><b>Calidad</b><span>Resultados impecables en cada detalle.</span></div>
+          <div class="reveal"><b>Profesionalidad</b><span>Formación constante y experiencia.</span></div>
+          <div class="reveal"><b>Productos premium</b><span>Las mejores marcas del mercado.</span></div>
+          <div class="reveal"><b>Seguimiento</b><span>Tu vehículo, siempre bajo control.</span></div>
+        </div>
+      </section>
+
+      <section data-tab="nosotros" data-o="2">
+        <h3 class="reveal"><small>Proceso</small>Cómo <b>trabajamos.</b></h3>
+        <ol class="steps">
+          <li class="reveal"><b>Diagnóstico estético</b><span>Revisamos el estado real de pintura, interior, llantas y cristales antes de tocar nada.</span></li>
+          <li class="reveal"><b>Asesoramiento</b><span>Te recomendamos el servicio según el uso, el estado y las necesidades reales del coche. Si llega con suciedad extrema o mucho pelo de mascota, te avisamos antes.</span></li>
+          <li class="reveal"><b>Trabajo técnico</b><span>Productos profesionales y técnicas seguras para limpiar, corregir y proteger cada superficie.</span></li>
+          <li class="reveal"><b>Top Detail Report™</b><span>Registramos la intervención, el estado del vehículo y nuestras recomendaciones.</span></li>
+          <li class="reveal"><b>Seguimiento</b><span>Programamos las próximas visitas y seguimos la evolución del estado con el tiempo.</span></li>
+        </ol>
+      </section>
+
+      <section data-tab="nosotros" data-o="3">
+        <h3 class="reveal"><small>Galería</small>Trabajos <b>reales.</b></h3>
+        <p>Así trabajamos en el taller, coche a coche.</p>
+        <div class="gal rail">
+          <figure><img src="img/real_taller_suv.webp" alt="El taller, con su iluminación hexagonal" loading="lazy"><figcaption>El taller, con su iluminación hexagonal</figcaption></figure>
+          <figure><img src="img/real_taller_audi_tt.webp" alt="Audi TT recién terminado en el taller" loading="lazy"><figcaption>Audi TT recién terminado en el taller</figcaption></figure>
+          <figure><img src="img/real_trabajo_audi_tt_interior.webp" alt="Interior del Audi TT con tapicería roja" loading="lazy"><figcaption>Interior del Audi TT con tapicería roja</figcaption></figure>
+          <figure><img src="img/real_trabajo_bmw_interior.webp" alt="Interior de BMW en cuero blanco" loading="lazy"><figcaption>Interior de BMW en cuero blanco</figcaption></figure>
+          <figure><img src="img/real_trabajo_audi_interior.webp" alt="Interior de Audi limpio y protegido" loading="lazy"><figcaption>Interior de Audi limpio y protegido</figcaption></figure>
+          <figure><img src="img/real_trabajo_porsche_escudo.webp" alt="Escudo de Porsche detallado" loading="lazy"><figcaption>Escudo de Porsche detallado</figcaption></figure>
+        </div>
+        <p class="swipe-h">Desliza para ver más →</p>
+        <span class="pending">Pendiente: más fotos de trabajos</span>
+      </section>
+
+      <section data-tab="nosotros" data-o="4">
+        <h3 class="reveal">Lo que dicen <b>nuestros clientes.</b></h3>
+        <p>Opiniones reales de nuestros clientes, en nuestra ficha de Google.</p>
+        <div class="btns"><a class="btn" href="https://www.google.com/maps/search/?api=1&amp;query=Top+Detail+Garage+Fern%C3%A1n+N%C3%BA%C3%B1ez" target="_blank" rel="noopener">Ver reseñas en Google</a></div>
+        <span class="pending" style="margin-top:10px">Pendiente: enlace a la ficha de Google y reseñas destacadas</span>
+      </section>
+
+      <div class="hero" data-tab="precios" data-o="0" style="--bg:url(img/06-limpieza_integral.webp?v=2)"><p class="tagline">Precios con IVA incluido</p><b>Elige el servicio <span class="k">que tu coche merece.</span></b><span>Toca «Ver» para verlo en acción</span></div>
+      <section data-tab="precios" data-o="1">
+        <h3 class="reveal"><small>Tarifas</small>Servicios y <b>precios.</b></h3>
+        <p class="note">Precios con IVA incluido.</p>
+        <div id="svc-list"></div>
+      </section>
+
+      <section id="faq" data-tab="precios" data-o="2">
+        <h3 class="reveal"><small>Dudas</small>Preguntas <b>frecuentes.</b></h3>
+        <details class="acc" name="faq" open><summary><i>01</i>¿Las limpiezas incluyen el interior?</summary><div class="body"><p><strong>Sí, las tres.</strong> Todas son completas, por dentro y por fuera. La básica no incluye la tapicería; la premium sí, y la integral además limpia moqueta y techo.</p></div></details>
+        <details class="acc" name="faq"><summary><i>02</i>¿Puedo hacer solo el cerámico, sin pulir?</summary><div class="body"><p>Se puede, pero lo recomendamos <strong>después de una corrección</strong>: el cerámico sella la pintura tal y como está, con sus remolinos incluidos.</p></div></details>
+        <details class="acc" name="faq"><summary><i>03</i>¿El cerámico hace la pintura inrayable?</summary><div class="body"><p><strong>No.</strong> La protege del sol y la suciedad, la hace más fácil de lavar y le da brillo, pero no evita un arañazo.</p></div></details>
+        <details class="acc" name="faq"><summary><i>04</i>¿Cada cuánto hay que mantener el cerámico?</summary><div class="body"><p>Un <strong>lavado de mantenimiento al mes</strong> (solo exterior, 20&nbsp;€) y el <strong>booster cada 6 meses o una vez al año</strong>.</p></div></details>
+        <details class="acc" name="faq"><summary><i>05</i>¿Cuánto tarda una limpieza?</summary><div class="body"><p>Básica, hasta 2 h 30 min; premium, hasta 3 h; integral, hasta 4 h 30 min. Pulidos y cerámicos dependen del estado de la pintura: te lo decimos al ver el coche.</p></div></details>
+        <details class="acc" name="faq"><summary><i>06</i>¿Y si el coche llega muy sucio o con pelo de mascota?</summary><div class="body"><p><strong>Te avisamos antes de empezar.</strong> Lleva más tiempo y un suplemento, y no tocamos nada sin que lo sepas.</p></div></details>
+        <details class="acc" name="faq"><summary><i>07</i>¿Cómo pido cita?</summary><div class="body"><p>Por <strong>WhatsApp</strong> o llamando al <strong>643 182 964</strong>. El botón de WhatsApp te abre el chat con lo que has mirado en la web ya escrito.</p></div></details>
+      </section>
+
+      <section id="limpiezas" data-tab="detallado" data-o="1">
+        <h3 class="reveal"><small>Limpiezas</small>Las tres son <b>completas.</b></h3>
+        <p class="reveal">Básica, premium o integral: <strong>todas limpian el coche por dentro y por fuera, al detalle</strong>. Lo que cambia es hasta dónde llegamos en el interior.</p>
+        <table class="cmp-t reveal">
+          <thead><tr><th></th><th>Básica<small>70 €</small></th><th class="tp">Premium<small>Top ventas</small></th><th>Integral<small>130 €</small></th></tr></thead>
+          <tbody>
+            <tr><td>Exterior al detalle</td><td class="y">✓</td><td class="y tp">✓</td><td class="y">✓</td></tr>
+            <tr><td>Interior al detalle</td><td class="y">✓</td><td class="y tp">✓</td><td class="y">✓</td></tr>
+            <tr><td>Tapicería de asientos</td><td class="no">—</td><td class="y tp">✓</td><td class="y">✓</td></tr>
+            <tr><td>Moqueta y techo</td><td class="no">—</td><td class="no tp">—</td><td class="y">✓</td></tr>
+          </tbody>
+        </table>
+        <p class="note reveal">La <strong>básica no incluye la tapicería</strong>: si lo que quieres es limpiar los asientos, elige la premium, que desde 100&nbsp;€ es la que más se pide.</p>
+      </section>
+
+      <section id="teoria" data-tab="pulido" data-o="1">
+        <h3 class="reveal"><small>Pintura</small>Del problema a la <b>protección.</b></h3>
+        <div class="theory-img p0 reveal" id="th-img">
+          <span class="lbl" id="th-lbl">Sin pulir</span>
+          <img class="on" src="img/03-correccion_pintura_swirls.webp?v=2" alt="Pintura negra con remolinos y brillo apagado" loading="lazy">
+          <img src="img/03-correccion_pintura_2pasos.webp?v=2" alt="Pintura negra pulida con acabado espejo" loading="lazy">
+          <img src="img/04-ceramica_perlado.webp?v=2" alt="Gotas de agua perlando sobre la pintura con cerámico" loading="lazy">
+          <span class="dot" style="left:16%;top:30%"><span>Remolinos de lavado</span></span>
+          <span class="dot" style="left:46%;top:56%"><span>Microarañazos</span></span>
+          <span class="dot" style="left:22%;top:76%"><span>Brillo apagado</span></span>
+          <span class="rd">Recreación digital</span>
+        </div>
+        <details class="acc" name="teoria" data-img="0" data-lbl="Sin pulir" open>
+          <summary><i>01</i>El problema</summary>
+          <div class="body">
+            <p>Los túneles de lavado, las esponjas con arena y secar con cualquier trapo van dejando <strong>microarañazos</strong> en el barniz. Al sol se ven como una telaraña.</p>
+            <p class="big">Apagada.<br>Con remolinos.<br>Sin reflejos.</p>
+            <p>Con el pulido corregimos ese desgaste y la pintura recupera <strong>brillo, profundidad y reflejos</strong>.</p>
+          </div>
+        </details>
+        <details class="acc" name="teoria" data-img="1" data-lbl="Pulida">
+          <summary><i>02</i>El pulido</summary>
+          <div class="body">
+            <p>Con máquina, pads y pulimentos nivelamos el barniz hasta que el defecto <strong>desaparece</strong>. Elegimos el nivel según el estado real de la pintura:</p>
+            <div class="lvl"><span class="on">1 paso · 220–300 €</span><span>2 pasos · 350–450 €</span></div>
+            <p><strong>1 paso</strong>: swirls ligeros y poco desgaste. <strong>2 pasos</strong>: arañazos visibles, hologramas y oxidación, con acabado espejo.</p>
+          </div>
+        </details>
+        <details class="acc" name="teoria" data-img="2" data-lbl="Con cerámico">
+          <summary><i>03</i>El cerámico</summary>
+          <div class="body">
+            <p>Con la pintura ya corregida, la sellamos con un coating <strong>FX Protect</strong>.</p>
+            <p class="big">Brillo intenso.<br>El agua resbala.<br>Protegida del sol.</p>
+            <div class="lvl"><span>Gloss · 3 años</span><span>CNT · 5 años</span><span class="on">CNT+ · 7 años</span></div>
+            <p class="note">Va siempre después de pulir: el cerámico sella la pintura tal y como está. Protege, pero no la hace inrayable.</p>
+          </div>
+        </details>
+        <p class="motto reveal">Un buen pulido no esconde los defectos. <b>Los quita.</b></p>
+      </section>
+
+      <section id="ceramica" data-tab="ceramico" data-o="1">
+        <h3 class="reveal">Protección <b>cerámica.</b></h3>
+        <p>Sellamos el acabado y protegemos tu vehículo a largo plazo. <strong>Recomendado tras una corrección de pintura.</strong></p>
+        <div class="packs rail">
+          <div class="pack reveal"><b>FX Protect Gloss</b><span>Coating cerámico · garantía de <strong>3 años</strong>.</span><small>Desde 150 €</small></div>
+          <div class="pack reveal"><b>FX Protect G-Finity CNT</b><span>Coating de grafeno · garantía de <strong>5 años</strong>.</span><small>Desde 150 €</small></div>
+          <div class="pack reveal"><b>FX Protect G-Finity CNT+</b><span>Coating de grafeno · garantía de <strong>7 años</strong>.</span><small>Desde 150 €</small></div>
+        </div>
+        <p class="note" style="margin-top:10px">Incluye preparación y desengrase previo, aplicación profesional, recomendaciones de mantenimiento y seguimiento del tratamiento.</p>
+      </section>
+
+      <section id="packs" data-tab="ceramico" data-o="2">
+        <h3 class="reveal">Mantenimiento <b>y bonos.</b></h3>
+        <div class="packs">
+          <div class="pack reveal"><b>Lavado de mantenimiento</b><span>Solo exterior, de forma profesional y <strong>segura, sin rayar</strong>: mantiene el estado y el aspecto del cerámico siempre como nuevo.</span><small>20 € · cada mes</small></div>
+          <div class="pack reveal"><b>Booster del cerámico</b><span>Potenciador que refuerza la hidrofobicidad y el brillo del coating y alarga su vida útil.</span><small>Cada 6 meses o una vez al año</small></div>
+          <div class="pack reveal"><b>Bonos de mantenimiento</b><span>Visitas periódicas para conservar el brillo y la protección, con su registro en el Top Detail Report™.</span><small>Consúltanos</small></div>
+        </div>
+        <span class="pending" style="margin-top:10px">Pendiente: precio del booster, bonos, tintado y extras</span>
+      </section>
+
+      <section id="report" data-tab="report" data-o="1">
+        <p class="claim sm">Más que una limpieza.<br><span class="k">Un historial estético para tu vehículo.</span></p>
+        <p>Cada vehículo recibe un <strong>diagnóstico estético profesional</strong> y pasa a formar parte de nuestro sistema exclusivo de seguimiento.</p>
+        <ul class="feats">
+          <li>Diagnóstico estético</li><li>Libro de mantenimiento</li><li>Historial de intervenciones</li>
+          <li>Seguimiento de futuras visitas</li><li>Recomendaciones personalizadas</li><li>Evolución del estado</li>
+        </ul>
+        <p class="note">Incluido en pulidos y cerámicos. En el detallado, opcional por <strong>+10&nbsp;€</strong>.</p>
+        <details class="report">
+          <summary>Ver informe de ejemplo</summary>
+          <div class="rep">
+            <div class="rep-row"><span>Nº de informe</span><b>TDG-2024-00057</b></div>
+            <div class="rep-row"><span>Vehículo</span><b>BMW 330i · 28.450 km</b></div>
+            <div class="rep-row"><span>Condición general</span><b>Buen estado</b></div>
+            <div class="rep-img">
+              <figure><img src="img/03-correccion_pintura_swirls.webp?v=2" alt="Pintura con remolinos antes del pulido" loading="lazy"><figcaption>Antes</figcaption></figure>
+              <figure><img src="img/03-correccion_pintura_1paso.webp?v=2" alt="Pintura recuperada después del pulido" loading="lazy"><figcaption>Después</figcaption></figure>
+            </div>
+            <p class="rep-h">Observaciones</p>
+            <ul><li>Microarañazos en pintura.</li><li>Marcas de agua en zonas superiores.</li></ul>
+            <p class="rep-h">Registro de intervenciones</p>
+            <div class="rep-row"><span>25/05/24</span><b>Lavado premium + exterior</b></div>
+            <div class="rep-row"><span>10/06/24</span><b>Corrección de pintura 1 paso</b></div>
+            <div class="rep-row"><span>25/06/24</span><b>Protección cerámica 5 años</b></div>
+            <p class="rep-h">Recomendaciones</p>
+            <ul><li>Lavado cada 2–3 semanas.</li><li>Mantener la protección con mantenimiento periódico.</li><li>Evitar el estacionamiento prolongado al sol.</li></ul>
+          </div>
+        </details>
+        <form class="code" id="code-f">
+          <input id="code-i" name="code" placeholder="Nº de informe o código" autocomplete="off" aria-label="Número o código de tu Top Detail Report" maxlength="20">
+          <button class="btn red" type="submit">Consultar</button>
+        </form>
+      </section>
+
+      <section data-tab="contacto" data-o="1">
+        <h3 class="reveal">Pide tu <b>cita.</b></h3>
+        <p>Lo que has mirado en la web va <strong>directo en el WhatsApp</strong>, para que te demos precio sin repetir nada. Quita lo que no te interese.</p>
+        <div class="picks" id="picks"></div>
+        <div class="btns">
+          <a class="btn red wa" href="https://wa.me/34643182964" target="_blank" rel="noopener">WhatsApp</a>
+          <a class="btn" href="tel:+34643182964">Llamar</a>
+        </div>
+      </section>
+
+      <section data-tab="contacto" data-o="2">
+        <h3 class="reveal">Redes y <b>correo.</b></h3>
+        <ul class="contact">
+          <li><a href="tel:+34643182964"><svg viewBox="0 0 24 24"><path d="M5 4h4l2 5-2.5 1.5a11 11 0 0 0 5 5L15 13l5 2v4a2 2 0 0 1-2 2A16 16 0 0 1 3 6a2 2 0 0 1 2-2"/></svg><span><small>Teléfono y WhatsApp</small>643 182 964</span></a></li>
+          <li><span class="off"><svg viewBox="0 0 24 24"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="M3.5 6l8.5 7 8.5-7"/></svg><span><small>Correo</small>Muy pronto</span></span></li>
+          <li><span class="off"><svg viewBox="0 0 24 24"><rect x="3.5" y="3.5" width="17" height="17" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.2" cy="6.8" r=".6"/></svg><span><small>Instagram</small>Muy pronto</span></span></li>
+          <li><span class="off"><svg viewBox="0 0 24 24"><path d="M14 3v11.5a3.5 3.5 0 1 1-3.5-3.5"/><path d="M14 3c.5 2.6 2.4 4.4 5 4.6"/></svg><span><small>TikTok</small>Muy pronto</span></span></li>
+        </ul>
+        <span class="pending">Pendiente: correo de Gmail y usuarios de Instagram y TikTok</span>
+      </section>
+      <section data-tab="ubicacion" data-o="1">
+        <h3 class="reveal"><small>Fernán Núñez · Córdoba</small>Dónde <b>estamos.</b></h3>
+        <iframe class="map" title="Mapa de Top Detail Garage" loading="lazy" referrerpolicy="no-referrer-when-downgrade" src="https://www.google.com/maps?q=Fern%C3%A1n+N%C3%BA%C3%B1ez,+C%C3%B3rdoba&amp;z=14&amp;output=embed"></iframe>
+        <div class="btns"><a class="btn" href="https://www.google.com/maps/dir/?api=1&amp;destination=Fern%C3%A1n+N%C3%BA%C3%B1ez,+C%C3%B3rdoba" target="_blank" rel="noopener">Cómo llegar</a></div>
+        <p class="svc-g" style="margin-top:22px">Horario</p>
+        <table class="hours"><tbody>
+          <tr><td>Lunes a sábado</td><td>9:00 – 19:00</td></tr>
+          <tr><td>Domingo</td><td>Cerrado</td></tr>
+        </tbody></table>
+        <span class="pending">Pendiente: confirmar horario y dirección exacta</span>
+      </section>
+      <a class="sheet-cta wa" id="sheet-cta" href="https://wa.me/34643182964" target="_blank" rel="noopener"><svg viewBox="0 0 24 24"><path d="M4 20l1.3-3.9A8 8 0 1 1 8 18.8z"/></svg><span>Pedir cita por WhatsApp</span><b class="n" hidden></b></a>
+    </section>
+    <!-- Tutorial guiado: cápsula con lo que pasa y un dedo que toca los botones -->
+    <div class="island" id="island" role="status" aria-live="polite" hidden>
+      <span class="isl-n" id="isl-n"></span>
+      <span class="isl-t" id="isl-t"></span>
+      <button class="isl-x" id="isl-x" type="button">Saltar</button>
+    </div>
+    <div class="finger" id="finger" aria-hidden="true"></div>
+
+    <div class="loader" id="loader" role="status">
+      <div class="welcome"><span class="hello">Bienvenido a</span><img class="brand" src="img/logo-v6.svg" alt="Top Detail Garage"></div>
+      <p><span id="pct">0 %</span></p>
+      <div class="bar"><i id="bar"></i></div>
+      <button class="start" id="start" type="button" hidden><span class="chev" aria-hidden="true"><i></i><i></i><i></i></span><b>Haz clic para entrar</b><span>y descubre todos nuestros servicios</span></button>
+    </div>
+  </div>
+</div>
+
+<script>
+(() => {
+  // IMGV: súbelo cada vez que cambien fotos con el mismo nombre, para que el navegador no enseñe las viejas de su caché
+  const IMGV = 2;
+  const img = n => `img/${n}.webp?v=${IMGV}`;
+  const W = 'https://wa.me/34643182964?text=';
+  const SUCIO = '01-intro_porsche_sucio', LIMPIO = '00-base_porsche_limpio';
+  // Fotos antiguas del taller, para las secciones que aún no se han rehecho en el estilo oscuro
+  const SUCIO_T = '01-intro_a7_sucio_taller', LIMPIO_T = '00-base_a7_limpio_taller';
+  const reduce = matchMedia('(prefers-reduced-motion: reduce)').matches;
+  const PC = { w: 1920, h: 1080, photo: 1080 };   // medidas de las fotos de ordenador y ancho de la foto original dentro de ellas
+  const HOLD = 1000;   // lo que se ve el «antes» antes de pasar solo al «después»
+  let tempo = 1;       // velocidad de las animaciones (el tutorial guiado va más rápido)
+  let demo = null;     // tutorial guiado en marcha
+  // Foto del coche cubierto de espuma: paso intermedio del lavado
+  const FOAM = '04-ceramica_mantenimiento';
+
+  // Cada opción es una pareja antes → después. frame: mismo encuadre → barrido; distinto → fundido con zoom
+  const o = (name, short, desc, a, b, frame, extra = {}) => ({ name, short, desc, a, b, frame, ...extra });
+  const CATS = {
+    limpieza: { label: 'Detallado', head: 'Nivel', evo: true, serv: true, opts: [
+      o('Básico', 'Básico', 'Lavado a mano y aspirado. Fuera el *barro* y el *polvo*.', SUCIO, '06-limpieza_basico', 'car', { fx: [['foam', FOAM], ['rinse', '06-limpieza_basico']] }),
+      o('Premium', 'Premium', 'Además, *llantas y neumáticos* a fondo y *brillo* en la carrocería.', SUCIO, '06-limpieza_premium', 'car', { top: 'Top ventas', fx: [['foam', FOAM], ['rinse', '06-limpieza_premium']] }),
+      o('Integral', 'Integral', 'Interior y exterior completos, faros y parrilla renovados, *brillo espejo*.', SUCIO, '06-limpieza_integral', 'car', { fx: [['foam', FOAM], ['rinse', '06-limpieza_integral']] }),
+    ]},
+    tintado: { label: 'Tintado de lunas', head: 'Tinte', evo: true, clip: 'tintado', page: 'tintado', opts: [
+      o('50 %', '50 %', 'Tinte suave. *Menos calor* y reflejos, sin perder visibilidad.', '02-tintado_lunas_sin', '02-tintado_lunas_50', 'side', { la: 'Sin tintar', lb: 'Tintado', fx: [['film', '02-tintado_lunas_50']], fxAny: true }),
+      o('30 %', '30 %', 'Más *privacidad*: desde fuera apenas se ven siluetas.', '02-tintado_lunas_sin', '02-tintado_lunas_30', 'side', { la: 'Sin tintar', lb: 'Tintado', fx: [['film', '02-tintado_lunas_30']], fxAny: true }),
+      o('5 %', '5 %', 'Tinte limusina. *Privacidad total* en las plazas traseras.', '02-tintado_lunas_sin', '02-tintado_lunas_5', 'side', { la: 'Sin tintar', lb: 'Tintado', fx: [['film', '02-tintado_lunas_5']], fxAny: true }),
+    ]},
+    pulido: { label: 'Pulido', head: 'Nivel', evo: true, serv: true, clip: 'pintura', opts: [
+      o('Pulido 1 paso', '1 paso', 'Quita la mayoría de los *swirls* y recupera el *brillo*.', '03-correccion_pintura_swirls', '03-correccion_pintura_1paso', 'macro', { fx: [['polish', '03-correccion_pintura_1paso']] }),
+      o('Pulido 2 pasos', '2 pasos', 'Corte y abrillantado: la pintura queda como un *espejo*.', '03-correccion_pintura_swirls', '03-correccion_pintura_2pasos', 'macro', { fx: [['polish', '03-correccion_pintura_1paso'], ['finish', '03-correccion_pintura_2pasos']] }),
+    ]},
+    ceramico: { label: 'Cerámico', head: 'Servicio', evo: true, serv: true, clip: 'pintura', opts: [
+      o('Protección cerámica', 'Cerámico', 'Recubrimiento que *repele* el agua, la suciedad y los rayos UV.', '03-correccion_pintura_2pasos', '04-ceramica_perlado', 'macro', { la: 'Sin proteger', lb: 'Con cerámico', clip: 'ceramico' }),
+      o('Mantenimiento', 'Manteni­miento', 'Lavado con espuma activa para que el cerámico *dure años*.', FOAM, LIMPIO, 'car', { la: 'Lavado', lb: 'Resultado', fx: [['rinse', LIMPIO]] }),
+    ]},
+    extras: { label: 'Extras', groups: ['Interior', 'Exterior', 'Si hace falta'], serv: true, clip: 'extras', opts: [] },
+  };
+  CATS.limpieza.page = 'detallado'; CATS.pulido.page = 'pulido'; CATS.ceramico.page = 'ceramico'; CATS.extras.page = 'precios'; CATS.tintado.page = 'precios';
+  const ZONA = { interior: 'Interior', cristales: 'Cristales', motor: 'Motor', ruedas: 'Ruedas', carroceria: 'Carrocería' };
+  [
+    ['interior', 'cuero', 'Limpieza de cuero', 'Cuero', 'Sin grasa ni brillos sucios: el cuero vuelve a su *tacto mate*.'],
+    ['interior', 'coating-cuero', 'Coating de cuero', 'Coating cuero', 'Una protección que impide que los líquidos *penetren y manchen*.'],
+    ['interior', 'cinturones', 'Cinturones', 'Cinturones', 'Cintas limpias y con su *color original*.'],
+    ['interior', 'plasticos', 'Plásticos interiores', 'Plásticos', 'Salpicadero y puertas sin polvo ni huellas, en *negro satinado*.'],
+    ['cristales', 'pulido-cristales', 'Pulido de cristales', 'Cristales', 'Fuera la *cal*, los arcos del limpia y la *grasa*.'],
+    ['motor', 'vano-motor', 'Vano motor', 'Motor', 'Limpieza y protección del motor, *sin riesgos*.'],
+    ['ruedas', 'neumaticos', 'Neumáticos', 'Neumáticos', 'Del marrón apagado a un *negro satinado*.'],
+    ['ruedas', 'pasos-de-rueda', 'Pasos de rueda', 'Pasos de rueda', 'Barro incrustado fuera, *pasos limpios*.'],
+    ['carroceria', 'hidratacion-gomas', 'Hidratación de gomas', 'Gomas', 'Juntas resecas que vuelven a estar *negras y flexibles*.'],
+    ['carroceria', 'plateados', 'Plateados', 'Plateados', 'Molduras sin oxidación ni cal, con *brillo de espejo*.'],
+    ['carroceria', 'negro-piano', 'Negro piano', 'Negro piano', 'Pilares y molduras sin *hologramas* ni micro-arañazos: *negro espejo*.'],
+    ['carroceria', 'cera-rapida', 'Cera rápida', 'Cera', 'Brillo húmedo y *reflejos nítidos* en minutos.', { slider: true }],
+    // No se contratan: si el coche llega así, Top Detail avisa al cliente antes de empezar (más tiempo y suplemento)
+    ['interior', 'suciedad-extrema', 'Suciedad extrema', 'Obra', 'Si el coche llega con polvo de obra, yeso o barro, *te avisamos antes*: lleva más tiempo y un suplemento.', { sup: true }],
+    ['interior', 'pelo-de-perro', 'Pelo de mascota', 'Mascota', 'Si hay mucho *pelo incrustado* en la tapicería, *te avisamos antes*: lleva más tiempo y un suplemento.', { sup: true }],
+  ].forEach(([z, n, name, short, desc, more = {}]) => CATS.extras.opts.push(
+    o(name, short, desc, `05-extras_${z}_${n}_antes`, `05-extras_${z}_${n}_despues`, n, { zone: more.sup ? 'Te avisamos' : ZONA[z], group: more.sup ? 2 : z === 'interior' ? 0 : 1,
+      // Cristales: pulidora pequeña; el resto, cepillo y limpiador (la cera tiene su comparador)
+      ...(more.slider ? {} : { fx: [[n === 'pulido-cristales' ? 'glass' : 'scrub', `05-extras_${z}_${n}_despues`]] }), ...more })));
+
+
+  // Textos técnicos y ficha de cada servicio (cuestionario: tono técnico y más información a la vista)
+  const TECH = {
+    limpieza: [
+      ['Limpieza *completa por dentro y por fuera*, al detalle: lavado exterior manual, cristales, interior y maletero aspirados y desinfectados, plásticos, llantas y pasos de rueda. *No incluye la tapicería.*',
+        ['Interior y exterior', 'Desinfección', 'Sin tapicería'], 'Desde *70 €* · IVA incl. · hasta 2 h 30 min'],
+      ['Todo lo de la básica *y además la tapicería*: extracción de manchas en los asientos, limpieza de cuero, interior al detalle y neumáticos abrillantados.',
+        ['Interior y exterior', 'Tapicería de asientos', 'Cuero y neumáticos'], 'Desde *100 €* · IVA incl. · hasta 3 h'],
+      ['Literalmente *todo lo anterior, más moqueta y techo*: extracción de manchas en asientos, alfombrillas, moquetas y techo, eliminador de olores y garganta y perfil de llanta.',
+        ['Todo lo de la premium', 'Moqueta y techo', 'Eliminador de olores'], 'Desde *130 €* · IVA incl. · hasta 4 h 30 min'],
+    ],
+    tintado: [
+      ['Lámina con un *50 % de transmisión de luz* en las lunas traseras: rechaza calor y reflejos sin perder visibilidad.', ['50 % de luz', 'Menos calor', 'Lunas traseras']],
+      ['Lámina del *30 %*: mucha más *privacidad* y control solar; desde fuera apenas se ven siluetas.', ['30 % de luz', 'Privacidad', 'Control solar']],
+      ['Lámina *limusina del 5 %*: privacidad total en las plazas traseras y máximo rechazo de luz.', ['5 % de luz', 'Privacidad total', 'Lunas traseras']],
+    ],
+    pulido: [
+      ['Elimina *microarañazos* y marcas ligeras y mejora el brillo y la profundidad del color. Ideal para *swirls ligeros* y poco desgaste.',
+        ['Corrección media', 'Swirls ligeros', 'Más brillo y color'], '*220 – 300 €* · IVA incl.'],
+      ['Corrección avanzada de *defectos medios y fuertes*: máximo brillo y *acabado espejo*. Ideal para arañazos visibles, hologramas y oxidación.',
+        ['Corrección alta', 'Hologramas', 'Oxidación'], '*350 – 450 €* · IVA incl.'],
+    ],
+    ceramico: [
+      ['Coating *FX Protect* sobre pintura preparada y desengrasada: protege de agentes externos, facilita la limpieza y aporta brillo. *Recomendado tras una corrección.*',
+        ['Gloss · 3 años', 'G-Finity CNT · 5 años', 'CNT+ · 7 años'], 'Desde *150 €* · garantía de 3 a 7 años'],
+      ['*Lavado de mantenimiento cada mes*, solo exterior: profesional y *seguro, sin rayar*, para que el cerámico siga siempre como nuevo. El *booster* que lo refuerza, cada 6 meses o una vez al año.',
+        ['Lavado mensual', 'Solo exterior', 'Booster cada 6–12 meses'], '*20 €* el lavado · cada mes'],
+    ],
+  };
+  for (const [c, list] of Object.entries(TECH)) list.forEach(([desc, spec, price], i) => Object.assign(CATS[c].opts[i], { desc, spec, price }));
+  const XSPEC = {
+    'cuero': ['Limpiador pH neutro', 'Cepillo suave', 'Nutrición'], 'coating-cuero': ['Hidrofóbico', 'Antimanchas'],
+    'cinturones': ['Limpieza de cinta', 'Color original'], 'plasticos': ['Limpieza técnica', 'Acabado satinado', 'Protección UV'],
+    'pulido-cristales': ['Pulido de cristal', 'Antical'], 'vano-motor': ['Desengrasado', 'Protección de plásticos'],
+    'neumaticos': ['Desengrasado', 'Abrillantador satinado'], 'pasos-de-rueda': ['Desengrasado', 'Protección'],
+    'hidratacion-gomas': ['Limpieza', 'Hidratación', 'Protección UV'], 'plateados': ['Desoxidado', 'Pulido', 'Sellado'],
+    'negro-piano': ['Pulido fino', 'Sin hologramas', 'Sellado'], 'cera-rapida': ['Cera sintética', 'Brillo húmedo', 'Repele el agua'],
+    'suciedad-extrema': ['Aspirado industrial', 'Inyección-extracción', 'Con suplemento'], 'pelo-de-perro': ['Cepillo de goma', 'Aspirado', 'Con suplemento'],
+  };
+  CATS.extras.opts.forEach(x => { const n = x.frame; if (XSPEC[n]) x.spec = XSPEC[n]; });
+  // Lista sencilla de servicios del taller; go = sección e índice para verlo en acción (null: aún sin fotos)
+  const xi = n => CATS.extras.opts.findIndex(x => x.frame === n);
+  const SVC = [
+    ['Detallado', [
+      ['Básico', 'Completa por dentro y por fuera, al detalle. Sin tapicería.', ['limpieza', 0], 'Desde 70 €'],
+      ['Premium · Top ventas', 'Todo lo de la básica y además la tapicería de los asientos.', ['limpieza', 1], 'Desde 100 €'],
+      ['Integral', 'Todo lo anterior, más moqueta y techo.', ['limpieza', 2], 'Desde 130 €'],
+    ]],
+    ['Pulido', [
+      ['Pulido 1 paso', 'Microarañazos y swirls ligeros fuera, más brillo.', ['pulido', 0], '220 – 300 €'],
+      ['Pulido 2 pasos', 'Defectos medios y fuertes, acabado espejo.', ['pulido', 1], '350 – 450 €'],
+    ]],
+    ['Cerámico', [
+      ['Protección cerámica FX Protect', 'Gloss, G-Finity CNT y CNT+: de 3 a 7 años de garantía.', ['ceramico', 0], 'Desde 150 €'],
+      ['Mantenimiento cerámico', 'Lavado exterior mensual y seguro; booster cada 6 meses o una vez al año.', ['ceramico', 1], '20 € / lavado'],
+    ]],
+    ['Tintado de lunas', [['Tintado de lunas traseras', 'Láminas del 50, 30 y 5 %.', ['tintado', 0]]]],
+    ['Extras · interior', [
+      ['Tapicería', 'Limpieza por inyección-extracción de asientos, moqueta y techo.', null],
+      ['Ozono y malos olores', 'Acondicionamiento del habitáculo con eliminador de olores.', null],
+      ['Cuero y coating de cuero', 'Limpieza, nutrición y protección antimanchas.', ['extras', xi('cuero')]],
+      ['Cinturones y plásticos', 'Cintas con su color y plásticos satinados.', ['extras', xi('plasticos')]],
+    ]],
+    ['Extras · exterior', [
+      ['Llantas', 'Descontaminado férrico, limpieza a fondo y sellado.', null],
+      ['Limpieza de motor', 'Desengrasado y protección del vano motor.', ['extras', xi('vano-motor')]],
+      ['Neumáticos y pasos de rueda', 'Barro fuera y negro satinado.', ['extras', xi('neumaticos')]],
+      ['Cristales, gomas, plateados y negro piano', 'Cada pieza con su tratamiento.', ['extras', xi('negro-piano')]],
+      ['Cera rápida', 'Brillo húmedo y repelencia en minutos.', ['extras', xi('cera-rapida')]],
+    ]],
+    ['Top Detail Report™', [['Informe y seguimiento', 'Incluido en pulidos y cerámicos; en el detallado, opcional.', 'report', '+10 €'], ['Bonos de mantenimiento', 'Visitas periódicas con su registro en el informe.', 'packs']]],
+  ];
+  const $ = id => document.getElementById(id);
+  const back = $('back'), front = $('front'), sweep = $('sweep'), phone = $('phone');
+  const wait = ms => new Promise(r => setTimeout(r, ms));
+
+  let cat = null, opt = -1, state = 'b', abReady = false, loading = true, level = 'home';
+  const clipOf = c => c && CATS[c].clip && CLIPS[CATS[c].clip] ? CATS[c].clip : null;
+  let token = 0, shownSrc = SUCIO, shownFrame = 'car', chain = Promise.resolve(), pending = 0;
+  // Cola de animaciones: todo cambio de imagen va en orden; pending > 0 mientras algo se mueve
+  const q = fn => { pending++; chain = chain.then(fn).catch(() => {}).finally(() => pending--); return chain; };
+
+  // ── Cambio de foto (en cola; si llega otra orden, las viejas se saltan) ──
+  async function doShow(src, frame, dir, my) {
+    if (my !== token || src === shownSrc) return;
+    if (!reduce) {
+      front.src = img(src);
+      try { await front.decode(); } catch (e) {}
+      let anims;
+      if (frame === shownFrame) {
+        // Barrido: la nueva foto entra detrás de una línea roja, como una pasada de máquina
+        const from = dir > 0 ? 'inset(0 100% 0 0)' : 'inset(0 0 0 100%)';
+        const w = phone.clientWidth;
+        const opt = { duration: 950 * tempo, easing: 'cubic-bezier(.65,0,.35,1)', fill: 'forwards' };
+        anims = [
+          front.animate([{ opacity: 1, clipPath: from }, { opacity: 1, clipPath: 'inset(0 0 0 0)' }], opt),
+          sweep.animate([{ opacity: 1, transform: `translateX(${dir > 0 ? 0 : w}px)` }, { opacity: 1, transform: `translateX(${dir > 0 ? w : 0}px)` }], opt),
+        ];
+      } else {
+        const opt = { duration: 720 * tempo, easing: 'cubic-bezier(.2,.7,.2,1)', fill: 'forwards' };
+        anims = [
+          front.animate([{ opacity: 0, transform: 'scale(1.07)' }, { opacity: 1, transform: 'scale(1)' }], opt),
+          back.animate([{ transform: 'scale(1)' }, { transform: 'scale(.97)' }], opt),
+        ];
+      }
+      await Promise.all(anims.map(a => a.finished));
+      back.src = img(src);
+      try { await back.decode(); } catch (e) {}
+      anims.forEach(a => a.cancel());
+    } else {
+      back.src = img(src);
+    }
+    shownSrc = src; shownFrame = frame;
+  }
+  const show = (src, frame, dir, my) => q(() => doShow(src, frame, dir, my));
+
+  // ── Acercamiento en vídeo (Veo): del coche entero al macro de la pintura ──
+  // Clips Veo del Porsche, 120 fotogramas cada uno (p = 0 en la base limpia, p = 1 en la foto final):
+  //  · pintura: fotogramas 0–230 de 240 (Veo con 1.º = base y último = remolinos), la cámara se acerca y sube hasta el macro
+  //  · tintado: fotogramas 0–170 de 240, el coche gira hasta quedar de perfil con las lunas sin tintar
+  const VIDEO = false;   // ORDENADOR: faltan los clips horizontales (vid/p_, t_, c_, e_ en 16:9); al tenerlos, poner true
+  const VN = 120, SWIRLS = '03-correccion_pintura_swirls';
+  // v: súbelo cada vez que cambien los fotogramas de un clip, para que el navegador no mezcle los viejos (caché) con los nuevos
+  const CLIPS = {
+    pintura: { pre: 'p_', v: 2, end: SWIRLS, frame: 'macro', frames: [] },
+    tintado: { pre: 't_', v: 2, end: '02-tintado_lunas_sin', frame: 'side', frames: [] },
+    // cerámico: Veo con 1.º = pintura a 2 pasos y último = perlado; cae agua pulverizada y se recoge en gotas (start: foto del primer fotograma)
+    // extras: Veo de la base al interior (la cámara llega a la puerta del conductor, se abre y entra). Veo metió un corte
+    // a mitad, así que se usa desde la puerta (fotogramas 72–225) y se entra con un fundido largo desde la base (e0)
+    extras: { pre: 'e_', v: 1, ms: 3400, e0: .22, end: '05-extras_interior_cuero_antes', frame: 'cuero', frames: [] },
+    ceramico: { pre: 'c_', v: 1, ms: 3600, start: '03-correccion_pintura_2pasos', end: '04-ceramica_perlado', frame: 'macro', frames: [] },
+  };
+  let clip = CLIPS.pintura, frames = clip.frames;
+  const photos = {};   // fotos ya cargadas, por nombre (para fundirlas con el vídeo)
+  const useClip = c => { if (clip !== CLIPS[c]) { clip = CLIPS[c]; frames = clip.frames; lastDrawn = -1; } };
+  const seq = $('seq'), sctx = seq.getContext('2d');
+  let lastDrawn = -1, scrubP = null, drag = null;
+  function sizeSeq() {
+    const d = Math.min(devicePixelRatio || 1, 2);
+    seq.width = Math.round(phone.clientWidth * d); seq.height = Math.round(seq.offsetHeight * d); lastDrawn = -1;
+    sctx.imageSmoothingEnabled = true; sctx.imageSmoothingQuality = 'high';
+  }
+  // Pinta im en el canvas como object-fit: cover
+  function cover(im, alpha = 1) {
+    const cw = seq.width, ch = seq.height, k = Math.max(cw / im.naturalWidth, ch / im.naturalHeight);
+    const w = im.naturalWidth * k, h = im.naturalHeight * k;
+    sctx.globalAlpha = alpha; sctx.drawImage(im, (cw - w) / 2, (ch - h) / 2, w, h); sctx.globalAlpha = 1;
+  }
+  const ok = im => im && im.complete && im.naturalWidth;
+  // Si un fotograma aún no ha llegado, se usa el más cercano que ya esté cargado
+  function nearest(i) {
+    for (let d = 0; d < VN; d++) { if (ok(frames[i - d])) return frames[i - d]; if (ok(frames[i + d])) return frames[i + d]; }
+    return null;
+  }
+  // En los extremos del clip la foto nítida se funde encima del vídeo, para que no se note el salto de calidad
+  const EDGE = .05;   // corto: los fotogramas ya calcan las fotos; uno largo dejaba la foto quieta encima del movimiento (enganche)
+  function drawP(p) {
+    p = Math.max(0, Math.min(1, p));
+    const i = Math.round(p * (VN - 1));
+    const E0 = clip.e0 || EDGE, a0 = p < E0 ? 1 - p / E0 : 0, a1 = p > 1 - EDGE ? (p - 1 + EDGE) / EDGE : 0;
+    const e = t => t * t * (3 - 2 * t);
+    const key = i + '|' + Math.round(a0 * 40) + '|' + Math.round(a1 * 40);
+    if (key === lastDrawn) return;
+    const im = nearest(i), P0 = photos[clip.start || LIMPIO], P1 = photos[clip.start || shownFrame !== clip.frame ? clip.end : shownSrc];
+    if (!im && !(a0 && ok(P0)) && !(a1 && ok(P1))) return;
+    if (im) cover(im);
+    if (a0 && ok(P0)) cover(P0, im ? e(a0) : 1);
+    if (a1 && ok(P1)) cover(P1, im ? e(a1) : 1);
+    lastDrawn = key;
+  }
+  // Un clip se usa en cuanto tiene al menos la mitad de sus fotogramas (repartidos por todo el clip)
+  const clipReady = c => CLIPS[c].frames.filter(ok).length >= VN / 2;
+  const easeIO = t => t < .5 ? 2 * t * t : 1 - Math.pow(-2 * t + 2, 2) / 2;
+  function tween(a, b, ms, fn, e = easeIO) {
+    return new Promise(res => {
+      if (reduce || ms <= 0) { fn(b); return res(); }
+      const t0 = performance.now();
+      const f = now => { const k = Math.min(1, (now - t0) / ms); fn(a + (b - a) * e(k)); k < 1 ? requestAnimationFrame(f) : res(); };
+      requestAnimationFrame(f);
+    });
+  }
+  const fade = (to, ms) => tween(+getComputedStyle(seq).opacity, to, ms, v => seq.style.opacity = v, t => t);
+  // Recorre el clip c de from a to (0 = coche entero, 1 = foto final) y deja debajo la foto que toca
+  async function bridge(from, to, c = 'pintura') {
+    useClip(c); sizeSeq(); drawP(from);
+    await fade(1, 260 * tempo);
+    await tween(from, to, ((clip.ms || 3200) * Math.abs(to - from) + 150) * tempo, drawP);
+    const src = to === 1 ? clip.end : LIMPIO;
+    back.src = img(src); try { await back.decode(); } catch (e) {}
+    shownSrc = src; shownFrame = to === 1 ? clip.frame : 'car';
+    await fade(0, 380 * tempo);
+  }
+  // Scroll magnético: en el inicio, deslizar hacia arriba acerca la cámara; en pintura, hacia abajo la aleja.
+  // Al soltar, si has pasado el umbral termina sola; si no, vuelve a su sitio.
+  function scrubStart(dir) {
+    if (demo || !VIDEO || !clipReady('pintura')) return false;
+    if (loading || pending || sliding || performance.now() < introLock) return false;
+    if (dir > 0 && cat !== null) return false;
+    if (dir < 0 && !(clipOf(cat) === 'pintura' && shownFrame === 'macro')) return false;
+    useClip('pintura'); sizeSeq(); drag = { dir, p: dir > 0 ? 0 : 1 };
+    return true;
+  }
+  function scrubMove(p) {
+    drag.p = Math.max(0, Math.min(1, p)); drawP(drag.p);
+    seq.style.opacity = Math.min(1, (drag.dir > 0 ? drag.p : 1 - drag.p) * 10);
+  }
+  function scrubEnd() {
+    const d = drag; drag = null;
+    if (!d) return;
+    if (d.dir > 0 && d.p > .25) { scrubP = d.p; play('pulido', 0); }
+    else if (d.dir < 0 && d.p < .75) { scrubP = d.p; goBack(); }
+    else q(async () => { await tween(d.p, d.dir > 0 ? 0 : 1, 320, drawP); await fade(0, 200); });
+  }
+
+  // ── Comparador (cera): el después encima, recortado por la barra; el antes debajo ──
+  let sliding = false;
+  const cmp = $('cmp');
+  function setCmp(v) {
+    cmp.value = v; cmp.style.setProperty('--v', v + '%');
+    front.style.clipPath = `inset(0 ${100 - v}% 0 0)`;
+    sweep.style.transform = `translateX(${v / 100 * phone.clientWidth - 1}px)`;
+  }
+  async function enterSlider(O, my) {
+    if (my !== token) return;
+    front.src = img(O.b);
+    try { await front.decode(); } catch (e) {}
+    front.style.opacity = 1; front.style.clipPath = 'inset(0 0 0 0)';
+    back.src = img(O.a);
+    try { await back.decode(); } catch (e) {}
+    if (my !== token) return;
+    sliding = true; sweep.style.opacity = 1; setCmp(100);
+    if (reduce) return setCmp(50);
+    // Pequeña demostración: la barra baja sola hasta la mitad para enseñar que se puede mover
+    const t0 = performance.now();
+    await new Promise(res => {
+      const f = now => {
+        if (!sliding || my !== token) return res();
+        const k = Math.min(1, (now - t0) / (900 * tempo)), e = 1 - Math.pow(1 - k, 3);
+        setCmp(100 - 50 * e);
+        k < 1 ? requestAnimationFrame(f) : res();
+      };
+      requestAnimationFrame(f);
+    });
+  }
+  async function exitSlider() {
+    if (!sliding) return;
+    sliding = false;
+    back.src = img(shownSrc);
+    try { await back.decode(); } catch (e) {}
+    front.style.cssText = ''; sweep.style.cssText = '';
+  }
+  cmp.addEventListener('input', () => { if (sliding) setCmp(+cmp.value); });
+
+  // ── Lo que el cliente mira en la web va resumido en el WhatsApp ──
+  // seen: «cat:i» en el orden en que lo tocó; se guarda en la pestaña del navegador por si recarga
+  let seen = [];
+  try { seen = JSON.parse(sessionStorage.getItem('td-seen') || '[]').filter(k => { const [c, i] = k.split(':'); return CATS[c] && CATS[c].opts[+i]; }); } catch (e) {}
+  const saveSeen = () => { try { sessionStorage.setItem('td-seen', JSON.stringify(seen)); } catch (e) {} };
+  const catName = c => CATS[c].label.split(' ·')[0];
+  // Al entrar en una sección se enseña sola su primera opción: cuenta «a prueba» (tent) y se quita
+  // si el cliente elige otra de esa sección sin haberla tocado
+  let tent = null;
+  function track(c, i, auto) {
+    if (demo) return;
+    const k = `${c}:${i}`;
+    if (!auto && tent && tent !== k && tent.startsWith(c + ':')) seen = seen.filter(x => x !== tent);
+    if (!auto || tent === k) tent = null;
+    if (!seen.includes(k)) { seen.push(k); if (auto) tent = k; }
+    saveSeen(); updateWA();
+  }
+  function waText() {
+    if (!seen.length) return 'Hola! Vengo de la web de Top Detail Garage. Quiero pedir cita, ¿me dais información?';
+    const lines = [], avisos = [];
+    for (const c of Object.keys(CATS)) {
+      const names = [];
+      seen.forEach(k => { const [kc, i] = k.split(':'); if (kc !== c) return; const O = CATS[c].opts[+i]; (O.sup ? avisos : names).push(O.name); });
+      if (names.length) lines.push(`• ${catName(c)}: ${names.join(', ')}`);
+    }
+    let t = 'Hola! Vengo de la web de Top Detail Garage.';
+    if (lines.length) t += `\nHe estado mirando:\n${lines.join('\n')}`;
+    if (avisos.length) t += `\nOs aviso de que el coche puede necesitar: ${avisos.join(', ').toLowerCase()}.`;
+    return t + '\n¿Me dais precio y cita?';
+  }
+  function updateWA() {
+    const href = W + encodeURIComponent(waText());
+    document.querySelectorAll('a.wa').forEach(a => { a.href = href; });
+    document.querySelectorAll('.wa .n').forEach(n => { n.hidden = !seen.length; n.textContent = seen.length; });
+    $('cita').setAttribute('aria-label', seen.length ? `Pedir cita por WhatsApp con los ${seen.length} servicios que has mirado` : 'Pedir cita por WhatsApp');
+    if (tab === 'contacto') renderPicks();
+  }
+  function renderPicks() {
+    const box = $('picks');
+    if (!seen.length) { box.innerHTML = '<span class="empty">Aún no has mirado ningún servicio. Toca uno en la web y aparecerá aquí.</span>'; return; }
+    box.innerHTML = seen.map(k => { const [c, i] = k.split(':'), O = CATS[c].opts[+i];
+      return `<span class="pick${O.sup ? ' av' : ''}"><small>${esc(O.sup ? 'Aviso' : catName(c))}</small>${esc(O.name)}<button type="button" data-k="${k}" aria-label="Quitar ${esc(O.name)}">×</button></span>`; }).join('');
+  }
+  $('picks').addEventListener('click', e => {
+    const b = e.target.closest('[data-k]'); if (!b) return;
+    seen = seen.filter(k => k !== b.dataset.k); saveSeen(); updateWA(); renderPicks();
+  });
+
+  // ── Pantalla ──
+  function buildOpts() {
+    const C = CATS[cat], nav = $('opt-l');
+    nav.innerHTML = ''; $('opt-r').innerHTML = ''; $('opt-r').hidden = true;
+    const heads = C.groups || [C.head];
+    heads.forEach((h, g) => {
+      const items = C.opts.map((x, i) => [x, i]).filter(([x]) => (x.group ?? 0) === g);
+      if (!items.length) return;
+      const p = document.createElement('p'); p.textContent = h; nav.append(p);
+      items.forEach(([x, i]) => {
+        const b = document.createElement('button');
+        b.textContent = x.short; b.dataset.i = i; b.setAttribute('aria-label', x.top ? `${x.name}, ${x.top}` : x.name); if (x.sup) b.className = 'sup';
+        if (x.top) { const t = document.createElement('span'); t.className = 'badge'; t.textContent = x.top; t.setAttribute('aria-hidden', 'true'); b.append(t); }
+        b.onclick = () => play(cat, i);
+        nav.append(b);
+      });
+    });
+    nav.scrollTop = 0;
+  }
+
+  function chrome() {
+    const inCat = cat !== null, inServ = !inCat && level === 'serv';
+    phone.classList.toggle('in-cat', inCat);
+    phone.classList.toggle('in-serv', inServ);
+    $('menu').inert = inCat || inServ;
+    $('serv').inert = !inServ;
+    $('back-btn').inert = !(inCat || inServ);
+    $('opt-l').inert = $('opt-r').inert = !inCat;
+    if (inCat || inServ) phone.classList.remove('invite');
+    document.querySelectorAll('#serv button[data-cat]').forEach(b => b.setAttribute('aria-current', String(b.dataset.cat === cat)));
+    document.querySelectorAll('.xside button').forEach(b => b.setAttribute('aria-current', String(+b.dataset.i === opt)));
+  }
+
+  function paintAB() {
+    const O = cat && CATS[cat].opts[opt];
+    $('ab').hidden = !O || !!O.slider;
+    $('glass').hidden = !O || !O.slider;
+    if (!O) return;
+    $('ab').classList.toggle('wait', !abReady);
+    $('glass').classList.toggle('wait', !abReady);
+    $('ab-a').textContent = O.la || 'Antes';
+    $('ab-b').textContent = O.lb || 'Después';
+    $('ab-a').setAttribute('aria-pressed', String(state === 'a'));
+    $('ab-b').setAttribute('aria-pressed', String(state === 'b'));
+    $('ab-a').disabled = $('ab-b').disabled = !abReady;
+    const t = $('name').querySelector('.tag');
+    if (t) { t.textContent = state === 'a' ? (O.la || 'Antes') : (O.lb || 'Después'); t.classList.toggle('on', state === 'b'); }
+  }
+
+  // Título: texto en blanco y las palabras clave en rojo
+  const PREF = { limpieza: 'Limpieza', tintado: 'Tintado' };
+  const PAGES = { nosotros: 'Sobre <span class="k">nosotros</span>', precios: 'Servicios y <span class="k">precios</span>', detallado: '<span class="k">Detallado</span>',
+    pulido: '<span class="k">Pulido</span>', ceramico: '<span class="k">Cerámico</span>', report: 'Top Detail <span class="k">Report™</span>',
+    contacto: '<span class="k">Contacto</span>', ubicacion: '<span class="k">Ubicación</span>' };
+  const esc = t => t.replace(/[&<>]/g, c => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;' }[c]));
+  const rich = t => esc(t).replace(/\*(.+?)\*/g, '<strong class="k">$1</strong>');
+  const plain = t => t.replace(/\*/g, '');
+  function titleHTML(C, O) {
+    if (!O) return 'Más que detailing, una experiencia de <span class="k">renovación</span>';
+    const p = PREF[cat];
+    if (p) return `${p} <span class="k">${esc(O.name)}</span>`;
+    const w = O.name.split(' ');
+    return w.length > 1 ? `${esc(w[0])} <span class="k">${esc(w.slice(1).join(' '))}</span>` : `<span class="k">${esc(O.name)}</span>`;
+  }
+
+  function paintInfo() {
+    const serv = !cat && level === 'serv';
+    $('hud').classList.toggle('empty', !cat && !serv);
+    const C = cat && CATS[cat], O = C && C.opts[opt];
+    const pg = serv ? 'precios' : C && C.page;
+    $('more').hidden = !pg; $('more').dataset.page = pg || '';
+    $('more').firstChild.textContent = serv ? 'Ver precios' : 'Más información';
+    if (serv) {
+      $('eyebrow').textContent = 'Servicios'; $('count').textContent = '';
+      $('name').innerHTML = 'Elige un <span class="k">servicio</span>';
+      $('desc').innerHTML = rich('Toca uno para verlo *en acción*, del antes al después.');
+      $('spec').innerHTML = ''; $('price').innerHTML = '';
+      paintAB();
+      if (!reduce && !loading) $('hud').animate([{ opacity: 0, transform: 'translateY(10px)' }, { opacity: 1, transform: 'none' }], { duration: 420, easing: 'cubic-bezier(.2,.7,.2,1)' });
+      return;
+    }
+    $('eyebrow').textContent = !C ? 'Top Detail · Fernán Núñez' : O.zone ? `${C.label} · ${O.zone}` : C.label;
+    $('count').textContent = C ? `${String(opt + 1).padStart(2, '0')} / ${String(C.opts.length).padStart(2, '0')}` : '';
+    $('name').innerHTML = titleHTML(C, O);
+    if (O) { const t = document.createElement('span'); t.className = 'tag'; $('name').append(t); }
+    $('desc').innerHTML = rich(O ? O.desc : 'Toca un servicio para verlo en acción, o desliza hacia arriba para ver la pintura de cerca.');
+    $('spec').innerHTML = (O && O.top ? `<li class="hot">${esc(O.top)}</li>` : '') + (O && O.spec ? O.spec.map(t => `<li>${esc(t)}</li>`).join('') : '');
+    $('price').innerHTML = O && O.price ? rich(O.price) : '';
+    back.alt = O ? `${O.name}. ${plain(O.desc)}` : 'Porsche Cayenne negro, limpio, en el taller de Top Detail Garage';
+    paintAB();
+    if (!reduce && !loading) $('hud').animate([{ opacity: 0, transform: 'translateY(10px)' }, { opacity: 1, transform: 'none' }], { duration: 420, easing: 'cubic-bezier(.2,.7,.2,1)' });
+  }
+
+  // Al tocar una opción: se ve el antes, a 1 s pasa solo al después y aparece el botón Antes / Después
+  async function play(c, i) {
+    if (loading) return;
+    const my = ++token;
+    const prevI = c === cat ? opt : -1, prev = prevI >= 0 ? CATS[c].opts[prevI] : null, wasHome = cat === null;
+    track(c, i, c !== cat);
+    if (c !== cat) { cat = c; buildOpts(); }
+    const O = CATS[c].opts[i];
+    // Secciones evolutivas (limpieza, tintado, pintura): si ya estás en esa escena,
+    // pasa directamente del nivel que ves al nuevo, sin volver al estado inicial
+    // (si la opción tiene vídeo propio y lo que se ve no es su punto de partida, se pasa antes por su «antes»: de 1 paso al cerámico)
+    const direct = !!(CATS[c].evo && prev && i !== prevI && prev.frame === O.frame) && !(O.clip && CLIPS[O.clip] && shownSrc !== CLIPS[O.clip].start);
+    opt = i; state = direct ? 'b' : 'a'; abReady = false;
+    chrome(); paintInfo();
+    q(exitSlider);
+    const ck = clipOf(c);
+    if (c !== 'tintado' && CATS[c].serv) level = 'serv';
+    if (VIDEO && ck && wasHome && clipReady(ck)) { const p0 = ck === 'pintura' ? scrubP ?? 0 : 0; scrubP = null; q(() => bridge(p0, 1, ck)); }
+    if (direct) {
+      // De un nivel al siguiente: si lo que se ve es el punto de partida de su animación (de 1 paso a 2 pasos,
+      // de 2 pasos al cerámico, de un tinte a otro), se anima; si no, barrido
+      await q(() => animate(O, my, i > prevI ? 1 : -1)); if (my !== token) return;
+      abReady = true; paintAB();
+      return;
+    }
+    await show(O.a, O.frame, 1, my); if (my !== token) return;
+    await wait(HOLD * tempo); if (my !== token) return;
+    state = 'b'; paintAB();
+    // El «después» llega con la herramienta trabajando (pulidora, espuma y agua, lámina, cepillo, vídeo del cerámico…)
+    await q(() => animate(O, my, 1));
+    if (my !== token) return;
+    abReady = true; paintAB();
+    if (O.slider) q(() => enterSlider(O, my));
+  }
+  function flip(s) {
+    if (!abReady || s === state) return;
+    const my = ++token, O = CATS[cat].opts[opt];
+    state = s; paintAB();
+    show(s === 'a' ? O.a : O.b, O.frame, s === 'a' ? -1 : 1, my);
+  }
+  // Salir al menú «to» ('home' o 'serv'): desde una sección, la cámara vuelve a la base
+  function leave(to) {
+    if (loading) return;
+    if (cat === null) { if (level !== to) { level = to; chrome(); paintInfo(); } return; }
+    const my = ++token;
+    const was = cat, p0 = scrubP ?? 1, ck = clipOf(was); scrubP = null;
+    cat = null; opt = -1; abReady = false; level = to;
+    chrome(); paintInfo();
+    q(exitSlider);
+    // Desde el macro de pintura, el perfil del tintado o el interior, el clip se reproduce al revés hasta la base
+    q(() => VIDEO && ck && shownFrame === CLIPS[ck].frame && clipReady(ck) ? bridge(ck === 'pintura' ? p0 : 1, 0, ck) : doShow(LIMPIO, 'car', -1, my));
+  }
+  const home = () => leave('home');
+  // «Volver» sube un nivel: de una sección de Servicios al menú de servicios; de ahí (o del tintado) al menú principal
+  const goBack = () => leave(cat && CATS[cat].serv ? 'serv' : 'home');
+  function openServ() { if (loading) return; level = 'serv'; chrome(); paintInfo(); }
+
+  document.querySelectorAll('.side button[data-cat]').forEach(b => b.onclick = () => play(b.dataset.cat, 0));
+  $('serv-btn').onclick = openServ;
+  $('back-btn').onclick = goBack;
+  $('logo').onclick = home;
+  $('ab-a').onclick = () => flip('a');
+  $('ab-b').onclick = () => flip('b');
+  // ── El taller (hoja de información) ──
+  const sheet = $('sheet');
+  let sheetFrom = null;
+  function openSheet(page, focusId) {
+    if (loading) return;
+    if (!sheet.classList.contains('open')) sheetFrom = document.activeElement;
+    showTab(page);
+    sheet.inert = false; sheet.classList.add('open'); phone.classList.add('sheet-open'); sheet.scrollTop = 0;
+    if (focusId) goTo(focusId);
+    $('sheet-x').focus({ preventScroll: true });
+  }
+  function closeSheet() {
+    if (!sheet.classList.contains('open')) return false;
+    sheet.classList.remove('open'); phone.classList.remove('sheet-open'); sheet.inert = true;
+    if (sheetFrom && sheetFrom.focus) sheetFrom.focus({ preventScroll: true });
+    return true;
+  }
+  // Páginas: cada sección (data-tab) se mete en su página, ordenada por data-o; se abre una sola cada vez
+  const TABS = Object.keys(PAGES);
+  const panels = {};
+  TABS.forEach(t => {
+    const pn = document.createElement('div'); pn.className = 'tab-p'; pn.id = 'tp-' + t; pn.dataset.p = t;
+    pn.setAttribute('role', 'tabpanel'); pn.hidden = true; panels[t] = pn;
+    [...sheet.querySelectorAll(`:scope > [data-tab="${t}"]`)].sort((x, y) => x.dataset.o - y.dataset.o).forEach(n => pn.append(n));
+  });
+  $('sheet-cta').before(...TABS.map(t => panels[t]));
+  let tab = null;
+  function showTab(t) {
+    if (!panels[t]) return;
+    if (t !== tab) {
+      tab = t;
+      TABS.forEach(x => { panels[x].hidden = x !== t; });
+      $('sheet-t').innerHTML = PAGES[t];
+    }
+    sheet.scrollTop = 0;
+    if (t === 'contacto') renderPicks();
+  }
+  showTab('nosotros');
+  updateWA();
+  // Ir a una sección: abre su pestaña y baja hasta ella
+  function goTo(id) {
+    const t = $(id); if (!t) return;
+    const pn = t.closest('.tab-p'); if (pn) showTab(pn.dataset.p);
+    if (t.tagName === 'SECTION' && t.previousElementSibling) t.scrollIntoView({ block: 'start' });
+  }
+  document.querySelectorAll('[data-page]').forEach(b => { if (b.id !== 'more') b.onclick = () => openSheet(b.dataset.page); });
+  $('more').onclick = () => { if ($('more').dataset.page) openSheet($('more').dataset.page); };
+  $('sheet-x').onclick = closeSheet;
+  $('scrim').onclick = closeSheet;
+  // Paralaje: el escenario se mueve un poco con el ratón (no durante el comparador de la cera)
+  if (!reduce && matchMedia('(pointer: fine)').matches) phone.addEventListener('pointermove', e => {
+    if (sliding) { phone.style.setProperty('--px', '0px'); phone.style.setProperty('--py', '0px'); return; }
+    const r = phone.getBoundingClientRect(), x = (e.clientX - r.left) / r.width - .5, y = (e.clientY - r.top) / r.height - .5;
+    phone.style.setProperty('--px', (-x * r.width * .018).toFixed(1) + 'px'); phone.style.setProperty('--py', (-y * r.height * .014).toFixed(1) + 'px');
+  });
+  // Lista de servicios: los que tienen fotos llevan «Ver», que cierra la hoja y lo enseña en acción
+  $('svc-list').innerHTML = SVC.map(([g, items]) => `<p class="svc-g">${esc(g)}</p><ul class="svc">${items.map(([n, d, go, pr]) =>
+    `<li><div><b>${esc(n)}</b><span>${esc(d)}</span>${pr ? `<i>${esc(pr)}</i>` : ''}${go ? '' : '<em>Consúltanos</em>'}</div>${
+      Array.isArray(go) ? `<button class="btn go" data-go="${go.join(':')}">Ver</button>` :
+      typeof go === 'string' ? `<button class="btn go" data-go="${go}">Ver</button>` : ''}</li>`).join('')}</ul>`).join('');
+  $('svc-list').addEventListener('click', e => {
+    const b = e.target.closest('[data-go]'); if (!b) return;
+    if (!b.dataset.go.includes(':')) { openSheet(b.dataset.go === 'packs' ? 'ceramico' : b.dataset.go, b.dataset.go); return; }
+    const [c, i] = b.dataset.go.split(':'); closeSheet(); play(c, +i);
+  });
+  // Consulta del Top Detail Report: de momento se pide por WhatsApp con el código
+  $('code-f').onsubmit = e => {
+    e.preventDefault();
+    const c = $('code-i').value.trim().toUpperCase().replace(/[^A-Z0-9-]/g, '');
+    if (!c) { $('code-i').focus(); return; }
+    window.open(W + encodeURIComponent(`Hola! Quiero ver mi Top Detail Report. Mi código es ${c}.`), '_blank', 'noopener');
+  };
+  // Teoría: la foto cambia según el apartado abierto (sin pulir → pulida → con cerámico)
+  sheet.querySelectorAll('#teoria .acc').forEach(d => d.addEventListener('toggle', () => {
+    if (!d.open) return;
+    const box = $('th-img'), n = +d.dataset.img;
+    box.querySelectorAll('img').forEach((im, k) => im.classList.toggle('on', k === n));
+    box.className = `theory-img p${n} reveal in`; $('th-lbl').textContent = d.dataset.lbl;
+  }));
+  // Cómo trabajamos: se enciende el paso que está a la altura de la vista
+  if ('IntersectionObserver' in window) {
+    const lit = new IntersectionObserver(es => es.forEach(x => x.target.classList.toggle('on', x.isIntersecting)), { root: sheet, rootMargin: '-38% 0px -38% 0px' });
+    sheet.querySelectorAll('.steps li').forEach(n => lit.observe(n));
+  } else sheet.querySelectorAll('.steps li').forEach(n => n.classList.add('on'));
+  // Los pasos y packs aparecen al llegar a ellos (animación solo aquí)
+  if ('IntersectionObserver' in window && !reduce) {
+    const io = new IntersectionObserver(es => es.forEach(x => { if (x.isIntersecting) { x.target.classList.add('in'); io.unobserve(x.target); } }), { root: sheet, threshold: .25 });
+    sheet.querySelectorAll('.reveal').forEach(n => io.observe(n));
+  } else sheet.querySelectorAll('.reveal').forEach(n => n.classList.add('in'));
+  // La lista de opciones de los lados se ajusta a la altura real de la ficha
+  if ('ResizeObserver' in window) new ResizeObserver(() => phone.style.setProperty('--hud-h', $('hud').offsetHeight + 'px')).observe($('hud'));
+  addEventListener('keydown', e => { if (e.key !== 'Escape') return; if (demo) return endDemo(); if (!closeSheet()) goBack(); });
+  // Solo se navega con los botones: sin scroll ni gestos
+  let sy = 0, wheelT;
+  phone.addEventListener('touchstart', e => { sy = e.touches[0].clientY; }, { passive: true });
+  phone.addEventListener('touchmove', e => {
+    if (e.target === cmp || e.target.closest('.xside') || e.target.closest('.sheet')) return;
+    e.preventDefault();
+    const dy = sy - e.touches[0].clientY;   // > 0 al subir el dedo
+    if (!drag && Math.abs(dy) > 12) scrubStart(dy > 0 ? 1 : -1);
+    if (drag) { const h = phone.clientHeight * .55; scrubMove(drag.dir > 0 ? dy / h : 1 + dy / h); }
+  }, { passive: false });
+  phone.addEventListener('touchend', scrubEnd);
+  phone.addEventListener('touchcancel', scrubEnd);
+  addEventListener('wheel', e => {
+    if (e.target.closest && (e.target.closest('.xside') || e.target.closest('.sheet'))) return;
+    e.preventDefault();
+    if (!drag && (Math.abs(e.deltaY) < 2 || !scrubStart(e.deltaY > 0 ? 1 : -1))) return;
+    scrubMove(drag.p + e.deltaY / 700);
+    clearTimeout(wheelT); wheelT = setTimeout(scrubEnd, 180);
+  }, { passive: false });
+
+  // ══ Animaciones hechas con código: la pulidora y compañía, sin vídeo ══
+  // La foto de antes va en una capa encima de la de después y la herramienta la «borra» por donde pasa:
+  // la pulidora deja la pintura pulida, la espuma cubre el coche y el agua la aclara, la lámina oscurece
+  // las lunas, el cepillo limpia el interior… Todo se pinta en el canvas #seq (misma geometría que las fotos)
+  // y, al terminar, la foto de después se queda fija debajo. Sirve para cualquier pareja antes → después.
+  // Pulidora recortada de un fotograma del vídeo de Veo, con mano y antebrazo (img/fx-pulidora*.webp).
+  // Medidas en píxeles de ese fotograma, que tenía 720 de ancho (= el ancho entero de la foto)
+  const PUL = { px: 108, py: 496, rx: 108, ry: 72, ang: Math.atan2(-.4, 1), sx: 1.39, sy: .454 };
+  // Mano con cepillo (Gemini, fondo croma): ancla en el centro de las cerdas; bw = ancho de las cerdas
+  const BRU = { ax: 112, ay: 179, bw: 260 };
+  const sprites = {};
+  const sprite = n => {
+    if (!sprites[n]) {
+      const i = new Image(); i.src = `img/fx-${n}.webp?v=1`;
+      sprites[n] = { i, ready: i.decode().then(() => i, () => null) };
+    }
+    return sprites[n];
+  };
+  const loadPhoto = n => new Promise(res => {
+    let i = photos[n];
+    if (ok(i)) return res(i);
+    if (!i) { i = new Image(); photos[n] = i; i.src = img(n); }
+    const done = () => res(ok(i) ? i : null);
+    if (i.complete) return done();
+    i.addEventListener('load', done, { once: true }); i.addEventListener('error', done, { once: true });
+  });
+  const canvasOf = (w, h) => { const c = document.createElement('canvas'); c.width = w; c.height = h; return c; };
+  // La foto al tamaño del canvas, encuadrada igual que en pantalla (object-fit: cover)
+  function plate(im) {
+    const c = canvasOf(seq.width, seq.height), x = c.getContext('2d');
+    x.imageSmoothingEnabled = true; x.imageSmoothingQuality = 'high';
+    const k = Math.max(c.width / im.naturalWidth, c.height / im.naturalHeight), w = im.naturalWidth * k, h = im.naturalHeight * k;
+    x.drawImage(im, (c.width - w) / 2, (c.height - h) / 2, w, h);
+    return c;
+  }
+  // Mapa de lo que cambia entre las dos fotos, a baja resolución: dice a la herramienta dónde trabajar
+  function diffMap(a, b) {
+    const W = 72, H = Math.round(W * seq.height / seq.width), N = W * H;
+    const c = canvasOf(W, H), x = c.getContext('2d', { willReadFrequently: true });
+    x.imageSmoothingEnabled = true; x.imageSmoothingQuality = 'high';
+    x.drawImage(a, 0, 0, W, H); const A = x.getImageData(0, 0, W, H).data;
+    x.drawImage(b, 0, 0, W, H); const B = x.getImageData(0, 0, W, H).data;
+    let d = new Float32Array(N); const L = new Float32Array(N);
+    for (let i = 0, j = 0; i < N; i++, j += 4) {
+      d[i] = Math.max(Math.abs(A[j] - B[j]), Math.abs(A[j + 1] - B[j + 1]), Math.abs(A[j + 2] - B[j + 2])) / 255;
+      L[i] = (B[j] * .3 + B[j + 1] * .59 + B[j + 2] * .11) / 255;
+    }
+    for (let p = 0; p < 2; p++) {   // suavizado 3×3
+      const e = new Float32Array(N);
+      for (let y = 0; y < H; y++) for (let x2 = 0; x2 < W; x2++) {
+        let s = 0, n = 0;
+        for (let dy = -1; dy <= 1; dy++) for (let dx = -1; dx <= 1; dx++) {
+          const yy = y + dy, xx = x2 + dx;
+          if (yy >= 0 && yy < H && xx >= 0 && xx < W) { s += d[yy * W + xx]; n++; }
+        }
+        e[y * W + x2] = s / n;
+      }
+      d = e;
+    }
+    let mx = 0; for (let i = 0; i < N; i++) mx = Math.max(mx, d[i]);
+    const thr = Math.max(.045, mx * .28);
+    // Caja con el grueso del cambio (del 8 al 92 % de su «peso»): así no la estiran los píxeles sueltos con ruido
+    const cw = new Float32Array(W), rw = new Float32Array(H); let tot = 0;
+    for (let y = 0; y < H; y++) for (let x2 = 0; x2 < W; x2++) { const v = Math.max(0, d[y * W + x2] - thr * .5); cw[x2] += v; rw[y] += v; tot += v; }
+    const pct = (arr, q) => { let s = 0; for (let i = 0; i < arr.length; i++) { s += arr[i]; if (s >= q * tot) return i; } return arr.length - 1; };
+    let box = { x0: .15, y0: .3, x1: .85, y1: .75 };
+    if (tot > 0) {
+      box = { x0: pct(cw, .08) / W, x1: (pct(cw, .92) + 1) / W, y0: pct(rw, .08) / H, y1: (pct(rw, .92) + 1) / H };
+      const ex = Math.max(0, .2 - (box.x1 - box.x0)) / 2, ey = Math.max(0, .12 - (box.y1 - box.y0)) / 2;   // tamaño mínimo
+      box = { x0: Math.max(0, box.x0 - ex), x1: Math.min(1, box.x1 + ex), y0: Math.max(0, box.y0 - ey), y1: Math.min(1, box.y1 + ey) };
+    }
+    return { W, H, d, L, thr, box };
+  }
+  // Máscara suave de la zona que cambia (para que los brillos solo caigan donde trabaja la herramienta)
+  function maskOf(m) {
+    const c = canvasOf(m.W, m.H), x = c.getContext('2d'), im = x.createImageData(m.W, m.H);
+    for (let i = 0; i < m.W * m.H; i++) {
+      const v = Math.min(1, Math.max(0, (m.d[i] - m.thr * .6) / (m.thr * .8)));
+      im.data[i * 4] = im.data[i * 4 + 1] = im.data[i * 4 + 2] = 255; im.data[i * 4 + 3] = v * 255;
+    }
+    x.putImageData(im, 0, 0);
+    return c;
+  }
+  // Los puntos más brillantes de la foto de después dentro de la zona trabajada: ahí destellan las chispas
+  function sparkPoints(m, n) {
+    const out = [], cand = [];
+    for (let i = 0; i < m.W * m.H; i++) if (m.d[i] > m.thr) cand.push(i);
+    cand.sort((a, b) => m.L[b] - m.L[a]);
+    for (const i of cand) {
+      const x = (i % m.W + .5) / m.W, y = (Math.floor(i / m.W) + .5) / m.H;
+      if (out.every(p => Math.hypot(p[0] - x, (p[1] - y) * 1.8) > .16)) out.push([x, y]);
+      if (out.length >= n) break;
+    }
+    return out;
+  }
+  // Pincel que «borra» la foto de antes: elipse con el borde difuminado
+  function dab(x, cx, cy, rx, ry, a) {
+    x.save(); x.translate(cx, cy); x.scale(1, ry / rx);
+    const g = x.createRadialGradient(0, 0, 0, 0, 0, rx);
+    g.addColorStop(0, `rgba(0,0,0,${a})`); g.addColorStop(.6, `rgba(0,0,0,${a * .75})`); g.addColorStop(1, 'rgba(0,0,0,0)');
+    x.fillStyle = g; x.beginPath(); x.arc(0, 0, rx, 0, 6.2832); x.fill(); x.restore();
+  }
+  // Recorrido suave (Catmull-Rom) por unos puntos; at(s) da la posición a una fracción s del camino
+  function spline(pts, n = 20) {
+    const o = [];
+    for (let i = 0; i < pts.length - 1; i++) {
+      const p0 = pts[Math.max(0, i - 1)], p1 = pts[i], p2 = pts[i + 1], p3 = pts[Math.min(pts.length - 1, i + 2)];
+      for (let k = 0; k < n; k++) {
+        const t = k / n, t2 = t * t, t3 = t2 * t;
+        o.push([0, 1].map(j => .5 * (2 * p1[j] + (p2[j] - p0[j]) * t + (2 * p0[j] - 5 * p1[j] + 4 * p2[j] - p3[j]) * t2 + (3 * p1[j] - p0[j] - 3 * p2[j] + p3[j]) * t3)));
+      }
+    }
+    o.push(pts[pts.length - 1]);
+    const len = [0];
+    for (let i = 1; i < o.length; i++) len.push(len[i - 1] + Math.hypot(o[i][0] - o[i - 1][0], o[i][1] - o[i - 1][1]));
+    const L = len[len.length - 1] || 1;
+    const at = s => {
+      const d = Math.max(0, Math.min(1, s)) * L;
+      let lo = 1, hi = len.length - 1;
+      while (lo < hi) { const m = (lo + hi) >> 1; if (len[m] < d) lo = m + 1; else hi = m; }
+      const f = (d - len[lo - 1]) / ((len[lo] - len[lo - 1]) || 1);
+      return [o[lo - 1][0] + (o[lo][0] - o[lo - 1][0]) * f, o[lo - 1][1] + (o[lo][1] - o[lo - 1][1]) * f];
+    };
+    at.knot = i => len[Math.min(len.length - 1, i * n)] / L;   // fracción del camino en el punto i
+    return at;
+  }
+  // Velocidad constante con arranque y frenada suaves
+  const trap = (t, a = .12) => {
+    const v = 1 / (1 - a); t = Math.max(0, Math.min(1, t));
+    return t < a ? v * t * t / (2 * a) : t > 1 - a ? 1 - v * (1 - t) * (1 - t) / (2 * a) : v * (t - a / 2);
+  };
+  // Partículas sencillas (gotas, espuma, pulverizado)
+  function particles() {
+    const ps = [];
+    return {
+      add: p => ps.push(Object.assign({ t: 0 }, p)),
+      tick(dt) { for (let i = ps.length - 1; i >= 0; i--) { ps[i].t += dt; if (ps[i].t >= ps[i].life) ps.splice(i, 1); } },
+      draw(g, fn) { for (const p of ps) fn(g, p, p.t / p.life); },
+    };
+  }
+  // Destellos en forma de estrella, al terminar
+  function twinkle(g, x, y, r, a) {
+    if (a <= 0) return;
+    g.save(); g.translate(x, y); g.globalCompositeOperation = 'lighter';
+    const h = g.createRadialGradient(0, 0, 0, 0, 0, r * .9);
+    h.addColorStop(0, `rgba(255,255,255,${.55 * a})`); h.addColorStop(1, 'rgba(255,255,255,0)');
+    g.fillStyle = h; g.beginPath(); g.arc(0, 0, r * .9, 0, 6.2832); g.fill();
+    g.fillStyle = `rgba(255,255,255,${.9 * a})`;
+    const ray = (l, w) => { g.beginPath(); g.moveTo(-l, 0); g.quadraticCurveTo(0, -w, l, 0); g.quadraticCurveTo(0, w, -l, 0); g.fill(); };
+    ray(r * 2.1, r * .09); g.rotate(Math.PI / 2); ray(r * 2.1, r * .09);
+    g.rotate(Math.PI / 4); ray(r * 1.1, r * .06); g.rotate(Math.PI / 2); ray(r * 1.1, r * .06);
+    g.restore();
+  }
+
+  const FX = {
+    // Pulidora: entra por la derecha, hace pasadas sobre la pintura y se va. Por donde pasa, la pintura queda pulida
+    polish(c, o = {}) {
+      const { W, H, dpr } = c, sp = sprite(o.pad || 'pulidora');
+      const k = c.PW / 720 * (o.scale || 1);
+      const R = PUL.rx * k * 1.3, Ry = PUL.ry * k * 1.3;
+      const b = o.box || { x0: .15, x1: .85, y0: .52, y1: .73 };
+      const rows = o.rows || 3, pts = [[W * 1.3, H * (b.y0 - .03)]];
+      for (let r = 0; r < rows; r++) {
+        const y = H * (b.y0 + (b.y1 - b.y0) * (rows === 1 ? .5 : r / (rows - 1)));
+        const [xa, xb] = r % 2 ? [b.x0, b.x1] : [b.x1, b.x0];
+        pts.push([W * xa, y], [W * xb, y]);
+      }
+      pts.push([W * 1.35, H * (b.y1 + .015)]);
+      const P = spline(pts), sOn = P.knot(1), sOff = P.knot(pts.length - 2);
+      const ta = .14, tb = .84;
+      const sAt = t => t < ta ? sOn * (1 - Math.pow(1 - t / ta, 2))
+        : t < tb ? sOn + (sOff - sOn) * trap((t - ta) / (tb - ta), .08)
+        : sOff + (1 - sOff) * Math.pow((t - tb) / (1 - tb), 1.6);
+      let cur = pts[0], prev = null;
+      const dust = particles();
+      return {
+        ms: o.ms || 3000, ready: sp.ready,
+        glare: 1.35, haze: 14, glareAt: t => { const u = Math.min(1, t / .14); return u * u * (3 - 2 * u); },
+        step(t, dt) {
+          const s = sAt(t), p = P(s), on = s > sOn - .002 && s < sOff + .002;
+          if (on && prev) {
+            const d = Math.hypot(p[0] - prev[0], p[1] - prev[1]), n = Math.max(1, Math.ceil(d / (R * .15)));
+            for (let i = 1; i <= n; i++) c.erase(prev[0] + (p[0] - prev[0]) * i / n, prev[1] + (p[1] - prev[1]) * i / n, R, Ry, .34);
+            // restos de pulimento que salen despedidos del pad
+            if (Math.random() < .5) { const a = Math.random() * 6.28; dust.add({ x: p[0] + Math.cos(a) * R * .8, y: p[1] + Math.sin(a) * Ry * .8, vx: Math.cos(a) * 60 * dpr, vy: Math.sin(a) * 40 * dpr, life: 380, r: (.6 + Math.random()) * dpr }); }
+          }
+          prev = on ? p : null; cur = p; dust.tick(dt);
+        },
+        fade: t => t < .82 ? 1 : Math.max(0, 1 - (t - .82) / .16),
+        draw(g, t) {
+          dust.draw(g, (g, p, u) => { g.fillStyle = `rgba(235,232,228,${.5 * (1 - u)})`; g.beginPath(); g.arc(p.x + p.vx * p.t / 1000, p.y + p.vy * p.t / 1000, p.r, 0, 6.2832); g.fill(); });
+          // brillo que recorre la pintura recién pulida
+          if (t > .74) {
+            const u = (t - .74) / .26, x = W * (-.35 + 1.7 * u), y0 = H * (b.y0 - .1), y1 = H * (b.y1 + .1);
+            const gr = g.createLinearGradient(x - W * .16, 0, x + W * .16, 0);
+            gr.addColorStop(0, 'rgba(255,255,255,0)'); gr.addColorStop(.5, `rgba(255,255,255,${.13 * Math.sin(Math.PI * u)})`); gr.addColorStop(1, 'rgba(255,255,255,0)');
+            g.save(); g.globalCompositeOperation = 'lighter'; g.fillStyle = gr;
+            g.beginPath(); g.moveTo(x - W * .1, y0); g.lineTo(x + W * .22, y0); g.lineTo(x + W * .1, y1); g.lineTo(x - W * .22, y1); g.fill(); g.restore();
+          }
+          const im = sp.i; if (!ok(im)) return;
+          const ph = performance.now() / 1000 * 6.2832 * 7.5;     // órbita del pad (máquina roto-orbital) y vibración
+          const x = cur[0] + Math.cos(ph) * 1.5 * dpr + (Math.random() - .5) * .8 * dpr;
+          const y = cur[1] + Math.sin(ph) * 1.1 * dpr + (Math.random() - .5) * .8 * dpr;
+          const sc = k * (1 + .4 * (y / H - .68));                // más grande cuanto más cerca de la cámara
+          let rot = Math.atan2(H * PUL.sy - y, W * PUL.sx - x) - PUL.ang;
+          rot = Math.max(-.15, Math.min(.15, rot * .65));          // el brazo gira desde el hombro (fuera de la pantalla)
+          // sombra del pad sobre la pintura
+          g.save(); g.translate(x, y + PUL.ry * sc * .45); g.scale(1, .55);
+          const sh = g.createRadialGradient(0, 0, 0, 0, 0, PUL.rx * sc * 1.25);
+          sh.addColorStop(0, 'rgba(0,0,0,.55)'); sh.addColorStop(1, 'rgba(0,0,0,0)');
+          g.fillStyle = sh; g.beginPath(); g.arc(0, 0, PUL.rx * sc * 1.25, 0, 6.2832); g.fill(); g.restore();
+          g.save(); g.translate(x, y); g.rotate(rot); g.scale(sc, sc); g.drawImage(im, -PUL.px, -PUL.py); g.restore();
+        },
+      };
+    },
+    // Segundo paso: pad negro de acabado, menos pasadas
+    finish: c => FX.polish(c, { pad: 'pulidora-acabado', rows: 2, ms: 2400, box: { x0: .17, x1: .83, y0: .55, y1: .7 } }),
+    // Pulidora pequeña para los cristales: trabaja donde cambia la foto
+    glass(c) {
+      const b = c.dm.box;
+      return FX.polish(c, { scale: .72, rows: 2, ms: 2600, box: { x0: Math.max(.16, b.x0 + .04), x1: Math.min(.84, b.x1 - .04), y0: b.y0 + (b.y1 - b.y0) * .25, y1: b.y0 + (b.y1 - b.y0) * .75 } });
+    },
+    // Espuma activa: un cañón la pulveriza de lado a lado, de arriba abajo, hasta cubrir el coche
+    foam(c) {
+      const { W, H, dpr } = c, b = c.dm.box;
+      const x0 = (b.x0 - .03) * W, x1 = (b.x1 + .03) * W, y0 = (b.y0 - .02) * H, y1 = (b.y1 + .02) * H, bw = x1 - x0, bh = y1 - y0;
+      const rows = 3, pts = [];
+      for (let r = 0; r < rows; r++) {
+        const y = y0 + bh * (r + .5) / rows;
+        pts.push(r % 2 ? [x1, y] : [x0, y], r % 2 ? [x0, y] : [x1, y]);
+      }
+      const P = spline(pts), noz = [W * 1.06, H * .97], spray = particles();
+      return {
+        ms: 1500,
+        step(t, dt) {
+          const p = P(trap(Math.min(1, t / .86), .1));
+          if (t < .88) {
+            for (let i = 0; i < 3; i++) {
+              const a = Math.random() * 6.28, r = Math.random() * bw * .13;
+              dab(c.tx, p[0] + Math.cos(a) * r, p[1] + Math.sin(a) * r * .8, bw * (.07 + Math.random() * .07), bw * (.06 + Math.random() * .06), .34);
+            }
+            for (let i = 0; i < 7; i++) spray.add({ tx: p[0] + (Math.random() - .5) * bw * .26, ty: p[1] + (Math.random() - .5) * bw * .2, life: 170 + Math.random() * 150, r: (.7 + Math.random() * 1.5) * dpr, cv: (Math.random() - .5) * 60 * dpr });
+          }
+          spray.tick(dt);
+        },
+        fade: t => t < .86 ? 1 : Math.max(0, 1 - (t - .86) / .12),
+        draw(g) {
+          spray.draw(g, (g, p, u) => {
+            const e = 1 - Math.pow(1 - u, 2), x = noz[0] + (p.tx - noz[0]) * e, y = noz[1] + (p.ty - noz[1]) * e + p.cv * Math.sin(Math.PI * u);
+            g.fillStyle = `rgba(248,248,246,${.6 * (1 - u * u)})`; g.beginPath(); g.arc(x, y, p.r * (1 + u), 0, 6.2832); g.fill();
+          });
+        },
+      };
+    },
+    // Aclarado: el agua baja de arriba abajo arrastrando la espuma, con regueros que se adelantan
+    rinse(c) {
+      const { W, H, dpr } = c, b = c.dm.box;
+      const top = b.y0 * H - H * .08, bot = b.y1 * H + H * .12, x0 = b.x0 * W - W * .04, x1 = b.x1 * W + W * .04;
+      const st = Math.max(4, Math.round(5 * dpr)), cols = Math.ceil(W / st) + 1, lag = [], drip = [];
+      let v = 0;
+      for (let i = 0; i < cols; i++) {
+        v = (v + (Math.random() - .5) * .45) * .88; lag.push(v);
+        drip.push(Math.random() < .14 ? (40 + Math.random() * 90) * dpr : Math.random() * 12 * dpr);
+      }
+      let front = top, prog = 0;
+      const drops = particles();
+      const cut = (g, off) => {
+        g.beginPath(); g.moveTo(0, 0); g.lineTo(W, 0);
+        for (let i = cols - 1; i >= 0; i--) g.lineTo(i * st, front + lag[i] * 30 * dpr + drip[i] * prog - off);
+        g.closePath(); g.fill();
+      };
+      return {
+        ms: 1700,
+        step(t, dt) {
+          prog = Math.min(1, t / .9); front = top + (bot - top) * easeIO(prog);
+          c.tx.fillStyle = 'rgba(0,0,0,.4)'; cut(c.tx, 0); cut(c.tx, 9 * dpr); c.tx.fillStyle = '#000'; cut(c.tx, 20 * dpr);
+          if (t < .9) for (let i = 0; i < 3; i++) drops.add({ x: x0 + Math.random() * (x1 - x0), y: front + Math.random() * 20 * dpr, life: 260 + Math.random() * 240, l: (5 + Math.random() * 9) * dpr });
+          drops.tick(dt);
+        },
+        fade: t => t < .9 ? 1 : Math.max(0, 1 - (t - .9) / .08),
+        draw(g) {
+          // lámina de agua: un brillo justo en el frente
+          const gr = g.createLinearGradient(0, front - 46 * dpr, 0, front + 8 * dpr);
+          gr.addColorStop(0, 'rgba(255,255,255,0)'); gr.addColorStop(.75, `rgba(220,232,240,${.16 * Math.sin(Math.PI * prog)})`); gr.addColorStop(1, 'rgba(255,255,255,0)');
+          g.save(); g.globalCompositeOperation = 'lighter'; g.fillStyle = gr; g.fillRect(x0, front - 46 * dpr, x1 - x0, 54 * dpr); g.restore();
+          drops.draw(g, (g, p, u) => {
+            const y = p.y + 900 * dpr * (p.t / 1000) * (.6 + u);
+            g.strokeStyle = `rgba(225,235,242,${.45 * (1 - u)})`; g.lineWidth = .9 * dpr;
+            g.beginPath(); g.moveTo(p.x, y); g.lineTo(p.x, y + p.l); g.stroke();
+          });
+        },
+      };
+    },
+    // Lámina de tintado: la rasqueta la asienta de un lado a otro y solo se ve brillar sobre los cristales
+    film(c) {
+      const { W, H, dpr } = c, b = c.dm.box, m = maskOf(c.dm);
+      const x0 = (b.x0 - .04) * W, x1 = (b.x1 + .04) * W, y0 = (b.y0 - .02) * H, y1 = (b.y1 + .02) * H, sl = (y1 - y0) * .22;
+      const hl = canvasOf(W, H), hx = hl.getContext('2d');
+      let fx = x0;
+      const cut = (g, off) => { g.beginPath(); g.moveTo(-sl, 0); g.lineTo(fx + sl - off, y0 - 30); g.lineTo(fx - sl - off, y1 + 30); g.lineTo(-sl, H); g.closePath(); g.fill(); };
+      return {
+        ms: 1200,
+        step(t) {
+          fx = x0 - sl + (x1 - x0 + 2 * sl) * easeIO(Math.min(1, t / .86));
+          c.tx.fillStyle = 'rgba(0,0,0,.45)'; cut(c.tx, 0); cut(c.tx, 7 * dpr); c.tx.fillStyle = '#000'; cut(c.tx, 16 * dpr);
+        },
+        fade: t => t < .86 ? 1 : Math.max(0, 1 - (t - .86) / .12),
+        draw(g, t) {
+          if (t > .9) return;
+          hx.clearRect(0, 0, W, H); hx.globalCompositeOperation = 'source-over';
+          const gr = hx.createLinearGradient(fx - 22 * dpr, 0, fx + 4 * dpr, 0);
+          gr.addColorStop(0, 'rgba(255,255,255,0)'); gr.addColorStop(.8, 'rgba(255,255,255,.28)'); gr.addColorStop(1, 'rgba(255,255,255,.75)');
+          hx.fillStyle = gr; hx.beginPath(); hx.moveTo(fx + sl - 22 * dpr, y0 - 30); hx.lineTo(fx + sl + 4 * dpr, y0 - 30); hx.lineTo(fx - sl + 4 * dpr, y1 + 30); hx.lineTo(fx - sl - 22 * dpr, y1 + 30); hx.fill();
+          hx.globalCompositeOperation = 'destination-in'; hx.drawImage(m, 0, 0, W, H);
+          g.save(); g.globalCompositeOperation = 'lighter'; g.drawImage(hl, 0, 0); g.restore();
+        },
+      };
+    },
+    // Cepillo y limpiador: entra una mano con guante por abajo a la derecha, frota en círculos por la zona
+    // que cambia (con espuma), se va y la pieza destella
+    scrub(c, o = {}) {
+      const { W, H, dpr } = c, b = c.dm.box, sp = sprite('cepillo');
+      const x0 = b.x0 * W, x1 = b.x1 * W, y0 = b.y0 * H, y1 = b.y1 * H, bw = x1 - x0, bh = y1 - y0;
+      const r = Math.max(c.PW * .075, Math.min(c.PW * .15, Math.min(bw, bh) * .26));
+      const rows = Math.max(1, Math.min(4, Math.round(bh / (r * 1.45))));
+      const pts = [[W * 1.15, H * 1.02]];
+      for (let i = 0; i < rows; i++) {
+        const y = y0 + bh * (rows === 1 ? .5 : (i + .5) / rows), a = x0 + Math.min(r * .6, bw / 2), z = x1 - Math.min(r * .6, bw / 2);
+        pts.push(i % 2 ? [a, y] : [z, y], i % 2 ? [z, y] : [a, y]);
+      }
+      pts.push([W * 1.22, H * 1.06]);
+      const P = spline(pts), sOn = P.knot(1), sOff = P.knot(pts.length - 2), ta = .13, tb = .8;
+      const sAt = t => t < ta ? sOn * (1 - Math.pow(1 - t / ta, 2))
+        : t < tb ? sOn + (sOff - sOn) * trap((t - ta) / (tb - ta), .1)
+        : sOff + (1 - sOff) * Math.pow((t - tb) / (1 - tb), 1.6);
+      const k = c.PW * .17 / BRU.bw, foam = particles(), spk = sparkPoints(c.dm, o.sparks ?? 3);
+      let prev = null, cur = pts[0], wig = 0;
+      return {
+        ms: o.ms || 2500, ready: sp.ready,
+        step(t, dt) {
+          const s = sAt(t), p = P(s), on = s > sOn - .002 && s < sOff + .002, w = performance.now() / 1000 * 6.2832 * 3.2;
+          const q2 = on ? [p[0] + Math.cos(w) * r * .42, p[1] + Math.sin(w) * r * .32] : p;
+          if (on) {
+            if (prev) {
+              const d = Math.hypot(q2[0] - prev[0], q2[1] - prev[1]), n = Math.max(1, Math.ceil(d / (r * .2)));
+              for (let i = 1; i <= n; i++) c.erase(prev[0] + (q2[0] - prev[0]) * i / n, prev[1] + (q2[1] - prev[1]) * i / n, r, r * .85, .26);
+            }
+            for (let i = 0; i < 2; i++) { const a = Math.random() * 6.28, d = Math.random() * r * .8; foam.add({ x: q2[0] + Math.cos(a) * d, y: q2[1] + Math.sin(a) * d * .7, life: 480 + Math.random() * 320, r: (1.2 + Math.random() * 2.8) * dpr }); }
+          }
+          wig = on ? Math.sin(w) * .07 : 0;
+          prev = on ? q2 : null; cur = q2; foam.tick(dt);
+        },
+        fade: t => t < .8 ? 1 : Math.max(0, 1 - (t - .8) / .14),
+        draw(g, t) {
+          foam.draw(g, (g, p, u) => {
+            const a = u < .15 ? u / .15 : 1 - (u - .15) / .85, y = p.y - 10 * dpr * u;
+            g.fillStyle = `rgba(255,255,255,${.3 * a})`; g.strokeStyle = `rgba(255,255,255,${.42 * a})`; g.lineWidth = .7 * dpr;
+            g.beginPath(); g.arc(p.x, y, p.r, 0, 6.2832); g.fill(); g.stroke();
+          });
+          const im = sp.i;
+          if (ok(im)) {
+            // sombra de las cerdas sobre la pieza y la mano con el cepillo
+            g.save(); g.translate(cur[0] + 4 * dpr, cur[1] + BRU.bw * k * .28); g.scale(1, .4);
+            const sh = g.createRadialGradient(0, 0, 0, 0, 0, BRU.bw * k * .6);
+            sh.addColorStop(0, 'rgba(0,0,0,.45)'); sh.addColorStop(1, 'rgba(0,0,0,0)');
+            g.fillStyle = sh; g.beginPath(); g.arc(0, 0, BRU.bw * k * .6, 0, 6.2832); g.fill(); g.restore();
+            g.save(); g.translate(cur[0], cur[1]); g.rotate(wig); g.scale(k, k); g.drawImage(im, -BRU.ax, -BRU.ay); g.restore();
+          }
+          spk.forEach(([x, y], i) => {
+            const u = (t - .78 - i * .06) / .18;
+            if (u > 0 && u < 1) twinkle(g, x * W, y * H, 13 * dpr, Math.sin(Math.PI * u));
+          });
+        },
+      };
+    },
+  };
+
+  // Una etapa: de la foto from a la to con la herramienta kind. Si el cliente toca otra cosa, se salta al final
+  async function fxStage(kind, from, to, my) {
+    const [A, B] = await Promise.all([loadPhoto(from), loadPhoto(to)]);
+    if (my !== token) return;
+    if (!A || !B || !FX[kind]) return doShow(to, shownFrame, 1, my);
+    sizeSeq();
+    const W = seq.width, H = seq.height, top = plate(A), under = plate(B), tx = top.getContext('2d');
+    tx.globalCompositeOperation = 'destination-out';
+    let dm, glare = null, gx = null;
+    try { dm = diffMap(A, B); } catch (e) { dm = { W: 1, H: 1, d: [0], L: [0], thr: 1, box: { x0: .15, y0: .3, x1: .85, y1: .75 } }; }
+    // erase: la herramienta pasa por (x, y) y deja a la vista la foto de después
+    const c = { W, H, PW: PC.photo * Math.max(W / PC.w, H / PC.h), top, tx, dpr: W / phone.clientWidth, dm, erase: (x, y, rx, ry, a) => { dab(tx, x, y, rx, ry, a); if (gx) dab(gx, x / 2, y / 2, rx / 2, ry / 2, a); } };
+    const E = FX[kind](c);
+    if (E.ready) await E.ready;
+    if (my !== token) return;
+    // Luz de inspección: lo que la herramienta va a quitar (remolinos, marcas) se ve más mientras trabaja,
+    // y la zona tratada, algo velada; así se nota bien la diferencia entre lo pulido y lo que falta
+    // (a media resolución: en un móvil lento leer los píxeles de la foto entera retrasaría el arranque)
+    if (E.glare) try {
+      const gw = Math.round(W / 2), gh = Math.round(H / 2);
+      glare = canvasOf(gw, gh); gx = glare.getContext('2d');
+      const tc = canvasOf(gw, gh), tt = tc.getContext('2d', { willReadFrequently: true }); tt.imageSmoothingEnabled = true;
+      const read = src => { tt.clearRect(0, 0, gw, gh); tt.drawImage(src, 0, 0, gw, gh); return tt.getImageData(0, 0, gw, gh).data; };
+      const a = read(top), b = read(under), m = read(maskOf(dm)), o = gx.createImageData(gw, gh), od = o.data, k = E.glare, hz = E.haze || 0;
+      for (let i = 0; i < a.length; i += 4) {
+        const v = Math.max(0, a[i] + a[i + 1] + a[i + 2] - b[i] - b[i + 1] - b[i + 2]) / 3 * k + hz * m[i + 3] / 255;
+        od[i] = od[i + 1] = od[i + 2] = v > 255 ? 255 : v; od[i + 3] = 255;
+      }
+      gx.putImageData(o, 0, 0); gx.globalCompositeOperation = 'destination-out';
+    } catch (e) { glare = gx = null; }
+    const draw = (t, dt) => {
+      if (dt !== undefined) E.step(t, dt);
+      sctx.globalCompositeOperation = 'source-over'; sctx.globalAlpha = 1;
+      sctx.drawImage(under, 0, 0);
+      const f = E.fade ? E.fade(t) : 1;
+      sctx.globalAlpha = f; sctx.drawImage(top, 0, 0);
+      if (glare) { sctx.globalCompositeOperation = 'lighter'; sctx.globalAlpha = f * E.glareAt(t); sctx.drawImage(glare, 0, 0, W, H); sctx.globalCompositeOperation = 'source-over'; }
+      sctx.globalAlpha = 1;
+      if (E.draw) E.draw(sctx, t);
+    };
+    draw(0); seq.style.opacity = 1;
+    await new Promise(res => {
+      const ms = E.ms * tempo, t0 = performance.now(); let last = t0;
+      const f = now => {
+        if (my !== token) return res();
+        const t = Math.min(1, (now - t0) / ms);
+        draw(t, Math.min(50, now - last) / tempo); last = now;
+        t < 1 ? requestAnimationFrame(f) : res();
+      };
+      requestAnimationFrame(f);
+    });
+    sctx.globalAlpha = 1; sctx.globalCompositeOperation = 'source-over'; sctx.drawImage(under, 0, 0);
+    back.src = img(to); try { await back.decode(); } catch (e) {}
+    shownSrc = to; lastDrawn = -1;
+    seq.style.opacity = 0;
+  }
+  async function runFx(stages, my) {
+    for (const [kind, to] of stages) { if (my !== token) return; await fxStage(kind, shownSrc, to, my); }
+  }
+  // Etapas que quedan desde la foto que se ve (de 1 paso a 2 pasos solo falta el acabado)
+  function fxFrom(O) {
+    if (!O.fx || reduce) return null;
+    const chain = [O.a, ...O.fx.map(s => s[1])], k = chain.indexOf(shownSrc);
+    if (k >= 0 && k < O.fx.length) return O.fx.slice(k);
+    return O.fxAny && shownFrame === O.frame && shownSrc !== O.b ? O.fx.slice(-1) : null;
+  }
+  // De lo que se ve al «después» de O: vídeo propio, animación por código o barrido
+  function animate(O, my, dir) {
+    if (my !== token) return;
+    const C = O.clip && CLIPS[O.clip];
+    if (VIDEO && C && clipReady(O.clip) && shownSrc === (C.start || O.a)) return bridge(0, 1, O.clip);
+    const st = fxFrom(O);
+    if (st) return runFx(st, my);
+    return doShow(O.b, O.frame, dir, my);
+  }
+
+  // ══ Tutorial guiado: como en un videojuego, la propia web enseña a usarla y luego te deja a ti ══
+  // Un dedo toca los botones de verdad y la cápsula de abajo cuenta qué pasa. Unos 30 s, con tiempo para leer.
+  // Lo corta cualquier toque real, la rueda, Escape o «Saltar». Lo que toca no cuenta para el WhatsApp.
+  const island = $('island'), islT = $('isl-t'), islN = $('isl-n'), finger = $('finger');
+  const sleep = ms => new Promise(r => setTimeout(r, ms));
+  const EASE = 'cubic-bezier(.32,.72,0,1)';
+  const live = () => { if (!demo || demo.stop) throw new Error('tutorial cortado'); };
+  let fpx = null, fpy = null, islTimer = 0;
+  function say(t, k, n) {
+    clearTimeout(islTimer);
+    const first = island.hidden || island.classList.contains('out');
+    island.classList.remove('out');
+    island.classList.toggle('tip', !n);
+    island.hidden = false;
+    const w0 = first ? 0 : island.offsetWidth;
+    islT.textContent = t; islN.textContent = n ? `${k}/${n}` : '';
+    island.style.setProperty('--k', n ? k / n : 0);
+    islT.classList.remove('swap'); void islT.offsetWidth; islT.classList.add('swap');
+    if (w0 && !reduce) { const w1 = island.offsetWidth; if (w1 !== w0) island.animate([{ width: w0 + 'px' }, { width: w1 + 'px' }], { duration: 420, easing: EASE }); }
+  }
+  function hideIsland() {
+    if (island.hidden || island.classList.contains('out')) return;
+    island.classList.add('out');
+    clearTimeout(islTimer);
+    islTimer = setTimeout(() => { island.hidden = true; island.classList.remove('out'); }, 400);
+  }
+  const center = el => { const r = el.getBoundingClientRect(), p = phone.getBoundingClientRect(); return [r.left - p.left + r.width / 2, r.top - p.top + r.height / 2]; };
+  async function moveTo(el, ms = 560) {
+    live();
+    const [x, y] = center(el);
+    if (fpx === null) { fpx = phone.clientWidth * .62; fpy = phone.clientHeight + 60; }
+    finger.classList.add('on');
+    const a = finger.animate([{ transform: `translate(${fpx - 23}px, ${fpy - 23}px)` }, { transform: `translate(${x - 23}px, ${y - 23}px)` }], { duration: reduce ? 0 : ms, easing: EASE, fill: 'forwards' });
+    fpx = x; fpy = y;
+    await a.finished;
+    try { a.commitStyles(); } catch (e) { finger.style.transform = `translate(${x - 23}px, ${y - 23}px)`; }
+    a.cancel();
+    live();
+  }
+  async function tap(el, ms) {
+    await moveTo(el, ms);
+    finger.classList.remove('tap'); void finger.offsetWidth; finger.classList.add('tap');
+    const t = `translate(${fpx - 23}px, ${fpy - 23}px)`;
+    const a = finger.animate([{ transform: `${t} scale(1)` }, { transform: `${t} scale(.76)`, offset: .45 }, { transform: `${t} scale(1)` }], { duration: 300, easing: 'ease-out' });
+    await sleep(130); live();
+    el.click();
+    await a.finished; live();
+  }
+  async function until(f, max = 12000) {
+    const t0 = performance.now();
+    while (!f()) { live(); if (performance.now() - t0 > max) break; await sleep(60); }
+    live();
+  }
+  // Sale la primera vez que se abre la web en cada pestaña del navegador; ?demo la fuerza y ?nodemo la quita
+  function wantDemo() {
+    const s = location.search;
+    if (/[?&]demo\b/.test(s)) return true;
+    if (/[?&]nodemo\b/.test(s)) return false;
+    try { return !sessionStorage.getItem('td-demo'); } catch (e) { return true; }
+  }
+  function seenDemo() { try { sessionStorage.setItem('td-demo', '1'); } catch (e) {} }
+  // Con «reducir movimiento» activado no hay tutorial: solo una pista que se va sola
+  function hint() { say('Empieza por Servicios'); islTimer = setTimeout(hideIsland, 3800); seenDemo(); }
+  async function runDemo() {
+    if (demo || loading) return;
+    demo = { stop: false, t0: performance.now() }; tempo = .8;
+    const N = 6, READ = 1100;   // READ: lo que se deja leer cada mensaje antes de que el dedo se mueva
+    try {
+      if (sheet.classList.contains('open')) { closeSheet(); await sleep(450); }
+      if (cat !== null || level !== 'home') { home(); await until(() => cat === null && !pending, 8000); await sleep(300); }
+      say('Empieza por Servicios', 1, N);
+      await sleep(READ);
+      await tap($('serv-btn'));
+      await until(() => level === 'serv', 2000); await sleep(500);
+      say('Elige uno: el pulido, por ejemplo', 2, N);
+      await sleep(READ);
+      await tap(document.querySelector('#serv button[data-cat="pulido"]'), 700);
+      await until(() => cat === 'pulido' && state === 'b', 9000);
+      say('Así trabaja la pulidora', 2, N);
+      await until(() => abReady && !pending, 12000);
+      say('Compara el antes y el después', 3, N);
+      await sleep(READ);
+      await tap($('ab-a'), 700); await until(() => !pending, 4000); await sleep(900);
+      say('Pide cita con lo que has visto', 4, N);
+      await sleep(600);
+      await moveTo($('cita'), 700);
+      $('cita').classList.add('pulse'); await sleep(1500); live(); $('cita').classList.remove('pulse');
+      say('«Volver» te lleva al menú', 5, N);
+      await sleep(READ);
+      await tap($('back-btn'), 700); await until(() => cat === null && !pending, 5000); await sleep(700);
+      await tap($('back-btn'), 400); await until(() => level === 'home', 2000); await sleep(600);
+      say('Report, nosotros, contacto y ubicación', 6, N);
+      await sleep(700);
+      await moveTo(document.querySelector('#menu [data-page="report"]'), 650);
+      await sleep(700); live();
+      await moveTo(document.querySelector('#menu .links'), 600);
+      $('menu').querySelector('.links').classList.add('pulse'); await sleep(1800); live();
+      say('Ahora te toca a ti');
+      finger.classList.remove('on');
+      await sleep(1600); live();
+    } catch (e) { /* lo ha cortado el cliente */ }
+    endDemo();
+  }
+  function endDemo() {
+    if (!demo) return;
+    demo.stop = true; demo = null; tempo = 1;
+    finger.classList.remove('on', 'tap'); fpx = fpy = null;
+    document.querySelectorAll('.pulse').forEach(n => n.classList.remove('pulse'));
+    hideIsland(); seenDemo();
+  }
+  $('isl-x').onclick = endDemo;
+  phone.addEventListener('pointerdown', e => { if (demo && e.isTrusted && !e.target.closest('#isl-x')) endDemo(); }, true);
+  // La rueda también lo corta, salvo la inercia del gesto con el que se ha entrado
+  addEventListener('wheel', e => { if (demo && e.isTrusted && performance.now() > demo.t0 + 1600) endDemo(); }, { passive: true });
+  $('demo-btn').onclick = () => { closeSheet(); setTimeout(runDemo, 500); };
+
+  // ── Pantalla de inicio: cuando todo está cargado se pide deslizar hacia arriba (o tocar) para empezar ──
+  let introLock = 0;
+  function ready2start() {
+    const L = $('loader'), S = $('start');
+    L.classList.add('ready'); S.hidden = false;
+    let y0 = null, gone = false;
+    const go = () => {
+      if (gone) return; gone = true;
+      introLock = performance.now() + 900;   // el mismo gesto no debe seguir y acercar la cámara a la pintura
+      L.classList.add('done'); S.blur();
+      phone.classList.remove('loading');
+      loading = false;
+      paintInfo();
+      setTimeout(() => { if (wantDemo()) (reduce ? hint() : runDemo()); }, 850);
+      phone.removeEventListener('touchstart', ts); phone.removeEventListener('touchmove', tm);
+      removeEventListener('wheel', wh); removeEventListener('keydown', kd);
+    };
+    const ts = e => { y0 = e.touches[0].clientY; };
+    const tm = e => { if (y0 !== null && y0 - e.touches[0].clientY > 36) go(); };
+    const wh = e => { if (Math.abs(e.deltaY) > 4) go(); };
+    const kd = e => { if (['ArrowUp', 'ArrowDown', 'PageDown', 'Enter', ' '].includes(e.key)) { e.preventDefault(); go(); } };
+    phone.addEventListener('touchstart', ts, { passive: true });
+    phone.addEventListener('touchmove', tm, { passive: true });
+    addEventListener('wheel', wh, { passive: true });
+    addEventListener('keydown', kd);
+    S.onclick = go;
+  }
+
+  // ── Pantalla de carga ──
+  // Se descargan todas las fotos; el barrido de sucio a limpio avanza con la carga real
+  // y dura como mínimo MIN ms, para que se vea aunque todo esté ya en caché.
+  const MIN = reduce ? 0 : 2600;
+  // Si el navegador tarda en decodificar las fotos grandes, la carga sigue igualmente
+  const ready = im => Promise.race([im.decode().catch(() => {}), wait(1500)]);
+  const all = [...new Set([SUCIO, LIMPIO, ...Object.values(CATS).flatMap(c => c.opts.flatMap(x => [x.a, x.b]))])];
+  let loaded = 0;
+  // Los fotogramas de los clips se bajan después de las fotos, sin retrasar la bienvenida:
+  // primero uno de cada 8 de cada clip, luego los intermedios, de 6 en 6
+  function loadClips() {
+    sprite('pulidora'); sprite('pulidora-acabado'); sprite('cepillo');   // las herramientas de las animaciones, listas antes de que hagan falta
+    if (!VIDEO) return;
+    const todo = [], seen = new Set();
+    for (const step of [8, 4, 2, 1])
+      for (const C of Object.values(CLIPS))
+        for (let k = 0; k < VN; k += step) { const id = C.pre + k; if (!seen.has(id)) { seen.add(id); todo.push([C, k]); } }
+    const next = () => {
+      const t = todo.shift(); if (!t) return;
+      const [C, k] = t, i = new Image();
+      i.onload = i.onerror = next;
+      i.src = `vid/${C.pre}${String(k).padStart(3, '0')}.webp?v=${C.v}`; C.frames[k] = i;
+    };
+    for (let n = 0; n < 6; n++) next();
+  }
+  const t0 = performance.now();
+  back.src = img(SUCIO);
+  paintInfo();
+  ready(back).then(() => {
+    all.forEach(n => { const i = new Image(); i.onload = i.onerror = () => { if (++loaded === all.length) loadClips(); }; i.src = img(n); photos[n] = i; });
+    front.src = img(LIMPIO);
+    ready(front).then(() => {
+      front.style.opacity = 1; sweep.style.opacity = 1;
+      let shown = 0;
+      const tick = now => {
+        const real = loaded / all.length;
+        const time = MIN ? Math.min(1, (now - t0) / MIN) : 1;
+        const target = Math.min(real, time);
+        shown += (target - shown) * (reduce ? 1 : .09);
+        if (target === 1 && shown > .996) shown = 1;
+        const w = phone.clientWidth;
+        front.style.clipPath = `inset(0 ${(1 - shown) * 100}% 0 0)`;
+        sweep.style.transform = `translateX(${shown * w}px)`;
+        $('bar').style.transform = `scaleX(${shown})`;
+        $('pct').textContent = Math.round(shown * 100) + ' %';
+        if (shown < 1) return requestAnimationFrame(tick);
+        back.src = img(LIMPIO);
+        ready(back).then(() => {
+          front.style.cssText = ''; sweep.style.cssText = '';
+          shownSrc = LIMPIO; shownFrame = 'car';
+          ready2start();
+        });
+      };
+      requestAnimationFrame(tick);
+    });
+  });
+})();
+</script>
+
+</body>
+</html>

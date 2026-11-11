@@ -1,0 +1,163 @@
+{
+ "coche": {
+  "fotos": [
+   "00-base_porsche_limpio",
+   "01-intro_porsche_sucio",
+   "06-limpieza_basico",
+   "06-limpieza_premium",
+   "06-limpieza_integral",
+   "04-ceramica_mantenimiento"
+  ],
+  "centro": "00-base_porsche_limpio",
+  "y0": 400,
+  "hb": 1300
+ },
+ "perfil": {
+  "fotos": [
+   "02-tintado_lunas_sin",
+   "02-tintado_lunas_50",
+   "02-tintado_lunas_30",
+   "02-tintado_lunas_5"
+  ],
+  "centro": "02-tintado_lunas_sin",
+  "y0": 400,
+  "hb": 1300
+ },
+ "macro": {
+  "fotos": [
+   "03-correccion_pintura_swirls",
+   "03-correccion_pintura_1paso",
+   "03-correccion_pintura_2pasos",
+   "04-ceramica_perlado"
+  ],
+  "centro": "03-correccion_pintura_2pasos",
+  "y0": 768,
+  "hb": 1080
+ },
+ "cera-rapida": {
+  "fotos": [
+   "05-extras_carroceria_cera-rapida_antes",
+   "05-extras_carroceria_cera-rapida_despues"
+  ],
+  "centro": "05-extras_carroceria_cera-rapida_despues",
+  "y0": 780,
+  "hb": 1080
+ },
+ "hidratacion-gomas": {
+  "fotos": [
+   "05-extras_carroceria_hidratacion-gomas_antes",
+   "05-extras_carroceria_hidratacion-gomas_despues"
+  ],
+  "centro": "05-extras_carroceria_hidratacion-gomas_despues",
+  "y0": 569,
+  "hb": 1080
+ },
+ "negro-piano": {
+  "fotos": [
+   "05-extras_carroceria_negro-piano_antes",
+   "05-extras_carroceria_negro-piano_despues"
+  ],
+  "centro": "05-extras_carroceria_negro-piano_despues",
+  "y0": 346,
+  "hb": 1080
+ },
+ "plateados": {
+  "fotos": [
+   "05-extras_carroceria_plateados_antes",
+   "05-extras_carroceria_plateados_despues"
+  ],
+  "centro": "05-extras_carroceria_plateados_despues",
+  "y0": 704,
+  "hb": 1080
+ },
+ "pulido-cristales": {
+  "fotos": [
+   "05-extras_cristales_pulido-cristales_antes",
+   "05-extras_cristales_pulido-cristales_despues"
+  ],
+  "centro": "05-extras_cristales_pulido-cristales_despues",
+  "y0": 543,
+  "hb": 1080
+ },
+ "cinturones": {
+  "fotos": [
+   "05-extras_interior_cinturones_antes",
+   "05-extras_interior_cinturones_despues"
+  ],
+  "centro": "05-extras_interior_cinturones_despues",
+  "y0": 431,
+  "hb": 1080
+ },
+ "coating-cuero": {
+  "fotos": [
+   "05-extras_interior_coating-cuero_antes",
+   "05-extras_interior_coating-cuero_despues"
+  ],
+  "centro": "05-extras_interior_coating-cuero_despues",
+  "y0": 542,
+  "hb": 1080
+ },
+ "cuero": {
+  "fotos": [
+   "05-extras_interior_cuero_antes",
+   "05-extras_interior_cuero_despues"
+  ],
+  "centro": "05-extras_interior_cuero_despues",
+  "y0": 765,
+  "hb": 1080
+ },
+ "pelo-de-perro": {
+  "fotos": [
+   "05-extras_interior_pelo-de-perro_antes",
+   "05-extras_interior_pelo-de-perro_despues"
+  ],
+  "centro": "05-extras_interior_pelo-de-perro_despues",
+  "y0": 855,
+  "hb": 1080
+ },
+ "plasticos": {
+  "fotos": [
+   "05-extras_interior_plasticos_antes",
+   "05-extras_interior_plasticos_despues"
+  ],
+  "centro": "05-extras_interior_plasticos_despues",
+  "y0": 855,
+  "hb": 1080
+ },
+ "suciedad-extrema": {
+  "fotos": [
+   "05-extras_interior_suciedad-extrema_antes",
+   "05-extras_interior_suciedad-extrema_despues"
+  ],
+  "centro": "05-extras_interior_suciedad-extrema_despues",
+  "y0": 834,
+  "hb": 1080
+ },
+ "vano-motor": {
+  "fotos": [
+   "05-extras_motor_vano-motor_antes",
+   "05-extras_motor_vano-motor_despues"
+  ],
+  "centro": "05-extras_motor_vano-motor_despues",
+  "y0": 707,
+  "hb": 1080
+ },
+ "neumaticos": {
+  "fotos": [
+   "05-extras_ruedas_neumaticos_antes",
+   "05-extras_ruedas_neumaticos_despues"
+  ],
+  "centro": "05-extras_ruedas_neumaticos_despues",
+  "y0": 628,
+  "hb": 1080
+ },
+ "pasos-de-rueda": {
+  "fotos": [
+   "05-extras_ruedas_pasos-de-rueda_antes",
+   "05-extras_ruedas_pasos-de-rueda_despues"
+  ],
+  "centro": "05-extras_ruedas_pasos-de-rueda_despues",
+  "y0": 604,
+  "hb": 1080
+ }
+}
