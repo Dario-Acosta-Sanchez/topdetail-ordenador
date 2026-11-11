@@ -1413,10 +1413,6 @@ if (innerWidth < 700 && innerHeight > innerWidth) location.replace('https://topd
             <ul><li>Lavado cada 2–3 semanas.</li><li>Mantener la protección con mantenimiento periódico.</li><li>Evitar el estacionamiento prolongado al sol.</li></ul>
           </div>
         </details>
-        <form class="code" id="code-f">
-          <input id="code-i" name="code" placeholder="Nº de informe o código" autocomplete="off" aria-label="Número o código de tu Top Detail Report" maxlength="20">
-          <button class="btn red" type="submit">Consultar</button>
-        </form>
       </section>
 
       <section data-tab="contacto" data-o="1">
@@ -2097,13 +2093,6 @@ if (innerWidth < 700 && innerHeight > innerWidth) location.replace('https://topd
     if (!b.dataset.go.includes(':')) { openSheet(b.dataset.go === 'packs' ? 'ceramico' : b.dataset.go, b.dataset.go); return; }
     const [c, i] = b.dataset.go.split(':'); scrollTo({ top: 0, behavior: 'smooth' }); play(c, +i);
   });
-  // Consulta del Top Detail Report: de momento se pide por WhatsApp con el código
-  $('code-f').onsubmit = e => {
-    e.preventDefault();
-    const c = $('code-i').value.trim().toUpperCase().replace(/[^A-Z0-9-]/g, '');
-    if (!c) { $('code-i').focus(); return; }
-    window.open(W + encodeURIComponent(`Hola! Quiero ver mi Top Detail Report. Mi código es ${c}.`), '_blank', 'noopener');
-  };
   // Teoría: la foto cambia según el apartado abierto (sin pulir → pulida → con cerámico)
   document.querySelectorAll('#teoria .acc').forEach(d => d.addEventListener('toggle', () => {
     if (!d.open) return;
