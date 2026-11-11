@@ -149,4 +149,5 @@ rep("  $('sheet-x').onclick = closeSheet;", """  $('sheet-x').onclick = closeShe
     const r = phone.getBoundingClientRect(), x = (e.clientX - r.left) / r.width - .5, y = (e.clientY - r.top) / r.height - .5;
     phone.style.setProperty('--px', (-x * r.width * .018).toFixed(1) + 'px'); phone.style.setProperty('--py', (-y * r.height * .014).toFixed(1) + 'px');
   });""")
+exec(open(os.path.join(os.path.dirname(os.path.abspath(__file__)), 'land_patch.py'), encoding='utf-8').read())
 open(OUT, 'w', encoding='utf-8').write(s); print('ok', len(s))

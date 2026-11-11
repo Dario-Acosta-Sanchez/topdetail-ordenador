@@ -832,6 +832,16 @@ h1 { font-weight: 800; font-size: 22px; line-height: 1.1; letter-spacing: .01em;
 .contact .off { opacity: .55; }
 .tab-p > .hero + section, .tab-p > section:first-child { border-top: 0; }
 .tab-p > section:first-child { padding-top: 6px; }
+/* En un móvil la web ocupa SIEMPRE todo el ancho. Antes el ancho se limitaba a la mitad del alto, y con la barra
+   del navegador (o en móviles más anchos) quedaban franjas negras a los lados. */
+@media (max-width: 600px), (pointer: coarse) and (orientation: portrait) { .phone { width: 100%; } }
+/* Pantallas bajas (la foto ya no cabe entera): la foto sube para que el coche no quede bajo la ficha, y la ficha se compacta */
+@media (max-width: 600px), (pointer: coarse) and (orientation: portrait) {
+  .layer, .seq { top: max(-9cqh, min(calc((100cqh - var(--img-h)) * 1.6), calc((100cqh - var(--img-h)) * .3))); }
+}
+@media (min-aspect-ratio: 9/16) and (max-width: 600px) {
+  #phone h1 { font-size: 27px; } #phone .desc { font-size: 14px; line-height: 1.4; } #phone .spec li:not(.hot) { display: none; }
+}
 
 /* ══════════ Versión de ordenador (generada con _tools/mkpc.py; no editar aquí) ══════════
    Escenario a pantalla completa con fotos 16:9, ficha grande abajo a la izquierda, opciones a la derecha,
@@ -941,6 +951,156 @@ h1 { font-weight: 800; font-size: 22px; line-height: 1.1; letter-spacing: .01em;
 @media (min-width: 1700px) and (min-height: 900px) { #phone .top, #phone .side, #phone .hud, #phone .xside, #phone .back, #phone .island, #phone .loader { zoom: 1.2; } #phone .sheet { zoom: 1.12; } }
 @media (min-width: 2300px) and (min-height: 1200px) { #phone .top, #phone .side, #phone .hud, #phone .xside, #phone .back, #phone .island, #phone .loader { zoom: 1.5; } #phone .sheet { zoom: 1.35; } }
 @media (prefers-reduced-motion: reduce) { #phone .layer, #phone .seq { translate: none; transition: none; } }
+
+/* ══════════ Página larga bajo el escenario: toda la información, a lo ancho (_tools/land.css) ══════════ */
+html { scroll-behavior: smooth; }
+html, body { height: auto; }
+body { min-height: 100%; overflow-x: hidden; overflow-y: auto; }
+body:has(.phone.loading) { overflow: hidden; }
+.app { height: 100vh; height: 100dvh; }
+#phone .down {
+  position: absolute; z-index: 4; right: 44px; bottom: 40px; display: inline-flex; align-items: center; gap: 10px; height: 46px; padding: 0 16px 0 22px;
+  border-radius: 999px; font: 500 11px/1 var(--ui); letter-spacing: .22em; text-transform: uppercase; color: var(--champ);
+  background: rgba(14,12,12,.55); border: 1px solid rgba(233,220,199,.28); -webkit-backdrop-filter: blur(12px); backdrop-filter: blur(12px);
+  transition: opacity .5s, background .25s, transform .25s;
+}
+#phone .down svg { width: 16px; height: 16px; fill: none; stroke: currentColor; stroke-width: 1.5; stroke-linecap: round; stroke-linejoin: round; animation: down 1.8s ease-in-out infinite; }
+#phone .down:hover { background: rgba(233,220,199,.14); transform: translateY(2px); }
+#phone.loading .down, #phone.in-cat .down, #phone.in-serv .down { opacity: 0; pointer-events: none; }
+@keyframes down { 50% { transform: translateY(4px); } }
+/* Barra fija que aparece al bajar */
+.lnav {
+  position: fixed; inset: 0 0 auto 0; z-index: 30; display: flex; align-items: center; gap: 30px; height: 66px; padding: 0 40px;
+  background: rgba(6,5,5,.8); -webkit-backdrop-filter: blur(16px) saturate(140%); backdrop-filter: blur(16px) saturate(140%);
+  border-bottom: 1px solid rgba(233,220,199,.12); transform: translateY(-100%); transition: transform .45s cubic-bezier(.2,.8,.2,1);
+}
+.scrolled .lnav { transform: none; }
+.lnav .lg { display: block; margin-right: 10px; } .lnav .lg img { height: 42px; display: block; }
+.lnav a.l { font: 500 11px/1 var(--ui); letter-spacing: .22em; text-transform: uppercase; color: rgba(233,220,199,.78); text-decoration: none; padding: 8px 0; border-bottom: 1px solid transparent; transition: color .2s, border-color .2s; }
+.lnav a.l:hover, .lnav a.l.on { color: #fff; border-color: var(--red-ink); }
+.lnav .sp { flex: 1; }
+.lnav .wa { display: inline-flex; align-items: center; height: 42px; padding: 0 22px; border-radius: 999px; font: 500 11px/1 var(--ui); letter-spacing: .2em; text-transform: uppercase; color: #fff; text-decoration: none; background: linear-gradient(140deg, rgba(160,29,51,.95), rgba(160,29,51,.65)); border: 1px solid rgba(214,110,124,.5); }
+@media (max-width: 1180px) { .lnav { gap: 18px; padding: 0 24px; } .lnav a.l { letter-spacing: .12em; font-size: 10px; } }
+/* WhatsApp flotante */
+#sheet-cta { position: fixed; right: 30px; bottom: 30px; z-index: 29; margin: 0; min-height: 56px; padding: 0 26px; border-radius: 999px; opacity: 0; pointer-events: none; transform: translateY(12px); transition: opacity .4s, transform .4s, filter .2s; font-family: var(--ui); font-weight: 500; }
+.scrolled #sheet-cta { opacity: 1; pointer-events: auto; transform: none; }
+#sheet-cta:hover { filter: brightness(1.2); }
+/* Secciones */
+.land { position: relative; background: #060505; color: var(--ink); font-family: var(--ui); }
+.land .tab-p {
+  --pad: max(48px, calc((100vw - 1240px) / 2)); padding: 120px var(--pad) 110px; animation: none; scroll-margin-top: 60px;
+  border-top: 1px solid rgba(233,220,199,.1); display: grid; grid-template-columns: repeat(12, minmax(0, 1fr)); gap: 0 40px; align-items: start;
+  background: radial-gradient(60% 50% at 85% 0%, rgba(160,29,51,.1), rgba(160,29,51,0) 70%);
+}
+.land .tab-p:nth-child(even) { background: radial-gradient(60% 50% at 10% 0%, rgba(233,220,199,.05), rgba(233,220,199,0) 70%), #0a0808; }
+.land .tab-p > * { grid-column: 1 / -1; }
+.land-h { display: flex; align-items: baseline; gap: 24px; margin: 0 0 56px; }
+.land-n { font: 400 13px/1 var(--ui); letter-spacing: .3em; color: var(--red-ink); }
+.land-h h2 { margin: 0; font: 500 clamp(56px, 6.4vw, 104px)/.92 var(--display); letter-spacing: -.015em; color: #fff; }
+.land-h h2 .k { color: var(--red-ink); font-style: italic; font-weight: 500; }
+.land section { padding: 0; border: 0; margin: 0 0 80px; }
+.land .tab-p > section:last-of-type { margin-bottom: 0; }
+.land h3 { display: block; margin: 0 0 20px; font: 500 40px/1.05 var(--display); letter-spacing: 0; text-transform: none; color: rgba(255,255,255,.9); }
+.land h3 b { font-weight: 700; color: #fff; }
+.land h3 small { display: block; margin-bottom: 14px; font: 500 11px/1 var(--ui); letter-spacing: .32em; text-transform: uppercase; color: var(--champ); }
+.land p { margin: 0 0 14px; font: 300 18px/1.6 var(--ui); color: rgba(255,255,255,.76); }
+.land strong { color: #fff; font-weight: 500; }
+.land .note { font-size: 15px; color: rgba(255,255,255,.58); }
+.land .claim { font-size: 46px !important; line-height: 1.05 !important; margin-bottom: 22px !important; }
+.land .claim.sm { font-size: 36px !important; }
+.land .big { font-size: 28px !important; }
+.land .btn { border-radius: 999px; min-height: 52px; padding: 0 28px; font: 500 12px/1 var(--ui); letter-spacing: .2em; transition: filter .2s, transform .2s; }
+.land .btn:hover { filter: brightness(1.3); transform: translateY(-1px); }
+.land .btns .btn { flex: 0 1 auto; }
+.land .swipe-h, .land .dot { display: none; }
+.land .hero { border-radius: 24px; min-height: 380px; padding: 40px; margin: 0 0 72px; }
+.land .hero b { font: 500 54px/1 var(--display); }
+.land .hero .tagline { font-size: 12px; letter-spacing: .28em; margin-bottom: 12px; }
+.land .hero > span { font-size: 14px; }
+.land .values { gap: 14px; margin-top: 26px; }
+.land .values div { padding: 20px 22px; border-radius: 16px; }
+.land .values b { font: 600 20px/1.1 var(--display); text-transform: none; color: var(--champ); margin-bottom: 6px; }
+.land .values span { font-size: 15px; }
+/* Sobre nosotros */
+#tp-nosotros > .hero { grid-column: 1 / 7; min-height: 560px; margin-bottom: 80px; }
+#tp-nosotros > section:nth-of-type(1) { grid-column: 7 / -1; align-self: center; }
+.land .steps { display: grid; grid-template-columns: repeat(5, minmax(0, 1fr)); }
+.land .steps li { padding: 58px 22px 12px 24px; }
+.land .steps li::before { left: 24px; top: 18px; font-size: 13px; color: var(--red-ink); }
+.land .steps li::after { transform: none; top: 0; bottom: auto; height: 44px; }
+.land .steps b, .land .steps li:not(.on) b { font: 600 24px/1.1 var(--display); color: #fff; margin-bottom: 10px; }
+.land .steps span { font-size: 15px; line-height: 1.5; }
+.land .gal { display: grid; grid-template-columns: repeat(6, minmax(0, 1fr)); gap: 14px; margin: 0; padding: 0; overflow: visible; }
+.land .gal > figure { border-radius: 16px; transition: transform .4s cubic-bezier(.2,.8,.2,1); }
+.land .gal > figure:hover { transform: translateY(-8px) scale(1.03); z-index: 1; }
+/* Servicios y precios */
+#svc-list { columns: 3; column-gap: 56px; margin-top: 30px; }
+.land .svc-g { break-after: avoid; margin: 0 0 6px; font: 500 11px/1 var(--ui); letter-spacing: .3em; color: var(--champ); }
+.land .svc { break-inside: avoid; margin: 0 0 34px; }
+.land .svc li { padding: 14px 0; }
+.land .svc li b { font: 600 21px/1.15 var(--display); text-transform: none; letter-spacing: 0; }
+.land .svc li span { font-size: 14px; }
+.land .svc li i { font-size: 15px; font-weight: 500; }
+.land .svc .go { min-height: 38px; padding: 0 16px; font-size: 10.5px; }
+#faq { columns: 2; column-gap: 64px; }
+#faq h3 { column-span: all; }
+.land .acc { break-inside: avoid; }
+.land .acc summary { font-size: 20px; font-weight: 400; padding: 20px 0; }
+.land .acc .body p { font-size: 16px; }
+/* Detallado, pulido, cerámico */
+#limpiezas { display: grid; grid-template-columns: 1fr 1.2fr; gap: 0 80px; align-items: center; }
+#limpiezas > * { grid-column: 1; }
+#limpiezas > table { grid-column: 2; grid-row: 1 / span 3; margin: 0; font-size: 17px; }
+.land .cmp-t th, .land .cmp-t td { padding: 20px 12px; }
+.land .cmp-t thead th { font: 600 22px/1.1 var(--display); text-transform: none; }
+.land .cmp-t thead th small { font-size: 11px; margin-top: 6px; }
+.land .cmp-t .y { font-size: 20px; }
+#teoria { display: grid; grid-template-columns: 1.15fr 1fr; gap: 0 80px; align-items: start; }
+#teoria > * { grid-column: 2; }
+#teoria > .theory-img { grid-column: 1; grid-row: 1 / span 6; aspect-ratio: 16 / 11; border-radius: 24px; margin: 0; box-shadow: 0 30px 70px rgba(0,0,0,.6); }
+.land .packs { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 18px; margin: 18px 0 0; padding: 0; overflow: visible; }
+.land .pack { padding: 30px 28px; border-radius: 20px; transition: transform .35s cubic-bezier(.2,.8,.2,1), border-color .35s; }
+.land .pack:hover { transform: translateY(-6px); border-color: rgba(233,220,199,.35); }
+.land .pack b { font: 600 25px/1.1 var(--display); text-transform: none; margin-bottom: 10px; }
+.land .pack span { font-size: 16px; line-height: 1.5; }
+.land .pack small { font-size: 12px; margin-top: 14px; letter-spacing: .16em; }
+/* Report */
+#report { display: grid; grid-template-columns: 1fr 1fr; gap: 0 80px; align-items: start; }
+#report > * { grid-column: 1; }
+#report > details.report { grid-column: 2; grid-row: 1 / span 6; margin: 0; border-radius: 24px; box-shadow: 0 30px 70px rgba(0,0,0,.55); transform: rotate(1.2deg); transition: transform .5s cubic-bezier(.2,.8,.2,1); }
+#report > details.report:hover { transform: none; }
+.land .report summary { display: none; }
+.land .rep { padding: 30px; gap: 14px; }
+.land .rep-row { font-size: 15px; padding-bottom: 9px; }
+.land .rep ul { font-size: 15px; }
+.land .rep-img img { aspect-ratio: 4 / 3; }
+.land .feats { gap: 10px; margin: 20px 0; }
+.land .feats li { font-size: 13px; padding: 13px 16px; }
+.land .code { max-width: 480px; margin-top: 22px; }
+.land .code input { height: 52px; border-radius: 999px; padding: 0 22px; }
+/* Contacto y ubicación */
+#tp-contacto > section:nth-of-type(1) { grid-column: 1 / 7; }
+#tp-contacto > section:nth-of-type(2) { grid-column: 7 / -1; }
+.land .contact { grid-template-columns: 1fr 1fr; gap: 12px; }
+.land .contact a, .land .contact .off { padding: 20px; border-radius: 18px; transition: border-color .25s, background .25s; }
+.land .contact a:hover { border-color: rgba(233,220,199,.45); background: rgba(233,220,199,.07); }
+.land .pick { font-size: 15px; padding: 9px 9px 9px 14px; border-radius: 999px; }
+.land .picks .empty { font-size: 15px; }
+#tp-ubicacion section { display: grid; grid-template-columns: 1.5fr 1fr; gap: 0 72px; align-items: start; }
+#tp-ubicacion section > * { grid-column: 2; }
+#tp-ubicacion section > .map { grid-column: 1; grid-row: 1 / span 6; aspect-ratio: 16 / 10; border-radius: 24px; margin: 0; }
+.land .hours { font-size: 17px; }
+.land .hours td { padding: 12px 0; }
+/* Pie */
+.foot { display: flex; flex-wrap: wrap; align-items: center; gap: 18px 40px; padding: 48px max(48px, calc((100vw - 1240px) / 2)) 110px; border-top: 1px solid rgba(233,220,199,.1); background: #050404; font: 400 12px/1.6 var(--ui); letter-spacing: .14em; text-transform: uppercase; color: rgba(233,220,199,.55); }
+.foot img { height: 60px; }
+.foot .sp { flex: 1; }
+.foot a { color: inherit; text-decoration: none; } .foot a:hover { color: #fff; }
+@media (max-width: 1100px) {
+  #svc-list { columns: 2; } .land .steps { grid-template-columns: repeat(3, 1fr); gap: 20px 0; } .land .gal { grid-template-columns: repeat(3, 1fr); }
+  #limpiezas, #teoria, #report, #tp-ubicacion section { gap: 0 44px; }
+}
+@media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } }
 </style>
 <script>
 // En un móvil en vertical, mejor la web hecha para móvil
@@ -1003,6 +1163,7 @@ if (innerWidth < 700 && innerHeight > innerWidth) location.replace('https://topd
       <div class="glass wait" id="glass" hidden><div class="glass-row"><span>Antes</span><em>Desliza para comparar</em><span>Después</span></div><input type="range" id="cmp" min="0" max="100" step="0.5" value="100" aria-label="Comparar antes y después"></div>
     </section>
 
+    <button class="down" id="down" type="button">Toda la información<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 9l6 6 6-6"/></svg></button>
     <nav class="xside l" id="opt-l" aria-label="Opciones" inert></nav>
     <nav class="xside r" id="opt-r" aria-label="Opciones" inert></nav>
 
@@ -1239,6 +1400,21 @@ if (innerWidth < 700 && innerHeight > innerWidth) location.replace('https://topd
     </div>
   </div>
 </div>
+
+<nav class="lnav" id="lnav" aria-label="Secciones">
+  <a class="lg" href="#" aria-label="Volver arriba"><img src="img/logo-v6.svg" alt="Top Detail Garage"></a>
+  <a class="l" href="#tp-precios">Servicios</a><a class="l" href="#tp-detallado">Detallado</a><a class="l" href="#tp-pulido">Pulido</a><a class="l" href="#tp-ceramico">Cerámico</a><a class="l" href="#tp-report">Report</a><a class="l" href="#tp-nosotros">Nosotros</a><a class="l" href="#tp-contacto">Contacto</a><a class="l" href="#tp-ubicacion">Ubicación</a>
+  <span class="sp"></span>
+  <a class="wa" href="https://wa.me/34643182964" target="_blank" rel="noopener">Pedir cita<b class="n" hidden></b></a>
+</nav>
+<main class="land" id="land"></main>
+<footer class="foot">
+  <img src="img/logo-v6.svg" alt="Top Detail Garage">
+  <span>Centro detailing profesional<br>Fernán Núñez · Córdoba</span>
+  <span class="sp"></span>
+  <a href="tel:+34643182964">643 182 964</a>
+  <a href="#">Volver arriba ↑</a>
+</footer>
 
 <script>
 (() => {
@@ -1763,13 +1939,11 @@ if (innerWidth < 700 && innerHeight > innerWidth) location.replace('https://topd
   // ── El taller (hoja de información) ──
   const sheet = $('sheet');
   let sheetFrom = null;
+  // Los botones de información bajan hasta su sección
   function openSheet(page, focusId) {
     if (loading) return;
-    if (!sheet.classList.contains('open')) sheetFrom = document.activeElement;
-    showTab(page);
-    sheet.inert = false; sheet.classList.add('open'); phone.classList.add('sheet-open'); sheet.scrollTop = 0;
-    if (focusId) goTo(focusId);
-    $('sheet-x').focus({ preventScroll: true });
+    const el = (focusId && $(focusId)) || panels[page];
+    if (el) el.scrollIntoView({ behavior: 'smooth', block: 'start' });
   }
   function closeSheet() {
     if (!sheet.classList.contains('open')) return false;
@@ -1782,21 +1956,27 @@ if (innerWidth < 700 && innerHeight > innerWidth) location.replace('https://topd
   const panels = {};
   TABS.forEach(t => {
     const pn = document.createElement('div'); pn.className = 'tab-p'; pn.id = 'tp-' + t; pn.dataset.p = t;
-    pn.setAttribute('role', 'tabpanel'); pn.hidden = true; panels[t] = pn;
+    pn.hidden = false; panels[t] = pn;
     [...sheet.querySelectorAll(`:scope > [data-tab="${t}"]`)].sort((x, y) => x.dataset.o - y.dataset.o).forEach(n => pn.append(n));
   });
-  $('sheet-cta').before(...TABS.map(t => panels[t]));
+  ['precios', 'detallado', 'pulido', 'ceramico', 'report', 'nosotros', 'contacto', 'ubicacion'].forEach((t, k) => {
+    const h = document.createElement('header'); h.className = 'land-h';
+    h.innerHTML = `<span class="land-n">${String(k + 1).padStart(2, '0')}</span><h2>${PAGES[t]}</h2>`;
+    panels[t].prepend(h); $('land').append(panels[t]);
+  });
+  $('land').append($('sheet-cta'));
+  document.querySelector('#report details.report').open = true;
+  const onScroll = () => {
+    document.body.classList.toggle('scrolled', scrollY > innerHeight * .6);
+    const y = innerHeight * .4; let cur = null, best = -1e9;
+    for (const t of TABS) { const top = panels[t].getBoundingClientRect().top; if (top <= y && top > best) { best = top; cur = t; } }
+    document.querySelectorAll('.lnav a.l').forEach(a => a.classList.toggle('on', a.getAttribute('href') === '#tp-' + cur));
+  };
+  addEventListener('scroll', onScroll, { passive: true });
+  $('down').onclick = () => $('land').scrollIntoView({ behavior: 'smooth' });
+  document.querySelectorAll('.lnav a[href="#"], .foot a[href="#"]').forEach(a => a.onclick = e => { e.preventDefault(); scrollTo({ top: 0, behavior: 'smooth' }); });
   let tab = null;
-  function showTab(t) {
-    if (!panels[t]) return;
-    if (t !== tab) {
-      tab = t;
-      TABS.forEach(x => { panels[x].hidden = x !== t; });
-      $('sheet-t').innerHTML = PAGES[t];
-    }
-    sheet.scrollTop = 0;
-    if (t === 'contacto') renderPicks();
-  }
+  function showTab(t) { tab = 'contacto'; renderPicks(); }
   showTab('nosotros');
   updateWA();
   // Ir a una sección: abre su pestaña y baja hasta ella
@@ -1823,7 +2003,7 @@ if (innerWidth < 700 && innerHeight > innerWidth) location.replace('https://topd
   $('svc-list').addEventListener('click', e => {
     const b = e.target.closest('[data-go]'); if (!b) return;
     if (!b.dataset.go.includes(':')) { openSheet(b.dataset.go === 'packs' ? 'ceramico' : b.dataset.go, b.dataset.go); return; }
-    const [c, i] = b.dataset.go.split(':'); closeSheet(); play(c, +i);
+    const [c, i] = b.dataset.go.split(':'); scrollTo({ top: 0, behavior: 'smooth' }); play(c, +i);
   });
   // Consulta del Top Detail Report: de momento se pide por WhatsApp con el código
   $('code-f').onsubmit = e => {
@@ -1833,7 +2013,7 @@ if (innerWidth < 700 && innerHeight > innerWidth) location.replace('https://topd
     window.open(W + encodeURIComponent(`Hola! Quiero ver mi Top Detail Report. Mi código es ${c}.`), '_blank', 'noopener');
   };
   // Teoría: la foto cambia según el apartado abierto (sin pulir → pulida → con cerámico)
-  sheet.querySelectorAll('#teoria .acc').forEach(d => d.addEventListener('toggle', () => {
+  document.querySelectorAll('#teoria .acc').forEach(d => d.addEventListener('toggle', () => {
     if (!d.open) return;
     const box = $('th-img'), n = +d.dataset.img;
     box.querySelectorAll('img').forEach((im, k) => im.classList.toggle('on', k === n));
@@ -1841,14 +2021,14 @@ if (innerWidth < 700 && innerHeight > innerWidth) location.replace('https://topd
   }));
   // Cómo trabajamos: se enciende el paso que está a la altura de la vista
   if ('IntersectionObserver' in window) {
-    const lit = new IntersectionObserver(es => es.forEach(x => x.target.classList.toggle('on', x.isIntersecting)), { root: sheet, rootMargin: '-38% 0px -38% 0px' });
-    sheet.querySelectorAll('.steps li').forEach(n => lit.observe(n));
-  } else sheet.querySelectorAll('.steps li').forEach(n => n.classList.add('on'));
+    const lit = new IntersectionObserver(es => es.forEach(x => x.target.classList.toggle('on', x.isIntersecting)), { root: null, rootMargin: '-38% 0px -38% 0px' });
+    document.querySelectorAll('.steps li').forEach(n => lit.observe(n));
+  } else document.querySelectorAll('.steps li').forEach(n => n.classList.add('on'));
   // Los pasos y packs aparecen al llegar a ellos (animación solo aquí)
   if ('IntersectionObserver' in window && !reduce) {
-    const io = new IntersectionObserver(es => es.forEach(x => { if (x.isIntersecting) { x.target.classList.add('in'); io.unobserve(x.target); } }), { root: sheet, threshold: .25 });
-    sheet.querySelectorAll('.reveal').forEach(n => io.observe(n));
-  } else sheet.querySelectorAll('.reveal').forEach(n => n.classList.add('in'));
+    const io = new IntersectionObserver(es => es.forEach(x => { if (x.isIntersecting) { x.target.classList.add('in'); io.unobserve(x.target); } }), { root: null, threshold: .15 });
+    document.querySelectorAll('.reveal').forEach(n => io.observe(n));
+  } else document.querySelectorAll('.reveal').forEach(n => n.classList.add('in'));
   // La lista de opciones de los lados se ajusta a la altura real de la ficha
   if ('ResizeObserver' in window) new ResizeObserver(() => phone.style.setProperty('--hud-h', $('hud').offsetHeight + 'px')).observe($('hud'));
   addEventListener('keydown', e => { if (e.key !== 'Escape') return; if (demo) return endDemo(); if (!closeSheet()) goBack(); });
@@ -1865,7 +2045,7 @@ if (innerWidth < 700 && innerHeight > innerWidth) location.replace('https://topd
   phone.addEventListener('touchend', scrubEnd);
   phone.addEventListener('touchcancel', scrubEnd);
   addEventListener('wheel', e => {
-    if (e.target.closest && (e.target.closest('.xside') || e.target.closest('.sheet'))) return;
+    return;   // ORDENADOR: la rueda baja por la página
     e.preventDefault();
     if (!drag && (Math.abs(e.deltaY) < 2 || !scrubStart(e.deltaY > 0 ? 1 : -1))) return;
     scrubMove(drag.p + e.deltaY / 700);
@@ -2439,7 +2619,7 @@ if (innerWidth < 700 && innerHeight > innerWidth) location.replace('https://topd
   phone.addEventListener('pointerdown', e => { if (demo && e.isTrusted && !e.target.closest('#isl-x')) endDemo(); }, true);
   // La rueda también lo corta, salvo la inercia del gesto con el que se ha entrado
   addEventListener('wheel', e => { if (demo && e.isTrusted && performance.now() > demo.t0 + 1600) endDemo(); }, { passive: true });
-  $('demo-btn').onclick = () => { closeSheet(); setTimeout(runDemo, 500); };
+  $('demo-btn').onclick = () => { scrollTo({ top: 0, behavior: 'smooth' }); setTimeout(runDemo, 900); };
 
   // ── Pantalla de inicio: cuando todo está cargado se pide deslizar hacia arriba (o tocar) para empezar ──
   let introLock = 0;
