@@ -853,6 +853,31 @@ h1 { font-weight: 800; font-size: 22px; line-height: 1.1; letter-spacing: .01em;
 .svc-c .svc { margin: 0; }
 .svc-c .svc li:last-child { border-bottom: 0; }
 .svc-c .svc li b { font: 600 15px/1.2 var(--ui); letter-spacing: .06em; }
+/* Ficha en un panel de cristal (liquid glass), pegada abajo: el texto se lee igual sobre cualquier foto
+   (en algunos Android las letras se perdían sobre la imagen) */
+#phone .hud {
+  inset: auto 8px calc(8px + env(safe-area-inset-bottom, 0px)) 8px; padding: 14px 14px 12px; gap: 5px; border-radius: 26px;
+  background: linear-gradient(150deg, rgba(34,30,30,.74), rgba(12,10,10,.82));
+  border: 1px solid rgba(255,255,255,.2);
+  box-shadow: inset 0 1px 0 rgba(255,255,255,.3), inset 0 -12px 28px rgba(255,255,255,.03), 0 18px 44px rgba(0,0,0,.6);
+  -webkit-backdrop-filter: blur(22px) saturate(170%); backdrop-filter: blur(22px) saturate(170%);
+}
+@supports not ((backdrop-filter: blur(1px)) or (-webkit-backdrop-filter: blur(1px))) { #phone .hud { background: rgba(14,12,12,.94); } }
+#phone .hud::before {
+  content: ""; position: absolute; inset: 1px 14% auto; height: 34%; border-radius: 24px 24px 50% 50%; pointer-events: none;
+  background: linear-gradient(to bottom, rgba(255,255,255,.1), rgba(255,255,255,0));
+}
+#phone .hud > * { position: relative; }
+#phone .hud.empty { visibility: hidden; }
+#phone .desc { color: rgba(255,255,255,.92); font-weight: 400; }
+#phone .eyebrow { color: rgba(233,220,199,.9); }
+#phone .price { color: #fff; }
+#phone.in-serv .hud { bottom: calc(100px + env(safe-area-inset-bottom, 0px)); padding-bottom: 14px; }
+/* Con la ficha abierta la foto sube, para que el panel no tape el coche */
+.layer, .seq { transition: translate .7s cubic-bezier(.2,.8,.2,1); }
+#phone.in-cat .layer, #phone.in-cat .seq { translate: 0 -11cqh; }
+#phone.in-serv .island { bottom: calc(var(--hud-h, 190px) + 112px + env(safe-area-inset-bottom, 0px)); }
+#phone.in-cat .island { bottom: calc(var(--hud-h, 190px) + 20px + env(safe-area-inset-bottom, 0px)); }
 /* En un móvil la web ocupa SIEMPRE todo el ancho. Antes el ancho se limitaba a la mitad del alto, y con la barra
    del navegador (o en móviles más anchos) quedaban franjas negras a los lados. */
 @media (max-width: 600px), (pointer: coarse) and (orientation: portrait) { .phone { width: 100%; } }
@@ -913,7 +938,7 @@ h1 { font-weight: 800; font-size: 22px; line-height: 1.1; letter-spacing: .01em;
 #phone .side.l .links button { height: 42px; padding: 0 20px; font-size: 11px; letter-spacing: .2em; transition: background .25s, border-color .25s, color .25s; }
 #phone .side.l .links button:hover { background: rgba(233,220,199,.12); border-color: rgba(233,220,199,.5); color: #fff; }
 /* Ficha: abajo a la izquierda; en el menú de servicios, centrada sobre el menú */
-#phone .hud { inset: auto auto 0 0; width: min(560px, 40cqw); padding: 0 0 48px 48px; gap: 8px; }
+#phone .hud { inset: auto auto 36px 36px; width: min(560px, 40cqw); padding: 26px 28px 24px; gap: 8px; border-radius: 30px; }
 #phone h1 { font-size: clamp(38px, 3.9cqw, 64px); line-height: 1; gap: 6px 16px; }
 #phone .eyebrow { font-size: 11px; letter-spacing: .36em; }
 #phone .desc { font-size: clamp(16px, 1.25cqw, 19px); max-width: none; margin-top: 6px; }
@@ -931,7 +956,7 @@ h1 { font-weight: 800; font-size: 22px; line-height: 1.1; letter-spacing: .01em;
 #phone .add.on:hover { background: var(--red); filter: brightness(1.15); }
 #phone .more { height: 36px; padding: 0 12px 0 16px; font-size: 10.5px; transition: background .25s; }
 #phone .more:hover { background: rgba(233,220,199,.18); }
-#phone.in-serv .hud { inset: 128px 0 auto 0; width: auto; justify-items: center; text-align: center; padding: 0 24px; }
+#phone.in-serv .hud { inset: 128px auto auto 50%; translate: -50% 0; width: max-content; max-width: 90%; justify-items: center; text-align: center; padding: 22px 40px 20px; }
 #phone.in-serv .desc { text-shadow: 0 1px 12px #000; }
 #phone.in-serv .hud .row { justify-content: center; gap: 18px; }
 #phone.in-serv .hud .eyebrow { flex: none; }

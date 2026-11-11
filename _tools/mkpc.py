@@ -59,7 +59,7 @@ CSS = r'''
 #phone .side.l .links button { height: 42px; padding: 0 20px; font-size: 11px; letter-spacing: .2em; transition: background .25s, border-color .25s, color .25s; }
 #phone .side.l .links button:hover { background: rgba(233,220,199,.12); border-color: rgba(233,220,199,.5); color: #fff; }
 /* Ficha: abajo a la izquierda; en el menú de servicios, centrada sobre el menú */
-#phone .hud { inset: auto auto 0 0; width: min(560px, 40cqw); padding: 0 0 48px 48px; gap: 8px; }
+#phone .hud { inset: auto auto 36px 36px; width: min(560px, 40cqw); padding: 26px 28px 24px; gap: 8px; border-radius: 30px; }
 #phone h1 { font-size: clamp(38px, 3.9cqw, 64px); line-height: 1; gap: 6px 16px; }
 #phone .eyebrow { font-size: 11px; letter-spacing: .36em; }
 #phone .desc { font-size: clamp(16px, 1.25cqw, 19px); max-width: none; margin-top: 6px; }
@@ -77,7 +77,7 @@ CSS = r'''
 #phone .add.on:hover { background: var(--red); filter: brightness(1.15); }
 #phone .more { height: 36px; padding: 0 12px 0 16px; font-size: 10.5px; transition: background .25s; }
 #phone .more:hover { background: rgba(233,220,199,.18); }
-#phone.in-serv .hud { inset: 128px 0 auto 0; width: auto; justify-items: center; text-align: center; padding: 0 24px; }
+#phone.in-serv .hud { inset: 128px auto auto 50%; translate: -50% 0; width: max-content; max-width: 90%; justify-items: center; text-align: center; padding: 22px 40px 20px; }
 #phone.in-serv .desc { text-shadow: 0 1px 12px #000; }
 #phone.in-serv .hud .row { justify-content: center; gap: 18px; }
 #phone.in-serv .hud .eyebrow { flex: none; }
