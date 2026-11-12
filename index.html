@@ -921,6 +921,49 @@ h1 { font-weight: 800; font-size: 22px; line-height: 1.1; letter-spacing: .01em;
 #phone .clock b { font: 600 34px/1 var(--ui); letter-spacing: 0; }
 #phone .clock small { margin-top: 3px; font-size: 7px; letter-spacing: .1em; color: rgba(255,255,255,.7); }
 
+/* ── Mi cita: la cesta ── */
+.cita, .sheet-cta { cursor: pointer; }
+.sheet-cta { width: 100%; }
+.btn[data-cesta] { cursor: pointer; display: inline-flex; align-items: center; gap: 4px; }
+.cesta { position: fixed; inset: 0; z-index: 60; display: grid; align-items: end; justify-items: center; font-family: var(--ui); color: #fff; }
+.cesta[hidden] { display: none; }
+.cesta-bg { position: absolute; inset: 0; background: rgba(0,0,0,.55); -webkit-backdrop-filter: blur(6px); backdrop-filter: blur(6px); animation: cs-fade .3s both; }
+.cesta-p { position: relative; width: min(100%, 520px); max-height: min(86vh, 86dvh); display: flex; flex-direction: column; gap: 12px;
+  padding: 20px 18px calc(16px + env(safe-area-inset-bottom, 0px)); border-radius: 24px 24px 0 0;
+  background: linear-gradient(180deg, rgba(30,26,26,.92), rgba(12,10,10,.96)); border: 1px solid rgba(255,255,255,.14); border-bottom: 0;
+  -webkit-backdrop-filter: blur(22px) saturate(140%); backdrop-filter: blur(22px) saturate(140%);
+  box-shadow: 0 -20px 60px rgba(0,0,0,.6), inset 0 1px 0 rgba(255,255,255,.12); animation: cs-up .42s cubic-bezier(.2,.8,.2,1) both; }
+.cesta.out .cesta-p { animation: cs-down .28s ease-in both; } .cesta.out .cesta-bg { animation: cs-fade .28s reverse both; }
+@keyframes cs-up { from { transform: translateY(100%); } } @keyframes cs-down { to { transform: translateY(100%); } } @keyframes cs-fade { from { opacity: 0; } }
+.cesta-h { display: flex; align-items: flex-start; justify-content: space-between; gap: 12px; }
+.cesta-h small { display: block; font: 500 10px/1 var(--ui); letter-spacing: .3em; text-transform: uppercase; color: rgba(255,255,255,.6); margin-bottom: 8px; }
+.cesta-h h2 { margin: 0; font: 600 28px/1 'Inter Tight', var(--ui); letter-spacing: -.01em; }
+.cesta-x { width: 40px; height: 40px; flex: none; border-radius: 50%; border: 1px solid rgba(255,255,255,.2); background: rgba(255,255,255,.08); color: #fff; font-size: 22px; line-height: 1; cursor: pointer; }
+.cesta-s { margin: 0; font-size: 14px; line-height: 1.45; color: rgba(255,255,255,.75); }
+.cesta-l { list-style: none; margin: 0; padding: 0; display: grid; gap: 8px; overflow-y: auto; overscroll-behavior: contain; min-height: 0; }
+.ci { display: grid; grid-template-columns: 58px 1fr auto; align-items: center; gap: 12px; padding: 8px; border-radius: 16px; background: rgba(255,255,255,.06); border: 1px solid rgba(255,255,255,.12); transition: opacity .25s, transform .25s; }
+.ci.gone { opacity: 0; transform: translateX(30px); }
+.ci img { width: 58px; height: 58px; border-radius: 11px; object-fit: cover; background: #222; }
+.ci-t { display: grid; gap: 4px; min-width: 0; }
+.ci-t small { font: 500 10px/1 var(--ui); letter-spacing: .2em; text-transform: uppercase; color: var(--red-ink); }
+.ci-t b { font: 600 16px/1.15 'Inter Tight', var(--ui); }
+.ci-t span { font-size: 13px; color: rgba(255,255,255,.7); }
+.ci.av { border-style: dashed; background: rgba(255,255,255,.03); }
+.ci.av .ci-t small { color: rgba(255,255,255,.6); }
+.ci-q { height: 34px; padding: 0 12px; border-radius: 999px; border: 1px solid rgba(255,255,255,.22); background: rgba(255,255,255,.06); color: #fff; font: 500 11px/1 var(--ui); letter-spacing: .1em; text-transform: uppercase; cursor: pointer; }
+.ci-q:hover { background: rgba(232,25,44,.3); border-color: rgba(255,120,130,.5); }
+.cesta-e { padding: 26px 14px; border-radius: 16px; border: 1px dashed rgba(255,255,255,.25); text-align: center; font-size: 14px; line-height: 1.5; color: rgba(255,255,255,.75); }
+.cesta-e button { margin-top: 14px; height: 42px; padding: 0 20px; border-radius: 999px; border: 1px solid rgba(255,255,255,.3); background: rgba(255,255,255,.1); color: #fff; font: 500 11px/1 var(--ui); letter-spacing: .16em; text-transform: uppercase; cursor: pointer; }
+.cesta-f { display: grid; gap: 8px; padding-top: 4px; }
+.cesta-note { margin: 0; font-size: 12px; color: rgba(255,255,255,.55); text-align: center; }
+.cesta-ok { display: flex; align-items: center; justify-content: center; gap: 10px; min-height: 54px; border-radius: 999px; text-decoration: none; color: #fff;
+  font: 600 13px/1 var(--ui); letter-spacing: .14em; text-transform: uppercase; background: linear-gradient(140deg, rgba(232,25,44,.98), rgba(170,16,32,.95)); border: 1px solid rgba(255,120,130,.55); box-shadow: 0 12px 30px rgba(232,25,44,.3), inset 0 1px 0 rgba(255,255,255,.25); }
+.cesta-ok svg { width: 20px; height: 20px; fill: none; stroke: currentColor; stroke-width: 1.5; stroke-linejoin: round; }
+.cesta-more { height: 44px; border: 0; background: none; color: rgba(255,255,255,.75); font: 500 11px/1 var(--ui); letter-spacing: .16em; text-transform: uppercase; cursor: pointer; }
+.cesta-x:focus-visible, .ci-q:focus-visible, .cesta-ok:focus-visible, .cesta-more:focus-visible, .cesta-e button:focus-visible { outline: 2px solid #fff; outline-offset: 2px; }
+@media (min-width: 900px) { .cesta { align-items: center; } .cesta-p { border-radius: 24px; border-bottom: 1px solid rgba(255,255,255,.14); padding-bottom: 18px; } @keyframes cs-up { from { transform: translateY(24px); opacity: 0; } } @keyframes cs-down { to { transform: translateY(24px); opacity: 0; } } }
+@media (prefers-reduced-motion: reduce) { .cesta-p, .cesta-bg, .cesta.out .cesta-p, .cesta.out .cesta-bg { animation: none; } .ci { transition: none; } }
+
 /* ── Top Detail Report: el librito ── */
 .bookw { display: grid; justify-items: center; gap: 12px; margin: 8px 0 16px; perspective: 1400px; }
 .book { position: relative; width: min(100%, 330px); aspect-ratio: .7; container-type: inline-size; cursor: pointer; transform-style: preserve-3d; transition: transform .6s cubic-bezier(.2,.8,.2,1); }
@@ -977,6 +1020,53 @@ h1 { font-weight: 800; font-size: 22px; line-height: 1.1; letter-spacing: .01em;
 .book-nav .btn { width: 44px; height: 44px; min-height: 0; padding: 0; border-radius: 50%; font-size: 22px; }
 .book-nav .btn:disabled { opacity: .3; cursor: default; }
 @media (prefers-reduced-motion: reduce) { .book, .book:not(.open) { transform: none; transition: none; } }
+/* Report 12-11: las 7 hojas del librito real (Javi). Portada y hoja 02 son la imagen real (en blanco); el resto, maquetado */
+.book .pg { background: #fff; }
+.book .pg.full .pg-in { padding: 0; }
+.pg-img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; }
+.cv-fill { position: absolute; font-size: 3.6cqw !important; color: #1d3aa6 !important; white-space: nowrap; }
+.pg h4 { font: 700 4.6cqw/1 'Inter Tight', sans-serif; letter-spacing: 0; border-bottom: .6cqw solid #111; padding-bottom: 2.2cqw; gap: 3cqw; }
+.pg h4 b { width: 8.4cqw; height: 6.8cqw; font: 700 4.4cqw/1 'Inter Tight', sans-serif; background: #e3141f; }
+.pg footer { left: 6cqw; right: 6cqw; bottom: 3.6cqw; padding-top: 2cqw; border-top: .5cqw solid #111; font: 700 3cqw/1 'Inter Tight', sans-serif; letter-spacing: 0; justify-content: flex-end; gap: 7cqw; color: #e3141f; }
+.pg-in { padding: 6cqw 6cqw 12cqw; font-family: 'Inter Tight', 'Jost', sans-serif; }
+.bk-d, .bk-l, .bk-g b, .bk-t th, .bk-t td b, .bk-h th, .bk-m th, .bk-m td:first-child, .bk-c, .bk-f { font-family: 'Inter Tight', sans-serif !important; font-weight: 700 !important; }
+.bk-d dd { border-bottom-color: #222; }
+.bk-g { font-size: 2.3cqw; color: #222; }
+.bk-g i { border: 0; }
+.ok i, .dt.ok { background: #3c9a2c; border-color: #3c9a2c; } .bu i, .dt.bu { background: #1f4aa8; border-color: #1f4aa8; }
+.bk-o { background: #e3e3e3; }
+.bk-t, .bk-h, .bk-m { border-collapse: collapse; }
+.bk-t th { background: #e3e3e3; text-align: center; border: 1px solid #222; }
+.bk-t td { border: 1px solid #222; padding: 1cqw 1.4cqw; }
+.bk-t td small { font-style: italic; }
+.bk-s { display: flex; align-items: center; gap: 2.6cqw; margin: 1cqw 0 0 !important; font: 700 4.2cqw/1 'Inter Tight', sans-serif !important; color: #e3141f !important; text-transform: uppercase; }
+.bk-s svg { width: 6cqw; height: 6cqw; fill: none; stroke: #111; stroke-width: 1.8; }
+.bk-m { width: 100%; font-size: 2.6cqw; }
+.bk-m th { font-size: 2.3cqw; padding: 0 0 1.4cqw; text-align: center; }
+.bk-m td { padding: .9cqw .6cqw; border-bottom: 1px solid #111; text-align: center; }
+.bk-m td + td { border-left: 1px solid #111; }
+.bk-m td:first-child { text-align: left; text-transform: uppercase; font-size: 2.5cqw; }
+.bk-m tbody tr:first-child td { border-top: .5cqw solid #111; }
+.bk-m .dt { margin: 0; width: 3.2cqw; height: 3.2cqw; }
+.bk-h { font-size: 2.4cqw; }
+.bk-h th { background: #e3e3e3; border: 1px solid #222; text-align: center; padding: 1.6cqw .6cqw; font-size: 2cqw; }
+.bk-h td { border: 1px solid #222; height: 7.6cqw; padding: .4cqw .8cqw; }
+.bk-h .hw { font-size: 3.4cqw; }
+.bk-f { display: flex; flex-wrap: wrap; align-items: baseline; gap: 1.4cqw 4cqw; font-size: 2.6cqw; text-transform: uppercase; }
+.bk-f span { display: inline-flex; align-items: baseline; gap: 1.4cqw; }
+.bk-f .hw { border-bottom: 1px solid #222; padding: 0 1cqw; font-size: 4cqw; }
+.bk-c { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: 1fr 1fr; gap: 1.6cqw 3cqw; font-size: 2.6cqw; }
+.bk-c li { display: flex; align-items: center; gap: 2cqw; position: relative; }
+.bk-c li::before { content: ""; flex: none; width: 3.6cqw; height: 3.6cqw; border: .45cqw solid #111; }
+.bk-c li.on::after { content: "✓"; position: absolute; left: -.4cqw; top: 50%; transform: translateY(-58%); font: 600 5.6cqw/1 'Caveat', cursive; color: #1d3aa6; }
+.bk-f { margin: 0 !important; color: #1d1b1b !important; font-size: 2.6cqw !important; line-height: 1.3 !important; }
+.bk-end { display: flex; align-items: flex-end; justify-content: space-between; gap: 4cqw; }
+.bk-end .bk-f { display: grid; gap: 1.6cqw; }
+.bk-g .on { outline: 0; } .bk-g .on i { box-shadow: 0 0 0 .7cqw #fff, 0 0 0 1.2cqw #1d3aa6; }
+.bk-g .on b { color: #1d3aa6; }
+.bk-sig { margin-top: 0; width: 34cqw; display: grid; justify-items: center; gap: 1cqw; font: 700 2.6cqw/1 'Inter Tight', sans-serif; text-transform: uppercase; }
+.bk-sig .hw { font-size: 6cqw; border-bottom: .5cqw solid #111; width: 100%; text-align: center; padding-bottom: .6cqw; }
+
 
 /* Recorrido de la limpieza (exterior → asientos → puertas → suelo → techo): pasos tocables */
 #phone .subs.tour { flex-wrap: nowrap; overflow-x: auto; scrollbar-width: none; gap: 4px; }
@@ -1244,7 +1334,7 @@ body:has(.phone.loading) { overflow: hidden; }
 .lnav a.l { font: 500 11px/1 var(--ui); letter-spacing: .22em; text-transform: uppercase; color: rgba(255,255,255,.78); text-decoration: none; padding: 8px 0; border-bottom: 1px solid transparent; transition: color .2s, border-color .2s; }
 .lnav a.l:hover, .lnav a.l.on { color: #fff; border-color: var(--red-ink); }
 .lnav .sp { flex: 1; }
-.lnav .wa { display: inline-flex; align-items: center; height: 42px; padding: 0 22px; border-radius: 999px; font: 500 11px/1 var(--ui); letter-spacing: .2em; text-transform: uppercase; color: #fff; text-decoration: none; background: linear-gradient(140deg, rgba(232,25,44,.95), rgba(232,25,44,.65)); border: 1px solid rgba(255,120,130,.5); }
+.lnav .wa { cursor: pointer; position: relative; display: inline-flex; align-items: center; height: 42px; padding: 0 22px; border-radius: 999px; font: 500 11px/1 var(--ui); letter-spacing: .2em; text-transform: uppercase; color: #fff; text-decoration: none; background: linear-gradient(140deg, rgba(232,25,44,.95), rgba(232,25,44,.65)); border: 1px solid rgba(255,120,130,.5); }
 @media (max-width: 1180px) { .lnav { gap: 18px; padding: 0 24px; } .lnav a.l { letter-spacing: .12em; font-size: 10px; } }
 /* WhatsApp flotante */
 #sheet-cta { position: fixed; right: 30px; bottom: 30px; z-index: 29; margin: 0; min-height: 56px; padding: 0 26px; border-radius: 999px; opacity: 0; pointer-events: none; transform: translateY(12px); transition: opacity .4s, transform .4s, filter .2s; font-family: var(--ui); font-weight: 500; }
@@ -1385,6 +1475,9 @@ body:has(.phone.loading) { overflow: hidden; }
 #phone .down.pulse { animation: cta-pulse .9s ease-in-out infinite; color: #fff; }
 #phone .island { font-size: 15px; }
 #phone .isl-t { font-size: 15px; }
+
+.lnav .wa .n { position: absolute; top: -7px; right: -6px; margin: 0; }
+#sheet-cta { width: auto; }
 </style>
 <script>
 // En un móvil en vertical, mejor la web hecha para móvil
@@ -1404,7 +1497,7 @@ if (innerWidth < 700 && innerHeight > innerWidth) location.replace('https://topd
     <header class="top">
       <span class="where">Fernán Núñez · Córdoba</span>
       <button class="logo" id="logo" aria-label="Volver al inicio"><img src="img/logo-v6.svg?v=4" alt="Top Detail Garage"></button>
-      <a class="cita wa" id="cita" href="https://wa.me/34643182964" target="_blank" rel="noopener">Pedir cita<b class="n" hidden></b></a>
+      <button class="cita" id="cita" type="button" data-cesta aria-haspopup="dialog">Ver mi cita<b class="n" hidden></b></button>
     </header>
 
     <!-- Menú principal (lo que pidió Javi el 11-11): Servicios en el centro, Tintado de lunas y Report a los lados;
@@ -1626,10 +1719,10 @@ if (innerWidth < 700 && innerHeight > innerWidth) location.replace('https://topd
 
       <section data-tab="contacto" data-o="1">
         <h3 class="reveal">Pide tu <b>cita.</b></h3>
-        <p>Lo que añadas a tu cita va <strong>directo en el WhatsApp</strong>, para que te demos precio sin repetir nada. Solo se añade lo que tú elijas con «Añadir a mi cita».</p>
+        <p>Lo que añadas con «A mi cita» se guarda aquí, como en una cesta. Antes de enviarlo lo <strong>revisas en «Ver mi cita»</strong>, quitas lo que no quieras y lo confirmas por WhatsApp.</p>
         <div class="picks" id="picks"></div>
         <div class="btns">
-          <a class="btn red wa" href="https://wa.me/34643182964" target="_blank" rel="noopener">WhatsApp</a>
+          <button class="btn red" type="button" data-cesta aria-haspopup="dialog">Ver mi cita<b class="n" hidden></b></button>
           <a class="btn" href="tel:+34643182964">Llamar</a>
         </div>
       </section>
@@ -1655,7 +1748,7 @@ if (innerWidth < 700 && innerHeight > innerWidth) location.replace('https://topd
         </tbody></table>
         <span class="pending">Pendiente: dirección exacta</span>
       </section>
-      <a class="sheet-cta wa" id="sheet-cta" href="https://wa.me/34643182964" target="_blank" rel="noopener"><svg viewBox="0 0 24 24"><path d="M4 20l1.3-3.9A8 8 0 1 1 8 18.8z"/></svg><span>Pedir cita por WhatsApp</span><b class="n" hidden></b></a>
+      <button class="sheet-cta" id="sheet-cta" type="button" data-cesta aria-haspopup="dialog"><svg viewBox="0 0 24 24"><path d="M5 7h14l-1.4 10.2a2 2 0 0 1-2 1.8H8.4a2 2 0 0 1-2-1.8z"/><path d="M9 7a3 3 0 0 1 6 0"/></svg><span>Ver mi cita</span><b class="n" hidden></b></button>
     </section>
     <!-- Tutorial guiado: cápsula con lo que pasa y un dedo que toca los botones -->
     <div class="island" id="island" role="status" aria-live="polite" hidden>
@@ -1673,12 +1766,26 @@ if (innerWidth < 700 && innerHeight > innerWidth) location.replace('https://topd
     </div>
   </div>
 </div>
+<!-- Mi cita = la «cesta» (petición de Javi del 12-11): se revisa lo elegido, se quita lo que sobre y se confirma por WhatsApp -->
+<div class="cesta" id="cesta" hidden>
+  <div class="cesta-bg" data-close></div>
+  <section class="cesta-p" role="dialog" aria-modal="true" aria-labelledby="cesta-t">
+    <header class="cesta-h"><div><small>Top Detail Garage</small><h2 id="cesta-t">Mi cita</h2></div><button class="cesta-x" type="button" data-close aria-label="Cerrar">×</button></header>
+    <p class="cesta-s" id="cesta-s"></p>
+    <ul class="cesta-l" id="cesta-l"></ul>
+    <div class="cesta-f">
+      <p class="cesta-note" id="cesta-note">Precios orientativos: te confirmamos precio y día por WhatsApp.</p>
+      <a class="cesta-ok wa" id="cesta-ok" href="https://wa.me/34643182964" target="_blank" rel="noopener"><svg viewBox="0 0 24 24"><path d="M4 20l1.3-3.9A8 8 0 1 1 8 18.8z"/></svg><span>Confirmar mi cita</span></a>
+      <button class="cesta-more" type="button" data-close>Seguir mirando</button>
+    </div>
+  </section>
+</div>
 
 <nav class="lnav" id="lnav" aria-label="Secciones">
   <a class="lg" href="#" aria-label="Volver arriba"><img src="img/logo-v6.svg?v=4" alt="Top Detail Garage"></a>
   <a class="l" href="#tp-precios">Servicios</a><a class="l" href="#tp-detallado">Limpieza</a><a class="l" href="#tp-pulido">Pulido</a><a class="l" href="#tp-ceramico">Cerámico</a><a class="l" href="#tp-report">Report</a><a class="l" href="#tp-nosotros">Nosotros</a><a class="l" href="#tp-contacto">Contacto</a><a class="l" href="#tp-ubicacion">Ubicación</a>
   <span class="sp"></span>
-  <a class="wa" href="https://wa.me/34643182964" target="_blank" rel="noopener">Pedir cita<b class="n" hidden></b></a>
+  <button class="wa" type="button" data-cesta aria-haspopup="dialog">Ver mi cita<b class="n" hidden></b></button>
 </nav>
 <main class="land" id="land"></main>
 <footer class="foot">
@@ -2045,9 +2152,10 @@ if (innerWidth < 700 && innerHeight > innerWidth) location.replace('https://topd
   function updateWA() {
     const href = W + encodeURIComponent(waText());
     document.querySelectorAll('a.wa').forEach(a => { a.href = href; });
-    document.querySelectorAll('.wa .n').forEach(n => { n.hidden = !seen.length; n.textContent = seen.length; });
-    $('cita').setAttribute('aria-label', seen.length ? `Pedir cita por WhatsApp con los ${seen.length} servicios de tu cita` : 'Pedir cita por WhatsApp');
+    document.querySelectorAll('[data-cesta] .n').forEach(n => { n.hidden = !seen.length; n.textContent = seen.length; });
+    $('cita').setAttribute('aria-label', seen.length ? `Ver mi cita: ${seen.length} servicio${seen.length > 1 ? 's' : ''}` : 'Ver mi cita');
     if (tab === 'contacto') renderPicks();
+    if (!$('cesta').hidden) renderCesta();
     paintAdd();
   }
   function renderPicks() {
@@ -2056,6 +2164,49 @@ if (innerWidth < 700 && innerHeight > innerWidth) location.replace('https://topd
     box.innerHTML = seen.map(k => { const [c, i] = k.split(':'), O = CATS[c].opts[+i];
       return `<span class="pick${O.sup ? ' av' : ''}"><small>${esc(O.sup ? 'Aviso' : catName(c))}</small>${esc(O.name)}<button type="button" data-k="${k}" aria-label="Quitar ${esc(O.name)}">×</button></span>`; }).join('');
   }
+  // ── Mi cita: la cesta. Nada se manda sin pasar por aquí: se revisa, se quita lo que sobre y se confirma ──
+  const cesta = $('cesta');
+  let cestaFrom = null;
+  const priceOf = O => O.price ? O.price.split(' · ')[0].replace(/\*/g, '') : '';
+  function renderCesta() {
+    const n = seen.filter(k => !CATS[k.split(':')[0]].opts[+k.split(':')[1]].sup).length;
+    $('cesta-s').textContent = seen.length
+      ? `Revisa lo que has elegido${n ? ` (${n} servicio${n > 1 ? 's' : ''})` : ''}. Quita lo que no quieras y, cuando esté bien, confírmalo: se abre WhatsApp con todo escrito.`
+      : 'Aún no has añadido nada.';
+    $('cesta-l').innerHTML = seen.length ? seen.map(k => {
+      const [c, i] = k.split(':'), O = CATS[c].opts[+i], pr = priceOf(O), src = O.b || O.a;
+      return `<li class="ci${O.sup ? ' av' : ''}">${src ? `<img src="${img(src)}" alt="" loading="lazy" decoding="async">` : '<span></span>'}<span class="ci-t"><small>${esc(O.sup ? 'Aviso' : catName(c))}</small><b>${esc(O.name)}</b>${pr ? `<span>${esc(pr)}</span>` : ''}</span><button class="ci-q" type="button" data-k="${k}" aria-label="Quitar ${esc(O.name)} de mi cita">Quitar</button></li>`;
+    }).join('') : '<li class="cesta-e">Entra en un servicio y toca <b>«A mi cita»</b> en lo que te guste. Aquí lo verás todo antes de enviarlo.<br><button type="button" data-serv>Ver servicios</button></li>';
+    $('cesta-ok').lastChild.textContent = seen.length ? 'Confirmar mi cita' : 'Preguntar por WhatsApp';
+    $('cesta-note').textContent = seen.length ? 'Precios orientativos: te confirmamos precio y día por WhatsApp.' : 'También puedes escribirnos sin elegir nada.';
+  }
+  function openCesta() {
+    if (demo || !cesta.hidden) return;
+    cestaFrom = document.activeElement;
+    renderCesta(); cesta.classList.remove('out'); cesta.hidden = false;
+    document.documentElement.style.overflow = 'hidden';
+    setTimeout(() => cesta.querySelector('.cesta-x').focus({ preventScroll: true }), 50);
+  }
+  function closeCesta() {
+    if (cesta.hidden || cesta.classList.contains('out')) return false;
+    cesta.classList.add('out');
+    setTimeout(() => { cesta.hidden = true; cesta.classList.remove('out'); document.documentElement.style.overflow = ''; if (cestaFrom && cestaFrom.focus) cestaFrom.focus({ preventScroll: true }); }, reduce ? 0 : 260);
+    return true;
+  }
+  document.addEventListener('click', e => { const b = e.target.closest('[data-cesta]'); if (b) { e.preventDefault(); openCesta(); } });
+  cesta.addEventListener('click', e => {
+    if (e.target.closest('[data-close]')) return closeCesta();
+    if (e.target.closest('[data-serv]')) { closeCesta(); if (typeof closeSheet === 'function') closeSheet(); if (level === 'home' && cat === null) openServ(); return; }
+    const q = e.target.closest('.ci-q'); if (!q) return;
+    const li = q.closest('.ci'); li.classList.add('gone');
+    setTimeout(() => { seen = seen.filter(k => k !== q.dataset.k); saveSeen(); updateWA(); }, reduce ? 0 : 230);
+  });
+  cesta.addEventListener('keydown', e => {   // el foco no se sale de la cesta mientras está abierta
+    if (e.key !== 'Tab') return;
+    const f = [...cesta.querySelectorAll('button, a[href]')].filter(x => x.offsetParent); if (!f.length) return;
+    const a = f[0], z = f[f.length - 1];
+    if (e.shiftKey && document.activeElement === a) { e.preventDefault(); z.focus(); } else if (!e.shiftKey && document.activeElement === z) { e.preventDefault(); a.focus(); }
+  });
   $('picks').addEventListener('click', e => {
     const b = e.target.closest('[data-k]'); if (!b) return;
     seen = seen.filter(k => k !== b.dataset.k); saveSeen(); updateWA(); renderPicks();
@@ -2362,53 +2513,67 @@ if (innerWidth < 700 && innerHeight > innerWidth) location.replace('https://topd
   // ── Top Detail Report: el librito de verdad, con datos de ejemplo. Se abre al tocarlo y se pasan las hojas ──
   (() => {
     const book = $('book'); if (!book) return;
+    try { document.fonts.load('600 20px Caveat'); } catch (e) {}   // la letra a mano, lista antes de abrir el libro
     const hand = t => `<i class="hw">${t}</i>`;
     const ST = ['ok', 'bu', 'me', 'pr'];   // óptimo, bueno, mejorable, prioritario
     const dots = k => ST.map((c, j) => `<span class="dt ${c}${j === k ? ' on' : ''}"></span>`).join('');
     const head = (n, t) => `<h4><b>${n}</b>${t}</h4>`;
     const foot = n => `<footer><span>TOP DETAIL GARAGE</span><span>${n}</span></footer>`;
     const rows = list => `<table class="bk-t"><thead><tr><th>Elemento</th><th>Estado</th><th>Observaciones</th></tr></thead><tbody>${
-      list.map(([e, sub, k, ob]) => `<tr><td><b>${e}</b><small>${sub}</small></td><td class="dts">${dots(k)}</td><td>${ob ? hand(ob) : ''}</td></tr>`).join('')}</tbody></table>`;
+      list.map(([e, sub, k, ob]) => `<tr><td><b>${e}</b><small>(${sub})</small></td><td class="dts">${dots(k)}</td><td>${ob ? hand(ob) : ''}</td></tr>`).join('')}</tbody></table>`;
+    const CAR = '<svg viewBox="0 0 24 24"><path d="M3 15v-3l2-5h14l2 5v3zM3 15v3h3v-3M18 15v3h3v-3M3 12h18"/><circle cx="7" cy="13.5" r=".8"/><circle cx="17" cy="13.5" r=".8"/></svg>';
+    const SEAT = '<svg viewBox="0 0 24 24"><path d="M8 3h5l1 10H8zM6 13h12v4H6zM6 17v3M18 17v3"/></svg>';
+    // Diagnóstico de ejemplo (0 óptimo · 1 bueno · 2 mejorable · 3 prioritario): el mismo en la hoja 04 y en la 05
+    const EXT = [['Pintura', 'Superficie', 2, 'Remolinos de lavado'], ['Estado del barniz', 'Transparencia, desgaste, quemado', 1, ''], ['Protección', 'Cerámica, cera, recubrimiento', 2, 'Sin protección'],
+      ['Contaminación', 'Férrica, alquitrán, resinas', 1, ''], ['Llantas', 'Suciedad, marcas, corrosión', 1, ''], ['Neumáticos', 'Estado general y limpieza', 0, ''],
+      ['Cristales', 'Visibilidad, marcas de agua', 2, 'Cal en ventanillas'], ['Gomas y plásticos exteriores', 'Estado, reparación, hidratación', 1, '']];
+    const INT = [['Tapicería', 'Estado, manchas, desgaste', 1, ''], ['Cuero', 'Hidratación, grietas, estado', 2, 'Reseco, nutrir'], ['Plásticos y superficies', 'Estado, marcas', 1, ''],
+      ['Moqueta', 'Limpieza, manchas, olor', 1, ''], ['Maletero', 'Estado y limpieza', 0, ''], ['Olor interior', 'Aire percibido en el habitáculo', 0, '']];
+    const ALL = [...EXT, ...INT].map(([e, , k]) => [e === 'Gomas y plásticos exteriores' ? 'Gomas y plásticos' : e, k]);
+    const SERV = [['Lavado exterior', 1], ['Limpieza interior', 0], ['Limpieza de llantas', 1], ['Limpieza de tapicería', 0], ['Descontaminado férrico', 1], ['Tratamiento de cuero', 1],
+      ['Descontaminado químico', 1], ['Hidratación de plásticos', 0], ['Pulido de mantenimiento', 0], ['Tratamiento de cristales', 1], ['Pulido de corrección', 1], ['Aspirado profundo', 0],
+      ['Protección cerámica', 1], ['Desinfección / ozono', 0], ['Sellado sintético', 0], ['Otro', 0]];
     const P = [
-      // Portada
-      `<div class="cv"><img src="img/logo-topdetail.svg" alt="" class="cv-lg"><p class="cv-t"><span>TOP DETAIL</span><span class="r">REPORT<sup>™</sup></span></p>
-        <p class="cv-s">Libro de mantenimiento estético</p>
-        <p class="cv-c">Cuidamos tu vehículo.<br>Hacemos seguimiento de su estado.<br>Preservamos su valor.</p>
-        <svg class="cv-car" viewBox="0 0 200 80" aria-hidden="true"><path d="M8 58c6-14 20-20 40-24l26-14c10-5 22-6 34-6h18c14 0 26 5 36 13l14 11c10 2 18 6 20 13v7H8z"/><circle cx="52" cy="62" r="11"/><circle cx="154" cy="62" r="11"/><path d="M84 22l-6 14h44V20M126 20l22 16"/></svg>
-        <div class="cv-box"><span>Nº de expediente <i class="hw">TDG-0128</i></span><span>Fecha de entrada <i class="hw">14/10/26</i></span></div>
-        <p class="cv-f">Más que una limpieza. <b>Un documento profesional del estado de tu vehículo.</b></p></div>`,
+      // Portada: la real de Top Detail, con el recuadro relleno a mano (datos de ejemplo)
+      `<img class="pg-img" src="img/report-portada.webp" alt="Top Detail Report, libro de mantenimiento estético"><i class="hw cv-fill" style="left:29%;top:70%">TDG-0128</i><i class="hw cv-fill" style="left:30.2%;top:73.7%">14</i><i class="hw cv-fill" style="left:35.6%;top:73.7%">10</i><i class="hw cv-fill" style="left:41.6%;top:73.7%">26</i><i class="hw cv-fill" style="left:20%;top:77.4%">Equipo TDG</i>`,
       // 01 + 02
       `${head('01', 'Datos del vehículo')}
-        <dl class="bk-d"><dt>Marca / modelo</dt><dd>${hand('BMW 330i')}</dd><dt>Año</dt><dd>${hand('2021')}</dd><dt>Kilometraje</dt><dd>${hand('28.450')} km</dd><dt>Color</dt><dd>${hand('Negro zafiro')}</dd><dt>Propietario</dt><dd>${hand('Cliente de ejemplo')}</dd><dt>Fecha</dt><dd>${hand('14 / 10 / 26')}</dd></dl>
+        <dl class="bk-d"><dt>Marca / modelo</dt><dd>${hand('BMW 330i')}</dd><dt>Año</dt><dd>${hand('2021')}</dd><dt>Kilometraje</dt><dd>${hand('28.450')}&nbsp; km</dd><dt>Color</dt><dd>${hand('Negro zafiro')}</dd><dt>Propietario</dt><dd>${hand('Cliente de ejemplo')}</dd><dt>Fecha</dt><dd>${hand('14 / 10 / 26')}</dd></dl>
         ${head('02', 'Diagnóstico estético global')}
         <p class="bk-l">Estado general del vehículo</p>
-        <div class="bk-g"><span class="ok"><i></i><b>Óptimo</b>No requiere intervención</span><span class="bu on"><i></i><b>Bueno</b>Mantenimiento recomendado</span><span class="me"><i></i><b>Mejorable</b>Conviene actuar</span><span class="pr"><i></i><b>Prioritario</b>Se recomienda intervención</span></div>
+        <div class="bk-g"><span class="ok"><i></i><b>Óptimo</b>No requiere intervención</span><span class="bu on"><i></i><b>Bueno</b>Mantenimiento recomendado</span><span class="me"><i></i><b>Mejorable</b>Conviene actuar para recuperar el estado</span><span class="pr"><i></i><b>Prioritario</b>Se recomienda intervención</span></div>
         <div class="bk-o"><p class="bk-l">Observaciones generales</p>${hand('Buen estado general. Remolinos de lavado en capó y techo. Cuero del conductor algo reseco: se recomienda nutrir.')}</div>${foot('03')}`,
       // 03 · exterior
-      `${head('03', 'Diagnóstico detallado')}<p class="bk-l r">Exterior</p>${rows([
-        ['Pintura', 'superficie', 2, 'Remolinos de lavado'], ['Estado del barniz', 'brillo, profundidad', 1, ''], ['Protección', 'cerámico, cera', 2, 'Sin protección'],
-        ['Contaminación', 'férrica, alquitrán', 1, ''], ['Llantas', 'suciedad, marcas', 1, ''], ['Neumáticos', 'estado y limpieza', 0, ''],
-        ['Cristales', 'cal, marcas', 2, 'Cal en ventanillas'], ['Gomas y plásticos', 'exteriores', 1, '']])}${foot('04')}`,
+      `${head('03', 'Diagnóstico detallado')}<p class="bk-s">${CAR}Exterior</p>${rows(EXT)}${foot('04')}`,
       // 03 · interior
-      `${head('03', 'Diagnóstico detallado')}<p class="bk-l r">Interior</p>${rows([
-        ['Tapicería', 'manchas, desgaste', 1, ''], ['Cuero', 'hidratación', 2, 'Reseco, nutrir'], ['Plásticos', 'y superficies', 1, ''],
-        ['Moqueta', 'limpieza, manchas', 1, ''], ['Maletero', 'limpieza y orden', 0, ''], ['Olor interior', 'olor percibido', 0, '']])}${foot('05')}`,
-      // 04
-      `${head('04', 'Prioridad de actuación')}<p class="bk-l">Según el diagnóstico, estas son las áreas que recomendamos tratar</p>
-        <ol class="bk-p"><li><b>Pintura</b>${hand('Pulido 1 paso')}<span class="dt me on"></span></li><li><b>Protección</b>${hand('Cerámico 5 años')}<span class="dt me on"></span></li><li><b>Cuero</b>${hand('Nutrición')}<span class="dt me on"></span></li><li><b>Cristales</b>${hand('Pulido de cristales')}<span class="dt bu on"></span></li></ol>
-        <div class="bk-o"><p class="bk-l">Recomendaciones</p>${hand('Lavado de mantenimiento cada mes. Evitar túneles de lavado. Booster del cerámico a los 6 meses.')}</div>${foot('06')}`,
+      `${head('03', 'Diagnóstico detallado')}<p class="bk-s">${SEAT}Interior</p>${rows(INT)}${foot('04')}`,
+      // 04 · la tabla de prioridades: cada fila marcada con su estado
+      `${head('04', 'Prioridad de actuación')}<p class="bk-l">Según el diagnóstico, estas son las áreas que recomendamos tratar.</p>
+        <table class="bk-m"><thead><tr><th></th><th>Óptimo</th><th>Bueno</th><th>Mejorable</th><th>Prioritario</th></tr></thead><tbody>${
+          ALL.map(([e, k]) => `<tr><td>${e}</td>${ST.map((c, j) => `<td><span class="dt ${c}${j === k ? ' on' : ''}"></span></td>`).join('')}</tr>`).join('')}</tbody></table>
+        <div class="bk-o"><p class="bk-l">Observaciones / recomendaciones</p>${hand('Pulido 1 paso y cerámico 5 años. Nutrir el cuero. Pulido de cristales en las ventanillas.')}</div>${foot('05')}`,
       // 05
-      `${head('05', 'Historial de intervenciones')}<table class="bk-h"><thead><tr><th>Fecha</th><th>Servicio</th><th>Km</th><th>Próxima</th></tr></thead><tbody>
-        <tr><td>${hand('14/10/26')}</td><td>${hand('Limpieza premium')}</td><td>${hand('28.450')}</td><td>${hand('—')}</td></tr>
-        <tr><td>${hand('28/10/26')}</td><td>${hand('Pulido 1 paso')}</td><td>${hand('28.700')}</td><td>${hand('—')}</td></tr>
-        <tr><td>${hand('29/10/26')}</td><td>${hand('Cerámico 5 años')}</td><td>${hand('28.710')}</td><td>${hand('04/27')}</td></tr>
-        ${'<tr><td>__/__/__</td><td></td><td></td><td></td></tr>'.repeat(3)}</tbody></table>
-        <div class="bk-o"><p class="bk-l">Observaciones</p>${hand('Cliente muy cuidadoso. Siguiente visita: booster y revisión.')}</div>${foot('07')}`,
+      `${head('05', 'Historial de intervenciones')}<table class="bk-h"><thead><tr><th>Fecha</th><th>Servicio realizado</th><th>Kilometraje</th><th>Técnico</th><th>Próxima revisión</th></tr></thead><tbody>
+        <tr><td>${hand('14/10/26')}</td><td>${hand('Limpieza premium')}</td><td>${hand('28.450')}</td><td>${hand('TDG')}</td><td></td></tr>
+        <tr><td>${hand('28/10/26')}</td><td>${hand('Pulido 1 paso')}</td><td>${hand('28.700')}</td><td>${hand('TDG')}</td><td></td></tr>
+        <tr><td>${hand('29/10/26')}</td><td>${hand('Cerámico 5 años')}</td><td>${hand('28.710')}</td><td>${hand('TDG')}</td><td>${hand('04/27')}</td></tr>
+        ${'<tr><td>__/__/__</td><td></td><td></td><td></td><td></td></tr>'.repeat(4)}</tbody></table>
+        <div class="bk-o"><p class="bk-l">Observaciones</p>${hand('Siguiente visita: booster del cerámico y revisión.')}</div>${foot('06')}`,
+      // 06
+      `${head('06', 'Seguimiento de intervenciones')}
+        <p class="bk-f"><span>Fecha ${hand('29/10/26')}</span><span>Kilometraje ${hand('28.710')} km</span><span>Nº visita ${hand('3')}</span></p>
+        <p class="bk-l">Servicios realizados</p>
+        <ul class="bk-c">${SERV.map(([n, on]) => `<li${on ? ' class="on"' : ''}>${n}</li>`).join('')}</ul>
+        <div class="bk-o"><p class="bk-l">Observaciones</p>${hand('Cerámico G-Finity CNT, 5 años. No lavar en 7 días.')}</div>
+        <div class="bk-end"><p class="bk-f"><span>Próxima revisión</span><span>${hand('29/04/27')} / ${hand('34.000')}&nbsp;km</span></p>
+        <div class="bk-sig">${hand('TDG')}<span>Técnico / asesor</span></div></div>${foot('07')}`,
+      // Contraportada: el BMW en alambre con el logo
+      `<img class="pg-img" src="img/report-contra.webp" alt="Contraportada del Top Detail Report">`,
     ];
-    book.innerHTML = P.map((h, k) => `<div class="pg${k ? '' : ' cover'}" data-k="${k}" aria-hidden="${k ? 'true' : 'false'}"><div class="pg-in">${h}</div></div>`).join('');
+    book.innerHTML = P.map((h, k) => `<div class="pg${k ? '' : ' cover'}${k === 0 || k === P.length - 1 ? ' full' : ''}" data-k="${k}" aria-hidden="${k ? 'true' : 'false'}"><div class="pg-in">${h}</div></div>`).join('');
     const pg = [...book.children], N = P.length;
     let cur = 0, busy = false;
-    const lbl = ['Portada', 'Datos y diagnóstico', 'Exterior', 'Interior', 'Prioridades', 'Historial'];
+    const lbl = ['Portada', 'Datos y diagnóstico', 'Exterior', 'Interior', 'Prioridades', 'Historial', 'Seguimiento', 'Contraportada'];
     function paint() {
       pg.forEach((p, k) => { p.style.zIndex = k === cur ? 3 : 1; p.style.visibility = k === cur ? 'visible' : 'hidden'; p.setAttribute('aria-hidden', String(k !== cur)); });
       book.classList.toggle('open', cur > 0);
@@ -2451,7 +2616,7 @@ if (innerWidth < 700 && innerHeight > innerWidth) location.replace('https://topd
   } else document.querySelectorAll('.reveal').forEach(n => n.classList.add('in'));
   // La lista de opciones de los lados se ajusta a la altura real de la ficha
   if ('ResizeObserver' in window) new ResizeObserver(() => phone.style.setProperty('--hud-h', $('hud').offsetHeight + 'px')).observe($('hud'));
-  addEventListener('keydown', e => { if (e.key !== 'Escape') return; if (demo) return endDemo(); if (!closeSheet()) goBack(); });
+  addEventListener('keydown', e => { if (e.key !== 'Escape') return; if (closeCesta()) return; if (demo) return endDemo(); if (!closeSheet()) goBack(); });
   // Solo se navega con los botones: sin scroll ni gestos
   let sy = 0, wheelT;
   phone.addEventListener('touchstart', e => { sy = e.touches[0].clientY; }, { passive: true });
@@ -2721,7 +2886,7 @@ if (innerWidth < 700 && innerHeight > innerWidth) location.replace('https://topd
         draw(g) {
           spray.draw(g, (g, p, u) => {
             const e = 1 - Math.pow(1 - u, 2), x = noz[0] + (p.tx - noz[0]) * e, y = noz[1] + (p.ty - noz[1]) * e + p.cv * Math.sin(Math.PI * u);
-            g.fillStyle = `rgba(248,248,246,${.6 * (1 - u * u)})`; g.beginPath(); g.arc(x, y, p.r * (1 + u), 0, 6.2832); g.fill();
+            g.fillStyle = `rgba(248,248,246,${.6 * (1 - u * u)})`; g.beginPath(); g.arc(x, y, Math.max(0, p.r * (1 + u)), 0, 6.2832); g.fill();
           });
         },
       };
@@ -3016,7 +3181,7 @@ if (innerWidth < 700 && innerHeight > innerWidth) location.replace('https://topd
       await sleep(600);
       await moveTo($('add'), 700);
       $('add').classList.add('pulse'); await sleep(1700); live(); $('add').classList.remove('pulse');
-      say('Y pide cita por WhatsApp', 4, N);
+      say('Aquí lo revisas todo antes de enviarlo', 4, N);
       await moveTo($('cita'), 700);
       $('cita').classList.add('pulse'); await sleep(1500); live(); $('cita').classList.remove('pulse');
       say('«Volver» te lleva al menú', 5, N);
