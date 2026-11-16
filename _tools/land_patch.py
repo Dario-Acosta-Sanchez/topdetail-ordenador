@@ -2,7 +2,7 @@
 # y pasan a ser secciones a lo ancho; los botones del menú bajan hasta la suya.
 T = os.path.dirname(os.path.abspath(__file__)) + '/'
 rd = lambda n: open(T + n, encoding='utf-8').read()
-rep('</style>\n<script>\n// En un móvil', rd('land.css') + '</style>\n<script>\n// En un móvil')
+rep('</style>\n</head>', rd('land.css') + '</style>\n</head>')
 rep('    <nav class="xside l" id="opt-l"', '    <button class="down" id="down" type="button"><span>Desliza para más información</span><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 9l6 6 6-6"/></svg><i aria-hidden="true"></i></button>\n    <nav class="xside l" id="opt-l"')
 # Sin pantalla de «entrar»: al acabar la carga se entra sola (la rueda ya no arrastra la página nada más empezar)
 rep("    S.onclick = go;\n", "    S.onclick = go;\n    setTimeout(go, reduce ? 0 : 650);\n")

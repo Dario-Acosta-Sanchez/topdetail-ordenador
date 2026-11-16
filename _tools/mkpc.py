@@ -3,7 +3,9 @@
 Mismo contenido, textos, menú, animaciones y tutorial; cambia el escenario (fotos 16:9 a pantalla completa) y la colocación.
 Volver a ejecutarlo cada vez que cambie la del móvil:  python3 _tools/mkpc.py"""
 import os
-SRC = os.path.expanduser('~/topdetail/index.html'); OUT = os.path.join(os.path.dirname(os.path.dirname(os.path.abspath(__file__))), 'index.html')
+SRC = os.path.expanduser('~/topdetail/index.html')
+# Desde el 16-11 hay UNA sola dirección (topdetail.puntozerosl.es): esta versión se publica en ~/topdetail/pc/ con sus fotos en pc/img/
+ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__))); DEST = os.path.expanduser('~/topdetail/pc'); OUT = os.path.join(DEST, 'index.html')
 s = open(SRC, encoding='utf-8').read()
 def rep(old, new, n=1):
     global s
@@ -132,7 +134,20 @@ CSS = r'''
 .xp.cards button:hover { border-color: rgba(255,255,255,.7); transform: translateY(-3px); }
 @media (prefers-reduced-motion: reduce) { #phone .layer, #phone .seq { translate: none; transition: none; } }
 '''
-rep('</style>\n</head>', CSS + '</style>\n<script>\n// En un móvil en vertical, mejor la web hecha para móvil\nif (innerWidth < 700 && innerHeight > innerWidth) location.replace(\'https://topdetail.puntozerosl.es/\');\n</script>\n</head>')
+rep('</style>\n</head>', CSS + '</style>\n</head>')
+# Selector de versión: el del móvil manda aquí a pc/; esta vuelve al móvil si toca y, si no, enseña la dirección de siempre (sin pc/).
+# Va lo primero de <head>: a partir del replaceState las rutas relativas cuentan desde la raíz, por eso las fotos van como pc/img/.
+a = s.index('<script id="td-version">'); b = s.index('</script>\n', a) + len('</script>\n')
+s = s[:a] + '''<base href="../"><!-- rutas desde la raíz, igual que la dirección que enseña la barra (y el navegador no precarga pc/pc/…) -->
+<script id="td-version">
+// Versión de ordenador (pc/). En un móvil vuelve a la del móvil; si no, la barra enseña la dirección de siempre, sin pc/.
+(function () {
+  var q = location.search, root = new URL('../', location.href).pathname, movil = (innerWidth < 700 && innerHeight > innerWidth) || (matchMedia('(pointer: coarse)').matches && Math.min(screen.width, screen.height) < 600);
+  if (/[?&]movil\\b/.test(q) || (movil && !/[?&]pc\\b/.test(q))) location.replace(root + q + location.hash);
+  else history.replaceState(history.state, '', root + q + location.hash);
+})();
+</script>
+''' + s[b:]
 rep('<title>Top Detail Garage</title>', '<title>Top Detail Garage</title>\n<!-- Versión de ordenador: generada con _tools/mkpc.py a partir de ~/topdetail/index.html -->')
 
 # ── HTML ──
@@ -163,4 +178,11 @@ rep("  $('sheet-x').onclick = closeSheet;", """  $('sheet-x').onclick = closeShe
     phone.style.setProperty('--px', (-x * r.width * .018).toFixed(1) + 'px'); phone.style.setProperty('--py', (-y * r.height * .014).toFixed(1) + 'px');
   });""")
 exec(open(os.path.join(os.path.dirname(os.path.abspath(__file__)), 'land_patch.py'), encoding='utf-8').read())
-open(OUT, 'w', encoding='utf-8').write(s); print('ok', len(s))
+# Fotos y vídeos de esta versión: pc/img/ y pc/vid/ (la página se ve desde la raíz, ver el selector de arriba)
+import re, shutil
+s, n = re.subn(r'(?<=["\'`(])(img|vid)/', r'pc/\1/', s); assert n > 20, n
+os.makedirs(DEST, exist_ok=True)
+for d in ('img', 'vid'):
+    if os.path.isdir(os.path.join(ROOT, d)):
+        shutil.rmtree(os.path.join(DEST, d), ignore_errors=True); shutil.copytree(os.path.join(ROOT, d), os.path.join(DEST, d))
+open(OUT, 'w', encoding='utf-8').write(s); print('ok', len(s), 'rutas', n, '→', OUT)
