@@ -85,6 +85,7 @@ body:has(.phone.loading) { overflow: hidden; }
 /* Servicios y precios */
 #svc-list { columns: 3; column-gap: 56px; margin-top: 30px; }
 .land .svc-c { break-inside: avoid; margin: 0 0 28px; padding: 24px 24px 10px; border-radius: 22px; }
+.land .v4-c { break-inside: avoid; }   /* «Elige tu nivel» (16-11): que ninguna tarjeta se parta entre columnas */
 .land .svc-c .svc-g { font-size: 30px; padding-bottom: 16px; margin-bottom: 8px; }
 .land p.svc-g:not(.svc-c *) { font: 500 11px/1 var(--ui); letter-spacing: .3em; color: var(--champ); }
 .land .svc li { padding: 14px 0; }
