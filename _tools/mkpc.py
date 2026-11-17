@@ -4,7 +4,7 @@ Mismo contenido, textos, menú, animaciones y tutorial; cambia el escenario (fot
 Volver a ejecutarlo cada vez que cambie la del móvil:  python3 _tools/mkpc.py"""
 import os
 SRC = os.path.expanduser('~/topdetail/index.html')
-# Desde el 16-11 hay UNA sola dirección (topdetail.puntozerosl.es): esta versión se publica en ~/topdetail/pc/ con sus fotos en pc/img/
+# Desde el 16-11 hay UNA sola dirección (topdetailgarage.es): esta versión se publica en ~/topdetail/pc/ con sus fotos en pc/img/
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__))); DEST = os.path.expanduser('~/topdetail/pc'); OUT = os.path.join(DEST, 'index.html')
 s = open(SRC, encoding='utf-8').read()
 def rep(old, new, n=1):
@@ -148,7 +148,7 @@ s = s[:a] + '''<base href="../"><!-- rutas desde la raíz, igual que la direcci�
 })();
 </script>
 ''' + s[b:]
-rep('<title>Top Detail Garage</title>', '<title>Top Detail Garage</title>\n<!-- Versión de ordenador: generada con _tools/mkpc.py a partir de ~/topdetail/index.html -->')
+rep('<title>Top Detail Garage · Detailing en Fernán Núñez (Córdoba)</title>', '<title>Top Detail Garage · Detailing en Fernán Núñez (Córdoba)</title>\n<!-- Versión de ordenador: generada con _tools/mkpc.py a partir de ~/topdetail/index.html -->')
 
 # ── HTML ──
 rep('      <button class="logo" id="logo"', '      <span class="where">Fernán Núñez · Córdoba</span>\n      <button class="logo" id="logo"')
